@@ -26,7 +26,7 @@ window.CM_DATA.curriculum = {
       actionTab: 'wizard',
       tasks: [
         { id: 'c2-1', text: 'Use the Interactive Framework Decision Wizard and score 12/16+ on "Spot the Case Type" mini-drills' },
-        { id: 'c2-2', text: 'Read the 3 flagship Meesho Sawal Jawab cases (R3 Retention, R4 Rural Activation, R2 RTO/RVP) in Study Mode' },
+        { id: 'c2-2', text: 'Read the 3 flagship Meesho cases (Retention, Rural Activation, RTO/RVP Logistics) in Study Mode' },
         { id: 'c2-3', text: 'Solve 3 Level-1 Starter Cases in Guided Coach (e.g., Swiggy Delhi RCA, Fan Company BCG, ClearAsthma GTM)' }
       ]
     },
@@ -39,7 +39,7 @@ window.CM_DATA.curriculum = {
       actionView: 'library',
       actionTab: 'Product',
       tasks: [
-        { id: 'c3-1', text: 'Study the Google Gemini ("Confident but Wrong") & Navi Namma Yatri Pricing Sawal Jawab cases' },
+        { id: 'c3-1', text: 'Study the Google Gemini ("Confident but Wrong") & Navi Namma Yatri Pricing cases' },
         { id: 'c3-2', text: 'Review Blueprints #3–#6 (Design, Metrics, Improvement/Critique, Pricing) & 8 App User Flows' },
         { id: 'c3-3', text: 'Solve 4 Product cases in Guided Coach (1 Design, 1 Metrics, 1 Improvement/Critique, 1 Pricing)' }
       ]
@@ -294,7 +294,7 @@ window.CM_DATA.curriculum = {
         '5. Separate Internal (App release, UI change, Pricing, Logistics/SLA, Policy) from External (Competitor promo, Festival, Weather, Regulation).'
       ],
       proTip: 'Never jump into solutions at Minute 3! Spend 60% of the case narrowing down WHICH exact segment broke and WHY, then give razor-sharp fixes.',
-      exampleIds: ['sj-meesho-r3-retention', 'sj-meesho-r2-rto-rvp', 'ecell-rca-swiggy-delhi', 'ecell-rca-zepto-checkouts']
+      exampleIds: ['cm-core-meesho-r3-retention', 'cm-core-meesho-r2-rto-rvp', 'cm-pm-rca-swiggy-delhi', 'cm-pm-rca-zepto-checkouts']
     },
     {
       id: 'bp-gtm',
@@ -311,7 +311,7 @@ window.CM_DATA.curriculum = {
         '5. Execute in 3 Phases: Pre-Launch (waitlist/pilots/creators) → Launch (activation loops) → Post-Launch (retention/referrals/KPI review).'
       ],
       proTip: 'A great GTM never targets "everyone in India on Day 1." Pick a tight pilot beachhead (e.g., Tier-1 college students or 3 metro cities), prove PMF, then scale.',
-      exampleIds: ['ecell-gtm-spotify-cinematic', 'ktc-gtm-clearasthma', 'ktc-gtm-mx-player', 'ecell-gtm-fintech-uae']
+      exampleIds: ['cm-pm-gtm-spotify-cinematic', 'cm-cons-gtm-clearasthma', 'cm-cons-gtm-mx-player', 'cm-pm-gtm-fintech-uae']
     },
     {
       id: 'bp-design',
@@ -328,7 +328,7 @@ window.CM_DATA.curriculum = {
         '5. List 3 creative solutions (1 table-stakes fix, 1 core workflow feature, 1 delight/AI differentiator) (L), evaluate trade-offs (E), summarize with North Star + Guardrails (S).'
       ],
       proTip: 'Explicitly explain why you are DE-PRIORITIZING the other personas for v1 (e.g., "I\'ll focus on Families/Roommates for v1 due to weekly frequency, and tackle Office teams in v2").',
-      exampleIds: ['ecell-design-blinkit-group', 'ecell-design-canva-ai', 'ktc-design-bicycle-resale', 'ktc-design-whatsapp']
+      exampleIds: ['cm-pm-design-blinkit-group', 'cm-pm-design-canva-ai', 'cm-cons-design-bicycle-resale', 'cm-cons-design-whatsapp']
     },
     {
       id: 'bp-metrics',
@@ -345,7 +345,7 @@ window.CM_DATA.curriculum = {
         '5. Add 2–3 Guardrail / Counter-Metrics (Latency, Cost, Margin, Abuse, Cannibalization) + Segmentation cuts.'
       ],
       proTip: 'Never pick "Total Signups" or "Page Views" as a North Star! Always tie the North Star to completed core value (e.g., "Weekly Trusted Tasks Completed" or "Active Communities with ≥3 weekly replies").',
-      exampleIds: ['sj-google-gemini-trust', 'ecell-metrics-whatsapp-communities', 'ecell-metrics-upi-lite', 'ktc-metrics-blinkit']
+      exampleIds: ['cm-core-google-gemini-trust', 'cm-pm-metrics-whatsapp-communities', 'cm-pm-metrics-upi-lite', 'cm-cons-metrics-blinkit']
     },
     {
       id: 'bp-improve',
@@ -362,7 +362,7 @@ window.CM_DATA.curriculum = {
         '5. Define A/B test plan, North Star, and downside guardrails.'
       ],
       proTip: 'In Product Critique, don’t just roast UI button colors! Critique the core value loop, edge cases, trust/safety failures, and unit-economic tensions.',
-      exampleIds: ['sj-meesho-r4-rural-activation', 'ecell-improve-zomato-nocheat', 'ktc-crit-uber', 'ktc-crit-myntra']
+      exampleIds: ['cm-core-meesho-r4-rural-activation', 'cm-pm-improve-zomato-nocheat', 'cm-cons-crit-uber', 'cm-cons-crit-myntra']
     },
     {
       id: 'bp-pricing',
@@ -379,7 +379,7 @@ window.CM_DATA.curriculum = {
         '5. Design packaging (Good/Better/Best tiers, PPP localization, intro discounts) + test without violating fairness.'
       ],
       proTip: 'Always check whether you are pricing a single-sided product (YouTube Premium) or a two-sided marketplace (Namma Yatri / Meesho Seller Ads) where raising price on one side shifts supply or demand on the other!',
-      exampleIds: ['sj-navi-namma-yatri-pricing', 'ecell-pricing-youtube-premium', 'ecell-pricing-swiggy-one', 'ktc-pricing-hair-oil']
+      exampleIds: ['cm-core-navi-namma-yatri-pricing', 'cm-pm-pricing-youtube-premium', 'cm-pm-pricing-swiggy-one', 'cm-cons-pricing-hair-oil']
     },
     {
       id: 'bp-profitability',
@@ -396,7 +396,7 @@ window.CM_DATA.curriculum = {
         '5. Deliver Short-Term Cost Wins + Medium-Term Revenue/Mix Recommendations.'
       ],
       proTip: 'Never forget "Product Mix"! Even if total units sold went UP and prices stayed flat, selling more low-margin SKUs and fewer high-margin SKUs still crashes profit margins.',
-      exampleIds: ['ktc-prof-fan-company', 'ktc-prof-retail-store', 'srcrc-fast-food-chain', 'srcrc-public-sector-banking']
+      exampleIds: ['cm-cons-prof-fan-company', 'cm-cons-prof-retail-store', 'cm-strat-fast-food-chain', 'cm-strat-public-sector-banking']
     },
     {
       id: 'bp-market-entry',
@@ -413,7 +413,7 @@ window.CM_DATA.curriculum = {
         '5. Recommend Go / No-Go + Entry Mode (Greenfield Build vs Acquisition vs Joint Venture / Partnership).'
       ],
       proTip: 'Every Market Entry case ends with TWO decisions: (1) SHOULD we enter (Go/No-Go backed by numbers)? and (2) HOW should we enter (Build, Buy, or Partner)?',
-      exampleIds: ['ktc-me-airport-taxi', 'ktc-me-airline-route', 'ktc-me-steel-3', 'srcrc-medical-implants']
+      exampleIds: ['cm-cons-me-airport-taxi', 'cm-cons-me-airline-route', 'cm-cons-me-steel-3', 'cm-strat-medical-implants']
     },
     {
       id: 'bp-growth',
@@ -430,7 +430,7 @@ window.CM_DATA.curriculum = {
         '5. Rank initiatives by Revenue Potential × Speed-to-Impact × Risk.'
       ],
       proTip: 'Increasing retention or cross-selling to existing customers is almost always 3–5x cheaper and faster than acquiring brand-new segments—highlight that early!',
-      exampleIds: ['ktc-growth-tea-relaunch', 'ktc-growth-social-media', 'ktc-growth-shaving-company', 'ktc-growth-psb']
+      exampleIds: ['cm-cons-growth-tea-relaunch', 'cm-cons-growth-social-media', 'cm-cons-growth-shaving-company', 'cm-cons-growth-psb']
     },
     {
       id: 'bp-ma-unc',
@@ -447,7 +447,7 @@ window.CM_DATA.curriculum = {
         '5. Unconventional Step 2 — Map stakeholders, bottlenecks, and trade-offs from First Principles.'
       ],
       proTip: 'In Unconventional cases, interviewers deliberately test if you stay calm when no textbook framework fits. Build a 3-bucket MECE equation from scratch and you instantly pass!',
-      exampleIds: ['ktc-ma-disney-star-wars', 'ktc-ma-edtech-merger', 'ktc-unc-land-usage', 'ktc-unc-women-voters']
+      exampleIds: ['cm-cons-ma-disney-star-wars', 'cm-cons-ma-edtech-merger', 'cm-cons-unc-land-usage', 'cm-cons-unc-women-voters']
     }
   ],
 

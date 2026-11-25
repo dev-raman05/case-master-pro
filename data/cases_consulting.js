@@ -3,10 +3,9 @@ window.CM_DATA.cases = window.CM_DATA.cases || [];
 
 window.CM_DATA.cases.push(
 {
-  "id": "ktc-prof-fan-company",
+  "id": "cm-cons-prof-fan-company",
   "title": "Fan Company Margin Revival",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 1,
@@ -149,10 +148,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-02-clothing-fashion-profitability",
+  "id": "cm-cons-02-clothing-fashion-profitability",
   "title": "Clothing Fashion Profitability",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -170,7 +168,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "The slump is specific to our client. The broader fashion industry has seen ~7% CAGR growth in the last two years That suggests this is more of a company-specific issue. Do we know if the problem lies more on the revenue ",
+      "q": "The slump is specific to our client. The broader fashion industry has seen ~7% CAGR growth in the last two years That suggests this is more of a company-specific issue. Do we know if the problem lies more on the revenue",
       "a": "Revenues have been stable. The decline in profits seems to be cost-related Noted. Before diving into costs, could you share the client’s geographic presence? Are they strong across the country or focused in certain regions?",
       "why": "Scopes the problem boundary before building the issue tree."
     },
@@ -210,7 +208,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "They deal in clothing fashion. They have offline outlets across the country and are also recognized in e-comme",
-      "detail": "They deal in clothing fashion. They have offline outlets across the country and are also recognized in e-commerce.\nUnderstood. Is the slump unique to our client, or is the entire fashion industry facing similar challenges?\nThe slump is specific to our client. The broader fashion industry has seen ~7% CAGR growth in the last two years That suggests this is more of a company-specific issue. Do we know if the problem lies more on the revenue side or cost side?\nRevenues have been stable. The decline in profits seems to be cost-related Noted. Before diving into costs, could you share the client’s geographic presence? "
+      "detail": "They deal in clothing fashion. They have offline outlets across the country and are also recognized in e-commerce.\nUnderstood. Is the slump unique to our client, or is the entire fashion industry facing similar challenges?\nThe slump is specific to our client. The broader fashion industry has seen ~7% CAGR growth in the last two years That suggests this is more of a company-specific issue. Do we know if the problem lies more on the revenue side or cost side?\nRevenues have been stable. The decline in profits seems to be cost-related Noted. Before diving into costs, could you share the client’s geographic presence?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -227,7 +225,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Goods are moved mainly by trucks and roadways. A common route is via the MP–UP–NCR highway, used to transport ",
+      "prompt": "Goods are moved mainly by trucks and roadways. A common route is via the MP–UP–NCR highway, used to transport",
       "detail": "Goods are moved mainly by trucks and roadways. A common route is via the MP–UP–NCR highway, used to transport to the Gurgaon warehouse Have there been any recent regulatory or infrastructure changes that could impact transport costs?\nYes. A year ago, the Madhya Pradesh government revised toll structures. Roads are being expanded, but tolls have increased.\nDo we know the magnitude of these costs?\nEach truck traverses ~600 km through Madhya Pradesh, incurring ~₹200 per toll, with multiple tolls along the way."
     }
   ],
@@ -299,10 +297,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-03-energy-drink-profitability",
+  "id": "cm-cons-03-energy-drink-profitability",
   "title": "Energy Drink Profitability",
   "company": "Accenture",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -448,10 +445,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-04-fmcg-south-africa-margins",
+  "id": "cm-cons-04-fmcg-south-africa-margins",
   "title": "FMCG South Africa Margins",
   "company": "KPMG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -503,7 +499,7 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Candidate",
       "prompt": "FMCG South Africa Your client is an FMCG company with a global presence, specifically their operations in Sout",
-      "detail": "FMCG South Africa Your client is an FMCG company with a global presence, specifically their operations in South Africa. They have observed a decline in profitability and have asked you to identify the root cause and recommend solutions.\nThank you. Just to confirm, we are focusing on the South African operations where there's been a decline in profitability. To get a clearer picture, could you tell me how significant this decline is and how long it has been a concern?\nThe decline has been around 15% over the past year.\nUnderstood. I would like to take a structured approach by analyzing the profitability equation: "
+      "detail": "FMCG South Africa Your client is an FMCG company with a global presence, specifically their operations in South Africa. They have observed a decline in profitability and have asked you to identify the root cause and recommend solutions.\nThank you. Just to confirm, we are focusing on the South African operations where there's been a decline in profitability. To get a clearer picture, could you tell me how significant this decline is and how long it has been a concern?\nThe decline has been around 15% over the past year.\nUnderstood. I would like to take a structured approach by analyzing the profitability equation:"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -598,10 +594,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-05-footwear-brand-profitability",
+  "id": "cm-cons-05-footwear-brand-profitability",
   "title": "Footwear Brand Profitability",
   "company": "Deloitte",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -670,7 +665,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "Our client is a premium footwear brand in India selling mainly through offline stores. In the last 1–2 years, ",
+      "prompt": "Our client is a premium footwear brand in India selling mainly through offline stores. In the last 1–2 years,",
       "detail": "Our client is a premium footwear brand in India selling mainly through offline stores. In the last 1–2 years, profits have fallen by 5–10%. Costs are stable, so the issue is on the revenue side.\nCase Notes ● Decline bigger for client than industry average.\n● Fewer units sold + narrow product range; price unchanged.\n● Portfolio limited to formal shoes and slippers."
     },
     {
@@ -748,10 +743,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-06-gas-company-profitability",
+  "id": "cm-cons-06-gas-company-profitability",
   "title": "Gas Company Profitability",
   "company": "KPMG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -814,7 +808,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Coming to the market size, the global market is ~$100 billion, while the domestic Indian cryogenic gas market ",
+      "prompt": "Coming to the market size, the global market is ~$100 billion, while the domestic Indian cryogenic gas market",
       "detail": "Coming to the market size, the global market is ~$100 billion, while the domestic Indian cryogenic gas market is approximately $3.5 billion (~₹29,000 crore), growing at 8–9% CAGR.\nAlright, that seems like a good industry to enter, so the issue might be with them entering into new products since after that period their profitability has started declining. Is the decline visible in the Non cryogenic sector as well?\nThe cryogenic sector has not been much rewarding for us, though the growth in non cryogenic sector has been steady and growing.\nGas Company Okay. The decline in profitability could be due to issues on th"
     },
     {
@@ -897,10 +891,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-07-insurance-company-profitability",
+  "id": "cm-cons-07-insurance-company-profitability",
   "title": "Insurance Company Profitability",
   "company": "PwC",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -1047,10 +1040,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-prof-retail-store",
+  "id": "cm-cons-prof-retail-store",
   "title": "Retail Store Revenue & Profit Decline",
   "company": "McKinsey & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -1101,7 +1093,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Candidate",
-      "prompt": "Retail Store Your client is a retail store owner. They have been experiencing a decline in revenue, and would ",
+      "prompt": "Retail Store Your client is a retail store owner. They have been experiencing a decline in revenue, and would",
       "detail": "Retail Store Your client is a retail store owner. They have been experiencing a decline in revenue, and would like you to analyze the causes of this issue and recommend potential solutions to address it.\nOk, before beginning I would like to clarify some things, Is this issue faced by only your client’s store or all the stores?\nMost of the stores are facing the decline in sales.\nOk, so that means that the issue is not particular to our client’s service providing. As you said most stores, there are some stores which are not facing this issue. Is it a single store that is not facing the decline or are there more tha"
     },
     {
@@ -1125,7 +1117,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "That’s a good observation. They have more volume and variety of products, and their selling price is slightly ",
+      "prompt": "That’s a good observation. They have more volume and variety of products, and their selling price is slightly",
       "detail": "That’s a good observation. They have more volume and variety of products, and their selling price is slightly lower.\nSo let me clarify, the revenue is similar but profit margins are higher for the competitor, which means the issue is on the cost side.\nYes you are moving in the right direction.\nThat’s interesting. So, even after selling at less price they are earning more .This can lead to two observations, that either the supplier provides them with more quantity and diverse products or they have less expenditure."
     }
   ],
@@ -1197,10 +1189,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-09-steel-manufacturer-1",
+  "id": "cm-cons-09-steel-manufacturer-1",
   "title": "Steel Manufacturer - 1",
   "company": "KPMG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -1347,10 +1338,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-10-steel-manufacturer-2-coal-wastage",
+  "id": "cm-cons-10-steel-manufacturer-2-coal-wastage",
   "title": "Steel Manufacturer - 2 (Coal Wastage)",
   "company": "Accenture",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -1413,7 +1403,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Okay, I would like to look at the cost and dive deep into the various buckets under it. Cost broadly includes ",
+      "prompt": "Okay, I would like to look at the cost and dive deep into the various buckets under it. Cost broadly includes",
       "detail": "Okay, I would like to look at the cost and dive deep into the various buckets under it. Cost broadly includes two buckets i.e. Fixed Cost and Variable Cost.\nSure, the fixed Cost includes the labour wages, electricity bills, and rents, while variable Cost includes the raw materials, R&D and machinery.\nGreat. You've understood the situation well, how do you propose going about the solution?\nSure, I would like to look at the Profit Revenue Cost, and then I will deep dive into the various buckets under them."
     },
     {
@@ -1497,10 +1487,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-11-tractor-manufacturer-profitability",
+  "id": "cm-cons-11-tractor-manufacturer-profitability",
   "title": "Tractor Manufacturer Profitability",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -1563,7 +1552,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Our Tractors are an example of state-of-the-art manufacturing and provide various features that make them run ",
+      "prompt": "Our Tractors are an example of state-of-the-art manufacturing and provide various features that make them run",
       "detail": "Our Tractors are an example of state-of-the-art manufacturing and provide various features that make them run on any kind of field in adverse weather conditions.\nComing to the various parts of the Tractor whether our Client manufacture all parts or they have to outbound them?\nGood question, The Client manufactures most of the essential parts but they have to outbound some parts to the third-party manufacturer.\nOkay, I would like to propose my strategy that, first I will look at the Profit - Revenue - Cost and dive deep into the various buckets under it."
     },
     {
@@ -1646,10 +1635,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-12-barb-s-bbq-profitability",
+  "id": "cm-cons-12-barb-s-bbq-profitability",
   "title": "Barb's BBQ Profitability",
   "company": "PrepLounge",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 4,
@@ -1663,7 +1651,7 @@ window.CM_DATA.cases.push(
   "clarifyingQuestions": [
     {
       "q": "Thank you. To establish a baseline, could you clarify what Barb’s business model looks like in terms of operating hours, core product categories, and any major operational constraints he is currently facing?",
-      "a": "Barb’s operates as a food business serving both deli meats and pre-processed prepared foods. The shop runs across two primary shifts—one in the morning and one in the evening—to align with the peak foot-traffic hours of the supermarket. As ",
+      "a": "Barb’s operates as a food business serving both deli meats and pre-processed prepared foods. The shop runs across two primary shifts—one in the morning and one in the evening—to align with the peak foot-traffic hours of the supermarket. As",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -1673,7 +1661,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Furthermore, is there a particular product line driving this stagnation, and how is the broader competitive landscape performing?",
-      "a": "Revenue is generated across two primary categories: deli foods and prepared foods. Within deli meats, the core offerings are BBQ chicken wings and pulled pork burgers. We don’t immediately know which specific product is responsible for the ",
+      "a": "Revenue is generated across two primary categories: deli foods and prepared foods. Within deli meats, the core offerings are BBQ chicken wings and pulled pork burgers. We don’t immediately know which specific product is responsible for the",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -1795,10 +1783,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-13-drug-manufacturer-profitability",
+  "id": "cm-cons-13-drug-manufacturer-profitability",
   "title": "Drug Manufacturer Profitability",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 4,
@@ -1945,10 +1932,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-14-fashion-mail-order-profitability",
+  "id": "cm-cons-14-fashion-mail-order-profitability",
   "title": "Fashion Mail Order Profitability",
   "company": "PrepLounge",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 4,
@@ -1999,7 +1985,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Candidate",
-      "prompt": "Fashion Mail Order Your client is a direct mail clothing retailer. Postage costs for catalogs will rise to 40 ",
+      "prompt": "Fashion Mail Order Your client is a direct mail clothing retailer. Postage costs for catalogs will rise to 40",
       "detail": "Fashion Mail Order Your client is a direct mail clothing retailer. Postage costs for catalogs will rise to 40 cents each next year. The client wants to know if their current business model is still profitable.\nCould you tell me more about the current setup? What exactly do you sell, and through which channel?\nWe sell a wide variety of low-cost clothing. Our only distribution channel is product catalogs mailed directly to customers.\nHow are margins currently?"
     },
     {
@@ -2095,10 +2081,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-me-airport-taxi",
+  "id": "cm-cons-me-airport-taxi",
   "title": "Airport Taxi Market Entry",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 1,
@@ -2251,10 +2236,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-me-airline-route",
+  "id": "cm-cons-me-airline-route",
   "title": "Airline Route Expansion",
   "company": "Grant Thornton",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 3,
@@ -2309,7 +2293,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Your client is an airline considering launching a new flight route from City A to City B. You are tasked with ",
+      "prompt": "Your client is an airline considering launching a new flight route from City A to City B. You are tasked with",
       "detail": "Your client is an airline considering launching a new flight route from City A to City B. You are tasked with evaluating the feasibility of this initiative.How would you approach this scenario?\nThank you. I’d approach this systematically. First, I’d like to clarify some key details about the route, the competitive landscape, airport infrastructure, demand, government incentives, and strategic fit.To start, could you share the airline’s USP and how it compares with competitors on this route?\nYour airline is known for reliability, superior on-time performance, and excellent customer service. The frequent flyer prog"
     },
     {
@@ -2405,10 +2389,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-me-steel-3",
+  "id": "cm-cons-me-steel-3",
   "title": "Steel Manufacturer - 3 (Expansion)",
   "company": "KPMG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 3,
@@ -2488,7 +2471,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Cold rolled steel is produced by passing previously hot rolled steel through rollers without reheating, unlike",
-      "detail": "Cold rolled steel is produced by passing previously hot rolled steel through rollers without reheating, unlike the manufacturing process of hot rolled steel.\nUnderstood. Given this insight, it appears viable to leverage our current manufacturing capabilities while incorporating the necessary technological advancements for cold-rolled steel production. This aligns well with a Greenfield Investment strategy, we could establish new facilities in the Middle East, capable of producing both types of steel. These facilities would cater to local demand while also facilitating exports to broader markets.\nGood enough. Any "
+      "detail": "Cold rolled steel is produced by passing previously hot rolled steel through rollers without reheating, unlike the manufacturing process of hot rolled steel.\nUnderstood. Given this insight, it appears viable to leverage our current manufacturing capabilities while incorporating the necessary technological advancements for cold-rolled steel production. This aligns well with a Greenfield Investment strategy, we could establish new facilities in the Middle East, capable of producing both types of steel. These facilities would cater to local demand while also facilitating exports to broader markets.\nGood enough. Any"
     }
   ],
   "recommendations": [
@@ -2558,10 +2541,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-18-argentinian-toy-manufacturer-entry",
+  "id": "cm-cons-18-argentinian-toy-manufacturer-entry",
   "title": "Argentinian Toy Manufacturer Entry",
   "company": "PrepLounge",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 4,
@@ -2711,10 +2693,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-19-perpetual-motion-invention-commercialization",
+  "id": "cm-cons-19-perpetual-motion-invention-commercialization",
   "title": "Perpetual Motion Invention Commercialization",
   "company": "American Express",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 4,
@@ -2776,7 +2757,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Claimed continuous electrical output, all measured energy inputs, size, weight, reliability, manufacturing and",
-      "detail": "Claimed continuous electrical output, all measured energy inputs, size, weight, reliability, manufacturing and installation cost, maintenance requirements, regulatory safety, intellectual-property position and production readiness.\nThe PDF gives a manufacturing cost of $1,000, weight 30 kg, volume 1 m³, available materials, and a claim of continuous power.\nLater it specifies 50 watts output.\nThen only conditional on independent verification it's a 50-watt continuous source that is physically large for its output. I'd verify metering, hidden batteries, temperature gradients, external fields, fuel inputs and instru"
+      "detail": "Claimed continuous electrical output, all measured energy inputs, size, weight, reliability, manufacturing and installation cost, maintenance requirements, regulatory safety, intellectual-property position and production readiness.\nThe brief gives a manufacturing cost of $1,000, weight 30 kg, volume 1 m³, available materials, and a claim of continuous power.\nLater it specifies 50 watts output.\nThen only conditional on independent verification it's a 50-watt continuous source that is physically large for its output. I'd verify metering, hidden batteries, temperature gradients, external fields, fuel inputs and instru"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -2794,7 +2775,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Perpetual Motion Invention Calculate the theoretical annual output of one 50W machine.",
-      "detail": "Perpetual Motion Invention Calculate the theoretical annual output of one 50W machine.\nIf it operates 24 hours every day, 50 W = 0.05 kW; 0.05 × 24 × 365 = 438 kWh/year. At the source's illustrative electricity price of $0.30/kWh, the annual energy value is 438 × $0.30 = $131.40 per device before any maintenance or downtime. The earlier document also mentions $88/year for the same assumptions; that figure is inconsistent. $131.40 is the arithmetic result.\nIs the economics compelling at a $1,000 manufacturing cost?\nIgnoring many real costs, a theoretical simple payback from avoided electricity purchases is $1,000 "
+      "detail": "Perpetual Motion Invention Calculate the theoretical annual output of one 50W machine.\nIf it operates 24 hours every day, 50 W = 0.05 kW; 0.05 × 24 × 365 = 438 kWh/year. At the source's illustrative electricity price of $0.30/kWh, the annual energy value is 438 × $0.30 = $131.40 per device before any maintenance or downtime. The earlier document also mentions $88/year for the same assumptions; that figure is inconsistent. $131.40 is the arithmetic result.\nIs the economics compelling at a $1,000 manufacturing cost?\nIgnoring many real costs, a theoretical simple payback from avoided electricity purchases is $1,000"
     }
   ],
   "recommendations": [
@@ -2864,10 +2845,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-pricing-hair-oil",
+  "id": "cm-cons-pricing-hair-oil",
   "title": "Hair Oil Pricing Strategy",
   "company": "Deloitte",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 1,
@@ -3018,10 +2998,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-21-jio-pricing-model",
+  "id": "cm-cons-21-jio-pricing-model",
   "title": "Jio Pricing Model",
   "company": "HiLabs",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 2,
@@ -3171,10 +3150,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-22-bank-envelope-pricing",
+  "id": "cm-cons-22-bank-envelope-pricing",
   "title": "Bank Envelope Pricing",
   "company": "Bain & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -3324,10 +3302,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-23-ev-pricing-strategy",
+  "id": "cm-cons-23-ev-pricing-strategy",
   "title": "EV Pricing Strategy",
   "company": "Mastercard",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -3394,7 +3371,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "Okay, I would like to propose an overall strategy where I will first analyse the market attractiveness then I ",
+      "prompt": "Okay, I would like to propose an overall strategy where I will first analyse the market attractiveness then I",
       "detail": "Okay, I would like to propose an overall strategy where I will first analyse the market attractiveness then I will look at the operational feasibility and at last the risks and concerns.\nThat seems reasonable. Go ahead.\nEV Pricing Our car client is entering EVs. What should it charge for the new car?\nBefore naming a number, I would clarify the car segment and target market, the product's specifications, the launch objective, the company's unit economics and the competitive alternatives."
     },
     {
@@ -3471,10 +3448,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-24-fast-food-qsr-menu-pricing",
+  "id": "cm-cons-24-fast-food-qsr-menu-pricing",
   "title": "Fast Food QSR Menu Pricing",
   "company": "Accenture",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -3624,10 +3600,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-25-samsung-mobile-pricing-vs-apple",
+  "id": "cm-cons-25-samsung-mobile-pricing-vs-apple",
   "title": "Samsung Mobile Pricing vs Apple",
   "company": "Tata 1mg",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -3777,10 +3752,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-growth-tea-relaunch",
+  "id": "cm-cons-growth-tea-relaunch",
   "title": "Relaunch of Tea Brand",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 1,
@@ -3805,7 +3779,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Click here to give a mock interview Are there any logistical challenges the company faces in distributing its products to different regions?",
+      "q": "Are there any logistical challenges the company faces in distributing its products to different regions?",
       "a": "No Has the company conducted any recent market research to understand the changing preferences of customers in Northern India?",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -3843,7 +3817,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Essentially the company was not able to tap into the market. Nor did it get any positive response from the mas",
-      "detail": "Essentially the company was not able to tap into the market. Nor did it get any positive response from the masses.\nBefore moving ahead I would like to ask about the particular demographic the company initially tapped into.\nNorthern India was the initially targeted demographic. So how would you approach this problem and provide a substantial solution.\nClick here to give a mock interview Are there any logistical challenges the company faces in distributing its products to different regions?"
+      "detail": "Essentially the company was not able to tap into the market. Nor did it get any positive response from the masses.\nBefore moving ahead I would like to ask about the particular demographic the company initially tapped into.\nNorthern India was the initially targeted demographic. So how would you approach this problem and provide a substantial solution.\nAre there any logistical challenges the company faces in distributing its products to different regions?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -3855,13 +3829,13 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "We can tap into the South Indian market and yield the best out of it. Precisely, the company can attend tea fa",
-      "detail": "We can tap into the South Indian market and yield the best out of it. Precisely, the company can attend tea fairs and exhibitions in South India to showcase its products and network with potential customers.\nWhat is going to be the company’s ‘USP’ then?\nBuilding a strong brand identity is what going to give the business an image, a voice. More likely the company need to develop a brand identity not just a logo. This is what is going separate the brand from competition Ok sounds good. Then how are you going to design marketing strategies?\nThere are many ways. We can go for various forms of marketing including the "
+      "detail": "We can tap into the South Indian market and yield the best out of it. Precisely, the company can attend tea fairs and exhibitions in South India to showcase its products and network with potential customers.\nWhat is going to be the company’s ‘USP’ then?\nBuilding a strong brand identity is what going to give the business an image, a voice. More likely the company need to develop a brand identity not just a logo. This is what is going separate the brand from competition Ok sounds good. Then how are you going to design marketing strategies?\nThere are many ways. We can go for various forms of marketing including the"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Can you brief us about the event marketing?",
-      "detail": "Click here to give a mock interview Can you brief us about the event marketing?\nThe company can organize events such as tea tastings and workshops to promote the tea brand and as I mentioned earlier this will increase the engagement with the potential customers.\nHow else the client can grow their total customer base?\nThe client can either target new customer segments, more specifically can develop new products and distribution channels."
+      "prompt": "Can you brief us about the event marketing?",
+      "detail": "Can you brief us about the event marketing?\nThe company can organize events such as tea tastings and workshops to promote the tea brand and as I mentioned earlier this will increase the engagement with the potential customers.\nHow else the client can grow their total customer base?\nThe client can either target new customer segments, more specifically can develop new products and distribution channels."
     }
   ],
   "recommendations": [
@@ -3932,10 +3906,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-growth-social-media",
+  "id": "cm-cons-growth-social-media",
   "title": "Social Media Company Growth",
   "company": "Accenture",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 2,
@@ -3996,7 +3969,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "The competitor has a lot of user-generated content coming up, which hooked the tier ⅔ users on it, and there s",
-      "detail": "The competitor has a lot of user-generated content coming up, which hooked the tier ⅔ users on it, and there seems to be a lack of belongingness to the tier 2 and 3 users in the client's product.\nClick here to give a mock interview One of the challenges is the absence of user-generated content on the client's platform, which has led to users seeking that engagement elsewhere. Additionally, there is a need to enhance the sense of belongingness for the Tier 2 and Tier 3 users. They currently don't feel connected to the platform in the same way as the urban users.\nHow do you propose to address these challenges and r"
+      "detail": "The competitor has a lot of user-generated content coming up, which hooked the tier ⅔ users on it, and there seems to be a lack of belongingness to the tier 2 and 3 users in the client's product.\nOne of the challenges is the absence of user-generated content on the client's platform, which has led to users seeking that engagement elsewhere. Additionally, there is a need to enhance the sense of belongingness for the Tier 2 and Tier 3 users. They currently don't feel connected to the platform in the same way as the urban users.\nHow do you propose to address these challenges and r"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -4084,10 +4057,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-28-eyes-inc-growth-strategy",
+  "id": "cm-cons-28-eyes-inc-growth-strategy",
   "title": "Eyes Inc. Growth Strategy",
   "company": "PrepLounge",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 3,
@@ -4106,7 +4078,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Before I dive into solutions, two quick commercial questions: who are their primary customers (new adopters vs repeat users) and how do they typically choose brands?",
-      "a": "Click here to give a mock interview There are two customer types: new adopters who are often guided by doctors and retail recommendations and existing users, who are more likely to stick with a brand. Young women are a high-potential demogr",
+      "a": "There are two customer types: new adopters who are often guided by doctors and retail recommendations and existing users, who are more likely to stick with a brand. Young women are a high-potential demogr",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -4147,8 +4119,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Regular is saturated, Cosmetic is stagnating, and Traditional shows moderate growth. The company’s U.S. sales ",
-      "detail": "Regular is saturated, Cosmetic is stagnating, and Traditional shows moderate growth. The company’s U.S. sales are weaker in the South due to low presence. Two big competitors dominate the market.\nUnderstood. Given that, I’d focus on where the client can win quickly: underserved regions and growing product segments.\nBefore I dive into solutions, two quick commercial questions: who are their primary customers (new adopters vs repeat users) and how do they typically choose brands?\nClick here to give a mock interview There are two customer types: new adopters who are often guided by doctors and retail recommendations"
+      "prompt": "Regular is saturated, Cosmetic is stagnating, and Traditional shows moderate growth. The company’s U.S. sales",
+      "detail": "Regular is saturated, Cosmetic is stagnating, and Traditional shows moderate growth. The company’s U.S. sales are weaker in the South due to low presence. Two big competitors dominate the market.\nUnderstood. Given that, I’d focus on where the client can win quickly: underserved regions and growing product segments.\nBefore I dive into solutions, two quick commercial questions: who are their primary customers (new adopters vs repeat users) and how do they typically choose brands?\nThere are two customer types: new adopters who are often guided by doctors and retail recommendations"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -4159,7 +4131,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "Channels: Prioritize doctor engagement (samples + co-marketing), targeted mall/strip retail partnerships, and ",
+      "prompt": "Channels: Prioritize doctor engagement (samples + co-marketing), targeted mall/strip retail partnerships, and",
       "detail": "Channels: Prioritize doctor engagement (samples + co-marketing), targeted mall/strip retail partnerships, and a complementary digital subscription for refills.\nMarketing: Run localized grassroots campaigns in pilot metros.\nThat’s reasonable. How would you phase investments between these elements over two years?\n● Phase 1 : run pilots in 3–5 southern cities (doctor kits + a few retail partners + trial SKUs)."
     },
     {
@@ -4236,10 +4208,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-29-fire-extinguisher-growth",
+  "id": "cm-cons-29-fire-extinguisher-growth",
   "title": "Fire Extinguisher Growth",
   "company": "Indus Insights",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 3,
@@ -4258,7 +4229,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "In what geographies does the company operate? Do we have any specific geography contributing to maximum sales?",
-      "a": "Click here to give a mock interview The company operates pan-India and the revenue is evenly distributed.",
+      "a": "The company operates pan-India and the revenue is evenly distributed.",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -4300,7 +4271,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "In what geographies does the company operate? Do we have any specific geography contributing to maximum sales?",
-      "detail": "In what geographies does the company operate? Do we have any specific geography contributing to maximum sales?\nClick here to give a mock interview The company operates pan-India and the revenue is evenly distributed.\nWho are our customers and how much do they contribute to the revenue?\nThe customers are primarily of three types - Commercial Properties (Malls, Hotels, Restaurants) , Residential Complexes, Offices, with the Residential Complexes contributing the maximum - 20% of the total revenue."
+      "detail": "In what geographies does the company operate? Do we have any specific geography contributing to maximum sales?\nThe company operates pan-India and the revenue is evenly distributed.\nWho are our customers and how much do they contribute to the revenue?\nThe customers are primarily of three types - Commercial Properties (Malls, Hotels, Restaurants) , Residential Complexes, Offices, with the Residential Complexes contributing the maximum - 20% of the total revenue."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -4312,7 +4283,7 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "Yes that is a good assumption.",
-      "detail": "Yes that is a good assumption.\nWhat is our client’s current market share?\nOur client holds 50% of the market currently.\nClick here to give a mock interview Interesting, so we have 50% of the market share and we want our revenue to be 300 Crore rupees in two years, despite the market size being 200 Crore Rupees at the present. At what rate is the market growing?"
+      "detail": "Yes that is a good assumption.\nWhat is our client’s current market share?\nOur client holds 50% of the market currently.\nInteresting, so we have 50% of the market share and we want our revenue to be 300 Crore rupees in two years, despite the market size being 200 Crore Rupees at the present. At what rate is the market growing?"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -4389,10 +4360,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-growth-shaving-company",
+  "id": "cm-cons-growth-shaving-company",
   "title": "Shaving Company Growth",
   "company": "Bain & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 3,
@@ -4446,14 +4416,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Shaving Company Our client is an international CPG (consumer packaged goods) firm called Bryan, with multiple ",
+      "prompt": "Shaving Company Our client is an international CPG (consumer packaged goods) firm called Bryan, with multiple",
       "detail": "Shaving Company Our client is an international CPG (consumer packaged goods) firm called Bryan, with multiple business units (toothpaste, batteries, skin & body care, among others). They are the global market leader in every market they play in except for the hair removal market. They came to us asking how they can also become number one in this market. How can you help them out?\nBefore diving into the case, I have a few questions. What type of products do our client offer in hair removal and how many SKU of each do they offer?\nOur client provides Wet-Shaving, Dry-Shaving, and Waxing products. They provide 2 wet-"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "In terms of Market Share, the respective shares for Wet-shaving, Dry-shaving, and waxing are 10%, 0%, and 1% f",
-      "detail": "In terms of Market Share, the respective shares for Wet-shaving, Dry-shaving, and waxing are 10%, 0%, and 1% for women and 33%, 20%, and 5% for men.\nClick here to give a mock interview As for pricing, the respective ranges are medium-low, none, medium for women and high, medium-high, and medium for men.\nHow are the market share statistics for competitors in each of these markets and how does our client reign amongst them?\nThe men’s market has strong players (the 3 biggest players hold 75% of the market), which are not strong in the women’s market."
+      "detail": "In terms of Market Share, the respective shares for Wet-shaving, Dry-shaving, and waxing are 10%, 0%, and 1% for women and 33%, 20%, and 5% for men.\nAs for pricing, the respective ranges are medium-low, none, medium for women and high, medium-high, and medium for men.\nHow are the market share statistics for competitors in each of these markets and how does our client reign amongst them?\nThe men’s market has strong players (the 3 biggest players hold 75% of the market), which are not strong in the women’s market."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -4470,8 +4440,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview There is a low demand for waxing for men as they generally don’t prefer it",
-      "detail": "Click here to give a mock interview There is a low demand for waxing for men as they generally don’t prefer it, whereas there is a very high demand for waxing for women.\nSince, there is a single common product for both men and women, they won’t find it as appealing. Releasing a separate product line for the individual segments would prove more effective and focusing the development on women segment primarily as there is a much higher demand.\nOthers forms of inorganic growth can also be considered like a merger with a top competitor or an acquisition of a smaller, yet niche brand to achieve greater market dominanc"
+      "prompt": "There is a low demand for waxing for men as they generally don’t prefer it",
+      "detail": "There is a low demand for waxing for men as they generally don’t prefer it, whereas there is a very high demand for waxing for women.\nSince, there is a single common product for both men and women, they won’t find it as appealing. Releasing a separate product line for the individual segments would prove more effective and focusing the development on women segment primarily as there is a much higher demand.\nOthers forms of inorganic growth can also be considered like a merger with a top competitor or an acquisition of a smaller, yet niche brand to achieve greater market dominanc"
     }
   ],
   "recommendations": [
@@ -4542,10 +4512,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-31-overseas-market-growth",
+  "id": "cm-cons-31-overseas-market-growth",
   "title": "Overseas Market Growth",
   "company": "PrepLounge",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 4,
@@ -4563,7 +4532,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Click here to give a mock interview And how are competitors doing in these two markets?",
+      "q": "And how are competitors doing in these two markets?",
       "a": "In Indonesia, growth is generally low and the client is already the market leader. In the US, competitors are growing faster, between 15% and 25%. The market is also more fragmented.",
       "why": "Scopes the problem boundary before building the issue tree."
     },
@@ -4605,8 +4574,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview And how are competitors doing in these two markets?",
-      "detail": "Click here to give a mock interview And how are competitors doing in these two markets?\nIn Indonesia, growth is generally low and the client is already the market leader. In the US, competitors are growing faster, between 15% and 25%. The market is also more fragmented.\nUnderstood. With growth at just 1% and the client already leading, do they have much room left to capture additional share?\nNot significantly. The market is fairly consolidated, and given the low overall growth, it would be difficult to expand meaningfully."
+      "prompt": "And how are competitors doing in these two markets?",
+      "detail": "And how are competitors doing in these two markets?\nIn Indonesia, growth is generally low and the client is already the market leader. In the US, competitors are growing faster, between 15% and 25%. The market is also more fragmented.\nUnderstood. With growth at just 1% and the client already leading, do they have much room left to capture additional share?\nNot significantly. The market is fairly consolidated, and given the low overall growth, it would be difficult to expand meaningfully."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -4617,14 +4586,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "The client manufactures in Indonesia, ships to the US, and stores inventory in US warehouses before supplying ",
+      "prompt": "The client manufactures in Indonesia, ships to the US, and stores inventory in US warehouses before supplying",
       "detail": "The client manufactures in Indonesia, ships to the US, and stores inventory in US warehouses before supplying customers. Lead time is not an issue, since they maintain adequate stock.\nOkay, so logistics is not a barrier. And what about the product and pricing?\nThe product is a commodity. Quality is similar to competitors, and pricing is pegged to a public market index.\nSo no differentiation there either. That points me toward sales and customer management. How does the client sell in the US?"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "They sell through distributors and some direct sales. But they’ve only managed to secure spot contracts with s",
-      "detail": "They sell through distributors and some direct sales. But they’ve only managed to secure spot contracts with smaller customers, typically under 12 months. Competitors, by contrast, have locked in long-term contracts with larger customers.\nClick here to give a mock interview That creates revenue instability. And how are salespeople incentivized?\nThe US sales team is local, but their compensation is mostly fixed salary with a small commission. Competitors’ teams are largely commission-based.\nThat could explain why they aren’t aggressively pursuing larger, long-term deals. And after-sales service — how do we compare"
+      "detail": "They sell through distributors and some direct sales. But they’ve only managed to secure spot contracts with smaller customers, typically under 12 months. Competitors, by contrast, have locked in long-term contracts with larger customers.\nThat creates revenue instability. And how are salespeople incentivized?\nThe US sales team is local, but their compensation is mostly fixed salary with a small commission. Competitors’ teams are largely commission-based.\nThat could explain why they aren’t aggressively pursuing larger, long-term deals. And after-sales service — how do we compare"
     }
   ],
   "recommendations": [
@@ -4695,10 +4664,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-growth-psb",
+  "id": "cm-cons-growth-psb",
   "title": "Public Sector Bank Growth",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 4,
@@ -4722,7 +4690,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "I see. If I am not wrong then Payout fee = No. of customers * % of customers using another bank's ATM * frequency of transaction * Flat rate of payment. Can I know whether we have been facing issues in any of these?",
-      "a": "Click here to give a mock interview Customers are using other banks' ATMs 40% of the time and on average each customer does 4 transactions per month. Why don't you focus on the number of ATMs first?",
+      "a": "Customers are using other banks' ATMs 40% of the time and on average each customer does 4 transactions per month. Why don't you focus on the number of ATMs first?",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -4759,7 +4727,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "This is an example of a zero-sum game, and the client has 6% market share in retail.",
-      "detail": "This is an example of a zero-sum game, and the client has 6% market share in retail.\nI see. If I am not wrong then Payout fee = No. of customers * % of customers using another bank's ATM * frequency of transaction * Flat rate of payment. Can I know whether we have been facing issues in any of these?\nClick here to give a mock interview Customers are using other banks' ATMs 40% of the time and on average each customer does 4 transactions per month. Why don't you focus on the number of ATMs first?\nSure. Do we have any data about the number of ATMs that our competitors are having? Especially the market leaders, and w"
+      "detail": "This is an example of a zero-sum game, and the client has 6% market share in retail.\nI see. If I am not wrong then Payout fee = No. of customers * % of customers using another bank's ATM * frequency of transaction * Flat rate of payment. Can I know whether we have been facing issues in any of these?\nCustomers are using other banks' ATMs 40% of the time and on average each customer does 4 transactions per month. Why don't you focus on the number of ATMs first?\nSure. Do we have any data about the number of ATMs that our competitors are having? Especially the market leaders, and w"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -4771,13 +4739,13 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "Good observation. Let's proceed with the different factors that can create the first problem.",
-      "detail": "Good observation. Let's proceed with the different factors that can create the first problem.\nFew factors that I can think of for the first problem is, 1. Electricity issue, 2. Maintenance Issue, 3. Unavailability of guards Sounds reasonable. Can you list the reasons why the ATMs aren't working even after they've been turned on?\nClick here to give a mock interview Sure. The factors can be broken down into the following heads, 1. Software issues 2. Hardware issues 3. Cash Refill/Availability issue 4. Network Issue Do we have any information on out of these four, what has changed over time?\nWe don't have any issues"
+      "detail": "Good observation. Let's proceed with the different factors that can create the first problem.\nFew factors that I can think of for the first problem is, 1. Electricity issue, 2. Maintenance Issue, 3. Unavailability of guards Sounds reasonable. Can you list the reasons why the ATMs aren't working even after they've been turned on?\nSure. The factors can be broken down into the following heads, 1. Software issues 2. Hardware issues 3. Cash Refill/Availability issue 4. Network Issue Do we have any information on out of these four, what has changed over time?\nWe don't have any issues"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "As per my understanding, ATMs require you to connect to the server to fetch and verify user information and up",
-      "detail": "As per my understanding, ATMs require you to connect to the server to fetch and verify user information and update the bank balances in the bank server. So, if there is a network connectivity issue due to location or some other factor, ATMs may not work properly.\nPublic Sector Bank Click here to give a mock interview Yes, you are correct. The client did place a lot of new ATMs in rural areas without even testing the network connectivity, which is why the ATMs were not operational properly. Proceed to the solution So some possible solutions to consider are:\n● Switching to a different network provider whose service"
+      "detail": "As per my understanding, ATMs require you to connect to the server to fetch and verify user information and update the bank balances in the bank server. So, if there is a network connectivity issue due to location or some other factor, ATMs may not work properly.\nPublic Sector Bank Yes, you are correct. The client did place a lot of new ATMs in rural areas without even testing the network connectivity, which is why the ATMs were not operational properly. Proceed to the solution So some possible solutions to consider are:\n● Switching to a different network provider whose service"
     }
   ],
   "recommendations": [
@@ -4848,10 +4816,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-ma-disney-star-wars",
+  "id": "cm-cons-ma-disney-star-wars",
   "title": "Disney Buying Star Wars (Lucasfilm)",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 2,
@@ -4913,7 +4880,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "You can restrict yourselves to the Indian region.",
-      "detail": "You can restrict yourselves to the Indian region.\nSure, I would like to consider that the sources of revenues are majorly of 3 types - the revenue generated from movie tickets sales, merchandise of Star Wars, licensing or broadcasting rights of the Click here to give a mock interview movies and Star Wars related events.Do you feel is there any other revenue stream that I’m missing out on?\nYes these seem to be fine, you can focus on the movie ticket sales as of now.\nSure, can you tell me how many movies have been released within this time frame?"
+      "detail": "You can restrict yourselves to the Indian region.\nSure, I would like to consider that the sources of revenues are majorly of 3 types - the revenue generated from movie tickets sales, merchandise of Star Wars, licensing or broadcasting rights of the movies and Star Wars related events.Do you feel is there any other revenue stream that I’m missing out on?\nYes these seem to be fine, you can focus on the movie ticket sales as of now.\nSure, can you tell me how many movies have been released within this time frame?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -4924,14 +4891,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "● Tier 1 cities with around 50 theatres each ● Tier 2 cities with about 15 theatres each ● Tier 3 cities with ",
+      "prompt": "● Tier 1 cities with around 50 theatres each ● Tier 2 cities with about 15 theatres each ● Tier 3 cities with",
       "detail": "● Tier 1 cities with around 50 theatres each ● Tier 2 cities with about 15 theatres each ● Tier 3 cities with around 5 theatres each.Then, I'd look at how many cities fall into each of these categories.\nGreat, for now, you can proceed with this question and assume the number of theatres to be around 1000.\nAlright, let's assume each theatre has an average of 3 screens, and about 40% of the theatres would screen a Star Wars movie. If each screen shows 4 shows a day with 300 seats per screen, and we consider an average occupancy rate of 65% (factoring in weekends and weekdays) at a ticket price of ₹250. Assuming the"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Sure, for estimating merchandising revenue, I’d split the population into ",
-      "detail": "Click here to give a mock interview Sure, for estimating merchandising revenue, I’d split the population into 30% urban and 70% rural, but we’ll focus on the urban segment. Then, I’d consider income levels. People below the poverty line and lower middle class likely can't afford merchandise, so we’re left with the wealthy (around 20%) and the upper middle class (about 40%). Next, I’d factor in age, focusing on people between 5-30 years. Finally, I’d calculate the number of people willing to buy merchandise—assuming 60% of people watch Star Wars, and typically 50% of them would be interested in buying merch.\nThat "
+      "prompt": "Sure, for estimating merchandising revenue, I’d split the population into",
+      "detail": "Sure, for estimating merchandising revenue, I’d split the population into 30% urban and 70% rural, but we’ll focus on the urban segment. Then, I’d consider income levels. People below the poverty line and lower middle class likely can't afford merchandise, so we’re left with the wealthy (around 20%) and the upper middle class (about 40%). Next, I’d factor in age, focusing on people between 5-30 years. Finally, I’d calculate the number of people willing to buy merchandise—assuming 60% of people watch Star Wars, and typically 50% of them would be interested in buying merch.\nThat"
     }
   ],
   "recommendations": [
@@ -5002,10 +4969,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-34-acquisition-of-a-clothing-firm",
+  "id": "cm-cons-34-acquisition-of-a-clothing-firm",
   "title": "Acquisition of a Clothing Firm",
   "company": "McKinsey & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 3,
@@ -5029,7 +4995,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Additionally, what is the expected ROI for this venture?",
-      "a": "The primary objective is to expand the client's luxury product line by acquiring a well-known brand that resonates with high-end Click here to give a mock interview consumers. The anticipated ROI for this investment is around 15%.",
+      "a": "The primary objective is to expand the client's luxury product line by acquiring a well-known brand that resonates with high-end consumers. The anticipated ROI for this investment is around 15%.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -5066,7 +5032,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Additionally, what is the expected ROI for this venture?",
-      "detail": "Additionally, what is the expected ROI for this venture?\nThe primary objective is to expand the client's luxury product line by acquiring a well-known brand that resonates with high-end Click here to give a mock interview consumers. The anticipated ROI for this investment is around 15%.\nUnderstood. Could you provide some insights into the performance of the client’s e-commerce platform? Specifically, what portion of their sales is generated online?\nThe e-commerce platform is a crucial component of the client’s business, contributing 30% of total sales."
+      "detail": "Additionally, what is the expected ROI for this venture?\nThe primary objective is to expand the client's luxury product line by acquiring a well-known brand that resonates with high-end consumers. The anticipated ROI for this investment is around 15%.\nUnderstood. Could you provide some insights into the performance of the client’s e-commerce platform? Specifically, what portion of their sales is generated online?\nThe e-commerce platform is a crucial component of the client’s business, contributing 30% of total sales."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -5083,8 +5049,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview That makes sense. Could we now discuss the risks associated with this acqu",
-      "detail": "Click here to give a mock interview That makes sense. Could we now discuss the risks associated with this acquisition?\nThe risks associated with this acquisition can be grouped into several categories. Pre-acquisition risks include the potential overvaluation of the acquisition target and insufficient legal due diligence. Operational risks involve potential inefficiencies in production processes and the risk of failing to maintain product quality. On the economic side, there could be a misalignment between business models, pricing discrepancies that might impact market positioning, and potential overruns in produ"
+      "prompt": "That makes sense. Could we now discuss the risks associated with this acqu",
+      "detail": "That makes sense. Could we now discuss the risks associated with this acquisition?\nThe risks associated with this acquisition can be grouped into several categories. Pre-acquisition risks include the potential overvaluation of the acquisition target and insufficient legal due diligence. Operational risks involve potential inefficiencies in production processes and the risk of failing to maintain product quality. On the economic side, there could be a misalignment between business models, pricing discrepancies that might impact market positioning, and potential overruns in produ"
     }
   ],
   "recommendations": [
@@ -5154,10 +5120,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-ma-edtech-merger",
+  "id": "cm-cons-ma-edtech-merger",
   "title": "Merger of Two Ed-Tech Firms",
   "company": "LEK Consulting",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 3,
@@ -5181,7 +5146,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Great. Can you think of any other benefits through this deal?",
-      "a": "Merger of Two Ed-tech Firms Click here to give a mock interview Yes, additionally we should consider synergies that can arise from the acquisition. This acquisition could lower overhead costs for “A” and expand its customer base and cross-s",
+      "a": "Merger of Two Ed-tech Firms Yes, additionally we should consider synergies that can arise from the acquisition. This acquisition could lower overhead costs for “A” and expand its customer base and cross-s",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -5211,14 +5176,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Your client is an online education platform A, and is looking to acquire its competing platform B. How should ",
+      "prompt": "Your client is an online education platform A, and is looking to acquire its competing platform B. How should",
       "detail": "Your client is an online education platform A, and is looking to acquire its competing platform B. How should they proceed?\nThat’s interesting. Before we delve into further details, could you clarify why \"A\" is interested in acquiring \"B\"? Are there specific financial goals or is this more about a strategic expansion?\nThe primary goal for the client is to boost their revenue through this acquisition. They are also looking to expand their product portfolio through this acquisition."
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Great, so we may deal with this by dividing the problem into Financial and Non-Financial aspects. Which should",
-      "detail": "Great, so we may deal with this by dividing the problem into Financial and Non-Financial aspects. Which should I first look into?\nYou may start with Non-Financial aspects.\nClick here to give a mock interview Certainly. The fit between the two companies is crucial. \"A\" should assess how well they align culturally, strategically, and organizationally. This involves evaluating the compatibility of employee skill sets, shared long-term goals, and company policies. External factors like a PESTEL analysis are important too."
+      "detail": "Great, so we may deal with this by dividing the problem into Financial and Non-Financial aspects. Which should I first look into?\nYou may start with Non-Financial aspects.\nCertainly. The fit between the two companies is crucial. \"A\" should assess how well they align culturally, strategically, and organizationally. This involves evaluating the compatibility of employee skill sets, shared long-term goals, and company policies. External factors like a PESTEL analysis are important too."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -5230,13 +5195,13 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "Certainly, the revenue, fixed costs, variable costs, and overhead costs for both \"A\" and \"B,\" as well as their",
-      "detail": "Certainly, the revenue, fixed costs, variable costs, and overhead costs for both \"A\" and \"B,\" as well as their combined entity after the merger are here.\nMetrics (₹ Cr) Firm A Firm B Combined (A+B) Revenue 200 150 350 Fixed Costs 40 35 75 Variable Costs (40%) 80 60 140 Overheads 30 25 55 Total Costs 150 120 270 Profit (EBITDA) 50 30 80 Click here to give a mock interview Metrics (₹ Cr) Post-Merger Revenue 420 Fixed Costs 68 Variable Costs (40%) 168 Overheads 44 Total Costs 280 Profit (EBITDA) 140 Right. So, the calculated profit after the acquisition is 1.75 times the combined profit (75% higher) of individual fi"
+      "detail": "Certainly, the revenue, fixed costs, variable costs, and overhead costs for both \"A\" and \"B,\" as well as their combined entity after the merger are here.\nMetrics (₹ Cr) Firm A Firm B Combined (A+B) Revenue 200 150 350 Fixed Costs 40 35 75 Variable Costs (40%) 80 60 140 Overheads 30 25 55 Total Costs 150 120 270 Profit (EBITDA) 50 30 80 Metrics (₹ Cr) Post-Merger Revenue 420 Fixed Costs 68 Variable Costs (40%) 168 Overheads 44 Total Costs 280 Profit (EBITDA) 140 Right. So, the calculated profit after the acquisition is 1.75 times the combined profit (75% higher) of individual fi"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Merger of Two Ed-tech Firms Click here to give a mock interview Yes, additionally we should consider synergies",
-      "detail": "Merger of Two Ed-tech Firms Click here to give a mock interview Yes, additionally we should consider synergies that can arise from the acquisition. This acquisition could lower overhead costs for “A” and expand its customer base and cross-selling opportunities.\nGreat, are there any risks involved with this deal?\nYes, I could see overvaluation and delays in regulatory approvals as major risks. Also, there could be Integration challenges like technological mismatch which could be an issue."
+      "prompt": "Merger of Two Ed-tech Firms Yes, additionally we should consider synergies",
+      "detail": "Merger of Two Ed-tech Firms Yes, additionally we should consider synergies that can arise from the acquisition. This acquisition could lower overhead costs for “A” and expand its customer base and cross-selling opportunities.\nGreat, are there any risks involved with this deal?\nYes, I could see overvaluation and delays in regulatory approvals as major risks. Also, there could be Integration challenges like technological mismatch which could be an issue."
     }
   ],
   "recommendations": [
@@ -5306,10 +5271,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-36-demerger-of-two-business-units",
+  "id": "cm-cons-36-demerger-of-two-business-units",
   "title": "Demerger of Two Business Units",
   "company": "McKinsey & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 4,
@@ -5370,7 +5334,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "There are overlaps in customers and the company brand, but the operating models are quite different. The servi",
-      "detail": "There are overlaps in customers and the company brand, but the operating models are quite different. The services unit works on efficiency and reliability, while the digital unit thrives on agility and innovation.\nClick here to give a mock interview Got it. So, effectively, we’re looking at two businesses with very different profiles:\n● Traditional services : Stable, Dependable, Low growth.\n● Digital division : High potential, Dynamic, But riskier."
+      "detail": "There are overlaps in customers and the company brand, but the operating models are quite different. The services unit works on efficiency and reliability, while the digital unit thrives on agility and innovation.\nGot it. So, effectively, we’re looking at two businesses with very different profiles:\n● Traditional services : Stable, Dependable, Low growth.\n● Digital division : High potential, Dynamic, But riskier."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -5382,7 +5346,7 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "2. Investor perception: The fast-growing digital story may be overshadowed by the slower services unit, leadin",
-      "detail": "2. Investor perception: The fast-growing digital story may be overshadowed by the slower services unit, leading to undervaluation.\n3. Leadership bandwidth: Management has to juggle two very different priorities, which can dilute focus.\nThat’s fair. So what could be the upside of separating them?\nDemerger of Units Separation would give each unit its own identity. The digital division could stand out as a growth story attracting investors and talent drawn to innovation, while the services unit would appeal to those seeking stability and steady returns. This allows both to pursue strategies aligned with their agile "
+      "detail": "2. Investor perception: The fast-growing digital story may be overshadowed by the slower services unit, leading to undervaluation.\n3. Leadership bandwidth: Management has to juggle two very different priorities, which can dilute focus.\nThat’s fair. So what could be the upside of separating them?\nDemerger of Units Separation would give each unit its own identity. The digital division could stand out as a growth story attracting investors and talent drawn to innovation, while the services unit would appeal to those seeking stability and steady returns. This allows both to pursue strategies aligned with their agile"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -5459,10 +5423,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-37-superburger-m-a-evaluation",
+  "id": "cm-cons-37-superburger-m-a-evaluation",
   "title": "SuperBurger M&A Evaluation",
   "company": "PrepLounge",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 4,
@@ -5523,7 +5486,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "SuperBurger has grown at 10% annually, while Tasty Donuts has expanded at 15%.",
-      "detail": "SuperBurger has grown at 10% annually, while Tasty Donuts has expanded at 15%.\nClick here to give a mock interview Post-acquisition, Tasty Donuts aims to double its U.S. market share within five years.\nNow, digging deeper into the first two buckets regarding value and strategic fit, what is the competitive landscape like? Are SuperBurger's major competitors also diversifying?\nThe client has only handled small acquisitions, while competitors have expanded into coffee, bakery, breakfast, and snacks through partnerships."
+      "detail": "SuperBurger has grown at 10% annually, while Tasty Donuts has expanded at 15%.\nPost-acquisition, Tasty Donuts aims to double its U.S. market share within five years.\nNow, digging deeper into the first two buckets regarding value and strategic fit, what is the competitive landscape like? Are SuperBurger's major competitors also diversifying?\nThe client has only handled small acquisitions, while competitors have expanded into coffee, bakery, breakfast, and snacks through partnerships."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -5541,7 +5504,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Okay with these synergies, client assumes the market share of Tasty Donuts in the US to double and their US st",
-      "detail": "Okay with these synergies, client assumes the market share of Tasty Donuts in the US to double and their US stores to Click here to give a mock interview increase by 2.5 times in 5 years. Do you find this target achievable ?\nThe targets are ambitious yet feasible. Projected Market Size = $20/person×300M people=$6B Current market size = $10/person×300M people=$3 B Target Number of Stores = 1,000 ×2.5=2,500 stores. Required Sales Per Store =Target Sales / Stores = $3 billion / 2,500 stores =$1.2 million per store, Success will hinge on execution, competitive positioning, and realizing synergies; with strong integra"
+      "detail": "Okay with these synergies, client assumes the market share of Tasty Donuts in the US to double and their US stores to increase by 2.5 times in 5 years. Do you find this target achievable ?\nThe targets are ambitious yet feasible. Projected Market Size = $20/person×300M people=$6B Current market size = $10/person×300M people=$3 B Target Number of Stores = 1,000 ×2.5=2,500 stores. Required Sales Per Store =Target Sales / Stores = $3 billion / 2,500 stores =$1.2 million per store, Success will hinge on execution, competitive positioning, and realizing synergies; with strong integra"
     }
   ],
   "recommendations": [
@@ -5612,10 +5575,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-unc-land-usage",
+  "id": "cm-cons-unc-land-usage",
   "title": "Land Usage Optimization",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 2,
@@ -5636,7 +5598,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "I see. Where is this piece of land located and what is the area of this land we have?",
-      "a": "Click here to give a mock interview The area of the land is roughly 60,000 square feet and it is located in an affluent area, containing both residential buildings and office spaces.",
+      "a": "The area of the land is roughly 60,000 square feet and it is located in an affluent area, containing both residential buildings and office spaces.",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -5677,8 +5639,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Using the land in a way that would solve any problem faced by the maximum number of people in the area. It is ",
-      "detail": "Using the land in a way that would solve any problem faced by the maximum number of people in the area. It is just one of the things that can be done, and not necessarily the only use.\nI see. Where is this piece of land located and what is the area of this land we have?\nClick here to give a mock interview The area of the land is roughly 60,000 square feet and it is located in an affluent area, containing both residential buildings and office spaces.\nSince the area is in the proximity of both office spaces and residential areas which have been built in the past decade, we could aim at looking at the major problems"
+      "prompt": "Using the land in a way that would solve any problem faced by the maximum number of people in the area. It is",
+      "detail": "Using the land in a way that would solve any problem faced by the maximum number of people in the area. It is just one of the things that can be done, and not necessarily the only use.\nI see. Where is this piece of land located and what is the area of this land we have?\nThe area of the land is roughly 60,000 square feet and it is located in an affluent area, containing both residential buildings and office spaces.\nSince the area is in the proximity of both office spaces and residential areas which have been built in the past decade, we could aim at looking at the major problems"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -5696,7 +5658,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "In that case, I believe that the problem could lie with either the occupation or the residence part. Since our",
-      "detail": "In that case, I believe that the problem could lie with either the occupation or the residence part. Since our client is the government dealing with a piece of land in an affluent area, we can assume that due to immense development, there would be a general constraint of space.\nGood point! There is indeed a lack of parking space for the people of the area Most residential complexes have their own parking facilities that people buy at the time of purchasing their homes, especially in affluent areas.\nClick here to give a mock interview As for corporate offices, they usually have a lot of employees and generally not"
+      "detail": "In that case, I believe that the problem could lie with either the occupation or the residence part. Since our client is the government dealing with a piece of land in an affluent area, we can assume that due to immense development, there would be a general constraint of space.\nGood point! There is indeed a lack of parking space for the people of the area Most residential complexes have their own parking facilities that people buy at the time of purchasing their homes, especially in affluent areas.\nAs for corporate offices, they usually have a lot of employees and generally not"
     }
   ],
   "recommendations": [
@@ -5767,10 +5729,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-39-shipping-company-strategy",
+  "id": "cm-cons-39-shipping-company-strategy",
   "title": "Shipping Company Strategy",
   "company": "KPMG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 2,
@@ -5789,11 +5750,11 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Well, what is the delivery service duration, i.e number of working days in a week and working hours?",
-      "a": "Click here to give a mock interview Our delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?",
+      "a": "Our delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Click here to give a mock interview Our delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?",
+      "q": "Our delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?",
       "a": "It takes on average 10 minutes to deliver each package.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -5831,7 +5792,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "We deliver packages in envelope format with dimensions of 1*1*1 cubic meters.",
-      "detail": "We deliver packages in envelope format with dimensions of 1*1*1 cubic meters.\nWell, what is the delivery service duration, i.e number of working days in a week and working hours?\nClick here to give a mock interview Our delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?"
+      "detail": "We deliver packages in envelope format with dimensions of 1*1*1 cubic meters.\nWell, what is the delivery service duration, i.e number of working days in a week and working hours?\nOur delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -5919,10 +5880,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-40-ceo-of-bcg-strategy-dilemma",
+  "id": "cm-cons-40-ceo-of-bcg-strategy-dilemma",
   "title": "CEO of BCG Strategy Dilemma",
   "company": "BCG",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -5946,7 +5906,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Stakeholders consist of Investors, Customers, Employees, Suppliers, Government bodies, Media, and Communities. Do you want me to focus on any specific one?",
-      "a": "Click here to give a mock interview Dive into Investors, Employees, and Customers.",
+      "a": "Dive into Investors, Employees, and Customers.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -5988,8 +5948,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Dive into Investors, Employees, and Customers.",
-      "detail": "Click here to give a mock interview Dive into Investors, Employees, and Customers.\nInvestors primarily require the company (BCG’s) performance statistics and profit margins, along with plans for the upcoming future. A CEO’s job is to ensure that the investors are satisfied and are going to back the company. As for Employees, since BCG is a partnership driven firm he also has to update all the partners regularly about the company’s proceedings.\nLooking good so far, go ahead with Customers.\nRight. For customers, each of the offices have their respective Managing Directors and partners who handle the offices’ indivi"
+      "prompt": "Dive into Investors, Employees, and Customers.",
+      "detail": "Dive into Investors, Employees, and Customers.\nInvestors primarily require the company (BCG’s) performance statistics and profit margins, along with plans for the upcoming future. A CEO’s job is to ensure that the investors are satisfied and are going to back the company. As for Employees, since BCG is a partnership driven firm he also has to update all the partners regularly about the company’s proceedings.\nLooking good so far, go ahead with Customers.\nRight. For customers, each of the offices have their respective Managing Directors and partners who handle the offices’ indivi"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -6001,7 +5961,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Other than just solving problems, what else should a CEO do in Organizational Strategy?",
-      "detail": "Other than just solving problems, what else should a CEO do in Organizational Strategy?\nThe chain of financial transactions begin from the Investors, and as mentioned in Stakeholder Management, it is important that they have your back and support you when required. It proceeds into the CFO and CEO, who make business decisions on where to allocate these funds based on requirement and usage. From there it moves into the team of focus that require these funds and leads to excellent performance of the company overall.\nClick here to give a mock interview Yes, so besides these, the CEO should also oversee the profitabi"
+      "detail": "Other than just solving problems, what else should a CEO do in Organizational Strategy?\nThe chain of financial transactions begin from the Investors, and as mentioned in Stakeholder Management, it is important that they have your back and support you when required. It proceeds into the CFO and CEO, who make business decisions on where to allocate these funds based on requirement and usage. From there it moves into the team of focus that require these funds and leads to excellent performance of the company overall.\nYes, so besides these, the CEO should also oversee the profitabi"
     }
   ],
   "recommendations": [
@@ -6072,10 +6032,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-41-chip-equity-strategy",
+  "id": "cm-cons-41-chip-equity-strategy",
   "title": "Chip Equity Strategy",
   "company": "McKinsey & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -6089,7 +6048,7 @@ window.CM_DATA.cases.push(
   "clarifyingQuestions": [
     {
       "q": "I want to start with a few clarifying questions. How much is our client willing to invest and how much is OnBoard looking to be paid?",
-      "a": "Chip’n’Chip has more than $80 m for investments. It requires a 10% ROI in the first year to invest. OnBoard has a valuation of $320 m. They are looking for a private equity investor to inject $80 m and are looking to give 20% of the shares ",
+      "a": "Chip’n’Chip has more than $80 m for investments. It requires a 10% ROI in the first year to invest. OnBoard has a valuation of $320 m. They are looking for a private equity investor to inject $80 m and are looking to give 20% of the shares",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -6129,14 +6088,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Chip Equity Our client is an electronics holding called Chip’n’Chip. They want to invest in a Printed Circuit ",
+      "prompt": "Chip Equity Our client is an electronics holding called Chip’n’Chip. They want to invest in a Printed Circuit",
       "detail": "Chip Equity Our client is an electronics holding called Chip’n’Chip. They want to invest in a Printed Circuit Board (PCB) manufacturer called OnBoard and asked you whether it’s going to be a good investment. How would you help them?\nI want to start with a few clarifying questions. How much is our client willing to invest and how much is OnBoard looking to be paid?\nChip’n’Chip has more than $80 m for investments. It requires a 10% ROI in the first year to invest. OnBoard has a valuation of $320 m. They are looking for a private equity investor to inject $80 m and are looking to give 20% of the shares for investmen"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "OnBoard is looking to invest the funds into the factories in Vietnam. Also, the market for the 2-layer PCB tec",
-      "detail": "OnBoard is looking to invest the funds into the factories in Vietnam. Also, the market for the 2-layer PCB technology has been declining globally by 4% per year in the last few years and tends to keep falling.\nClick here to give a mock interview The market for the new 3-layer technology had an increase of 10% per year in the last few years (smartphone boom).\nSo I’m assuming our client is planning to use these investments to expand in the 3-layer PCB technology, is that correct?\nYes that is correct."
+      "detail": "OnBoard is looking to invest the funds into the factories in Vietnam. Also, the market for the 2-layer PCB technology has been declining globally by 4% per year in the last few years and tends to keep falling.\nThe market for the new 3-layer technology had an increase of 10% per year in the last few years (smartphone boom).\nSo I’m assuming our client is planning to use these investments to expand in the 3-layer PCB technology, is that correct?\nYes that is correct."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -6224,10 +6183,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-42-credit-card-unconventional-case",
+  "id": "cm-cons-42-credit-card-unconventional-case",
   "title": "Credit Card Unconventional Case",
   "company": "PwC",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -6288,7 +6246,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Certainly. Our client charges an interchange fee of 1% of the total amount paid using the credit card. The ave",
-      "detail": "Certainly. Our client charges an interchange fee of 1% of the total amount paid using the credit card. The average interest on credit card balances is 10%.\nClick here to give a mock interview Okay so based on this, we can estimate the revenue from each stream. Assuming a customer spends 45% of their €30,000 annual income via credit card, they would spend €30,000 * 45% = €13,500 annually. With a 1% interchange fee, this generates:\n€13,500 * 1% = €135 in interchange fees per customer. Now for the interest revenue estimation, do we have any information on the average outstanding balance or loan amount per customer?\n"
+      "detail": "Certainly. Our client charges an interchange fee of 1% of the total amount paid using the credit card. The average interest on credit card balances is 10%.\nOkay so based on this, we can estimate the revenue from each stream. Assuming a customer spends 45% of their €30,000 annual income via credit card, they would spend €30,000 * 45% = €13,500 annually. With a 1% interchange fee, this generates:\n€13,500 * 1% = €135 in interchange fees per customer. Now for the interest revenue estimation, do we have any information on the average outstanding balance or loan amount per customer?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -6306,7 +6264,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "3. Introduce Bundling or Incentives: VISO could bundle the credit card with other banking products, such as sa",
-      "detail": "3. Introduce Bundling or Incentives: VISO could bundle the credit card with other banking products, such as savings accounts, or offer to waive the fee for customers who meet certain spending thresholds.\nGood enough. Let’s delve into this further. If VISO chooses to eliminate the annual fee, what strategies could they implement to recover the lost revenue? Additionally, what potential downsides might each approach bring?\nClick here to give a mock interview VISO could consider several approaches: First approach could be to enhance customer spending and increase revenue. For this, I would recommend that VISO consid"
+      "detail": "3. Introduce Bundling or Incentives: VISO could bundle the credit card with other banking products, such as savings accounts, or offer to waive the fee for customers who meet certain spending thresholds.\nGood enough. Let’s delve into this further. If VISO chooses to eliminate the annual fee, what strategies could they implement to recover the lost revenue? Additionally, what potential downsides might each approach bring?\nVISO could consider several approaches: First approach could be to enhance customer spending and increase revenue. For this, I would recommend that VISO consid"
     }
   ],
   "recommendations": [
@@ -6376,10 +6334,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-43-fysikum-strategy-case",
+  "id": "cm-cons-43-fysikum-strategy-case",
   "title": "Fysikum Strategy Case",
   "company": "PrepLounge",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -6397,7 +6354,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Fysikum Click here to give a mock interview Now we can start with the more quantitative part of the case. Can you determine the minimum annual membership fee Fysikum has to charge in order to cover the running cost?",
+      "q": "Fysikum Now we can start with the more quantitative part of the case. Can you determine the minimum annual membership fee Fysikum has to charge in order to cover the running cost?",
       "a": "Given the cost table, I would like to ask you about the revenues and what is the operational time of the courts, is there some particular time when the court is used in greater frequency?",
       "why": "Scopes the problem boundary before building the issue tree."
     },
@@ -6434,13 +6391,13 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
       "prompt": "Fysikum Your client, Fysikum, is an operator of squash centres in Sweden. The squash centres include sauna, sp",
-      "detail": "Fysikum Your client, Fysikum, is an operator of squash centres in Sweden. The squash centres include sauna, spa, pool, gym and of course the squash courts. Due to the extreme success in Sweden the company is considering expanding to other countries of Europe, in particular Germany. Therefore they asked us to evaluate this possible expansion. To start, we have the cost structure of the company What kind of information would you need in order to estimate the outcomes of this expansion?\nClick here to give a mock interview The best way to solve this is by using a “3C’s” or “Porter’s Five Forces” analysis. I will use "
+      "detail": "Fysikum Your client, Fysikum, is an operator of squash centres in Sweden. The squash centres include sauna, spa, pool, gym and of course the squash courts. Due to the extreme success in Sweden the company is considering expanding to other countries of Europe, in particular Germany. Therefore they asked us to evaluate this possible expansion. To start, we have the cost structure of the company What kind of information would you need in order to estimate the outcomes of this expansion?\nThe best way to solve this is by using a “3C’s” or “Porter’s Five Forces” analysis. I will use"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "It will be a feasible option to purchase marketing analyses / research reports.Contacting someone in the consu",
-      "detail": "It will be a feasible option to purchase marketing analyses / research reports.Contacting someone in the consulting company who has experience in the market or industry also seems a feasible option.\nFysikum Click here to give a mock interview Now we can start with the more quantitative part of the case. Can you determine the minimum annual membership fee Fysikum has to charge in order to cover the running cost?\nGiven the cost table, I would like to ask you about the revenues and what is the operational time of the courts, is there some particular time when the court is used in greater frequency?"
+      "detail": "It will be a feasible option to purchase marketing analyses / research reports.Contacting someone in the consulting company who has experience in the market or industry also seems a feasible option.\nFysikum Now we can start with the more quantitative part of the case. Can you determine the minimum annual membership fee Fysikum has to charge in order to cover the running cost?\nGiven the cost table, I would like to ask you about the revenues and what is the operational time of the courts, is there some particular time when the court is used in greater frequency?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -6451,14 +6408,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "The dominant market player for squash centres (60% market share in Germany) offers memberships for €50. Would ",
+      "prompt": "The dominant market player for squash centres (60% market share in Germany) offers memberships for €50. Would",
       "detail": "The dominant market player for squash centres (60% market share in Germany) offers memberships for €50. Would you recommend entering the market?\nThere could be other outcomes of the investigation. If the competitor operates across all segments, from low-end to high quality, and has a lower cost base, Fysikum should not enter the market. An entrance would only lead to a price competition that our client cannot win.\nIn order to make no loss, Fysikum would need to charge more than €90 per member."
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "The client should only enter the market if there is a possibility to differentiate from the dominant competito",
-      "detail": "The client should only enter the market if there is a possibility to differentiate from the dominant competitor. Other issues, mentioned while doing the 3C analysis should also be considered.\nClick here to give a mock interview If you have to report to the CEO right now, what would you tell him/her?\nIn order to make no loss, Fysikum would need to charge more than €90 per member. The client should only enter the market if there is a possibility to differentiate from the dominant competitor."
+      "detail": "The client should only enter the market if there is a possibility to differentiate from the dominant competitor. Other issues, mentioned while doing the 3C analysis should also be considered.\nIf you have to report to the CEO right now, what would you tell him/her?\nIn order to make no loss, Fysikum would need to charge more than €90 per member. The client should only enter the market if there is a possibility to differentiate from the dominant competitor."
     }
   ],
   "recommendations": [
@@ -6528,10 +6485,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-44-reducing-road-accidents-in-india",
+  "id": "cm-cons-44-reducing-road-accidents-in-india",
   "title": "Reducing Road Accidents in India",
   "company": "Nation with NaMo",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -6550,7 +6506,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Understood. Are the accidents concentrated in a specific part of the expanded road, or are they spread evenly across the entire section?",
-      "a": "Click here to give a mock interview to Good question, the spike in accidents are mostly concentrated in the center lanes of the road.",
+      "a": "to Good question, the spike in accidents are mostly concentrated in the center lanes of the road.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -6592,20 +6548,20 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview to Good question, the spike in accidents are mostly concentrated in the ce",
-      "detail": "Click here to give a mock interview to Good question, the spike in accidents are mostly concentrated in the center lanes of the road.\nOkay so based on this I’d like to break down the possible causes of these accidents into three broad categories: human error, design flaws, and external factors. Human error would cover issues like speeding, distracted driving, or a lack of familiarity with the new road. Design flaws would involve issues in road layout, signage, and markings. External factors could include weather conditions, poor lighting, or other unforeseen circumstances. Could you let me know which of these are"
+      "prompt": "to Good question, the spike in accidents are mostly concentrated in the ce",
+      "detail": "to Good question, the spike in accidents are mostly concentrated in the center lanes of the road.\nOkay so based on this I’d like to break down the possible causes of these accidents into three broad categories: human error, design flaws, and external factors. Human error would cover issues like speeding, distracted driving, or a lack of familiarity with the new road. Design flaws would involve issues in road layout, signage, and markings. External factors could include weather conditions, poor lighting, or other unforeseen circumstances. Could you let me know which of these are"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "Thank you for narrowing it down. Now, when we talk about design flaws, we can further break it down into speci",
-      "detail": "Thank you for narrowing it down. Now, when we talk about design flaws, we can further break it down into specific areas such as Signage and markings whether the traffic signs and road markings are clear, visible, and properly placed, Road geometry how the road curves, merges, or diverges and Lane structure i.e. whether the lane width, positioning, or number of lanes creates confusion. Could you clarify where the design flaw lies?\nRoad Accidents The design flaw is specifically in the signage. The issue seems to be with how the traffic signs are positioned and their visibility.\nGot it. So, focusing on the signage, "
+      "detail": "Thank you for narrowing it down. Now, when we talk about design flaws, we can further break it down into specific areas such as Signage and markings whether the traffic signs and road markings are clear, visible, and properly placed, Road geometry how the road curves, merges, or diverges and Lane structure i.e. whether the lane width, positioning, or number of lanes creates confusion. Could you clarify where the design flaw lies?\nRoad Accidents The design flaw is specifically in the signage. The issue seems to be with how the traffic signs are positioned and their visibility.\nGot it. So, focusing on the signage,"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "The main problem is inadequate placement. When the road was expanded, we didn’t properly reposition or add new",
-      "detail": "The main problem is inadequate placement. When the road was expanded, we didn’t properly reposition or add new signs to accommodate the new lanes.\nClick here to give a mock interview That’s helpful to know. Just to summarize: The issue arises from inadequate signage placement after the road expansion. The signs that were originally positioned for a 4-lane highway were not adjusted or supplemented to accommodate the additional lanes. As a result, drivers, especially those in the innermost lanes, are not able to see important traffic signs, which is leading to accidents.\nFor a recommendation, I suggest the followin"
+      "detail": "The main problem is inadequate placement. When the road was expanded, we didn’t properly reposition or add new signs to accommodate the new lanes.\nThat’s helpful to know. Just to summarize: The issue arises from inadequate signage placement after the road expansion. The signs that were originally positioned for a 4-lane highway were not adjusted or supplemented to accommodate the additional lanes. As a result, drivers, especially those in the innermost lanes, are not able to see important traffic signs, which is leading to accidents.\nFor a recommendation, I suggest the followin"
     }
   ],
   "recommendations": [
@@ -6675,10 +6631,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-45-door-to-door-newspaper-campaign",
+  "id": "cm-cons-45-door-to-door-newspaper-campaign",
   "title": "Door-to-Door Newspaper Campaign",
   "company": "Nation with NaMo",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
@@ -6702,7 +6657,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "What if we target a broader audience, potentially untapped?.",
-      "a": "Click here to give a mock interview Kolkata’s population is around 15 million, assuming the literacy rate to be 80%, around 12 million literate people. If we estimate that around 25-30% of Kolkata's population falls into the older demograph",
+      "a": "Kolkata’s population is around 15 million, assuming the literacy rate to be 80%, around 12 million literate people. If we estimate that around 25-30% of Kolkata's population falls into the older demograph",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -6739,7 +6694,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Wouldn’t targeting these readers with a physical newspaper be a mismatch? These consumers are unlikely to swit",
-      "detail": "Wouldn’t targeting these readers with a physical newspaper be a mismatch? These consumers are unlikely to switch to a print format when they’re already accustomed to the convenience of digital news.\nWhat if we target a broader audience, potentially untapped?.\nClick here to give a mock interview Kolkata’s population is around 15 million, assuming the literacy rate to be 80%, around 12 million literate people. If we estimate that around 25-30% of Kolkata's population falls into the older demographic—those 40 and above—then we’re looking at a target market of about 3.5 to 4 million people. Even if a small percentage"
+      "detail": "Wouldn’t targeting these readers with a physical newspaper be a mismatch? These consumers are unlikely to switch to a print format when they’re already accustomed to the convenience of digital news.\nWhat if we target a broader audience, potentially untapped?.\nKolkata’s population is around 15 million, assuming the literacy rate to be 80%, around 12 million literate people. If we estimate that around 25-30% of Kolkata's population falls into the older demographic—those 40 and above—then we’re looking at a target market of about 3.5 to 4 million people. Even if a small percentage"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -6757,7 +6712,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "How does the client currently perform in the online space in terms of revenue?",
-      "detail": "How does the client currently perform in the online space in terms of revenue?\nClick here to give a mock interview The client’s online revenues are growing steadily, mainly through digital subscriptions and ad revenue. They’ve built a strong brand online with consistent traffic and reader engagement.\nGiven the growth in digital, I would question whether it makes sense to divert resources to an offline venture, especially when the younger, more future-proof audience is engaged online. Wouldn’t it be more strategic to invest further in digital expansion, improving content, and increasing online advertising, rather "
+      "detail": "How does the client currently perform in the online space in terms of revenue?\nThe client’s online revenues are growing steadily, mainly through digital subscriptions and ad revenue. They’ve built a strong brand online with consistent traffic and reader engagement.\nGiven the growth in digital, I would question whether it makes sense to divert resources to an offline venture, especially when the younger, more future-proof audience is engaged online. Wouldn’t it be more strategic to invest further in digital expansion, improving content, and increasing online advertising, rather"
     }
   ],
   "recommendations": [
@@ -6827,10 +6782,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-unc-women-voters",
+  "id": "cm-cons-unc-women-voters",
   "title": "Increasing Women Voter Turnout",
   "company": "Nation with NaMo",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
@@ -6886,7 +6840,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Understood. Are we concentrating on any particular regions within India?",
-      "detail": "Understood. Are we concentrating on any particular regions within India?\nNo, this campaign should have a pan-India reach, targeting women across all states and union territories, as well as across all age groups, socioeconomic backgrounds, and communities.\nClick here to give a mock interview Alright. I will start with analyzing the root causes that shall resonate with majority of women across India.\nSome of the pressing issues women face today include dowry, personal safety, equal rights, access to education, and fair representation in influential positions. Among these, I believe a strong focus on safety as the "
+      "detail": "Understood. Are we concentrating on any particular regions within India?\nNo, this campaign should have a pan-India reach, targeting women across all states and union territories, as well as across all age groups, socioeconomic backgrounds, and communities.\nAlright. I will start with analyzing the root causes that shall resonate with majority of women across India.\nSome of the pressing issues women face today include dowry, personal safety, equal rights, access to education, and fair representation in influential positions. Among these, I believe a strong focus on safety as the"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -6903,8 +6857,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview ● In urban areas, we could organize campaigns within residential societies",
-      "detail": "Click here to give a mock interview ● In urban areas, we could organize campaigns within residential societies and conduct street plays that highlight the role of women in shaping the country’s future through voting. Street plays can be an effective way to connect with people and leave a lasting impression.\n● Additionally, we could collaborate with women leaders from various fields—such as education, healthcare, business, and activism—to conduct seminars and talk shows. These events can emphasize the importance of voting as a means to safeguard their rights, ensure better safety measures..\nThat seems good. To mea"
+      "prompt": "● In urban areas, we could organize campaigns within residential societies",
+      "detail": "● In urban areas, we could organize campaigns within residential societies and conduct street plays that highlight the role of women in shaping the country’s future through voting. Street plays can be an effective way to connect with people and leave a lasting impression.\n● Additionally, we could collaborate with women leaders from various fields—such as education, healthcare, business, and activism—to conduct seminars and talk shows. These events can emphasize the importance of voting as a means to safeguard their rights, ensure better safety measures..\nThat seems good. To mea"
     }
   ],
   "recommendations": [
@@ -6974,10 +6928,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-47-old-winery-valuation-strategy",
+  "id": "cm-cons-47-old-winery-valuation-strategy",
   "title": "Old Winery Valuation & Strategy",
   "company": "Bain & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
@@ -6991,7 +6944,7 @@ window.CM_DATA.cases.push(
   "clarifyingQuestions": [
     {
       "q": "Are we selling the whole produce as wine or some produce as grapes as well?",
-      "a": "Click here to give a mock interview Only 1⁄4 of the harvest is made into wine by the winery; the rest is sold as grapes.",
+      "a": "Only 1⁄4 of the harvest is made into wine by the winery; the rest is sold as grapes.",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -7032,13 +6985,13 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Candidate",
       "prompt": "Old Winery You’ve inherited the \"Old Winery,\" a family-owned vineyard that’s been passed down for five generat",
-      "detail": "Old Winery You’ve inherited the \"Old Winery,\" a family-owned vineyard that’s been passed down for five generations since the 16th century.\nYour grandfather, who resisted change, left the management to a young winemaker. Due to its low profile, demand for the winery’s wine is currently low. With little experience in winemaking, you don’t plan to manage the business directly but are excited about owning it. How would you give the winery a fresh boost while preserving its heritage?\nThank you for the case. Before moving ahead with the overall strategy, I would like to understand the winery, the area of land used for "
+      "detail": "Old Winery You’ve inherited the \"Old Winery,\" a family-owned vineyard that’s been passed down for five generations since the 16th century.\nYour grandfather, who resisted change, left the management to a young winemaker. Due to its low profile, demand for the winery’s wine is currently low. With little experience in winemaking, you don’t plan to manage the business directly but are excited about owning it. How would you give the winery a fresh boost while preserving its heritage?\nThank you for the case. Before moving ahead with the overall strategy, I would like to understand the winery, the area of land used for"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "The vine stocks are in good condition in terms of age and care.",
-      "detail": "The vine stocks are in good condition in terms of age and care.\nAre we selling the whole produce as wine or some produce as grapes as well?\nClick here to give a mock interview Only 1⁄4 of the harvest is made into wine by the winery; the rest is sold as grapes.\nGood question. 1 kg of grapes yields usually between 0.4 and 0.8 l of wine. For a small and semi-professional winery like yours, yields are below average. 1-meter of Vine provides about 3 kg of grapes for wine production."
+      "detail": "The vine stocks are in good condition in terms of age and care.\nAre we selling the whole produce as wine or some produce as grapes as well?\nOnly 1⁄4 of the harvest is made into wine by the winery; the rest is sold as grapes.\nGood question. 1 kg of grapes yields usually between 0.4 and 0.8 l of wine. For a small and semi-professional winery like yours, yields are below average. 1-meter of Vine provides about 3 kg of grapes for wine production."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -7056,7 +7009,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "So, for calculating the total bottles, I will use the formula (Total grapes produced (kg) per hectare×Number o",
-      "detail": "So, for calculating the total bottles, I will use the formula (Total grapes produced (kg) per hectare×Number of hectares×Wine produced per kg of grapes)/(Volume of each bottle).\nSeems fine. Go ahead with your assumptions and calculations.\nFor that, I would assume Vines per area: approx. 2 m vines per 2 x 2 m2 = 4 m2.\nThe quantity of grapes per area is 2/4 m/m2 x 3 kg/m = 1.5 kg/m2. 1 hectare = 10,000 m2. So, the quantity of grapes per hectare will be 15,000 kg/hectare. Total bottles = (15,000 * 11 * 0.5 L)/0.75 = 1,10,000 / year Click here to give a mock interview Each vine occupies 4 square meters (2 m × 2 m), y"
+      "detail": "So, for calculating the total bottles, I will use the formula (Total grapes produced (kg) per hectare×Number of hectares×Wine produced per kg of grapes)/(Volume of each bottle).\nSeems fine. Go ahead with your assumptions and calculations.\nFor that, I would assume Vines per area: approx. 2 m vines per 2 x 2 m2 = 4 m2.\nThe quantity of grapes per area is 2/4 m/m2 x 3 kg/m = 1.5 kg/m2. 1 hectare = 10,000 m2. So, the quantity of grapes per hectare will be 15,000 kg/hectare. Total bottles = (15,000 * 11 * 0.5 L)/0.75 = 1,10,000 / year Each vine occupies 4 square meters (2 m × 2 m), y"
     }
   ],
   "recommendations": [
@@ -7126,10 +7079,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-48-relationship-dilemma-framework",
+  "id": "cm-cons-48-relationship-dilemma-framework",
   "title": "Relationship Dilemma Framework",
   "company": "PwC",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
@@ -7190,7 +7142,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Good question. Assume it’s a professional corporate internship, more like a full-time role, with long hours.",
-      "detail": "Good question. Assume it’s a professional corporate internship, more like a full-time role, with long hours.\nClick here to give a mock interview Understood. Second, are we assuming my partner is also in college/early career, or are they working full-time? This could affect availability and expectations.\nAssume your partner is also working, so both have busy schedules.\nGot it. And finally, is this relationship long-distance during the internship, or are both partners in the same city?"
+      "detail": "Good question. Assume it’s a professional corporate internship, more like a full-time role, with long hours.\nUnderstood. Second, are we assuming my partner is also in college/early career, or are they working full-time? This could affect availability and expectations.\nAssume your partner is also working, so both have busy schedules.\nGot it. And finally, is this relationship long-distance during the internship, or are both partners in the same city?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -7202,7 +7154,7 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "During the internship is where challenges are most likely. My approach would be to maintain consistent, realis",
-      "detail": "During the internship is where challenges are most likely. My approach would be to maintain consistent, realistic communication despite the heavy workload.\nClick here to give a mock interview That could be small gestures like a quick text in the morning, a five-minute call at night, or sharing an interesting moment from my day. I’d also consciously involve my partner by sharing what I’m learning or asking their perspective on challenges, so they feel included in my journey instead of left out. At the same time, I’d make sure to block some personal time — maybe a weekend evening that’s reserved exclusively for the"
+      "detail": "During the internship is where challenges are most likely. My approach would be to maintain consistent, realistic communication despite the heavy workload.\nThat could be small gestures like a quick text in the morning, a five-minute call at night, or sharing an interesting moment from my day. I’d also consciously involve my partner by sharing what I’m learning or asking their perspective on challenges, so they feel included in my journey instead of left out. At the same time, I’d make sure to block some personal time — maybe a weekend evening that’s reserved exclusively for the"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -7278,10 +7230,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-49-user-analysis-deep-dive",
+  "id": "cm-cons-49-user-analysis-deep-dive",
   "title": "User Analysis Deep-Dive",
   "company": "Zomato",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
@@ -7291,7 +7242,7 @@ window.CM_DATA.cases.push(
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "User Analysis Click here to give a mock interview You’re analyzing user behavior on the Zomato app. Can you plot a graph of Conversion Rate vs. Time Spent and walk me through what you see?",
+  "prompt": "User Analysis You’re analyzing user behavior on the Zomato app. Can you plot a graph of Conversion Rate vs. Time Spent and walk me through what you see?",
   "clarifyingQuestions": [
     {
       "q": "What do you infer about the users from the two maximas?",
@@ -7335,8 +7286,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "User Analysis Click here to give a mock interview You’re analyzing user behavior on the Zomato app. Can you pl",
-      "detail": "User Analysis Click here to give a mock interview You’re analyzing user behavior on the Zomato app. Can you plot a graph of Conversion Rate vs. Time Spent and walk me through what you see?\nWe notice two local maxima with a dip in between.\nWhat do you infer about the users from the two maximas?\nFirst Peak–Users who already know what they want or decide quickly."
+      "prompt": "User Analysis You’re analyzing user behavior on the Zomato app. Can you pl",
+      "detail": "User Analysis You’re analyzing user behavior on the Zomato app. Can you plot a graph of Conversion Rate vs. Time Spent and walk me through what you see?\nWe notice two local maxima with a dip in between.\nWhat do you infer about the users from the two maximas?\nFirst Peak–Users who already know what they want or decide quickly."
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -7360,7 +7311,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "What Strategies will you recommend according to the user behaviour?",
-      "detail": "What Strategies will you recommend according to the user behaviour?\n● First Peak : One-click reordering, “Order Again” section, and push notifications for favorites.\n● First Dip : Mid-session nudges, abandoned-cart reminders, and “recently viewed” quick links.\nClick here to give a mock interview ● Second Peak : Dynamic personalized offers, bundle deals, deal-comparison widgets."
+      "detail": "What Strategies will you recommend according to the user behaviour?\n● First Peak : One-click reordering, “Order Again” section, and push notifications for favorites.\n● First Dip : Mid-session nudges, abandoned-cart reminders, and “recently viewed” quick links.\n● Second Peak : Dynamic personalized offers, bundle deals, deal-comparison widgets."
     }
   ],
   "recommendations": [
@@ -7431,10 +7382,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-50-well-being-healthcare-strategy",
+  "id": "cm-cons-50-well-being-healthcare-strategy",
   "title": "Well Being Healthcare Strategy",
   "company": "McKinsey & Company",
-  "source": "KTC Casebook 2026",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
@@ -7457,7 +7407,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Click here to give a mock interview Got it. So, with NHC wanting to outsource patients to WB, are there any specific patient types or services involved in this offer?",
+      "q": "Got it. So, with NHC wanting to outsource patients to WB, are there any specific patient types or services involved in this offer?",
       "a": "No specific patient types mentioned yet, but the idea is for WB to take on some overflow patients from NHC, which could potentially increase WB’s patient base and revenue.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -7495,7 +7445,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Understood. What size are WB’s hospitals compared to public ones, and what kind of services do they offer?",
-      "detail": "Understood. What size are WB’s hospitals compared to public ones, and what kind of services do they offer?\nWB’s hospitals are about half the size of public ones, and they don’t offer Accident and Emergency (ER) services. Their revenue comes from patients paying through private insurance or by cash.\nClick here to give a mock interview Got it. So, with NHC wanting to outsource patients to WB, are there any specific patient types or services involved in this offer?\nNo specific patient types mentioned yet, but the idea is for WB to take on some overflow patients from NHC, which could potentially increase WB’s patient"
+      "detail": "Understood. What size are WB’s hospitals compared to public ones, and what kind of services do they offer?\nWB’s hospitals are about half the size of public ones, and they don’t offer Accident and Emergency (ER) services. Their revenue comes from patients paying through private insurance or by cash.\nGot it. So, with NHC wanting to outsource patients to WB, are there any specific patient types or services involved in this offer?\nNo specific patient types mentioned yet, but the idea is for WB to take on some overflow patients from NHC, which could potentially increase WB’s patient"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -7513,7 +7463,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Considering these factors, I think WB could raise these barriers by building hospitals in attractive locations",
-      "detail": "Considering these factors, I think WB could raise these barriers by building hospitals in attractive locations and offering competitive prices for its services.\nClick here to give a mock interview Now coming back to the offer, NHC has decided to contract out operations for hip replacements due to long waiting times. What factors should WB consider when deciding whether to accept these new contracts?\nThat’s an interesting opportunity. Could you clarify the scope of these contracts? Are they bulk contracts, and how would they affect WB’s existing operations?\nYes, they are bulk contracts. NHC would send a significan"
+      "detail": "Considering these factors, I think WB could raise these barriers by building hospitals in attractive locations and offering competitive prices for its services.\nNow coming back to the offer, NHC has decided to contract out operations for hip replacements due to long waiting times. What factors should WB consider when deciding whether to accept these new contracts?\nThat’s an interesting opportunity. Could you clarify the scope of these contracts? Are they bulk contracts, and how would they affect WB’s existing operations?\nYes, they are bulk contracts. NHC would send a significan"
     }
   ],
   "recommendations": [
@@ -7583,16 +7533,14 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-fast-food-chain",
+  "id": "cm-strat-fast-food-chain",
   "title": "Fast Food QSR Chain Revenue Decline",
   "company": "QSR Chain",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 1,
   "isStarter": true,
   "tags": [
-    "SRCRC",
     "Profitability",
     "QSR",
     "Revenue Decline",
@@ -7629,7 +7577,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick Service Restaurant (QSR) Chain The business is ",
+      "prompt": "FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick Service Restaurant (QSR) Chain The business is",
       "detail": "FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick Service Restaurant (QSR) Chain The business is a large QSR chain with a nationwide footprint and a fairly standard fast-food menu?\nBefore we dive in, I’d like to clarify a few points:\n1 . How much has revenue declined, and over what time frame? 2 . Is the drop consistent across locations or concentrated in specific regions? 3 . Have there been any changes in product offerings, pricing, or competitor activity during this period?\n1 . Revenue has dropped ~15% in the last quarter."
     },
     {
@@ -7648,7 +7596,7 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "Yes, customer traffic has gone down significantly, about 12% fewer transactions per store per month compared t",
-      "detail": "Yes, customer traffic has gone down significantly, about 12% fewer transactions per store per month compared to last quarter.\nUnderstood. Has the brand run any customer feedback surveys or NPS tracking recently? (had a brief discussion about what NPS is and how it is relevant here; interviewer was impressed by the mention of it) Yes, and interestingly, NPS has dipped slightly. Several customers mentioned frustration with the loyalty program.\nThat’s worth exploring. Can you tell me more about the loyalty program? Has there been a recent change?\n100 33 FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick "
+      "detail": "Yes, customer traffic has gone down significantly, about 12% fewer transactions per store per month compared to last quarter.\nUnderstood. Has the brand run any customer feedback surveys or NPS tracking recently? (had a brief discussion about what NPS is and how it is relevant here; interviewer was impressed by the mention of it) Yes, and interestingly, NPS has dipped slightly. Several customers mentioned frustration with the loyalty program.\nThat’s worth exploring. Can you tell me more about the loyalty program? Has there been a recent change?\n100 33 FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -7725,10 +7673,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-medical-implants",
+  "id": "cm-strat-medical-implants",
   "title": "Suggestion to Enter Medical Implants Sector",
   "company": "Healthcare / MedTech",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 3,
@@ -7796,7 +7743,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "Understood, so I have all the facts now. The structure which I propose would help us gauge this situation can ",
+      "prompt": "Understood, so I have all the facts now. The structure which I propose would help us gauge this situation can",
       "detail": "Understood, so I have all the facts now. The structure which I propose would help us gauge this situation can be broken down as checking for industry, financial viability, operational feasibility, how to enter, and risks associated. Under financial, we can look at ability to enter and attractiveness, while under operational, we can look at value chain setup, barriers to entry and diversification possibilities.\nLet’s focus on the value chain now. Can you break it down quickly?"
     },
     {
@@ -7873,10 +7820,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-airline-pricing",
+  "id": "cm-strat-airline-pricing",
   "title": "Pricing a 1-Hour Delhi–NY Business Aircraft Fleet",
   "company": "Airline Company",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -8025,10 +7971,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-road-transport",
+  "id": "cm-strat-road-transport",
   "title": "Improving Highway Logistical Efficiency (MoRTH)",
   "company": "Ministry of Road Transport",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -8177,10 +8122,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-nta-cheating",
+  "id": "cm-strat-nta-cheating",
   "title": "Tackling Cheating in Medical Entrance Exams (UP)",
   "company": "National Testing Authority",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -8329,16 +8273,14 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-public-sector-banking",
+  "id": "cm-strat-public-sector-banking",
   "title": "Diagnosing Decline in Bank Visits in Uttar Pradesh",
   "company": "Public Sector Bank",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 2,
   "isStarter": true,
   "tags": [
-    "SRCRC",
     "Profitability",
     "Banking",
     "Rural UP",
@@ -8476,10 +8418,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-us-auto-growth",
+  "id": "cm-strat-us-auto-growth",
   "title": "Diagnose & Grow a US Automobile Company",
   "company": "US Auto OEM",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 3,
@@ -8628,10 +8569,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-star-sports-wipl",
+  "id": "cm-strat-star-sports-wipl",
   "title": "Financial Attractiveness: Star Sports Bidding for W-IPL",
   "company": "Star Sports",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 3,
@@ -8781,10 +8721,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-global-gadget-go",
+  "id": "cm-strat-global-gadget-go",
   "title": "Global Gadget Go Expansion into Southeast Asia",
   "company": "Wearable Tech",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 2,
@@ -8834,7 +8773,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "THE GLOBAL GADGET GO Assess the feasibility of expansion and recommend a Market Entry Strategy We're advising ",
+      "prompt": "THE GLOBAL GADGET GO Assess the feasibility of expansion and recommend a Market Entry Strategy We're advising",
       "detail": "THE GLOBAL GADGET GO Assess the feasibility of expansion and recommend a Market Entry Strategy We're advising 'Global Gadget Go,' a leading US wearable tech company, on expanding into Southeast Asia. They've asked us to assess feasibility and recommend a market entry strategy. Where would you like to start?\nTo start, I’d like to gather key info: 1 . Market size and growth of wearable fitness trackers in Southeast Asia.\n2 . Target customer demographics and preferences in Southeast Asia.\n3 . Key competitors, local or international."
     },
     {
@@ -8929,10 +8868,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-tin-sheets",
+  "id": "cm-strat-tin-sheets",
   "title": "Tin Sheets Manufacturer Net Margin Expansion",
   "company": "Industrial Mfg",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -8989,13 +8927,13 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Firs tly, I’d like to know a little more about the client’s business and their customers, and if it’d be fair ",
+      "prompt": "Firs tly, I’d like to know a little more about the client’s business and their customers, and if it’d be fair",
       "detail": "Firs tly, I’d like to know a little more about the client’s business and their customers, and if it’d be fair to assume that our client is a B2B player.\nOur client deals only in the finished product, i:e, tin sheets, and as correctly identified, our client is a B2B player with customers being businesses in FMCG, F&B, Paints, etc.\nUnderstood, so are there different types of products as well?\nYes, the tin sheets vary depending upon the thickness, length and breadth, as demanded by the customers."
     },
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Alright. Also, by net margin do we refer to profits/revenue, and what part of the value chain does the client ",
+      "prompt": "Alright. Also, by net margin do we refer to profits/revenue, and what part of the value chain does the client",
       "detail": "Alright. Also, by net margin do we refer to profits/revenue, and what part of the value chain does the client lie in, vis a vis its competitors?\nYes, th a t’s cor re ct. You c a n think t hat cli e n t receives coil s , w hich a r e rolled out into rods, are stored, and a third p arty undertakes log i s t ics. Similar is the val u e chain for com p etitors, but our client is t he bigg e st player.\nTh anks for th e in form ati o n . La s t l y , wh at m a gnitud e o f ne t marg in i s e xpec ted and w hat ’s t h e timeline f or the sa m e ?\nTa k e i t t o be 10-15% i n aro u nd 1-2 y e a r s ."
     },
     {
@@ -9078,10 +9016,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-bombay-theatre",
+  "id": "cm-strat-bombay-theatre",
   "title": "Standalone Theatre in Bombay Revenue Growth",
   "company": "Entertainment",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 2,
@@ -9230,10 +9167,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-cement-conglomerate",
+  "id": "cm-strat-cement-conglomerate",
   "title": "Cement Conglomerate Low Profitability",
   "company": "Cement Co.",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -9285,7 +9221,7 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
       "prompt": "CEMENT CONGLOMERATE Facing Low Profitability Hi Parth! Let’s start your case. Your client is a conglomerate in",
-      "detail": "CEMENT CONGLOMERATE Facing Low Profitability Hi Parth! Let’s start your case. Your client is a conglomerate in Calcutta, and works in the cement space too. It has 2 plants, having 5 MT of total capacity in Eastern India, but unfortunately, they’re able to sell only 2 MT and hence, their profitability is low. How would you help them?\nSounds like an interesting case sir! Just to clarify, our client is a conglomerate, facing low profitability in their cement business. Their 2 East Indian plants have 5MT capacity, but have only been able to sell 2MT. We’ve to provide solutions for a turn-around.\nYou’ve got it right.\n"
+      "detail": "CEMENT CONGLOMERATE Facing Low Profitability Hi Parth! Let’s start your case. Your client is a conglomerate in Calcutta, and works in the cement space too. It has 2 plants, having 5 MT of total capacity in Eastern India, but unfortunately, they’re able to sell only 2 MT and hence, their profitability is low. How would you help them?\nSounds like an interesting case sir! Just to clarify, our client is a conglomerate, facing low profitability in their cement business. Their 2 East Indian plants have 5MT capacity, but have only been able to sell 2MT. We’ve to provide solutions for a turn-around.\nYou’ve got it right."
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -9379,10 +9315,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-shipping-logistics",
+  "id": "cm-strat-shipping-logistics",
   "title": "B2B & B2C Marketing Campaign for Shipping Logistics",
   "company": "Shipping Logistics",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "GTM",
   "difficulty": 2,
@@ -9461,7 +9396,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "SHIPPING LOGISTICS COMPANY Marketing Campaign for a Shipping Logistics Company Okay, great. Can you also tell ",
+      "prompt": "SHIPPING LOGISTICS COMPANY Marketing Campaign for a Shipping Logistics Company Okay, great. Can you also tell",
       "detail": "SHIPPING LOGISTICS COMPANY Marketing Campaign for a Shipping Logistics Company Okay, great. Can you also tell how they should go about the B2C segment?\nSure, do we have any budget allocated for the marketing expenses for this segment?\nThey have roughly $100000 for a B2C marketing plan.\nOkay. As B2C is customer-centric, combining platforms like Instagram, Facebook, and YouTube can be effective due to a broader audience and better visual appeal. As they are new to this segment and want to explore it through the packers and movers domain, they should play on their strengths, as safety is the main requirement in such"
     }
   ],
@@ -9532,10 +9467,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-unconventional-psb",
+  "id": "cm-strat-unconventional-psb",
   "title": "Unconventional Public Sector Bank Productivity",
   "company": "Public Sector Bank",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -9684,10 +9618,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-hepatitis-c-drug",
+  "id": "cm-strat-hepatitis-c-drug",
   "title": "Determining Price of a New Hepatitis-C Drug",
   "company": "Pharma",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -9836,10 +9769,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-five-star-hotel",
+  "id": "cm-strat-five-star-hotel",
   "title": "Mumbai 5-Star Hotel Lower Profitability",
   "company": "Hospitality",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 2,
@@ -9902,7 +9834,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Alrig ht! So, this is not a market wide problem. Next, I would like to know more about the hotel itself. What ",
+      "prompt": "Alrig ht! So, this is not a market wide problem. Next, I would like to know more about the hotel itself. What",
       "detail": "Alrig ht! So, this is not a market wide problem. Next, I would like to know more about the hotel itself. What type of a hotel is this?\nIt is a luxury hotel with different rooms for different customer types.\nWhat are the types of customers that we normally receive at our hotel? And hav we observed any change in their ratios?\nTwo types are tourists & business customers. The split be tween them is 30:70."
     },
     {
@@ -9985,10 +9917,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-ecom-sustainability",
+  "id": "cm-strat-ecom-sustainability",
   "title": "E-Commerce Company Taking Sustainable Measures",
   "company": "E-Commerce",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -10137,10 +10068,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "srcrc-mobile-showroom",
+  "id": "cm-strat-mobile-showroom",
   "title": "Reasons for Revenue Decline of Mobile Phone Showroom",
   "company": "Retail Store",
-  "source": "SRCRC Casebook 2025",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 2,

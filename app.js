@@ -32,7 +32,6 @@
       search: '',
       track: 'All',
       category: 'All',
-      source: 'All',
       difficulty: 'All',
       status: 'All'
     },
@@ -60,17 +59,45 @@
     return 'paper';
   }
 
+  function migrateCaseId(id) {
+    if (!id || typeof id !== 'string') return id;
+    return id
+      .replace(/^sj-/, 'cm-core-')
+      .replace(/^ecell-/, 'cm-pm-')
+      .replace(/^ktc-/, 'cm-cons-')
+      .replace(/^srcrc-/, 'cm-strat-');
+  }
+
+  function migrateIdMap(map) {
+    const out = {};
+    if (map && typeof map === 'object') {
+      for (const [k, v] of Object.entries(map)) {
+        if (v) out[migrateCaseId(k)] = v;
+      }
+    }
+    return out;
+  }
+
+  function applyStateMigrations(base) {
+    base.selectedCaseId = migrateCaseId(base.selectedCaseId);
+    if (base.guided) base.guided.caseId = migrateCaseId(base.guided.caseId);
+    base.masteredIds = migrateIdMap(base.masteredIds);
+    base.bookmarkedIds = migrateIdMap(base.bookmarkedIds);
+    return base;
+  }
+
   function loadState() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return structuredClone(defaultState);
       const parsed = JSON.parse(raw);
-      const base = {
+      const base = applyStateMigrations({
         ...structuredClone(defaultState),
         ...parsed,
         filters: { ...defaultState.filters, ...(parsed.filters || {}) },
         guided: { ...defaultState.guided, ...(parsed.guided || {}) }
-      };
+      });
+      delete base.filters.source;
       if (!parsed.uiVersion || Number(parsed.uiVersion) < 2) {
         base.uiVersion = 2;
         base.theme = 'paper';
@@ -499,7 +526,7 @@
                 <span class="pill pill-blue">${esc(c.company)}</span>
               </div>
               <strong style="font-size:0.94rem;line-height:1.32;">${esc(c.title)}</strong>
-              <div style="font-size:0.82rem;color:var(--text-dim);margin-top:auto;">${esc(c.source)} · ${diffDots(c.difficulty)}</div>
+              <div style="font-size:0.82rem;color:var(--text-dim);margin-top:auto;">${esc(c.track)} · ${diffDots(c.difficulty)}</div>
               <div style="display:flex;gap:6px;margin-top:3px;">
                 <button type="button" class="btn btn-sm" style="flex:1;" data-open-case="${esc(c.id)}">Read Dossier</button>
                 <button type="button" class="btn btn-sm btn-primary" style="flex:1;" data-practice-id="${esc(c.id)}">Guided Solve</button>
@@ -778,13 +805,12 @@
       if (f.track === 'Starter' && !c.isStarter) return false;
       if (f.track !== 'All' && f.track !== 'Starter' && c.track !== f.track) return false;
       if (f.category !== 'All' && c.category !== f.category) return false;
-      if (f.source !== 'All' && c.source !== f.source) return false;
       if (f.difficulty !== 'All' && String(c.difficulty) !== String(f.difficulty)) return false;
       if (f.status === 'Mastered' && !state.masteredIds[c.id]) return false;
       if (f.status === 'Unread' && state.masteredIds[c.id]) return false;
       if (f.status === 'Bookmarked' && !state.bookmarkedIds[c.id]) return false;
       if (q) {
-        const hay = `${c.title} ${c.company} ${c.category} ${c.track} ${c.source} ${c.prompt} ${(c.tags || []).join(' ')}`.toLowerCase();
+        const hay = `${c.title} ${c.company} ${c.category} ${c.track} ${c.prompt} ${(c.tags || []).join(' ')}`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
@@ -824,7 +850,6 @@
               ${c.isStarter ? '<span class="pill pill-green">Starter</span>' : ''}
               <span class="pill pill-purple">${esc(c.category)}</span>
               <span class="pill pill-blue">${esc(c.track)} · ${esc(c.company)}</span>
-              <span class="pill">${esc(c.source)}</span>
               ${diffDots(c.difficulty)}
             </div>
             <h2 style="margin:0;font-size:1.22rem;letter-spacing:-0.015em;">${esc(c.title)}</h2>
@@ -997,21 +1022,20 @@
           </div>
         </div>
         <h4>${esc(c.title)}</h4>
-        <div style="font-size:0.82rem;color:var(--text-dim);">${esc(c.company)} · ${esc(c.source)}</div>
+        <div style="font-size:0.82rem;color:var(--text-dim);">${esc(c.company)} · ${esc(c.track)}</div>
       </div>
     `).join('') || '<div class="card-flat">No matching cases. Click Reset Filters.</div>';
   }
 
   function renderLibrary() {
     const categories = ['All', ...new Set(CASES.map(c => c.category))];
-    const sources = ['All', ...new Set(CASES.map(c => c.source))];
 
     const filtered = getFilteredCases();
     if (!filtered.some(c => c.id === state.selectedCaseId) && filtered.length) {
       state.selectedCaseId = filtered[0].id;
     }
     const activeCase = filtered.find(c => c.id === state.selectedCaseId) || filtered[0] || null;
-    const extraCount = [state.filters.source !== 'All', state.filters.difficulty !== 'All', state.filters.status !== 'All'].filter(Boolean).length;
+    const extraCount = [state.filters.difficulty !== 'All', state.filters.status !== 'All'].filter(Boolean).length;
 
     return `
       <div class="page-header">
@@ -1042,10 +1066,6 @@
 
       ${state.libMoreFiltersOpen ? `
         <div class="filter-bar-extra">
-          <select class="select" id="lib-source">
-            <option value="All" ${state.filters.source === 'All' ? 'selected' : ''}>Source: All</option>
-            ${sources.filter(s => s !== 'All').map(s => `<option value="${esc(s)}" ${state.filters.source === s ? 'selected' : ''}>${esc(s)}</option>`).join('')}
-          </select>
           <select class="select" id="lib-diff">
             <option value="All" ${state.filters.difficulty === 'All' ? 'selected' : ''}>Level: All</option>
             ${[1, 2, 3, 4, 5].map(d => `<option value="${d}" ${String(state.filters.difficulty) === String(d) ? 'selected' : ''}>Level ${d}</option>`).join('')}
@@ -1740,7 +1760,7 @@
 
     const matchedActions = actions.filter(a => !q || `${a.kind} ${a.title} ${a.hint}`.toLowerCase().includes(q));
     const matchedCases = CASES
-      .filter(c => !q || `${c.title} ${c.company} ${c.category} ${c.source} ${c.track}`.toLowerCase().includes(q))
+      .filter(c => !q || `${c.title} ${c.company} ${c.category} ${c.track}`.toLowerCase().includes(q))
       .slice(0, q ? 12 : 6)
       .map(c => ({
         kind: c.category,
@@ -2084,7 +2104,6 @@
     bindFilter('lib-search', 'search');
     bindFilter('lib-track', 'track');
     bindFilter('lib-category', 'category');
-    bindFilter('lib-source', 'source');
     bindFilter('lib-diff', 'difficulty');
     bindFilter('lib-status', 'status');
 
@@ -2102,7 +2121,7 @@
       clearBtn.addEventListener('click', () => {
         state.filters = { ...defaultState.filters };
         const gs = document.getElementById('global-search'); if (gs) gs.value = '';
-        ['lib-search', 'lib-track', 'lib-category', 'lib-source', 'lib-diff', 'lib-status'].forEach(id => {
+        ['lib-search', 'lib-track', 'lib-category', 'lib-diff', 'lib-status'].forEach(id => {
           const el = document.getElementById(id);
           if (el) el.value = id === 'lib-search' ? '' : 'All';
         });
@@ -2696,14 +2715,15 @@
       reader.onload = () => {
         try {
           const parsed = JSON.parse(String(reader.result || '{}'));
-          state = {
+          state = applyStateMigrations({
             ...structuredClone(defaultState),
             ...parsed,
             uiVersion: 2,
             theme: normalizeTheme(parsed.theme),
             filters: { ...defaultState.filters, ...(parsed.filters || {}) },
             guided: { ...defaultState.guided, ...(parsed.guided || {}) }
-          };
+          });
+          delete state.filters.source;
           saveState();
           toggleSettings(false);
           render();

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'casemaster-pro-v2';
+const CACHE_NAME = 'casemaster-pro-v3';
 
 const CORE_ASSETS = [
   './',
@@ -9,7 +9,7 @@ const CORE_ASSETS = [
   './favicon.ico',
   './data/curriculum.js',
   './data/reference.js',
-  './data/cases_sawal_jawab.js',
+  './data/cases_core.js',
   './data/cases_product.js',
   './data/cases_consulting.js',
   './icons/logo.svg',

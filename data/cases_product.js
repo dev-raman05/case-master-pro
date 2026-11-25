@@ -3,10 +3,9 @@ window.CM_DATA.cases = window.CM_DATA.cases || [];
 
 window.CM_DATA.cases.push(
 {
-  "id": "ecell-rca-swiggy-delhi",
+  "id": "cm-pm-rca-swiggy-delhi",
   "title": "Swiggy Lost Its Delhi Appetite",
   "company": "Swiggy",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 1,
@@ -75,7 +74,7 @@ window.CM_DATA.cases.push(
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
       "prompt": "Yes, dinner slots seem most impacted, especially for repeat users ordering Indian and Chinese cuisines.",
-      "detail": "Yes, dinner slots seem most impacted, especially for repeat users ordering Indian and Chinese cuisines.\nGreat. Now that we’ve framed the problem, let’s look at internal factors first, then move to external influences, and finally narrow down the root cause.\nI’d start by checking for pricing, delivery fee, or discount policy changes, anything that could make Swiggy seem less affordable. If there was a revision to delivery charges or fewer discount codes, that would directly affect repeat users.\nI’d also look into app performance and UX, were there any UI changes, payment errors, or slowdowns that might discourage "
+      "detail": "Yes, dinner slots seem most impacted, especially for repeat users ordering Indian and Chinese cuisines.\nGreat. Now that we’ve framed the problem, let’s look at internal factors first, then move to external influences, and finally narrow down the root cause.\nI’d start by checking for pricing, delivery fee, or discount policy changes, anything that could make Swiggy seem less affordable. If there was a revision to delivery charges or fewer discount codes, that would directly affect repeat users.\nI’d also look into app performance and UX, were there any UI changes, payment errors, or slowdowns that might discourage"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -157,10 +156,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-rca-meesho-returns",
+  "id": "cm-pm-rca-meesho-returns",
   "title": "The Delivery Dilemma of Meesho (Returns +20%)",
   "company": "Meesho",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -309,10 +307,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-rca-silent-malls",
+  "id": "cm-pm-rca-silent-malls",
   "title": "The Curious Case of the Silent Malls",
   "company": "Retail Chain",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -461,10 +458,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-rca-zepto-checkouts",
+  "id": "cm-pm-rca-zepto-checkouts",
   "title": "The Vanishing Checkouts of Zepto (-12%)",
   "company": "Zepto",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 1,
@@ -610,10 +606,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-rca-paytm-mau",
+  "id": "cm-pm-rca-paytm-mau",
   "title": "When Paytm Stopped Ringing (-5% MAU)",
   "company": "Paytm",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -762,10 +757,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-rca-linkedin-creators",
+  "id": "cm-pm-rca-linkedin-creators",
   "title": "When LinkedIn Lost Its Voice (Creator Posts)",
   "company": "LinkedIn",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 3,
@@ -827,7 +821,7 @@ window.CM_DATA.cases.push(
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
       "prompt": "Actually, yes. There's been a drop in average impressions per post over the same period.",
-      "detail": "Actually, yes. There's been a drop in average impressions per post over the same period.\nThat's significant. If creators are seeing lower reach on their posts, they may feel discouraged and post less, since the reward for showing up regularly has weakened. I'd want to understand what's driving that impressions drop, is it a feed algorithm change, or something else?\nYes, the feed ranking algorithm was updated a month ago to prioritize \"professional insight\" content over personal updates and career milestones.\nThat aligns well with the timing. If the algorithm now deprioritizes the kind of casual, frequent updates "
+      "detail": "Actually, yes. There's been a drop in average impressions per post over the same period.\nThat's significant. If creators are seeing lower reach on their posts, they may feel discouraged and post less, since the reward for showing up regularly has weakened. I'd want to understand what's driving that impressions drop, is it a feed algorithm change, or something else?\nYes, the feed ranking algorithm was updated a month ago to prioritize \"professional insight\" content over personal updates and career milestones.\nThat aligns well with the timing. If the algorithm now deprioritizes the kind of casual, frequent updates"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -909,10 +903,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-rca-banking-uninstalls",
+  "id": "cm-pm-rca-banking-uninstalls",
   "title": "The Great Banking App Vanish (Uninstall Spike)",
   "company": "Retail Bank",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -972,7 +965,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Got it. Let’s start with internal factors. Were there any app updates or feature rollouts recently that could ",
+      "prompt": "Got it. Let’s start with internal factors. Were there any app updates or feature rollouts recently that could",
       "detail": "Got it. Let’s start with internal factors. Were there any app updates or feature rollouts recently that could have affected experience, maybe login bugs, crashes, or a change in navigation flow?\nThere was a UI update about a month ago, but nothing major functionally changed. No new feature or known bug.\nAlright, if internal issues are ruled out, let’s look at external ones. Have we noticed any major competitor campaigns or new entrants in the same segment lately?"
     },
     {
@@ -1061,10 +1054,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-rca-indigo-cancellations",
+  "id": "cm-pm-rca-indigo-cancellations",
   "title": "Turbulence Over Indigo Skies (+20% Cancellations)",
   "company": "IndiGo",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 3,
@@ -1213,10 +1205,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-blinkit-group",
+  "id": "cm-pm-design-blinkit-group",
   "title": "Building the Future of Group Ordering at Blinkit",
   "company": "Blinkit",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 1,
@@ -1280,14 +1271,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "I’d think of it in five steps. First, the organizer creates a group order. Second, they invite others through ",
+      "prompt": "I’d think of it in five steps. First, the organizer creates a group order. Second, they invite others through",
       "detail": "I’d think of it in five steps. First, the organizer creates a group order. Second, they invite others through a link or contacts. Third, everyone adds their own items to a shared cart.\nFourth, the organizer reviews and finalizes the basket. Fifth, they place the order normally. The key is that collaboration should feel natural without making the checkout process complicated.\nInteresting. Tell me more about the core flow.\nI’d keep the core flow very lightweight. The organizer taps “Create Group Order”, and Blinkit generates a shared cart and invite link. Once people join, they can browse the app and directly add i"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "I’d also show who added each item. So instead of just seeing “Milk,” the organizer could see “Milk — Added by ",
-      "detail": "I’d also show who added each item. So instead of just seeing “Milk,” the organizer could see “Milk — Added by Rahul.” This makes ownership visible, reduces duplicate requests, and makes the shared cart easier to manage.\nWhy keep one organizer in control? Why not let everyone check out together?\nBecause checkout needs one clear decision-maker. If multiple people can modify the final order at the same time, we could have confusion around deleted items, substitutions, delivery details, or payment. So I’d allow everyone to contribute freely, but keep the final checkout with one organizer. That gives us collaboration "
+      "prompt": "I’d also show who added each item. So instead of just seeing “Milk,” the organizer could see “Milk — Added by",
+      "detail": "I’d also show who added each item. So instead of just seeing “Milk,” the organizer could see “Milk — Added by Rahul.” This makes ownership visible, reduces duplicate requests, and makes the shared cart easier to manage.\nWhy keep one organizer in control? Why not let everyone check out together?\nBecause checkout needs one clear decision-maker. If multiple people can modify the final order at the same time, we could have confusion around deleted items, substitutions, delivery details, or payment. So I’d allow everyone to contribute freely, but keep the final checkout with one organizer. That gives us collaboration"
     }
   ],
   "recommendations": [
@@ -1357,10 +1348,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-canva-ai",
+  "id": "cm-pm-design-canva-ai",
   "title": "Building the Next AI Feature for Canva",
   "company": "Canva",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 2,
@@ -1383,7 +1373,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Understood. One more — is the goal purely speed, or are we also trying to help users who lack design skill/confidence produce quality output? I ask because those are slightly different problems: one is about efficiency, ",
+      "q": "Understood. One more — is the goal purely speed, or are we also trying to help users who lack design skill/confidence produce quality output? I ask because those are slightly different problems: one is about efficiency,",
       "a": "Both matter, but if you had to prioritize, capability — helping non-designers produce quality output faster — is the bigger business goal.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -1510,10 +1500,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-cred-credit",
+  "id": "cm-pm-design-cred-credit",
   "title": "Reimagining Credit for First-Time Professionals at CRED",
   "company": "CRED",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 3,
@@ -1663,10 +1652,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-phonepe-bank",
+  "id": "cm-pm-design-phonepe-bank",
   "title": "When PhonePe Became the Bank (Lending Feature)",
   "company": "PhonePe",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 3,
@@ -1745,7 +1733,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "They can track repayments easily and even earn small rewards or badges for timely EMIs. Everything, from loan ",
+      "prompt": "They can track repayments easily and even earn small rewards or badges for timely EMIs. Everything, from loan",
       "detail": "They can track repayments easily and even earn small rewards or badges for timely EMIs. Everything, from loan status to repayment reminders should live right inside the main PhonePe dashboard.\nAnd what would a typical user journey look like?\nA first-time user opens the “Lending” section, the app checks eligibility in the background, an offer appears, they complete KYC and e-sign, and the amount is disbursed instantly. Repayments happen automatically through UPI mandates with gentle reminders.\nA repeat user simply visits “My Loans,” withdraws again from the approved credit line, and tracks EMIs."
     }
   ],
@@ -1816,10 +1804,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-donation-app",
+  "id": "cm-pm-design-donation-app",
   "title": "Trust Me, I’m Donating (Transparent Donation App)",
   "company": "Social Impact",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 2,
@@ -1874,7 +1861,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Your task is to design a donation app that is easy to use and builds trust by showing users exactly how their ",
+      "prompt": "Your task is to design a donation app that is easy to use and builds trust by showing users exactly how their",
       "detail": "Your task is to design a donation app that is easy to use and builds trust by showing users exactly how their contributions make an impact. How would you approach this?\nBefore suggesting solutions, may I ask a few clarifying questions?\nFirstly, should the focus be purely on transparency and showing impact, or should we also include engagement features like gamification and recurring donations?"
     },
     {
@@ -1969,10 +1956,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-child-safety",
+  "id": "cm-pm-design-child-safety",
   "title": "Who Let the Kids Out? (Child Safety App)",
   "company": "Consumer Tech",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 2,
@@ -2027,7 +2013,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Your task is to design a product that lets Indian parents monitor and safeguard their child when the child is ",
+      "prompt": "Your task is to design a product that lets Indian parents monitor and safeguard their child when the child is",
       "detail": "Your task is to design a product that lets Indian parents monitor and safeguard their child when the child is away from home. How would you approach it?\nBefore I jump in, can I clarify a few things?\nFirst, what age group are we talking about? And are we considering both urban and rural families? The challenges, connectivity and infrastructure are very different.\nSchool-going kids, let’s say 5 to 14 years. We consider both types of families, but you can prioritize where the opportunity is bigger."
     },
     {
@@ -2051,7 +2037,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Another big one, especially in India, is hesitation to give children smartphones as parents want them to stay ",
+      "prompt": "Another big one, especially in India, is hesitation to give children smartphones as parents want them to stay",
       "detail": "Another big one, especially in India, is hesitation to give children smartphones as parents want them to stay connected but without distractions like games or social media. Also, in most schools, carrying a smartphone is not allowed.\nAnd finally, infrastructure issues especially in Tier-2,3 cities poor GPS accuracy in congested areas, network drops, or battery drainage can make existing tracking apps frustrating.\nPropose your solution.\nParents want a controlled device, not a full smartphone. I’d go with a wrist wearable for the child since it’s affordable and comfortable for kids plus a mobile app for the parents"
     }
   ],
@@ -2122,10 +2108,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-irctc-tatkal",
+  "id": "cm-pm-design-irctc-tatkal",
   "title": "Reimagining IRCTC Tatkal Rush Experience",
   "company": "IRCTC",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 3,
@@ -2275,10 +2260,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-design-blood-donation",
+  "id": "cm-pm-design-blood-donation",
   "title": "Swipe Right to Save a Life (Blood Donation Platform)",
   "company": "Healthtech",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 2,
@@ -2428,10 +2412,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-metrics-quora-ads",
+  "id": "cm-pm-metrics-quora-ads",
   "title": "Quora Counting Coins (Ad Visibility & Revenue)",
   "company": "Quora",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 2,
@@ -2486,7 +2469,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Quora’s ad revenue largely depends on ad visibility. How do impressions impact this, and what would you track ",
+      "prompt": "Quora’s ad revenue largely depends on ad visibility. How do impressions impact this, and what would you track",
       "detail": "Quora’s ad revenue largely depends on ad visibility. How do impressions impact this, and what would you track to measure it effectively?\nBefore jumping in, just to clarify, are we talking about impressions across all surfaces like web, mobile app, and feed, or primarily the feed ads?\nFocus on overall ad impressions across key surfaces.\nGot it. Then, I’d start by defining impressions as the number of times ads are viewed by users, essentially representing Quora’s ad inventory. Tracking them helps us understand reach, user engagement, and product health."
     },
     {
@@ -2581,10 +2564,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-metrics-uber-dashboard",
+  "id": "cm-pm-metrics-uber-dashboard",
   "title": "Behind Uber’s Ride-Sharing KPI Dashboard",
   "company": "Uber",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 2,
@@ -2734,10 +2716,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-metrics-fb-ad-load",
+  "id": "cm-pm-metrics-fb-ad-load",
   "title": "Facebook Overdosed on Sponsored Content (Ad Load)",
   "company": "Facebook",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 3,
@@ -2799,25 +2780,25 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "We're considering a 10-15% increase in ad density for that segment. It's meaningful enough to move revenue, bu",
-      "detail": "We're considering a 10-15% increase in ad density for that segment. It's meaningful enough to move revenue, but hopefully not so large that it causes a major backlash.\nUnderstood. And one final clarifying question: is this ad load increase planned for all Facebook surfaces, or is it specifically for the mobile News Feed, given the target market?\nLet's focus exclusively on the mobile News Feed for now. That's where the vast majority of engagement happens for this segment. With that, how would you approach defining the metrics?\nGreat, thank you. That clarity is crucial. My approach would be to track a balanced set "
+      "detail": "We're considering a 10-15% increase in ad density for that segment. It's meaningful enough to move revenue, but hopefully not so large that it causes a major backlash.\nUnderstood. And one final clarifying question: is this ad load increase planned for all Facebook surfaces, or is it specifically for the mobile News Feed, given the target market?\nLet's focus exclusively on the mobile News Feed for now. That's where the vast majority of engagement happens for this segment. With that, how would you approach defining the metrics?\nGreat, thank you. That clarity is crucial. My approach would be to track a balanced set"
     },
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "That's a good list. Why is it important to consider both a 'User POV' and a 'Business POV' for these metrics? ",
-      "detail": "That's a good list. Why is it important to consider both a 'User POV' and a 'Business POV' for these metrics? Could you walk me through how one of them reflects that duality?\nAbsolutely. That duality is key because user health is a leading indicator of business health. For instance, if Time Spent per User drops, users are signaling boredom or irritation; this directly reduces ad opportunities, which is a strong leading indicator of future revenue decline.\nI see. Let's focus on the business side for a moment. From an advertiser's perspective, how does Click-Through Rate fit into your framework for evaluating this "
+      "prompt": "That's a good list. Why is it important to consider both a 'User POV' and a 'Business POV' for these metrics?",
+      "detail": "That's a good list. Why is it important to consider both a 'User POV' and a 'Business POV' for these metrics? Could you walk me through how one of them reflects that duality?\nAbsolutely. That duality is key because user health is a leading indicator of business health. For instance, if Time Spent per User drops, users are signaling boredom or irritation; this directly reduces ad opportunities, which is a strong leading indicator of future revenue decline.\nI see. Let's focus on the business side for a moment. From an advertiser's perspective, how does Click-Through Rate fit into your framework for evaluating this"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "We've discussed user time and advertiser value on the Facebook platform itself. But how would you monitor the ",
+      "prompt": "We've discussed user time and advertiser value on the Facebook platform itself. But how would you monitor the",
       "detail": "We've discussed user time and advertiser value on the Facebook platform itself. But how would you monitor the second-order effects on the broader Meta ecosystem?\nThat's where Cross-Platform Spillover comes in. We would need to monitor if we're just pushing users to feel less 'sold to' on other Meta apps like Instagram or WhatsApp. This tells us if we're just cannibalizing our own attention, not growing the pie.\nGreat, that covers all the bases. Now for the tough question about prioritization. If you could only have one of these on your main dashboard as the ultimate health indicator, which North Star metric would"
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Interesting choice. Can you elaborate on that? Why do you believe that's a more actionable early-warning signa",
-      "detail": "Interesting choice. Can you elaborate on that? Why do you believe that's a more actionable early-warning signal than, for example, a drop in CTR?\nI reason that a drop in CTR is advertiser-focused, while Negative Feedback is a direct, unambiguous statement from a user that their experience is bad. It warns us if we've crossed from balanced to spammy.\nOkay, the experiment has run its course, and you have all the data. How do you translate the numbers from metrics like CTR and Negative Feedback into a clear 'go,' 'no-go,' or 'iterate' decision?\nMy approach is to act based on a clear framework. I would first segment "
+      "detail": "Interesting choice. Can you elaborate on that? Why do you believe that's a more actionable early-warning signal than, for example, a drop in CTR?\nI reason that a drop in CTR is advertiser-focused, while Negative Feedback is a direct, unambiguous statement from a user that their experience is bad. It warns us if we've crossed from balanced to spammy.\nOkay, the experiment has run its course, and you have all the data. How do you translate the numbers from metrics like CTR and Negative Feedback into a clear 'go,' 'no-go,' or 'iterate' decision?\nMy approach is to act based on a clear framework. I would first segment"
     }
   ],
   "recommendations": [
@@ -2887,10 +2868,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-metrics-twitter-tweets",
+  "id": "cm-pm-metrics-twitter-tweets",
   "title": "Twitter Lost Its Voice (Tweets Down, DAU Flat)",
   "company": "Twitter / X",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 3,
@@ -3040,10 +3020,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-metrics-bank-cross-sell",
+  "id": "cm-pm-metrics-bank-cross-sell",
   "title": "Bank Selling Dreams (Retail Cross-Sell Metrics)",
   "company": "Retail Bank",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 2,
@@ -3117,7 +3096,7 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "Sure. The key metric would be Incremental Net Revenue per Customer (₹). We’ll measure success by looking at ho",
-      "detail": "Sure. The key metric would be Incremental Net Revenue per Customer (₹). We’ll measure success by looking at how much better the campaign performs than the control group, the return on investment based on the extra revenue earned for what we spent, and the overall customer experience through things like NPS, complaints, and retention.\nHow would you measure real impact?\nIdeally through A/B testing, one group sees the offer, another doesn’t. If not possible, we can use regional rollouts or compare similar customers using historical spending trends.\nThe key is to see what changed because of the offer, not what would "
+      "detail": "Sure. The key metric would be Incremental Net Revenue per Customer (₹). We’ll measure success by looking at how much better the campaign performs than the control group, the return on investment based on the extra revenue earned for what we spent, and the overall customer experience through things like NPS, complaints, and retention.\nHow would you measure real impact?\nIdeally through A/B testing, one group sees the offer, another doesn’t. If not possible, we can use regional rollouts or compare similar customers using historical spending trends.\nThe key is to see what changed because of the offer, not what would"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -3193,10 +3172,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-metrics-whatsapp-communities",
+  "id": "cm-pm-metrics-whatsapp-communities",
   "title": "Measuring Communities on WhatsApp",
   "company": "WhatsApp",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 2,
@@ -3253,7 +3231,7 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
       "prompt": "You are a Product Manager at WhatsApp. Communities has become an important part of the platform, helping users",
-      "detail": "You are a Product Manager at WhatsApp. Communities has become an important part of the platform, helping users organize conversations across multiple groups. How would you measure the success of this feature? Walk me through the key metrics you would track and explain why they matter.\nBefore jumping in, can I clarify the scope? Are we measuring Communities globally across all markets, or focusing on specific segments like large communities such as schools and residential societies versus smaller informal ones?\nLet's focus on global metrics, but feel free to highlight nuances by community size if relevant Got it. "
+      "detail": "You are a Product Manager at WhatsApp. Communities has become an important part of the platform, helping users organize conversations across multiple groups. How would you measure the success of this feature? Walk me through the key metrics you would track and explain why they matter.\nBefore jumping in, can I clarify the scope? Are we measuring Communities globally across all markets, or focusing on specific segments like large communities such as schools and residential societies versus smaller informal ones?\nLet's focus on global metrics, but feel free to highlight nuances by community size if relevant Got it."
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -3270,8 +3248,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "The key engagement metrics would be Messages Sent per Active Community, Announcement Channel Open Rate, since ",
-      "detail": "The key engagement metrics would be Messages Sent per Active Community, Announcement Channel Open Rate, since announcements are meant for one-way broadcast to the whole community and their read-rate signals reach, and Sub-group Participation Rate, the percentage of sub-groups within a community that see at least one message in a week, which reflects how well-organized and alive the structure is.\nMakes sense. What about the business or ecosystem side, how do you track that?\nThe key ecosystem metrics would be Community Member Retention, whether members who join a Community are more likely to remain active WhatsApp "
+      "prompt": "The key engagement metrics would be Messages Sent per Active Community, Announcement Channel Open Rate, since",
+      "detail": "The key engagement metrics would be Messages Sent per Active Community, Announcement Channel Open Rate, since announcements are meant for one-way broadcast to the whole community and their read-rate signals reach, and Sub-group Participation Rate, the percentage of sub-groups within a community that see at least one message in a week, which reflects how well-organized and alive the structure is.\nMakes sense. What about the business or ecosystem side, how do you track that?\nThe key ecosystem metrics would be Community Member Retention, whether members who join a Community are more likely to remain active WhatsApp"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -3347,10 +3325,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-metrics-upi-lite",
+  "id": "cm-pm-metrics-upi-lite",
   "title": "Evaluating UPI Lite Success at PhonePe",
   "company": "PhonePe",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 2,
@@ -3418,7 +3395,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "I want a metric that reflects the specific value proposition. UPI Lite is not just about more payments. It is ",
+      "prompt": "I want a metric that reflects the specific value proposition. UPI Lite is not just about more payments. It is",
       "detail": "I want a metric that reflects the specific value proposition. UPI Lite is not just about more payments. It is about making small payments easier and faster.\nFair. Walk me through the journey.\nI would map the journey like this:\nUser sees UPI Lite as an option User enables UPI Lite User adds balance or sets it up successfully User completes the first low-value transaction User repeats the behavior for future small payments So I would build the metric tree around that journey."
     },
     {
@@ -3495,10 +3472,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-gtm-spotify-cinematic",
+  "id": "cm-pm-gtm-spotify-cinematic",
   "title": "Spotify Goes Cinematic (Video Streaming GTM)",
   "company": "Spotify",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "GTM",
   "difficulty": 2,
@@ -3639,10 +3615,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-gtm-fb-insights-pro",
+  "id": "cm-pm-gtm-fb-insights-pro",
   "title": "Facebook’s Secret Side Hustle (Insights Pro B2B)",
   "company": "Meta / Facebook",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -3792,10 +3767,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-gtm-huawei-india",
+  "id": "cm-pm-gtm-huawei-india",
   "title": "Huawei 2.0: Desi Edition (India Re-Entry GTM)",
   "company": "Huawei",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "GTM",
   "difficulty": 4,
@@ -3945,10 +3919,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-gtm-dating-india",
+  "id": "cm-pm-gtm-dating-india",
   "title": "Online Dating App (India Market Expansion GTM)",
   "company": "Dating App",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -4003,8 +3976,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Online Dating App(India Expansion) Your client is a leading online dating platform with successful operations ",
-      "detail": "Online Dating App(India Expansion) Your client is a leading online dating platform with successful operations across North America and Europe. They are considering entering the Indian market over the next 12 months. Should they enter, and if yes, what should the go-to-market strategy be?\nSure. Before I answer, I want to clarify a couple of things.\nWhen you say entering India, are we talking about launching a localized version of the existing app? Also, are we optimizing for revenue, market share, or long-term strategic presence?\nAssume it is a localized launch. The company has enough money to expand. The goal is "
+      "prompt": "Online Dating App(India Expansion) Your client is a leading online dating platform with successful operations",
+      "detail": "Online Dating App(India Expansion) Your client is a leading online dating platform with successful operations across North America and Europe. They are considering entering the Indian market over the next 12 months. Should they enter, and if yes, what should the go-to-market strategy be?\nSure. Before I answer, I want to clarify a couple of things.\nWhen you say entering India, are we talking about launching a localized version of the existing app? Also, are we optimizing for revenue, market share, or long-term strategic presence?\nAssume it is a localized launch. The company has enough money to expand. The goal is"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -4098,10 +4071,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-gtm-fintech-uae",
+  "id": "cm-pm-gtm-fintech-uae",
   "title": "Indian Fintech Expansion into UAE",
   "company": "Fintech",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -4111,7 +4083,7 @@ window.CM_DATA.cases.push(
     "GTM",
     "Product"
   ],
-  "prompt": "Fintech Expansion into UAE Your client is an Indian fintech company providing digital payments and financial services. After establishing a strong domestic presence, they are evaluating expansion into the UAE. The management wants your recommendation on whether UAE is an attractive market, which customer segments to target, the most suitable entry strategy, and key risks and success factors. Prepare a recommendation ",
+  "prompt": "Fintech Expansion into UAE Your client is an Indian fintech company providing digital payments and financial services. After establishing a strong domestic presence, they are evaluating expansion into the UAE. The management wants your recommendation on whether UAE is an attractive market, which customer segments to target, the most suitable entry strategy, and key risks and success factors. Prepare a recommendation",
   "clarifyingQuestions": [
     {
       "q": "Before I structure my answer, may I ask a few clarifying questions?",
@@ -4175,7 +4147,7 @@ window.CM_DATA.cases.push(
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "The second is SMEs and merchants, especially Indian-origin traders and shopkeepers in hubs like Dubai and Shar",
-      "detail": "The second is SMEs and merchants, especially Indian-origin traders and shopkeepers in hubs like Dubai and Sharjah, who need reliable cross-border payment acceptance and working capital. This segment monetizes better and builds a base for future lending products I'd prioritize the expat remittance segment first, since it's the largest, most underserved, and builds trust and volume quickly, before expanding to SMEs once brand credibility is established.\nMakes sense. Let's talk about entry strategy. How would you approach it?\nI’d structure this into pre-launch, launch, and post-launch phases.\nPre-launch: Secure UAE "
+      "detail": "The second is SMEs and merchants, especially Indian-origin traders and shopkeepers in hubs like Dubai and Sharjah, who need reliable cross-border payment acceptance and working capital. This segment monetizes better and builds a base for future lending products I'd prioritize the expat remittance segment first, since it's the largest, most underserved, and builds trust and volume quickly, before expanding to SMEs once brand credibility is established.\nMakes sense. Let's talk about entry strategy. How would you approach it?\nI’d structure this into pre-launch, launch, and post-launch phases.\nPre-launch: Secure UAE"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -4251,10 +4223,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-gtm-fantasy-gaming",
+  "id": "cm-pm-gtm-fantasy-gaming",
   "title": "Fantasy Gaming Platform Growth & Trust GTM",
   "company": "Fantasy Sports",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -4310,7 +4281,7 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Candidate",
       "prompt": "Fantasy Gaming Platform A leading fantasy sports platform has achieved significant scale in India through cric",
-      "detail": "Fantasy Gaming Platform A leading fantasy sports platform has achieved significant scale in India through cricket- based contests. The company wants to accelerate growth while maintaining profitability. The CEO wants you to develop a comprehensive go-to-market strategy covering market opportunities, customer acquisition, monetization, and competitive positioning over the next three years.\nBefore diving in, can I clarify a few things? Are we looking to expand beyond cricket into other sports, or primarily deepen our position within cricket itself?\nGood question. Assume the company wants to do both, deepen cricket "
+      "detail": "Fantasy Gaming Platform A leading fantasy sports platform has achieved significant scale in India through cricket- based contests. The company wants to accelerate growth while maintaining profitability. The CEO wants you to develop a comprehensive go-to-market strategy covering market opportunities, customer acquisition, monetization, and competitive positioning over the next three years.\nBefore diving in, can I clarify a few things? Are we looking to expand beyond cricket into other sports, or primarily deepen our position within cricket itself?\nGood question. Assume the company wants to do both, deepen cricket"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -4404,10 +4375,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-gtm-test-kit",
+  "id": "cm-pm-gtm-test-kit",
   "title": "Healthcare Diagnostic Test Kit New Market GTM",
   "company": "MedTech",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -4468,13 +4438,13 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Got it. And is the client's primary objective market share and long-term category leadership, or fast revenue ",
+      "prompt": "Got it. And is the client's primary objective market share and long-term category leadership, or fast revenue",
       "detail": "Got it. And is the client's primary objective market share and long-term category leadership, or fast revenue recovery on R&D spend?\nPrimary objective is long-term category leadership.\nUnderstood. I'd like to structure my answer into three parts: market attractiveness, whether to enter, and if yes, the go-to-market plan covering customers, channels, and pricing.\nSounds good, start with market attractiveness."
     },
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "I'd assess this along four lenses: market size and growth, competitive intensity, regulatory feasibility, and ",
+      "prompt": "I'd assess this along four lenses: market size and growth, competitive intensity, regulatory feasibility, and",
       "detail": "I'd assess this along four lenses: market size and growth, competitive intensity, regulatory feasibility, and client capability fit.\nThat's a solid framework. Let's say the market shows a large testing gap, only 1-2 weak local competitors, a clear regulatory pathway of about 6 months, and the client has spare manufacturing capacity. Would you enter?\nYes, I'd recommend entering. The combination of unmet need, low competitive intensity, and a manageable regulatory path suggests both strategic upside, in the form of first-mover brand equity, and financial upside, since spare capacity means low incremental capex.\nI w"
     },
     {
@@ -4486,7 +4456,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Government/public health: Large-volume procurement for national screening programs Hospitals/diagnostic labs: ",
+      "prompt": "Government/public health: Large-volume procurement for national screening programs Hospitals/diagnostic labs:",
       "detail": "Government/public health: Large-volume procurement for national screening programs Hospitals/diagnostic labs: Reliable supply and fast turnaround Retail/D2C: Self-testing, highest margin but slowest to scale I’d prioritize government and hospitals first for volume and credibility, then use that traction to unlock retail and D2C.\nThat makes sense. How would you approach channels?\nFor government and hospitals, I'd go through direct tenders and distributor partnerships with established medical supply companies who already have last-mile relationships and cold-chain logistics.\nFor retail, I'd partner with leading pha"
     }
   ],
@@ -4557,10 +4527,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-improve-zomato-nocheat",
+  "id": "cm-pm-improve-zomato-nocheat",
   "title": "No Cheat Days with Zomato (Health-Conscious Discovery)",
   "company": "Zomato",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Improvement",
   "difficulty": 2,
@@ -4711,10 +4680,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-improve-netflix-hover",
+  "id": "cm-pm-improve-netflix-hover",
   "title": "Netflix and Hover (Accidental Preview UX Fix)",
   "company": "Netflix",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Improvement",
   "difficulty": 1,
@@ -4769,7 +4737,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "On Netflix, users often trigger accidental hovers that start previews or shift the UI because there’s limited ",
+      "prompt": "On Netflix, users often trigger accidental hovers that start previews or shift the UI because there’s limited",
       "detail": "On Netflix, users often trigger accidental hovers that start previews or shift the UI because there’s limited resting space for the mouse pointer. How would you improve that experience?\nInteresting problem. Before jumping to ideas, can I clarify a few things?\nFirst, are we focusing on the web interface, or should this include TV and mobile too?\nLet’s keep it limited to the web."
     },
     {
@@ -4864,10 +4832,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-improve-discord-onboarding",
+  "id": "cm-pm-improve-discord-onboarding",
   "title": "Discord’s Newbie Survival Guide (Onboarding Fix)",
   "company": "Discord",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Improvement",
   "difficulty": 2,
@@ -4934,7 +4901,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "These options would appear only the first time a user opens the app, helping tailor the experience right from ",
+      "prompt": "These options would appear only the first time a user opens the app, helping tailor the experience right from",
       "detail": "These options would appear only the first time a user opens the app, helping tailor the experience right from the start without becoming repetitive later.\nAnd if a user doesn’t want to answer?\nThen they should still land somewhere purposeful, like a lightweight “Starter Hub” owned by Discord. It’s a controlled environment where new users see sample conversations, can try sending a message, or even hop into a demo voice room without social risk.\nInteresting. How do you handle the overwhelm of features?"
     },
     {
@@ -4946,7 +4913,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Activation rate, did they join or create a conversation within 24 hours 7-day retention, are they coming back ",
+      "prompt": "Activation rate, did they join or create a conversation within 24 hours 7-day retention, are they coming back",
       "detail": "Activation rate, did they join or create a conversation within 24 hours 7-day retention, are they coming back Community embedding: are they staying in their first server or hopping to new ones.\nIf those numbers climb, onboarding is working.\nIf you had to pick just one change to prioritize?\nThe Starter Hub. Interest-based recommendations are valuable, but a safe, controlled environment lowers the psychological barrier to action. Once someone experiences that sending a message here feels easy, they’re far more likely to venture into real communities."
     }
   ],
@@ -5017,10 +4984,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-improve-retail-digital",
+  "id": "cm-pm-improve-retail-digital",
   "title": "Offline Retail Chain Digital Transformation",
   "company": "Omnichannel Retail",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Product Improvement",
   "difficulty": 3,
@@ -5170,10 +5136,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-improve-website-traffic",
+  "id": "cm-pm-improve-website-traffic",
   "title": "Declining Website Traffic on Digital Media Platform",
   "company": "Digital Media",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -5322,10 +5287,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-pricing-youtube-premium",
+  "id": "cm-pm-pricing-youtube-premium",
   "title": "Pricing YouTube Premium Across Markets",
   "company": "YouTube",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Pricing",
   "difficulty": 2,
@@ -5381,7 +5345,7 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
       "prompt": "Pricing YouTube Premium Assume you are a Product Manager at YouTube. The leadership team is evaluating the pri",
-      "detail": "Pricing YouTube Premium Assume you are a Product Manager at YouTube. The leadership team is evaluating the pricing of YouTube Premium across different markets. How would you determine the right pricing strategy? Walk me through your approach.\nSure. Before I get into pricing, I want to clarify a couple of things.\nAre we optimizing for subscriber growth, revenue, or both? And when you say different markets, should I assume we are comparing countries with very different purchasing power and competitive intensity, like India, the US, and Southeast Asia?\nYes. The goal is to grow both subscribers and revenue. And yes, "
+      "detail": "Pricing YouTube Premium Assume you are a Product Manager at YouTube. The leadership team is evaluating the pricing of YouTube Premium across different markets. How would you determine the right pricing strategy? Walk me through your approach.\nSure. Before I get into pricing, I want to clarify a couple of things.\nAre we optimizing for subscriber growth, revenue, or both? And when you say different markets, should I assume we are comparing countries with very different purchasing power and competitive intensity, like India, the US, and Southeast Asia?\nYes. The goal is to grow both subscribers and revenue. And yes,"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -5475,10 +5439,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-pricing-swiggy-one",
+  "id": "cm-pm-pricing-swiggy-one",
   "title": "Revisiting Swiggy One Membership Pricing",
   "company": "Swiggy",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Pricing",
   "difficulty": 2,
@@ -5534,7 +5497,7 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
       "prompt": "Pricing Swiggy One Imagine you are a Product Manager at Swiggy. Swiggy One has become an important part of the",
-      "detail": "Pricing Swiggy One Imagine you are a Product Manager at Swiggy. Swiggy One has become an important part of the company's customer retention strategy. If you were tasked with revisiting its pricing, how would you approach the problem? Walk me through your framework.\nSure. Before I jump in, I want to clarify a couple of things.\nAre we trying to optimize mainly for retention, membership revenue, or total order frequency? And when you say revisit pricing, should I think only about the headline price, or also the packaging and benefits?\nGood question. Assume the goal is to improve retention and overall profitability. "
+      "detail": "Pricing Swiggy One Imagine you are a Product Manager at Swiggy. Swiggy One has become an important part of the company's customer retention strategy. If you were tasked with revisiting its pricing, how would you approach the problem? Walk me through your framework.\nSure. Before I jump in, I want to clarify a couple of things.\nAre we trying to optimize mainly for retention, membership revenue, or total order frequency? And when you say revisit pricing, should I think only about the headline price, or also the packaging and benefits?\nGood question. Assume the goal is to improve retention and overall profitability."
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
@@ -5628,10 +5591,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-pricing-perplexity-one",
+  "id": "cm-pm-pricing-perplexity-one",
   "title": "Monetizing Perplexity One Subscription",
   "company": "Perplexity",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Pricing",
   "difficulty": 3,
@@ -5780,10 +5742,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-pricing-uber-airport",
+  "id": "cm-pm-pricing-uber-airport",
   "title": "Pricing Uber Airport Rides",
   "company": "Uber",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Pricing",
   "difficulty": 3,
@@ -5932,10 +5893,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ecell-pricing-meesho-ads",
+  "id": "cm-pm-pricing-meesho-ads",
   "title": "Pricing Seller Ads on Meesho",
   "company": "Meesho",
-  "source": "E-Cell IITG 2026-27",
   "track": "Product",
   "category": "Pricing",
   "difficulty": 2,
@@ -6081,10 +6041,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-design-bicycle-resale",
+  "id": "cm-cons-design-bicycle-resale",
   "title": "Bicycle Resale Marketplace Design",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 2,
@@ -6145,7 +6104,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Great. Also, by “interactive,” do you mean we should focus on features that increase user engagement and ease ",
+      "prompt": "Great. Also, by “interactive,” do you mean we should focus on features that increase user engagement and ease",
       "detail": "Great. Also, by “interactive,” do you mean we should focus on features that increase user engagement and ease of transaction , apart from just listing and browsing cycles?\nCorrect. Feel free to make it as engaging as possible.\nIdentify customers & report their needs (User personas and problems) I’ll first identify potential user personas:\n1. College students or young professionals – looking for affordable cycles for daily commute."
     },
     {
@@ -6157,7 +6116,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "Bicycle Resale Cut through prioritization (Choose primary target) Since this is a resale market, students and ",
+      "prompt": "Bicycle Resale Cut through prioritization (Choose primary target) Since this is a resale market, students and",
       "detail": "Bicycle Resale Cut through prioritization (Choose primary target) Since this is a resale market, students and parents may be the largest, most active group—they have strong price sensitivity and frequently trade used cycles. Enthusiasts are fewer but may spend more per cycle.\nFor launch and scale , I’d target students and parents first because:\n● High transaction volume.\n● Low friction to adopt an easy-to-use app."
     },
     {
@@ -6235,10 +6194,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-52-zomato-packaging-optimization",
+  "id": "cm-cons-52-zomato-packaging-optimization",
   "title": "Zomato Packaging Optimization",
   "company": "Zomato",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 2,
@@ -6389,10 +6347,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-53-dashboard-design-for-assam",
+  "id": "cm-cons-53-dashboard-design-for-assam",
   "title": "Dashboard Design for Assam",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 3,
@@ -6543,10 +6500,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-54-nobroker-product-delivery-commotions",
+  "id": "cm-cons-54-nobroker-product-delivery-commotions",
   "title": "NoBroker Product Delivery Commotions",
   "company": "NoBroker",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 3,
@@ -6696,10 +6652,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-design-whatsapp",
+  "id": "cm-cons-design-whatsapp",
   "title": "WhatsApp Product Design",
   "company": "Zomato - TPF",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 3,
@@ -6850,10 +6805,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-56-google-home-mini-design",
+  "id": "cm-cons-56-google-home-mini-design",
   "title": "Google Home Mini Design",
   "company": "Google - TPF",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 4,
@@ -6877,7 +6831,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "For many blind users especially the elderly accessibility should mean wherever they are , not tied to a fixed location.Could you also share which age groups we should focus on?",
-      "a": "Broadly, we see two segments: young blind users (15–40) who are somewhat tech-adaptive, and older users (40+) who face mobility and learning curve challenges Thank you. If I were to prioritize, I’d focus on the elderly segment because they ",
+      "a": "Broadly, we see two segments: young blind users (15–40) who are somewhat tech-adaptive, and older users (40+) who face mobility and learning curve challenges Thank you. If I were to prioritize, I’d focus on the elderly segment because they",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -6915,12 +6869,12 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Got it. But since the device already works with voice, why do we need a special redesign for the blind?",
-      "detail": "Got it. But since the device already works with voice, why do we need a special redesign for the blind?\nGood question. The current version has limitations: strict memorization of voice commands, visual setup steps, and weak feedback to confirm actions.\nThat makes sense. I’d also add one more challenge: the non-mobility of the Google Home Mini makes it a liability for blind users. They cannot expected to repeatedly walk to the same room just to interact with the device.\nFor many blind users especially the elderly accessibility should mean wherever they are , not tied to a fixed location.Could you also share which "
+      "detail": "Got it. But since the device already works with voice, why do we need a special redesign for the blind?\nGood question. The current version has limitations: strict memorization of voice commands, visual setup steps, and weak feedback to confirm actions.\nThat makes sense. I’d also add one more challenge: the non-mobility of the Google Home Mini makes it a liability for blind users. They cannot expected to repeatedly walk to the same room just to interact with the device.\nFor many blind users especially the elderly accessibility should mean wherever they are , not tied to a fixed location.Could you also share which"
     },
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Broadly, we see two segments: young blind users (15–40) who are somewhat tech-adaptive, and older users (40+) ",
+      "prompt": "Broadly, we see two segments: young blind users (15–40) who are somewhat tech-adaptive, and older users (40+)",
       "detail": "Broadly, we see two segments: young blind users (15–40) who are somewhat tech-adaptive, and older users (40+) who face mobility and learning curve challenges Thank you. If I were to prioritize, I’d focus on the elderly segment because they face compounded difficulties such as non-mobility, memorization, and setup.\nNow in terms of solutions, I’d classify solutions into two categories:\nNew Dedicated Product → Google Stick ○ A smart walking stick with Google Assistant built in.\n○ Provides audio + haptic feedback on demand."
     },
     {
@@ -7004,10 +6958,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-57-hilabs-healthcare-data-product",
+  "id": "cm-cons-57-hilabs-healthcare-data-product",
   "title": "HiLabs Healthcare Data Product",
   "company": "HiLabs",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Design",
   "difficulty": 4,
@@ -7080,7 +7033,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "I'd first clarify what data is collected, where it flows, who can access it, what contract/regulations apply, ",
+      "prompt": "I'd first clarify what data is collected, where it flows, who can access it, what contract/regulations apply,",
       "detail": "I'd first clarify what data is collected, where it flows, who can access it, what contract/regulations apply, and what security outcome the client requires by when. Security is not one feature; it is a set of controls across the data lifecycle.\nThe data is primarily provider and claims data for network and quality analytics; some datasets contain patient-identifiable or PHI-related fields.\nUnderstood. Claims records can contain identifying information, so I would classify by actual field contents and role, not assume a dataset is safe merely because it's called “provider data.” Is the immediate concern ingestion,"
     },
     {
@@ -7157,10 +7110,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-rca-amazon-sales",
+  "id": "cm-cons-rca-amazon-sales",
   "title": "Declining Sales at Amazon",
   "company": "Amazon",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -7309,10 +7261,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-59-hilabs-plans-drop-rca",
+  "id": "cm-cons-59-hilabs-plans-drop-rca",
   "title": "HiLabs Plans Drop RCA",
   "company": "HiLabs",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -7335,7 +7286,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Click here to give a mock interview Understood. Finally, how flexible are they when it comes to data sharing — are they completely rigid, or open to alternatives?",
+      "q": "Understood. Finally, how flexible are they when it comes to data sharing — are they completely rigid, or open to alternatives?",
       "a": "They are very cautious due to compliance requirements but remain open if we can show a secure and reliable approach.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -7372,8 +7323,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Health Plans are insurers. They manage the financial risk of their members’ healthcare by collecting premiums ",
-      "detail": "Health Plans are insurers. They manage the financial risk of their members’ healthcare by collecting premiums and paying for medical services. To function, they depend on accurate data for claims, risk assessment, and quality management. That makes clean EHR data vital.\nClick here to give a mock interview Understood. Finally, how flexible are they when it comes to data sharing — are they completely rigid, or open to alternatives?\nThey are very cautious due to compliance requirements but remain open if we can show a secure and reliable approach.\nOkay. Here’s how I’d approach the problem:"
+      "prompt": "Health Plans are insurers. They manage the financial risk of their members’ healthcare by collecting premiums",
+      "detail": "Health Plans are insurers. They manage the financial risk of their members’ healthcare by collecting premiums and paying for medical services. To function, they depend on accurate data for claims, risk assessment, and quality management. That makes clean EHR data vital.\nUnderstood. Finally, how flexible are they when it comes to data sharing — are they completely rigid, or open to alternatives?\nThey are very cautious due to compliance requirements but remain open if we can show a secure and reliable approach.\nOkay. Here’s how I’d approach the problem:"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -7390,8 +7341,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Sensitive health data covers medical histories, biometrics, and health conditions. The upcoming Personal Data ",
-      "detail": "Sensitive health data covers medical histories, biometrics, and health conditions. The upcoming Personal Data Protection Bill (PDPB) will strengthen the rules for handling such data, much like HIPAA in the U.S. This means any substitute method must maintain absolute compliance.\nClick here to give a mock interview And how would you measure the success of the strategies you just outlined?\nI’d measure across three dimensions:\n● Accuracy of Error Detection: Benchmark model accuracy on synthetic/anonymized data vs. original where possible, targeting close equivalence."
+      "prompt": "Sensitive health data covers medical histories, biometrics, and health conditions. The upcoming Personal Data",
+      "detail": "Sensitive health data covers medical histories, biometrics, and health conditions. The upcoming Personal Data Protection Bill (PDPB) will strengthen the rules for handling such data, much like HIPAA in the U.S. This means any substitute method must maintain absolute compliance.\nAnd how would you measure the success of the strategies you just outlined?\nI’d measure across three dimensions:\n● Accuracy of Error Detection: Benchmark model accuracy on synthetic/anonymized data vs. original where possible, targeting close equivalence."
     }
   ],
   "recommendations": [
@@ -7462,10 +7413,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-60-meesho-orders-decline-rca",
+  "id": "cm-cons-60-meesho-orders-decline-rca",
   "title": "Meesho Orders Decline RCA",
   "company": "Meesho",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 2,
@@ -7488,7 +7438,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Is there a decline in the number of customers visiting our Click here to give a mock interview app/website or is there a decline in just the number of orders placed?",
+      "q": "Is there a decline in the number of customers visiting our app/website or is there a decline in just the number of orders placed?",
       "a": "It can be said that there is a decline in both the number of customers and the number of orders placed.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -7519,14 +7469,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Candidate",
-      "prompt": "Orders Decline Hey! Let’s say that you are a PM at Meesho and you have noticed that the orders are declining. ",
+      "prompt": "Orders Decline Hey! Let’s say that you are a PM at Meesho and you have noticed that the orders are declining.",
       "detail": "Orders Decline Hey! Let’s say that you are a PM at Meesho and you have noticed that the orders are declining. Your task is to identify the root cause for the same.\nBefore beginning, I'd like to clarify a few things first.\nAre there any specific product categories or types of orders that are experiencing greater decline, like electronics, clothing, or groceries?\nNo, we're looking at this from a broad perspective, so consider all product categories."
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Are we considering the decline in orders placed through our website, app or both?",
-      "detail": "Are we considering the decline in orders placed through our website, app or both?\nTake the decline in the orders placed through both our app and website.\nIs there a decline in the number of customers visiting our Click here to give a mock interview app/website or is there a decline in just the number of orders placed?\nIt can be said that there is a decline in both the number of customers and the number of orders placed."
+      "detail": "Are we considering the decline in orders placed through our website, app or both?\nTake the decline in the orders placed through both our app and website.\nIs there a decline in the number of customers visiting our app/website or is there a decline in just the number of orders placed?\nIt can be said that there is a decline in both the number of customers and the number of orders placed."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -7543,7 +7493,7 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "First, when you say orders, are we measuring placed orders, successfully delivered orders or GMV? And for how ",
+      "prompt": "First, when you say orders, are we measuring placed orders, successfully delivered orders or GMV? And for how",
       "detail": "First, when you say orders, are we measuring placed orders, successfully delivered orders or GMV? And for how long has the issue persisted?\nNumber of orders placed is falling, with GMV falling proportionally. It has been a gradual decline over roughly two months.\nThat suggests a volume problem rather than lower basket value, although I would verify exact mix effects. Does the decline affect all product categories?\nMostly fashion and home; electronics and accessories are relatively stable."
     }
   ],
@@ -7614,10 +7564,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-61-hilabs-ad-tech-platform-rca",
+  "id": "cm-cons-61-hilabs-ad-tech-platform-rca",
   "title": "HiLabs Ad Tech Platform RCA",
   "company": "HiLabs",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 3,
@@ -7640,7 +7589,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Click here to give a mock interview If the ad creative is the weak link, how could that also explain the severe drop in CVR Post-Click?",
+      "q": "If the ad creative is the weak link, how could that also explain the severe drop in CVR Post-Click?",
       "a": "Yes. That points to a message mismatch . For example, the ad might promise “50% Off Today!” but when users click, the landing page doesn’t confirm that offer. Users feel misled and drop off, which drags down CVR.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -7678,7 +7627,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Our reports show targeting is correct and placements are on premium sites. Yet, CTR is still low. What does th",
-      "detail": "Our reports show targeting is correct and placements are on premium sites. Yet, CTR is still low. What does this suggest?\nThat suggests the issue isn’t traffic quality it’s likely the Ad Creative . If the creative fails to capture attention or mismatches the audience’s expectation, CTR will suffer.\nClick here to give a mock interview If the ad creative is the weak link, how could that also explain the severe drop in CVR Post-Click?\nYes. That points to a message mismatch . For example, the ad might promise “50% Off Today!” but when users click, the landing page doesn’t confirm that offer. Users feel misled and dro"
+      "detail": "Our reports show targeting is correct and placements are on premium sites. Yet, CTR is still low. What does this suggest?\nThat suggests the issue isn’t traffic quality it’s likely the Ad Creative . If the creative fails to capture attention or mismatches the audience’s expectation, CTR will suffer.\nIf the ad creative is the weak link, how could that also explain the severe drop in CVR Post-Click?\nYes. That points to a message mismatch . For example, the ad might promise “50% Off Today!” but when users click, the landing page doesn’t confirm that offer. Users feel misled and dro"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -7696,7 +7645,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "What is your immediate action plan to fix this?",
-      "detail": "What is your immediate action plan to fix this?\nThe immediate priority is to optimize the landing page . I would compress the images, simplify the code, and ensure the page loads in under three seconds on a standard mobile connection.\nAnd what's the long-term solution to prevent this?\nClick here to give a mock interview Long-term fixes:"
+      "detail": "What is your immediate action plan to fix this?\nThe immediate priority is to optimize the landing page . I would compress the images, simplify the code, and ensure the page loads in under three seconds on a standard mobile connection.\nAnd what's the long-term solution to prevent this?\nLong-term fixes:"
     }
   ],
   "recommendations": [
@@ -7767,10 +7716,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-62-declining-orders-at-zomato",
+  "id": "cm-cons-62-declining-orders-at-zomato",
   "title": "Declining Orders at Zomato",
   "company": "Zomato",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 3,
@@ -7836,8 +7784,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview The decline is uniform across all types of food.",
-      "detail": "Click here to give a mock interview The decline is uniform across all types of food.\nIs this issue widespread across India, or is it concentrated in a particular region?\nThe decline is specifically happening in the Delhi-NCR region.\nHas the decrease in orders been more significant on the app or the website, or is it consistent across both platforms?"
+      "prompt": "The decline is uniform across all types of food.",
+      "detail": "The decline is uniform across all types of food.\nIs this issue widespread across India, or is it concentrated in a particular region?\nThe decline is specifically happening in the Delhi-NCR region.\nHas the decrease in orders been more significant on the app or the website, or is it consistent across both platforms?"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -7849,7 +7797,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Yes, the app has undergone a modification recently. However, there hasn't been any issue with brand visibility",
-      "detail": "Yes, the app has undergone a modification recently. However, there hasn't been any issue with brand visibility—our marketing team is continuing its efforts as usual.\nThis suggests that new customers may be finding the app more difficult to use after the modification. As for retention rates, they can be influenced by service quality and competition. Has there been any change in customer satisfaction scores?\nThe Customer Satisfaction (CSAT) score for service remains good, but there has been some dissatisfaction with the pricing from a few major restaurants.\nClick here to give a mock interview I’d start by reviewing"
+      "detail": "Yes, the app has undergone a modification recently. However, there hasn't been any issue with brand visibility—our marketing team is continuing its efforts as usual.\nThis suggests that new customers may be finding the app more difficult to use after the modification. As for retention rates, they can be influenced by service quality and competition. Has there been any change in customer satisfaction scores?\nThe Customer Satisfaction (CSAT) score for service remains good, but there has been some dissatisfaction with the pricing from a few major restaurants.\nI’d start by reviewing"
     }
   ],
   "recommendations": [
@@ -7919,10 +7867,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-63-myntra-orders-decline-rca",
+  "id": "cm-cons-63-myntra-orders-decline-rca",
   "title": "Myntra Orders Decline RCA",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 3,
@@ -7983,7 +7930,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "The decline has been progressively increasing over the past few years.",
-      "detail": "The decline has been progressively increasing over the past few years.\nHas this decline been observed across both the website and the app channels?\nYes, the decline in orders is evident on both the website and the app.\nClick here to give a mock interview Have there been any recent modifications or updates to the app and website that could potentially impact the user experience?"
+      "detail": "The decline has been progressively increasing over the past few years.\nHas this decline been observed across both the website and the app channels?\nYes, the decline in orders is evident on both the website and the app.\nHave there been any recent modifications or updates to the app and website that could potentially impact the user experience?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -8071,10 +8018,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-64-meesho-product-mismatch-return-rca",
+  "id": "cm-cons-64-meesho-product-mismatch-return-rca",
   "title": "Meesho Product Mismatch Return RCA",
   "company": "Meesho",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 3,
@@ -8098,7 +8044,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Ours is at 18%, whereas most competitors maintain it below 10 % That’s quite a gap. Could you explain how product descriptions, images, and size charts are currently added and verified during seller onboarding?",
-      "a": "Click here to give a mock interview Sellers upload all details directly on the app. There is basic format compliance check but no deep content verification.",
+      "a": "Sellers upload all details directly on the app. There is basic format compliance check but no deep content verification.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -8135,7 +8081,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Ours is at 18%, whereas most competitors maintain it below 10 % That’s quite a gap. Could you explain how prod",
-      "detail": "Ours is at 18%, whereas most competitors maintain it below 10 % That’s quite a gap. Could you explain how product descriptions, images, and size charts are currently added and verified during seller onboarding?\nClick here to give a mock interview Sellers upload all details directly on the app. There is basic format compliance check but no deep content verification.\nDo we have any internal quality control team or automated tools for catalog accuracy before listings go live?\nThere is a small QC team that manually reviews a sample of listings, but no automated system in place Got it. Are return complaints clustered "
+      "detail": "Ours is at 18%, whereas most competitors maintain it below 10 % That’s quite a gap. Could you explain how product descriptions, images, and size charts are currently added and verified during seller onboarding?\nSellers upload all details directly on the app. There is basic format compliance check but no deep content verification.\nDo we have any internal quality control team or automated tools for catalog accuracy before listings go live?\nThere is a small QC team that manually reviews a sample of listings, but no automated system in place Got it. Are return complaints clustered"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -8153,7 +8099,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Yes, especially in Tier 1 cities where customers compare quality with established e-commerce players.",
-      "detail": "Yes, especially in Tier 1 cities where customers compare quality with established e-commerce players.\nClick here to give a mock interview Are there any specific internal KPIs to monitor catalog accuracy or customer trust?\nNo dedicated KPI exists for catalog accuracy returns are tracked in aggregate without granular cause mapping.\nAre we facing competitive pressure from platforms with stronger catalog verification processes?"
+      "detail": "Yes, especially in Tier 1 cities where customers compare quality with established e-commerce players.\nAre there any specific internal KPIs to monitor catalog accuracy or customer trust?\nNo dedicated KPI exists for catalog accuracy returns are tracked in aggregate without granular cause mapping.\nAre we facing competitive pressure from platforms with stronger catalog verification processes?"
     }
   ],
   "recommendations": [
@@ -8224,10 +8170,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-65-amazon-cart-abandonment-rca",
+  "id": "cm-cons-65-amazon-cart-abandonment-rca",
   "title": "Amazon Cart Abandonment RCA",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "RCA",
   "difficulty": 4,
@@ -8246,7 +8191,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Was the problem applicable in particular regions of the country or as a whole? Also did our competitors face the same issue?",
-      "a": "Click here to give a mock interview The problem was prevalent in all the regions of the country and we do not have data on whether our competitors were facing the same problem.",
+      "a": "The problem was prevalent in all the regions of the country and we do not have data on whether our competitors were facing the same problem.",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -8282,13 +8227,13 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Candidate",
       "prompt": "Amazon Abandonment Percentage of abandoned orders at Amazon increased by 25% in December 2022. Find out why th",
-      "detail": "Amazon Abandonment Percentage of abandoned orders at Amazon increased by 25% in December 2022. Find out why this has happened and suggest possible solutions.\nBefore proposing specific solutions, I would like to ask a few preliminary questions to better understand the context. You mentioned the word abandonment here, what exactly does this mean here and what are the metrics for an order being put in the abandoned category?\nAbandoned orders here means the orders that were left in the cart and were not checked out. The metric used here in the PS is that if order stays for more than 12 hours in the cart.\nOkay noted. "
+      "detail": "Amazon Abandonment Percentage of abandoned orders at Amazon increased by 25% in December 2022. Find out why this has happened and suggest possible solutions.\nBefore proposing specific solutions, I would like to ask a few preliminary questions to better understand the context. You mentioned the word abandonment here, what exactly does this mean here and what are the metrics for an order being put in the abandoned category?\nAbandoned orders here means the orders that were left in the cart and were not checked out. The metric used here in the PS is that if order stays for more than 12 hours in the cart.\nOkay noted."
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "The problem was specific to the Indian market.",
-      "detail": "The problem was specific to the Indian market.\nWas the problem applicable in particular regions of the country or as a whole? Also did our competitors face the same issue?\nClick here to give a mock interview The problem was prevalent in all the regions of the country and we do not have data on whether our competitors were facing the same problem.\nAlso December is a time where there is a festive season in the country. To maximise this time, E-commerce platforms come out with a lots of discounts and offers. So was there a different pattern for discounts that year or were the discounts reduced?"
+      "detail": "The problem was specific to the Indian market.\nWas the problem applicable in particular regions of the country or as a whole? Also did our competitors face the same issue?\nThe problem was prevalent in all the regions of the country and we do not have data on whether our competitors were facing the same problem.\nAlso December is a time where there is a festive season in the country. To maximise this time, E-commerce platforms come out with a lots of discounts and offers. So was there a different pattern for discounts that year or were the discounts reduced?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -8376,10 +8321,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-gtm-clearasthma",
+  "id": "cm-cons-gtm-clearasthma",
   "title": "ClearAsthma New Medicine GTM",
   "company": "Zomato",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "GTM",
   "difficulty": 1,
@@ -8532,10 +8476,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-gtm-mx-player",
+  "id": "cm-cons-gtm-mx-player",
   "title": "GTM Strategy for MX Player",
   "company": "HiLabs",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "GTM",
   "difficulty": 2,
@@ -8597,7 +8540,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Should our content push be more about launching original hyperlocal series/movies or dubbing/subtitling existi",
-      "detail": "Should our content push be more about launching original hyperlocal series/movies or dubbing/subtitling existing Netflix hits in local languages?\nA mix, but original content (regional webseries, films) tailored to the cultural tastes of each region should be the focus.\nClick here to give a mock interview Which regions and languages are the highest priority? India has so much diversity, so should we begin with just a few key languages and areas?\nIt makes sense to start with major language clusters with proven demand, like Bhojpuri in Bihar/Jharkhand, Tamil in Tamil Nadu, Marathi in Maharashtra, Bengali in West Ben"
+      "detail": "Should our content push be more about launching original hyperlocal series/movies or dubbing/subtitling existing Netflix hits in local languages?\nA mix, but original content (regional webseries, films) tailored to the cultural tastes of each region should be the focus.\nWhich regions and languages are the highest priority? India has so much diversity, so should we begin with just a few key languages and areas?\nIt makes sense to start with major language clusters with proven demand, like Bhojpuri in Bihar/Jharkhand, Tamil in Tamil Nadu, Marathi in Maharashtra, Bengali in West Ben"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -8614,8 +8557,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Given this information. I would like to put forth my strategy.",
-      "detail": "Click here to give a mock interview Given this information. I would like to put forth my strategy.\nThe strategy is broken into four Buckets : pre-launch, launch, post launch, retention. Firstly, I would like to discuss the pre launch phase.\nSure Go ahead In the pre-launch phase, MX Player will conduct targeted market research in Tier 2 and Tier 3 cities to understand regional language preferences and content consumption habits. The company will partner with local production houses and emerging regional creators to secure exclusive content. A limited beta launch in high-potential regions will help gather user feed"
+      "prompt": "Given this information. I would like to put forth my strategy.",
+      "detail": "Given this information. I would like to put forth my strategy.\nThe strategy is broken into four Buckets : pre-launch, launch, post launch, retention. Firstly, I would like to discuss the pre launch phase.\nSure Go ahead In the pre-launch phase, MX Player will conduct targeted market research in Tier 2 and Tier 3 cities to understand regional language preferences and content consumption habits. The company will partner with local production houses and emerging regional creators to secure exclusive content. A limited beta launch in high-potential regions will help gather user feed"
     }
   ],
   "recommendations": [
@@ -8685,10 +8628,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-68-gtm-strategy-for-e-rickshaw",
+  "id": "cm-cons-68-gtm-strategy-for-e-rickshaw",
   "title": "GTM Strategy for E-Rickshaw",
   "company": "Meesho",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -8698,11 +8640,11 @@ window.CM_DATA.cases.push(
     "GTM",
     "Product"
   ],
-  "prompt": "GTM | Meesho | Medium GTM for E-Rickshaw Great having you here! Let's get straight to it. ABC company is planning to launch E-rickshaw services at IIT Guwahati. How would you approach creating a GTM strategy for them?",
+  "prompt": "Great having you here! Let's get straight to it. ABC company is planning to launch E-rickshaw services on a large university campus. How would you approach creating a GTM strategy for them?",
   "clarifyingQuestions": [
     {
-      "q": "Thank you! Before I jump into the solution, may I clarify the primary goal? Are we focusing on increasing awareness and adoption of this service within IIT Guwahati or planning to scale it beyond the campus eventually?",
-      "a": "For now, your task is to create a go-to-market strategy specifically for the IIT Guwahati campus.",
+      "q": "Thank you! Before I jump into the solution, may I clarify the primary goal? Are we focusing on increasing awareness and adoption of this service within the university campus or planning to scale it beyond the campus eventually?",
+      "a": "For now, your task is to create a go-to-market strategy specifically for the university campus.",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -8711,7 +8653,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "How would you launch an e-rickshaw service at IIT Guwahati?",
+      "q": "How would you launch an e-rickshaw service on a large university campus?",
       "a": "I'd first establish the exact travel job and customers. Is the service mainly internal to campus or intended to connect people to the wider city?",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -8743,14 +8685,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "GTM | Meesho | Medium GTM for E-Rickshaw Great having you here! Let's get straight to it. ABC company is plann",
-      "detail": "GTM | Meesho | Medium GTM for E-Rickshaw Great having you here! Let's get straight to it. ABC company is planning to launch E-rickshaw services at IIT Guwahati. How would you approach creating a GTM strategy for them?\nThank you! Before I jump into the solution, may I clarify the primary goal? Are we focusing on increasing awareness and adoption of this service within IIT Guwahati or planning to scale it beyond the campus eventually?\nFor now, your task is to create a go-to-market strategy specifically for the IIT Guwahati campus.\nGot it. I’d like to start by understanding the current transportation landscape at II"
+      "prompt": "Great having you here! Let's get straight to it. ABC company is plann",
+      "detail": "Great having you here! Let's get straight to it. ABC company is planning to launch E-rickshaw services on a large university campus. How would you approach creating a GTM strategy for them?\nThank you! Before I jump into the solution, may I clarify the primary goal? Are we focusing on increasing awareness and adoption of this service within the university campus or planning to scale it beyond the campus eventually?\nFor now, your task is to create a go-to-market strategy specifically for the university campus.\nGot it. I’d like to start by understanding the current transportation landscape on campus"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "● The campus is quite large and spread out, which means students, faculty, and staff often rely on walking, bi",
-      "detail": "● The campus is quite large and spread out, which means students, faculty, and staff often rely on walking, bicycles, or private vehicles.\nClick here to give a mock interview ● There are likely a few informal shared transport options, such as autos or vans, but nothing fully organized.\n● Students are cost-sensitive but also value convenience and time-saving solutions.\n● Since this is an academic institution, any service must align with sustainability goals — which makes E-rickshaws a strong fit."
+      "detail": "● The campus is quite large and spread out, which means students, faculty, and staff often rely on walking, bicycles, or private vehicles.\n● There are likely a few informal shared transport options, such as autos or vans, but nothing fully organized.\n● Students are cost-sensitive but also value convenience and time-saving solutions.\n● Since this is an academic institution, any service must align with sustainability goals — which makes E-rickshaws a strong fit."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -8761,8 +8703,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "3. Sustainability: Zero emissions, aligning with IIT’s green campus initiatives.",
-      "detail": "3. Sustainability: Zero emissions, aligning with IIT’s green campus initiatives.\nGTM | Meesho | Medium GTM for E-Rickshaw PS — Problem Statement: “ABC company plans to launch e-rickshaw services at IIT Guwahati. Develop a go-to-market strategy.” Company: ABC mobility (fictional client) Pattern: Campus services GTM / two-sided operations / unit economics Difficulty: Medium–hard Objective: Obtain institutional approval, create repeat demand, deploy fleet efficiently and establish a financially coherent business model.\nHow would you launch an e-rickshaw service at IIT Guwahati?\nI'd first establish the exact travel j"
+      "prompt": "3. Sustainability: Zero emissions, aligning with the campus’s green campus initiatives.",
+      "detail": "3. Sustainability: Zero emissions, aligning with the campus’s green campus initiatives.\nPS — Problem Statement: “ABC company plans to launch e-rickshaw services on a large university campus. Develop a go-to-market strategy.” Company: ABC mobility (fictional client) Pattern: Campus services GTM / two-sided operations / unit economics Difficulty: Medium–hard Objective: Obtain institutional approval, create repeat demand, deploy fleet efficiently and establish a financially coherent business model.\nHow would you launch an e-rickshaw service on a large university campus?\nI'd first establish the exact travel j"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -8772,7 +8714,7 @@ window.CM_DATA.cases.push(
     }
   ],
   "recommendations": [
-    "Sustainability: Zero emissions, aligning with IIT’s green",
+    "Sustainability: Zero emissions, aligning with the campus’s green",
     "Daily fleet revenue = 10 × 15 × ₹12 = ₹1,800.",
     "Monthly fleet revenue at 30 days = ₹1,800 × 30 = ₹54,000.",
     "Monthly revenue per vehicle = ₹54,000 / 10 = ₹5,400."
@@ -8788,7 +8730,7 @@ window.CM_DATA.cases.push(
       "Early churn / negative review rate"
     ]
   },
-  "synthesisScript": "For Meesho’s GTM Strategy for E-Rickshaw case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Sustainability: Zero emissions, aligning with IIT’s green We will validate success via Activated & Retained Beachhead Customers for GTM Strategy for E-Rickshaw while guarding against CAC Payback Period (months).",
+  "synthesisScript": "For Meesho’s GTM Strategy for E-Rickshaw case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Sustainability: Zero emissions, aligning with the campus’s green We will validate success via Activated & Retained Beachhead Customers for GTM Strategy for E-Rickshaw while guarding against CAC Payback Period (months).",
   "interviewerTrap": "Targeting 'everyone in the country' on Day 1 or listing generic social ads without defining ICP, positioning, pricing, and phased rollout!",
   "variations": [
     {
@@ -8839,10 +8781,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-69-netflix-s-advent-market-gtm",
+  "id": "cm-cons-69-netflix-s-advent-market-gtm",
   "title": "Netflix's Advent (Market GTM)",
   "company": "HiLabs",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -8861,7 +8802,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "That makes sense. Once you've identified your target audience, what would be your next step?",
-      "a": "Click here to give a mock interview The next step would be to define the content strategy.",
+      "a": "The next step would be to define the content strategy.",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -8904,7 +8845,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "That makes sense. Once you've identified your target audience, what would be your next step?",
-      "detail": "That makes sense. Once you've identified your target audience, what would be your next step?\nClick here to give a mock interview The next step would be to define the content strategy.\nNetflix could create exclusive gaming events, live esports tournaments, and interactive streams where viewers can participate, such as voting on game outcomes or engaging with gameplay in real-time.\nHow would you position this new gaming content in the market?"
+      "detail": "That makes sense. Once you've identified your target audience, what would be your next step?\nThe next step would be to define the content strategy.\nNetflix could create exclusive gaming events, live esports tournaments, and interactive streams where viewers can participate, such as voting on game outcomes or engaging with gameplay in real-time.\nHow would you position this new gaming content in the market?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -8922,7 +8863,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Do you anticipate any challenges in implementing this strategy?",
-      "detail": "Do you anticipate any challenges in implementing this strategy?\nClick here to give a mock interview Yes, technical challenges like ensuring low latency and high-quality streams for gaming content could arise.\nMoreover, transitioning traditional Netflix viewers to a gaming format might take time and effort. Continuous testing and feedback loops would be essential to refine the offering.\nFinally, how would you measure the success of this go-to-market strategy?"
+      "detail": "Do you anticipate any challenges in implementing this strategy?\nYes, technical challenges like ensuring low latency and high-quality streams for gaming content could arise.\nMoreover, transitioning traditional Netflix viewers to a gaming format might take time and effort. Continuous testing and feedback loops would be essential to refine the offering.\nFinally, how would you measure the success of this go-to-market strategy?"
     }
   ],
   "recommendations": [
@@ -8992,10 +8933,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-70-spotify-kids-gtm-strategy",
+  "id": "cm-cons-70-spotify-kids-gtm-strategy",
   "title": "Spotify Kids GTM Strategy",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "GTM",
   "difficulty": 3,
@@ -9019,7 +8959,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Is the launch of Spotify Kids globally or in India?",
-      "a": "Click here to give a mock interview As an initial plan, Spotify Kids will be launched in India and in due course of time, the market can be expanded to other countries.",
+      "a": "As an initial plan, Spotify Kids will be launched in India and in due course of time, the market can be expanded to other countries.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -9057,19 +8997,19 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Given Spotify’s well-established position in its existing market, Spotify for Kids aims for a new-market explo",
-      "detail": "Given Spotify’s well-established position in its existing market, Spotify for Kids aims for a new-market exploration. We do not expect immediate profits, however, it can be achieved gradually.\nIs the launch of Spotify Kids globally or in India?\nClick here to give a mock interview As an initial plan, Spotify Kids will be launched in India and in due course of time, the market can be expanded to other countries.\nCan you please take me through the working of the application? What are the USPs of the application?"
+      "detail": "Given Spotify’s well-established position in its existing market, Spotify for Kids aims for a new-market exploration. We do not expect immediate profits, however, it can be achieved gradually.\nIs the launch of Spotify Kids globally or in India?\nAs an initial plan, Spotify Kids will be launched in India and in due course of time, the market can be expanded to other countries.\nCan you please take me through the working of the application? What are the USPs of the application?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
       "prompt": "Parents can sign up via an existing or new Spotify account, creating profiles for each child which will be age",
-      "detail": "Parents can sign up via an existing or new Spotify account, creating profiles for each child which will be age-specific. All content is curated for age-appropriateness and the content is ad-free. Parental controls, including content filters and time limits, are set up during this process. The app offers personalized playlists, easy navigation through music, audiobooks, and educational content, and a voice search feature for young users. The app’s interactive features includes sing-along mode, interactive stories, and educational quizzes that reward children with badges and points. The app also uses gamification, "
+      "detail": "Parents can sign up via an existing or new Spotify account, creating profiles for each child which will be age-specific. All content is curated for age-appropriateness and the content is ad-free. Parental controls, including content filters and time limits, are set up during this process. The app offers personalized playlists, easy navigation through music, audiobooks, and educational content, and a voice search feature for young users. The app’s interactive features includes sing-along mode, interactive stories, and educational quizzes that reward children with badges and points. The app also uses gamification,"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
       "prompt": "Sounds good. Can you move to the launch phase?",
-      "detail": "Sounds good. Can you move to the launch phase?\nClick here to give a mock interview Sure. During the launch phase, hosting launch events and gradually rolling out the app in selected tier-2 cities where there are higher chances of product success.\nShowcase the app’s features and benefits through live demos, child-friendly activities, and hands-on experiences for families. Collaborate with well-known children’s brands and retail chains to feature Spotify Kids in-store and online, offering promotional deals such as free trials with purchases of specific products.\nDuring this phase, what will be your marketing strate"
+      "detail": "Sounds good. Can you move to the launch phase?\nSure. During the launch phase, hosting launch events and gradually rolling out the app in selected tier-2 cities where there are higher chances of product success.\nShowcase the app’s features and benefits through live demos, child-friendly activities, and hands-on experiences for families. Collaborate with well-known children’s brands and retail chains to feature Spotify Kids in-store and online, offering promotional deals such as free trials with purchases of specific products.\nDuring this phase, what will be your marketing strate"
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -9145,10 +9085,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-metrics-blinkit",
+  "id": "cm-cons-metrics-blinkit",
   "title": "Blinkit Product Metrics",
   "company": "Tata 1mg",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 2,
@@ -9210,7 +9149,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "1. Awareness ● New App Installs (daily/weekly) ● Referral Conversions – % of new users acquired via referral p",
-      "detail": "1. Awareness ● New App Installs (daily/weekly) ● Referral Conversions – % of new users acquired via referral programs ● Cost per Acquisition (CPA) – track efficiency of campaigns Click here to give a mock interview 2. Engagement ● DAU/MAU Ratio – healthy engagement is crucial in a habit-forming product ● Session Duration & Product Browses per Session – are users exploring enough inventory?\n● Search-to-Add-to-Cart Ratio – are they finding what they look for?\n3. Conversion ● Conversion Rate – % of sessions resulting in purchase ● Average Order Value (AOV) – track upselling and cross-selling effectiveness ● Cart Aba"
+      "detail": "1. Awareness ● New App Installs (daily/weekly) ● Referral Conversions – % of new users acquired via referral programs ● Cost per Acquisition (CPA) – track efficiency of campaigns 2. Engagement ● DAU/MAU Ratio – healthy engagement is crucial in a habit-forming product ● Session Duration & Product Browses per Session – are users exploring enough inventory?\n● Search-to-Add-to-Cart Ratio – are they finding what they look for?\n3. Conversion ● Conversion Rate – % of sessions resulting in purchase ● Average Order Value (AOV) – track upselling and cross-selling effectiveness ● Cart Aba"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -9299,10 +9238,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-72-boosting-loan-growth-metrics",
+  "id": "cm-cons-72-boosting-loan-growth-metrics",
   "title": "Boosting Loan Growth Metrics",
   "company": "Indus Insights",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 2,
@@ -9321,7 +9259,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Yes, conversions and cost efficiency are our main focus. With that in mind, which KPIs would you hone in on, and why?",
-      "a": "Click here to give a mock interview Sure, I’d prioritize these four KPIs:",
+      "a": "Sure, I’d prioritize these four KPIs:",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -9357,14 +9295,14 @@ window.CM_DATA.cases.push(
     {
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
-      "prompt": "Boosting Loan Growth Alright, let's dive in. Our client is a European lender using a direct mail campaign for ",
+      "prompt": "Boosting Loan Growth Alright, let's dive in. Our client is a European lender using a direct mail campaign for",
       "detail": "Boosting Loan Growth Alright, let's dive in. Our client is a European lender using a direct mail campaign for customer acquisition. They've asked us to figure out if it's working and how to make it better. Can you walk me through how you’d approach evaluating the effectiveness of this direct mail campaign?\nGladly. First, I’d want to clarify what “effectiveness” really means for us, is the goal more applications, actual loans booked, or maybe just higher engagement? I assume it’s primarily about driving conversions, but would appreciate your confirmation.\nEither way, I’d map the customer journey: from mailers sent"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Sure, I’d prioritize these four KPIs:",
-      "detail": "Click here to give a mock interview Sure, I’d prioritize these four KPIs:\n● Response Rate: Tells us basic engagement, did the mailer spark any interest at all?\n● Application Rate: Of those reached, who took the next step, shows if messaging is resonating.\n● Conversion Rate: Ultimately, how many actually took a loan (the true ROI driver)."
+      "prompt": "Sure, I’d prioritize these four KPIs:",
+      "detail": "Sure, I’d prioritize these four KPIs:\n● Response Rate: Tells us basic engagement, did the mailer spark any interest at all?\n● Application Rate: Of those reached, who took the next step, shows if messaging is resonating.\n● Conversion Rate: Ultimately, how many actually took a loan (the true ROI driver)."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -9453,10 +9391,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-73-zomato-dark-stores-metrics",
+  "id": "cm-cons-73-zomato-dark-stores-metrics",
   "title": "Zomato Dark Stores Metrics",
   "company": "Zomato",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 3,
@@ -9518,7 +9455,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Let’s assume the main goal right now is enabling ultra-fast grocery delivery to test customer adoption, but pr",
-      "detail": "Let’s assume the main goal right now is enabling ultra-fast grocery delivery to test customer adoption, but profitability will become important once demand is validated.For this pilot, focus is mainly on groceries and daily essentials.\nClick here to give a mock interview Perfect, thank you. In that case, I’d structure my metrics across a few buckets: demand, operations, inventory, delivery, customer experience, financial viability, and scalability. Would you like me to start with demand-side metrics first?\nYes, let’s start there.\nI want to see if people in the delivery radius try us and come back."
+      "detail": "Let’s assume the main goal right now is enabling ultra-fast grocery delivery to test customer adoption, but profitability will become important once demand is validated.For this pilot, focus is mainly on groceries and daily essentials.\nPerfect, thank you. In that case, I’d structure my metrics across a few buckets: demand, operations, inventory, delivery, customer experience, financial viability, and scalability. Would you like me to start with demand-side metrics first?\nYes, let’s start there.\nI want to see if people in the delivery radius try us and come back."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -9607,10 +9544,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-74-zerodha-product-metrics",
+  "id": "cm-cons-74-zerodha-product-metrics",
   "title": "Zerodha Product Metrics",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 3,
@@ -9672,7 +9608,7 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "And second, who are the primary users retail investors, institutional investors, or both?",
-      "detail": "And second, who are the primary users retail investors, institutional investors, or both?\nThe horizon is the next year an primarily, we focus on retail investors, including beginners and experienced traders. We aim to cater to a diverse user base with varying levels of investment knowledge.\nUnderstood. Can you briefly explain the main objectives of Zerodha for the next year?\nClick here to give a mock interview Our primary goals are to increase user acquisition, enhance customer engagement, and improve retention rates. We also want to expand our product offerings and improve the user experience on our platform."
+      "detail": "And second, who are the primary users retail investors, institutional investors, or both?\nThe horizon is the next year an primarily, we focus on retail investors, including beginners and experienced traders. We aim to cater to a diverse user base with varying levels of investment knowledge.\nUnderstood. Can you briefly explain the main objectives of Zerodha for the next year?\nOur primary goals are to increase user acquisition, enhance customer engagement, and improve retention rates. We also want to expand our product offerings and improve the user experience on our platform."
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -9690,7 +9626,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "That’s a strong framework. Let’s talk about challenges what specific ones might metrics help address?",
-      "detail": "That’s a strong framework. Let’s talk about challenges what specific ones might metrics help address?\n1. Volatile markets: During big swings, casual investors disengage so tracking DAU/MAU and transaction frequency will show us when users pull back.\n2. Onboarding drop-offs: If too many new users leave before their first trade, monitoring onboarding completion helps us spot and fix the bottlenecks.\nClick here to give a mock interview Any external risks we should account for?"
+      "detail": "That’s a strong framework. Let’s talk about challenges what specific ones might metrics help address?\n1. Volatile markets: During big swings, casual investors disengage so tracking DAU/MAU and transaction frequency will show us when users pull back.\n2. Onboarding drop-offs: If too many new users leave before their first trade, monitoring onboarding completion helps us spot and fix the bottlenecks.\nAny external risks we should account for?"
     }
   ],
   "recommendations": [
@@ -9761,10 +9697,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-75-ceo-dashboard-features-metrics",
+  "id": "cm-cons-75-ceo-dashboard-features-metrics",
   "title": "CEO Dashboard Features & Metrics",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 4,
@@ -9788,7 +9723,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "And for B2C specifically, could you tell me more about our major sales channels?",
-      "a": "Click here to give a mock interview Yes. Our online sales come from:",
+      "a": "Yes. Our online sales come from:",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -9826,12 +9761,12 @@ window.CM_DATA.cases.push(
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "We operate in both: B2C is finished systems, B2B is raw component sales.",
-      "detail": "We operate in both: B2C is finished systems, B2B is raw component sales.\nAnd for B2C specifically, could you tell me more about our major sales channels?\nClick here to give a mock interview Yes. Our online sales come from:\n● Amazon – 64% ● Flipkart – 34% ● Own website – 2% Understood. Apart from sales, what are the critical business levers or pain points we’re tracking in B2C?"
+      "detail": "We operate in both: B2C is finished systems, B2B is raw component sales.\nAnd for B2C specifically, could you tell me more about our major sales channels?\nYes. Our online sales come from:\n● Amazon – 64% ● Flipkart – 34% ● Own website – 2% Understood. Apart from sales, what are the critical business levers or pain points we’re tracking in B2C?"
     },
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "For B2C, we track advertising effectiveness, e-commerce sales, customer feedback, complaints/issues, customer ",
+      "prompt": "For B2C, we track advertising effectiveness, e-commerce sales, customer feedback, complaints/issues, customer",
       "detail": "For B2C, we track advertising effectiveness, e-commerce sales, customer feedback, complaints/issues, customer care queries, popularity on Google, and replacement orders.\nThat’s helpful. And on the B2B side, what are the key drivers?\nWe’re still exploring, but the important levers are supply relationships, contract pipelines, and fulfillment reliability.\nAnd for B2C specifically, could you tell me more about our major sales channels?"
     },
     {
@@ -9915,10 +9850,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-76-linkedin-job-posting-feature-metrics",
+  "id": "cm-cons-76-linkedin-job-posting-feature-metrics",
   "title": "LinkedIn Job Posting Feature Metrics",
   "company": "LinkedIn - TPF",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Metrics",
   "difficulty": 4,
@@ -9941,7 +9875,7 @@ window.CM_DATA.cases.push(
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
-      "q": "Click here to give a mock interview Nice breakdown. And how about external factors, what forces do you think most affect how this product performs?",
+      "q": "Nice breakdown. And how about external factors, what forces do you think most affect how this product performs?",
       "a": "Several. Legal and regulatory forces like anti-discrimination and hiring laws definitely play a role. Economic cycles influence hiring demand, and social trends like the rise of remote work shape candidate preferences.",
       "why": "Scopes the problem boundary before building the issue tree."
     }
@@ -9985,8 +9919,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Nice breakdown. And how about external factors, what forces do you think m",
-      "detail": "Click here to give a mock interview Nice breakdown. And how about external factors, what forces do you think most affect how this product performs?\nSeveral. Legal and regulatory forces like anti-discrimination and hiring laws definitely play a role. Economic cycles influence hiring demand, and social trends like the rise of remote work shape candidate preferences.\nWe also need to account for tech advancements like AI matching, and privacy regulations like GDPR or CCPA. Interestingly, environmental impact is low here.\nYeah, that tracks. Let’s talk about data now, if you had to instrument the product, what are the "
+      "prompt": "Nice breakdown. And how about external factors, what forces do you think m",
+      "detail": "Nice breakdown. And how about external factors, what forces do you think most affect how this product performs?\nSeveral. Legal and regulatory forces like anti-discrimination and hiring laws definitely play a role. Economic cycles influence hiring demand, and social trends like the rise of remote work shape candidate preferences.\nWe also need to account for tech advancements like AI matching, and privacy regulations like GDPR or CCPA. Interestingly, environmental impact is low here.\nYeah, that tracks. Let’s talk about data now, if you had to instrument the product, what are the"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -9998,7 +9932,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "Another could be tied to reducing time-to-fill or increasing funnel conversion rates.",
-      "detail": "Another could be tied to reducing time-to-fill or increasing funnel conversion rates.\nClick here to give a mock interview Fair point on the language barrier. Lastly, can you give me formulas for a few of the key funnel metrics?\n● Fill rate = hires within 45 days / total posts ● CTR = clicks / impressions ● App completion rate = submitted applications / started applications ● Apply-to-Interview rate = interviews / total applications ● Time-to-first-contact = median(hours from application to first recruiter contact) Perfect. Super comprehensive. You’ve touched on both tactical and strategic layers, and your stakeho"
+      "detail": "Another could be tied to reducing time-to-fill or increasing funnel conversion rates.\nFair point on the language barrier. Lastly, can you give me formulas for a few of the key funnel metrics?\n● Fill rate = hires within 45 days / total posts ● CTR = clicks / impressions ● App completion rate = submitted applications / started applications ● Apply-to-Interview rate = interviews / total applications ● Time-to-first-contact = median(hours from application to first recruiter contact) Perfect. Super comprehensive. You’ve touched on both tactical and strategic layers, and your stakeho"
     }
   ],
   "recommendations": [
@@ -10069,10 +10003,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-77-snapchat-product-critique",
+  "id": "cm-cons-77-snapchat-product-critique",
   "title": "Snapchat Product Critique",
   "company": "Tata 1mg",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 2,
@@ -10091,12 +10024,12 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Interesting! Of those several products, what is so great about Snapchat that has drawn you in?",
-      "a": "I like Snapchat because it is a multimedia messaging app, and it lets me send disappearing snaps, videos, and chats-not to mention stories. I get to share various types of media with such great speed, and the filtered photos and videos are ",
+      "a": "I like Snapchat because it is a multimedia messaging app, and it lets me send disappearing snaps, videos, and chats-not to mention stories. I get to share various types of media with such great speed, and the filtered photos and videos are",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
       "q": "So, all in all, it sounds like a pretty good experience. What about pain points? Is there anything that you think could be improved upon?",
-      "a": "Click here to give a mock interview Uh, definitely! I think one of the big issues I've come across is cluttered filters. They're a little disorganised; some may be difficult to find out. And I think people just turn off doing that more than",
+      "a": "Uh, definitely! I think one of the big issues I've come across is cluttered filters. They're a little disorganised; some may be difficult to find out. And I think people just turn off doing that more than",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -10139,8 +10072,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Uh, definitely! I think one of the big issues I've come across is cluttere",
-      "detail": "Click here to give a mock interview Uh, definitely! I think one of the big issues I've come across is cluttered filters. They're a little disorganised; some may be difficult to find out. And I think people just turn off doing that more than they actually should.\nThat's a valid criticism. How would you fix it?\nFirst, I’d look at filters because they are high-frequency, high-engagement features. I’d categorize them (seasonal, trending, AR) and add search + 'favourite filters'. This is a low engineering effort but likely to reduce friction and increase daily engagement. We can measure success by tracking % of users "
+      "prompt": "Uh, definitely! I think one of the big issues I've come across is cluttere",
+      "detail": "Uh, definitely! I think one of the big issues I've come across is cluttered filters. They're a little disorganised; some may be difficult to find out. And I think people just turn off doing that more than they actually should.\nThat's a valid criticism. How would you fix it?\nFirst, I’d look at filters because they are high-frequency, high-engagement features. I’d categorize them (seasonal, trending, AR) and add search + 'favourite filters'. This is a low engineering effort but likely to reduce friction and increase daily engagement. We can measure success by tracking % of users"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -10222,10 +10155,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-crit-uber",
+  "id": "cm-cons-crit-uber",
   "title": "Uber App Product Critique",
   "company": "Zomato",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 1,
@@ -10282,13 +10214,13 @@ window.CM_DATA.cases.push(
       "phase": "1. Context & Scoping",
       "speaker": "Interviewer",
       "prompt": "Uber Hi! Let’s start with a simple question to warm up. What’s your favourite product, and why?",
-      "detail": "Uber Hi! Let’s start with a simple question to warm up. What’s your favourite product, and why?\nIf I had to pick my favourite product, I would pick Uber. What I really like about Uber is that it has taken something as mundane as travelling from one place to another and made the entire experience feel simple and predictable. So instead of looking at Uber as just a cab-booking app, I think about it as a journey where every step removes a little bit of friction for the user.\nThat’s a great perspective. Can you walk me through how Uber addresses the very first stage of a user's journey when they decide to travel?\nIt "
+      "detail": "Uber Hi! Let’s start with a simple question to warm up. What’s your favourite product, and why?\nIf I had to pick my favourite product, I would pick Uber. What I really like about Uber is that it has taken something as mundane as travelling from one place to another and made the entire experience feel simple and predictable. So instead of looking at Uber as just a cab-booking app, I think about it as a journey where every step removes a little bit of friction for the user.\nThat’s a great perspective. Can you walk me through how Uber addresses the very first stage of a user's journey when they decide to travel?\nIt"
     },
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
       "prompt": "Imagine I'm leaving college at 8 PM and I need to get home.",
-      "detail": "Imagine I'm leaving college at 8 PM and I need to get home.\nEarlier, I would have to stand outside, find an auto or cab, negotiate the price and then hope the driver actually agrees to take me. With Uber, I simply enter where I want to go, and the transportation comes to me. I think that's the first big breakthrough, Uber changed transportation from something I had to actively find into something I could request on demand. I also like that I'm not restricted to just one mode.\nClick here to give a mock interview Depending on the situation, I can choose a Bike if I'm in a hurry, an Auto if I want something affordab"
+      "detail": "Imagine I'm leaving college at 8 PM and I need to get home.\nEarlier, I would have to stand outside, find an auto or cab, negotiate the price and then hope the driver actually agrees to take me. With Uber, I simply enter where I want to go, and the transportation comes to me. I think that's the first big breakthrough, Uber changed transportation from something I had to actively find into something I could request on demand. I also like that I'm not restricted to just one mode.\nDepending on the situation, I can choose a Bike if I'm in a hurry, an Auto if I want something affordab"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -10376,10 +10308,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-79-unstop-product-critique",
+  "id": "cm-cons-79-unstop-product-critique",
   "title": "Unstop Product Critique",
   "company": "American Express",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 2,
@@ -10447,7 +10378,7 @@ window.CM_DATA.cases.push(
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
       "prompt": "Its unique selling point is end-to-end participation — not just job listings but live skill-building through c",
-      "detail": "Its unique selling point is end-to-end participation — not just job listings but live skill-building through competitions and hackathons, which LinkedIn doesn’t focus on.\nClick here to give a mock interview It also gives businesses a dedicated place to engage with students, which creates a stronger ecosystem.\nFair. But every product has gaps. What are some drawbacks you’ve noticed?\nThe competition diversity could improve, especially in fields like social impact or sustainability. The UI can feel cluttered, and mentor access isn’t always timely. Also, some competitions lack value, and international opportunities a"
+      "detail": "Its unique selling point is end-to-end participation — not just job listings but live skill-building through competitions and hackathons, which LinkedIn doesn’t focus on.\nIt also gives businesses a dedicated place to engage with students, which creates a stronger ecosystem.\nFair. But every product has gaps. What are some drawbacks you’ve noticed?\nThe competition diversity could improve, especially in fields like social impact or sustainability. The UI can feel cluttered, and mentor access isn’t always timely. Also, some competitions lack value, and international opportunities a"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -10530,10 +10461,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-80-milk-basket-product-critique",
+  "id": "cm-cons-80-milk-basket-product-critique",
   "title": "Milk Basket Product Critique",
   "company": "Zomato",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 3,
@@ -10552,7 +10482,7 @@ window.CM_DATA.cases.push(
     },
     {
       "q": "Are there any risks you’d watch out for?",
-      "a": "Click here to give a mock interview For search, the key risk is data privacy and compliance when training new models. We’d need legal checks on storing and processing user queries. The recipe feature has fewer risks but should be tested car",
+      "a": "For search, the key risk is data privacy and compliance when training new models. We’d need legal checks on storing and processing user queries. The recipe feature has fewer risks but should be tested car",
       "why": "Scopes the problem boundary before building the issue tree."
     }
   ],
@@ -10601,8 +10531,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview For search, the key risk is data privacy and compliance when training new ",
-      "detail": "Click here to give a mock interview For search, the key risk is data privacy and compliance when training new models. We’d need legal checks on storing and processing user queries. The recipe feature has fewer risks but should be tested carefully for regional acceptance.\nGreat. Could you summarize your thought process?\n● Start with why I love the product → set context with personal connection."
+      "prompt": "For search, the key risk is data privacy and compliance when training new",
+      "detail": "For search, the key risk is data privacy and compliance when training new models. We’d need legal checks on storing and processing user queries. The recipe feature has fewer risks but should be tested carefully for regional acceptance.\nGreat. Could you summarize your thought process?\n● Start with why I love the product → set context with personal connection."
     },
     {
       "phase": "5. Synthesis & Recommendations",
@@ -10679,10 +10609,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-crit-myntra",
+  "id": "cm-cons-crit-myntra",
   "title": "Myntra Product Critique",
   "company": "Meesho",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 3,
@@ -10696,7 +10625,7 @@ window.CM_DATA.cases.push(
   "clarifyingQuestions": [
     {
       "q": "Good observations. Now let’s get into product critique — what pain points have you experienced?",
-      "a": "Click here to give a mock interview Two key issues come to mind:",
+      "a": "Two key issues come to mind:",
       "why": "Scopes the problem boundary before building the issue tree."
     },
     {
@@ -10744,8 +10673,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview Two key issues come to mind:",
-      "detail": "Click here to give a mock interview Two key issues come to mind:\n● Limited selection in new categories (like electronics and home essentials).\n● Inconsistent product quality and authenticity for some items.\nLet’s go deeper on the first one — limited selection."
+      "prompt": "Two key issues come to mind:",
+      "detail": "Two key issues come to mind:\n● Limited selection in new categories (like electronics and home essentials).\n● Inconsistent product quality and authenticity for some items.\nLet’s go deeper on the first one — limited selection."
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -10828,10 +10757,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-82-reddit-product-critique",
+  "id": "cm-cons-82-reddit-product-critique",
   "title": "Reddit Product Critique",
   "company": "media.net",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 3,
@@ -10899,7 +10827,7 @@ window.CM_DATA.cases.push(
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
       "prompt": "And why Reddit over other platforms like Instagram or Facebook?",
-      "detail": "And why Reddit over other platforms like Instagram or Facebook?\nUnlike other platforms optimized for quick dopamine hits, Reddit focuses on depth and quality of discussion.\nClick here to give a mock interview The upvote/downvote mechanism rewards valuable content, and the lack of real-name pressure creates a safe space for honest knowledge-sharing.\nFair point. But Reddit’s popularity still lags competitors. Why do you think that is?"
+      "detail": "And why Reddit over other platforms like Instagram or Facebook?\nUnlike other platforms optimized for quick dopamine hits, Reddit focuses on depth and quality of discussion.\nThe upvote/downvote mechanism rewards valuable content, and the lack of real-name pressure creates a safe space for honest knowledge-sharing.\nFair point. But Reddit’s popularity still lags competitors. Why do you think that is?"
     },
     {
       "phase": "4. Key Findings & Trade-offs",
@@ -10982,10 +10910,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-83-google-cloud-platform-gcp-critique",
+  "id": "cm-cons-83-google-cloud-platform-gcp-critique",
   "title": "Google Cloud Platform (GCP) Critique",
   "company": "Google",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 4,
@@ -10998,7 +10925,7 @@ window.CM_DATA.cases.push(
   "prompt": "Google Cloud Platform (GCP) What is your favourite Google product and why?",
   "clarifyingQuestions": [
     {
-      "q": "Click here to give a mock interview What user problems does GCP solve?",
+      "q": "What user problems does GCP solve?",
       "a": "Different segments have distinct pain points:",
       "why": "Scopes the problem boundary before building the issue tree."
     },
@@ -11046,26 +10973,26 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "Click here to give a mock interview What user problems does GCP solve?",
-      "detail": "Click here to give a mock interview What user problems does GCP solve?\nDifferent segments have distinct pain points:\n● Individual developers: Don’t want to host servers or set up heavy IT. They need to spin up an app or MVP quickly and deploy live within hours.\n● Small businesses: Need slightly more complexity—domains, Gmail, storage, databases—while still keeping setup simple and affordable."
+      "prompt": "What user problems does GCP solve?",
+      "detail": "What user problems does GCP solve?\nDifferent segments have distinct pain points:\n● Individual developers: Don’t want to host servers or set up heavy IT. They need to spin up an app or MVP quickly and deploy live within hours.\n● Small businesses: Need slightly more complexity—domains, Gmail, storage, databases—while still keeping setup simple and affordable."
     },
     {
       "phase": "3. Deep-Dive Investigation",
       "speaker": "Candidate",
-      "prompt": "● Large enterprises: Often spend millions on server farms and infrastructure. GCP helps them cut costs, scale ",
+      "prompt": "● Large enterprises: Often spend millions on server farms and infrastructure. GCP helps them cut costs, scale",
       "detail": "● Large enterprises: Often spend millions on server farms and infrastructure. GCP helps them cut costs, scale faster, and access modern AI/analytics tools without maintaining everything in-house.\nAnd how does GCP provide solutions across these segments?\n● For developers: Quick setup, app instances, storage, samples, and a clean console. You can go from code to demo in a day.\nGoogle Cloud Platform (GCP) ● For small businesses: Domains, App Engine, storage, collaboration tools—everything to run operations smoothly."
     },
     {
       "phase": "4. Key Findings & Trade-offs",
       "speaker": "Candidate",
-      "prompt": "● For enterprises: A full suite—compute, networking, analytics, AI, databases, developer tools (literally 25+ ",
+      "prompt": "● For enterprises: A full suite—compute, networking, analytics, AI, databases, developer tools (literally 25+",
       "detail": "● For enterprises: A full suite—compute, networking, analytics, AI, databases, developer tools (literally 25+ services). It’s a one-stop platform.\nHow does GCP compare to competitors like AWS or DigitalOcean?\n● DigitalOcean: Great for indie developers, but very command-line heavy and not enterprise-ready.\n● AWS: Fantastic for enterprises, but extremely complex—indie developers often find it overwhelming."
     },
     {
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
-      "prompt": "● GCP: Strikes a balance. Easier for indie devs and small businesses to start with, while still robust enough ",
-      "detail": "● GCP: Strikes a balance. Easier for indie devs and small businesses to start with, while still robust enough for enterprises. AWS may still have an edge for enterprise, but GCP excels in AI/ML and developer-friendliness.\nWhat improvements would you suggest for GCP?\nClick here to give a mock interview ● Simplify further for indie developers: More guided flows, tutorials, and starter templates.\n● Expose advanced AI/ML tools to individual developers in easier, “plug-and-play” formats."
+      "prompt": "● GCP: Strikes a balance. Easier for indie devs and small businesses to start with, while still robust enough",
+      "detail": "● GCP: Strikes a balance. Easier for indie devs and small businesses to start with, while still robust enough for enterprises. AWS may still have an edge for enterprise, but GCP excels in AI/ML and developer-friendliness.\nWhat improvements would you suggest for GCP?\n● Simplify further for indie developers: More guided flows, tutorials, and starter templates.\n● Expose advanced AI/ML tools to individual developers in easier, “plug-and-play” formats."
     }
   ],
   "recommendations": [
@@ -11136,10 +11063,9 @@ window.CM_DATA.cases.push(
   }
 },
 {
-  "id": "ktc-84-litflask-3-in-1-smart-water-bottle-critique",
+  "id": "cm-cons-84-litflask-3-in-1-smart-water-bottle-critique",
   "title": "LitFlask 3-in-1 Smart Water Bottle Critique",
   "company": "American Express",
-  "source": "KTC Casebook 2026",
   "track": "Product",
   "category": "Product Critique",
   "difficulty": 4,
@@ -11200,8 +11126,8 @@ window.CM_DATA.cases.push(
     {
       "phase": "2. Initial Structure & Hypothesis",
       "speaker": "Candidate",
-      "prompt": "● Multifunctionality: It integrates three core utilities—water bottle, Bluetooth speaker, and 5,000 mAh power ",
-      "detail": "● Multifunctionality: It integrates three core utilities—water bottle, Bluetooth speaker, and 5,000 mAh power bank—so you only need one item when heading out.\n● Outdoor-friendly design: It’s made of vacuum-insulated stainless steel, keeping drinks cold for hours, and is splash-resistant—ideal for gyms, beach trips, or hikes.\nClick here to give a mock interview ● Ambient lighting & sync: LED lights sync with music playback, adding ambiance and mood, and ensure you can locate the bottle after dark. Plus, the “Bump Technology” allows two LitFlasks to sync up for stereo sound.\nInteresting. What other products is LitF"
+      "prompt": "● Multifunctionality: It integrates three core utilities—water bottle, Bluetooth speaker, and 5,000 mAh power",
+      "detail": "● Multifunctionality: It integrates three core utilities—water bottle, Bluetooth speaker, and 5,000 mAh power bank—so you only need one item when heading out.\n● Outdoor-friendly design: It’s made of vacuum-insulated stainless steel, keeping drinks cold for hours, and is splash-resistant—ideal for gyms, beach trips, or hikes.\n● Ambient lighting & sync: LED lights sync with music playback, adding ambiance and mood, and ensure you can locate the bottle after dark. Plus, the “Bump Technology” allows two LitFlasks to sync up for stereo sound.\nInteresting. What other products is LitF"
     },
     {
       "phase": "3. Deep-Dive Investigation",
@@ -11219,7 +11145,7 @@ window.CM_DATA.cases.push(
       "phase": "5. Synthesis & Recommendations",
       "speaker": "Candidate",
       "prompt": "● Outdoor enthusiasts (hikers, campers): Want durability, ambient lighting, and multiple utilities to minimize",
-      "detail": "● Outdoor enthusiasts (hikers, campers): Want durability, ambient lighting, and multiple utilities to minimize what they carry.\n● Fitness buffs / gym-goers: Need hydration, music, and the ability to charge devices—without multiple items cluttering their bag or locker.\n● Urban commuters / festival-goers: Appreciate portability, music, charging, and visibility (LED lighting) in one compact package.\nClick here to give a mock interview Pain points include carrying multiple gadgets, forgetting power banks or speakers, and wanting more immersive experiences during outdoor or fitness activities."
+      "detail": "● Outdoor enthusiasts (hikers, campers): Want durability, ambient lighting, and multiple utilities to minimize what they carry.\n● Fitness buffs / gym-goers: Need hydration, music, and the ability to charge devices—without multiple items cluttering their bag or locker.\n● Urban commuters / festival-goers: Appreciate portability, music, charging, and visibility (LED lighting) in one compact package.\nPain points include carrying multiple gadgets, forgetting power banks or speakers, and wanting more immersive experiences during outdoor or fitness activities."
     }
   ],
   "recommendations": [
