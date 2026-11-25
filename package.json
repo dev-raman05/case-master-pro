@@ -1,0 +1,19 @@
+{
+  "name": "casemaster-pro",
+  "version": "1.0.0",
+  "description": "Zero-to-Offer interactive Consulting & Product Management case study prep studio covering RCA, GTM, Product Design, Metrics, Pricing, Profitability, Market Entry, Growth, and M&A.",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "case-study",
+    "product-management",
+    "consulting",
+    "rca",
+    "gtm",
+    "case-interview"
+  ],
+  "license": "MIT"
+}
