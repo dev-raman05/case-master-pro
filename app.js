@@ -7,12 +7,24 @@
   const STORAGE_KEY = 'casemaster_pro_state_v1';
 
   const defaultState = {
-    theme: 'dark',
+    uiVersion: 2,
+    theme: 'paper',
     fontScale: 'normal',
+    sidebarCollapsed: false,
+    focusMode: false,
     mockDurationMins: 25,
     view: 'dashboard',
     academyTab: 'algorithm',
+    academyFocusStep: 0,
+    academyShowAllSteps: false,
+    wizardSubTab: 'wizard',
     memorizeTab: 'cheatsheet',
+    primersSubTab: 'primers',
+    mockRightTab: 'clarify',
+    dashShowAllStarters: false,
+    dashOpenStages: null,
+    libMoreFiltersOpen: false,
+    caseReaderMode: 'full',
     selectedCaseId: CASES[0] ? CASES[0].id : null,
     studyRevealStep: 99,
     progressiveMode: false,
@@ -43,17 +55,32 @@
     }
   };
 
+  function normalizeTheme(val) {
+    if (val === 'midnight' || val === 'dark') return 'midnight';
+    return 'paper';
+  }
+
   function loadState() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return structuredClone(defaultState);
       const parsed = JSON.parse(raw);
-      return {
+      const base = {
         ...structuredClone(defaultState),
         ...parsed,
         filters: { ...defaultState.filters, ...(parsed.filters || {}) },
         guided: { ...defaultState.guided, ...(parsed.guided || {}) }
       };
+      if (!parsed.uiVersion || Number(parsed.uiVersion) < 2) {
+        base.uiVersion = 2;
+        base.theme = 'paper';
+        base.fontScale = 'normal';
+        base.sidebarCollapsed = false;
+        base.focusMode = false;
+      } else {
+        base.theme = normalizeTheme(base.theme);
+      }
+      return base;
     } catch {
       return structuredClone(defaultState);
     }
@@ -159,6 +186,7 @@
   let cheatSearch = '';
   let primerSearch = '';
   let libResizeObserver = null;
+  let cmdActiveIdx = 0;
 
   function esc(str) {
     return String(str ?? '')
@@ -179,7 +207,7 @@
     for (let i = 1; i <= 5; i++) {
       html += `<span class="diff-dot ${i <= level ? 'on ' + cls : ''}"></span>`;
     }
-    html += ` <span style="font-size:0.86rem;color:var(--text-muted);margin-left:2px;">L${level}</span></span>`;
+    html += ` <span style="font-size:0.82rem;color:var(--text-dim);margin-left:2px;">L${level}</span></span>`;
     return html;
   }
 
@@ -221,10 +249,13 @@
   }
 
   function applyTheme() {
-    if (state.theme !== 'light' && state.theme !== 'dark') state.theme = 'dark';
+    state.theme = normalizeTheme(state.theme);
+    const isMidnight = state.theme === 'midnight';
     const isCompact = state.fontScale === 'compact';
     const isComfortable = state.fontScale === 'comfortable';
-    document.body.classList.toggle('light-theme', state.theme === 'light');
+
+    document.body.classList.toggle('midnight-theme', isMidnight);
+    document.body.classList.toggle('focus-mode', !!state.focusMode);
     document.documentElement.classList.toggle('font-compact', isCompact);
     document.documentElement.classList.toggle('font-comfortable', isComfortable);
     document.body.classList.toggle('font-compact', isCompact);
@@ -239,24 +270,84 @@
     document.querySelectorAll('[data-set-mockmins]').forEach(el => {
       el.classList.toggle('btn-primary', Number(el.dataset.setMockmins) === (state.mockDurationMins || 25));
     });
+
     const themeColorMeta = document.getElementById('meta-theme-color');
-    if (themeColorMeta) themeColorMeta.setAttribute('content', state.theme === 'light' ? '#f8fafc' : '#09090b');
+    if (themeColorMeta) themeColorMeta.setAttribute('content', isMidnight ? '#10141d' : '#f6f4ef');
+  }
+
+  function applySidebarState() {
+    const shell = document.getElementById('app-shell');
+    const sidebar = document.getElementById('sidebar');
+    const scrim = document.getElementById('sidebar-scrim');
+    const sideBtn = document.getElementById('sidebar-brand-toggle');
+    const topBtn = document.getElementById('topbar-brand-toggle');
+
+    if (window.innerWidth > 820) {
+      if (shell) shell.classList.toggle('sidebar-collapsed', !!state.sidebarCollapsed);
+      if (sidebar) sidebar.classList.remove('open');
+      if (scrim) scrim.classList.remove('open');
+      if (sideBtn) sideBtn.setAttribute('aria-expanded', String(!state.sidebarCollapsed));
+      if (topBtn) topBtn.setAttribute('aria-expanded', String(!state.sidebarCollapsed));
+    } else {
+      if (shell) shell.classList.remove('sidebar-collapsed');
+      const isOpen = sidebar ? sidebar.classList.contains('open') : false;
+      if (sideBtn) sideBtn.setAttribute('aria-expanded', String(isOpen));
+      if (topBtn) topBtn.setAttribute('aria-expanded', String(isOpen));
+    }
+  }
+
+  function toggleSidebar(forceOpen) {
+    if (window.innerWidth <= 820) {
+      const sidebar = document.getElementById('sidebar');
+      const scrim = document.getElementById('sidebar-scrim');
+      const open = typeof forceOpen === 'boolean' ? forceOpen : !(sidebar && sidebar.classList.contains('open'));
+      if (sidebar) sidebar.classList.toggle('open', open);
+      if (scrim) scrim.classList.toggle('open', open);
+      applySidebarState();
+    } else {
+      state.sidebarCollapsed = typeof forceOpen === 'boolean' ? !forceOpen : !state.sidebarCollapsed;
+      saveState();
+      applySidebarState();
+      if (state.view === 'library' && typeof window.__cmSyncLibraryListHeight === 'function') {
+        setTimeout(() => window.__cmSyncLibraryListHeight(), 240);
+      }
+    }
+  }
+
+  function toggleTheme() {
+    state.theme = state.theme === 'midnight' ? 'paper' : 'midnight';
+    saveState();
+    applyTheme();
+  }
+
+  function toggleFocusMode() {
+    state.focusMode = !state.focusMode;
+    if (state.focusMode && window.innerWidth > 820) {
+      state.sidebarCollapsed = true;
+    }
+    saveState();
+    applyTheme();
+    applySidebarState();
   }
 
   function syncNavUI() {
     document.querySelectorAll('.nav-btn').forEach(b => {
       b.classList.toggle('active', b.dataset.view === state.view);
     });
-    const titles = {
-      dashboard: '4-Day Zero-to-Offer Sprint',
-      academy: 'Approach & Frameworks Guide',
-      memorize: 'Memorize & Reference',
-      library: `Case Library (${CASES.length})`,
-      practice: 'Guided Case Coach',
-      mock: 'Mock Interview Workbench'
-    };
+    const meta = {
+      dashboard: { k: 'Foundations', t: '4-Day Sprint' },
+      academy: { k: 'Foundations', t: 'Approach & Frameworks' },
+      memorize: { k: 'Foundations', t: 'Memorize & Reference' },
+      library: { k: 'Workshop', t: `Case Dossiers (${CASES.length})` },
+      practice: { k: 'Workshop', t: 'Guided Case Coach' },
+      mock: { k: 'Workshop', t: 'Mock Studio' }
+    }[state.view] || { k: 'CaseMaster', t: 'Strategy Studio' };
+
+    const kickerEl = document.getElementById('topbar-kicker');
     const titleEl = document.getElementById('topbar-title');
-    if (titleEl) titleEl.textContent = titles[state.view] || 'CaseMaster Pro';
+    if (kickerEl) kickerEl.textContent = meta.k;
+    if (titleEl) titleEl.textContent = meta.t;
+
     const gs = document.getElementById('global-search');
     if (gs && gs.value !== (state.filters.search || '')) {
       gs.value = state.filters.search || '';
@@ -284,14 +375,24 @@
     saveState();
 
     syncNavUI();
-    document.getElementById('sidebar').classList.remove('open');
+    if (window.innerWidth <= 820) toggleSidebar(false);
     if (!opts.preserveFocus && typeof window.scrollTo === 'function') {
       window.scrollTo(0, 0);
     }
     render();
   }
 
-  // ==================== VIEW 1: DASHBOARD ====================
+  // ==================== VIEW 1: DASHBOARD (CALM SPRINT) ====================
+  function ensureOpenStages() {
+    if (state.dashOpenStages && typeof state.dashOpenStages === 'object') return state.dashOpenStages;
+    const roadmap = CURRICULUM.roadmap || [];
+    const firstOpen = roadmap.find(st => st.tasks.some(t => !state.roadmapDone[t.id])) || roadmap[0];
+    const map = {};
+    if (firstOpen) map[firstOpen.stageNum] = true;
+    state.dashOpenStages = map;
+    return map;
+  }
+
   function renderDashboard() {
     const p = computeProgress();
     const starters = CASES.filter(c => c.isStarter);
@@ -300,165 +401,203 @@
       ...CASES.filter(c => !c.isStarter).sort((a, b) => a.difficulty - b.difficulty)
     ];
     const nextRec = orderedRec.find(c => !state.masteredIds[c.id]) || orderedRec[0] || CASES[0];
-    const starterPicks = starters.slice(0, 6);
+    const visibleStarters = state.dashShowAllStarters ? starters.slice(0, 6) : starters.slice(0, 3);
+    const openMap = ensureOpenStages();
 
     const stagesHtml = (CURRICULUM.roadmap || []).map(stage => {
       const doneInStage = stage.tasks.filter(t => state.roadmapDone[t.id]).length;
       const allDone = doneInStage === stage.tasks.length;
+      const isOpen = !!openMap[stage.stageNum];
       return `
-        <div class="stage-card">
-          <div class="stage-header">
-            <div>
-              <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-                <span class="stage-num">${stage.stageNum}</span>
-                <strong style="font-size:1.12rem;">${esc(stage.title)}</strong>
-                <span class="pill ${allDone ? 'pill-green' : 'pill-blue'}">${doneInStage}/${stage.tasks.length} done</span>
-                <span class="pill">⏱️ ~${esc(stage.duration)}</span>
-              </div>
-              <p style="margin:6px 0 0;color:var(--text-muted);font-size:0.96rem;">${esc(stage.goal)}</p>
+        <div class="accordion-stage">
+          <button type="button" class="accordion-head" data-toggle-stage="${stage.stageNum}" aria-expanded="${isOpen}">
+            <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0;flex:1;">
+              <span class="stage-num">${stage.stageNum}</span>
+              <strong style="font-size:1rem;">${esc(stage.title)}</strong>
+              <span class="pill ${allDone ? 'pill-green' : 'pill-blue'}">${doneInStage}/${stage.tasks.length}</span>
+              <span class="pill">~${esc(stage.duration)}</span>
             </div>
-            <button class="btn btn-sm ${allDone ? '' : 'btn-primary'}" data-jump-view="${stage.actionView}" data-jump-tab="${stage.actionTab || ''}">
-              Open Module →
-            </button>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:5px;">
-            ${stage.tasks.map(t => {
-              const checked = !!state.roadmapDone[t.id];
-              return `
-                <label class="task-item ${checked ? 'done' : ''}">
-                  <input type="checkbox" data-roadmap-task="${t.id}" ${checked ? 'checked' : ''} />
-                  <span>${esc(t.text)}</span>
-                </label>
-              `;
-            }).join('')}
-          </div>
+            <span style="font-family:var(--mono);font-size:0.86rem;color:var(--text-dim);flex-shrink:0;">${isOpen ? 'Collapse −' : 'Expand +'}</span>
+          </button>
+          ${isOpen ? `
+            <div class="accordion-body">
+              <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding-top:10px;">
+                <p style="margin:0;color:var(--text-muted);font-size:0.9rem;flex:1 1 240px;">${esc(stage.goal)}</p>
+                <button type="button" class="btn btn-sm ${allDone ? '' : 'btn-primary'}" data-jump-view="${stage.actionView}" data-jump-tab="${stage.actionTab || ''}">Open Module →</button>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                ${stage.tasks.map(t => {
+                  const checked = !!state.roadmapDone[t.id];
+                  return `
+                    <label class="task-item ${checked ? 'done' : ''}">
+                      <input type="checkbox" data-roadmap-task="${t.id}" ${checked ? 'checked' : ''} />
+                      <span>${esc(t.text)}</span>
+                    </label>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          ` : ''}
         </div>
       `;
     }).join('');
 
     return `
-      <div class="hero-banner">
+      <div class="brief-banner">
         <div>
-          <span class="pill pill-green" style="margin-bottom:6px;">🚀 Built for 0-Experience Beginners · 4–5 Day Interview Sprint</span>
-          <h1>Crack Any RCA, GTM, Product &amp; Consulting Case Effortlessly</h1>
-          <p>Start from zero with the universal 6-step case loop, <strong>${CASES.length} solved cases</strong> from Sawal Jawab, E-Cell IITG, KTC &amp; SRCRC, <strong>20 Industry Primers</strong>, <strong>8 App User Flows</strong>, flashcards, and timed mock simulations.</p>
+          <span class="pill pill-blue" style="margin-bottom:5px;">0-Experience Interview Sprint · 4–5 Days</span>
+          <h1>Structured Thinking for Product &amp; Consulting Cases</h1>
+          <p>Master the 6-step case loop first, then drill <strong>${CASES.length} solved dossiers</strong> across RCA, GTM, Product Design, Pricing, Profitability &amp; Market Entry.</p>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn btn-primary" data-jump-view="academy" data-jump-tab="algorithm">Start Here: 6-Step Method →</button>
-          ${nextRec ? `<button class="btn btn-secondary" data-practice-id="${esc(nextRec.id)}">🎯 Practice Starter (L${nextRec.difficulty})</button>` : ''}
+          <button type="button" class="btn btn-primary" data-jump-view="academy" data-jump-tab="algorithm">1. Learn 6-Step Method →</button>
+          ${nextRec ? `<button type="button" class="btn btn-secondary" data-practice-id="${esc(nextRec.id)}">Practice Starter (L${nextRec.difficulty})</button>` : ''}
         </div>
       </div>
 
-      <div class="grid-4" style="margin-bottom:14px;">
-        <div class="stat-card">
-          <div class="stat-label">Interview Readiness</div>
-          <div class="stat-value" style="color:var(--accent-bright);">${p.readiness}%</div>
-          <div class="stat-sub">Target: 80%+ before interview day</div>
+      <div class="kpi-strip">
+        <div class="kpi-cell">
+          <span class="stat-label">Readiness</span>
+          <span class="stat-value" style="color:var(--accent-bright);">${p.readiness}%</span>
+          <span class="stat-sub">Target: 80%+ before day 4</span>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Cases Mastered</div>
-          <div class="stat-value">${p.masteredCount} <span style="font-size:1rem;color:var(--text-dim);">/ ${CASES.length}</span></div>
-          <div class="stat-sub">${p.bookmarkedCount} bookmarked for revision</div>
+        <div class="kpi-cell">
+          <span class="stat-label">Cases Mastered</span>
+          <span class="stat-value">${p.masteredCount} <span style="font-size:0.86rem;color:var(--text-dim);font-weight:400;">/ ${CASES.length}</span></span>
+          <span class="stat-sub">${p.bookmarkedCount} bookmarked for review</span>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Frameworks &amp; Reflex</div>
-          <div class="stat-value">${p.cardsMastered} <span style="font-size:1rem;color:var(--text-dim);">/ ${p.totalCards}</span></div>
-          <div class="stat-sub">Best 60s Reflex Drill: ${state.bestDrillScore} pts</div>
+        <div class="kpi-cell">
+          <span class="stat-label">Cards &amp; Reflex</span>
+          <span class="stat-value">${p.cardsMastered} <span style="font-size:0.86rem;color:var(--text-dim);font-weight:400;">/ ${p.totalCards}</span></span>
+          <span class="stat-sub">Best 60s drill: ${state.bestDrillScore} pts</span>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Next Recommended Case</div>
-          <div style="font-weight:700;font-size:1rem;margin:4px 0;">${esc(nextRec ? nextRec.title : '—')}</div>
+        <div class="kpi-cell">
+          <span class="stat-label">Up Next</span>
+          <div style="font-weight:600;font-size:0.9rem;line-height:1.3;margin:2px 0;">${esc(nextRec ? nextRec.title : '—')}</div>
           ${nextRec ? `
-            <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+            <div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-top:auto;">
               <span class="pill pill-purple">${esc(nextRec.category)}</span>
-              ${diffDots(nextRec.difficulty)}
-              <button class="btn btn-sm" data-open-case="${esc(nextRec.id)}" style="margin-left:auto;">Open</button>
+              <button type="button" class="btn btn-sm" data-open-case="${esc(nextRec.id)}" style="margin-left:auto;">Open</button>
             </div>
           ` : ''}
         </div>
       </div>
 
-      ${starterPicks.length ? `
+      ${starters.length ? `
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
-          <h2 style="font-size:1.18rem;margin:0;">⚡ Start Here: Solve Your First 6 Basic Cases (0 → 1 Starter Pack)</h2>
-          <button class="btn btn-sm btn-secondary" id="dash-view-starters-btn">Browse All ${starters.length} Starters →</button>
+          <h2 style="font-size:1.08rem;margin:0;">Starter Dossiers (0 → 1 Warmup)</h2>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            ${starters.length > 3 ? `<button type="button" class="btn btn-sm" id="dash-toggle-starters-btn">${state.dashShowAllStarters ? 'Show Top 3' : `Show All ${Math.min(6, starters.length)}`}</button>` : ''}
+            <button type="button" class="btn btn-sm btn-secondary" id="dash-view-starters-btn">Browse ${starters.length} Starters →</button>
+          </div>
         </div>
         <div class="starter-grid">
-          ${starterPicks.map(c => `
+          ${visibleStarters.map(c => `
             <div class="starter-card">
               <div style="display:flex;justify-content:space-between;align-items:center;gap:5px;flex-wrap:wrap;">
                 <span class="pill pill-purple">${esc(c.category)}</span>
                 <span class="pill pill-blue">${esc(c.company)}</span>
               </div>
-              <strong style="font-size:0.98rem;line-height:1.3;">${esc(c.title)}</strong>
-              <div style="font-size:0.86rem;color:var(--text-muted);margin-top:auto;">${esc(c.source)} · ${diffDots(c.difficulty)}</div>
-              <div style="display:flex;gap:6px;margin-top:4px;">
-                <button class="btn btn-sm" style="flex:1;" data-open-case="${esc(c.id)}">📖 Study</button>
-                <button class="btn btn-sm btn-primary" style="flex:1;" data-practice-id="${esc(c.id)}">🎯 Solve</button>
+              <strong style="font-size:0.94rem;line-height:1.32;">${esc(c.title)}</strong>
+              <div style="font-size:0.82rem;color:var(--text-dim);margin-top:auto;">${esc(c.source)} · ${diffDots(c.difficulty)}</div>
+              <div style="display:flex;gap:6px;margin-top:3px;">
+                <button type="button" class="btn btn-sm" style="flex:1;" data-open-case="${esc(c.id)}">Read Dossier</button>
+                <button type="button" class="btn btn-sm btn-primary" style="flex:1;" data-practice-id="${esc(c.id)}">Guided Solve</button>
               </div>
             </div>
           `).join('')}
         </div>
       ` : ''}
 
-      <h2 style="font-size:1.22rem;margin:0 0 9px;">🗓️ Your 4-Day Steep-Curve Crash Course</h2>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin:6px 0 9px;">
+        <h2 style="font-size:1.08rem;margin:0;">4-Day Preparation Plan</h2>
+        <span style="font-size:0.82rem;color:var(--text-dim);">Click any day below to expand or fold checklist</span>
+      </div>
       ${stagesHtml}
     `;
   }
 
-  // ==================== VIEW 2: ACADEMY ====================
+  // ==================== VIEW 2: ACADEMY (CALM FOCUSED READER) ====================
   function renderAcademy() {
     const tab = state.academyTab || 'algorithm';
     const tabsHtml = `
       <div class="page-header">
         <div>
-          <h1>Learn the Case Approach &amp; Frameworks</h1>
-          <p>Go from 0 experience to structured clarity: 6-step interview loop, framework wizard, 10 blueprints, and firm playbooks.</p>
+          <h1>Approach Guide &amp; Frameworks</h1>
+          <p>Read one concept at a time: the universal 6-step loop, case router wizard, 10 blueprints, and firm playbooks.</p>
         </div>
       </div>
-      <div class="tab-bar">
-        <button class="tab-btn ${tab === 'algorithm' ? 'active' : ''}" data-acad-tab="algorithm">1. Universal 6-Step Method</button>
-        <button class="tab-btn ${tab === 'wizard' ? 'active' : ''}" data-acad-tab="wizard">2. Framework Wizard (16 Drills)</button>
-        <button class="tab-btn ${tab === 'blueprints' ? 'active' : ''}" data-acad-tab="blueprints">3. 10 Master Blueprints</button>
-        <button class="tab-btn ${tab === 'toolkit' ? 'active' : ''}" data-acad-tab="toolkit">4. Strategy &amp; PM Toolkit (18)</button>
-        <button class="tab-btn ${tab === 'secrets' ? 'active' : ''}" data-acad-tab="secrets">5. Firm Styles &amp; Fatal Traps</button>
+      <div class="editorial-tabs">
+        <button type="button" class="tab-btn ${tab === 'algorithm' ? 'active' : ''}" data-acad-tab="algorithm">1. 6-Step Method</button>
+        <button type="button" class="tab-btn ${tab === 'wizard' ? 'active' : ''}" data-acad-tab="wizard">2. Wizard &amp; Drills</button>
+        <button type="button" class="tab-btn ${tab === 'blueprints' ? 'active' : ''}" data-acad-tab="blueprints">3. 10 Blueprints</button>
+        <button type="button" class="tab-btn ${tab === 'toolkit' ? 'active' : ''}" data-acad-tab="toolkit">4. Toolkit (18)</button>
+        <button type="button" class="tab-btn ${tab === 'secrets' ? 'active' : ''}" data-acad-tab="secrets">5. Firm Styles &amp; Traps</button>
       </div>
     `;
 
     let body = '';
     if (tab === 'algorithm') {
-      body = `
-        <div class="card-flat" style="margin-bottom:11px;border-left:3px solid var(--accent);">
-          <strong>Beginner Golden Rule:</strong> Interviewers NEVER expect you to have memorized an industry answer beforehand. They grade <strong>4 habits</strong>: (1) Clarifying the goal &amp; scope before talking, (2) Pausing 20 seconds to present a MECE structure, (3) Hypothesizing &amp; prioritizing P0 levers over random feature dumps, and (4) Ending with metrics, guardrails, and a 30-sec Pyramid Pitch.
-        </div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          ${(CURRICULUM.sixSteps || []).map(s => `
-            <div class="card">
-              <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:7px;">
-                <div style="display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 220px;">
-                  <span class="stage-num">${s.stepNum}</span>
-                  <div style="min-width:0;">
-                    <h3 style="margin:0;font-size:1.12rem;">${esc(s.name)}</h3>
-                    <div style="font-size:0.92rem;color:var(--text-muted);">${esc(s.tagline)}</div>
-                  </div>
-                </div>
-                <span class="pill pill-blue">⏱️ Target Time: ${esc(s.timeBudget)}</span>
-              </div>
-              <p style="font-size:0.96rem;margin:0 0 8px;"><strong>Why Interviewers Care:</strong> ${esc(s.whyInterviewersCare)}</p>
-              <ul style="margin:0 0 9px;padding-left:18px;font-size:0.96rem;color:var(--text-muted);">
-                ${s.checklist.map(c => `<li style="margin-bottom:3px;">${esc(c)}</li>`).join('')}
-              </ul>
-              <div style="margin-bottom:9px;">
-                <div style="font-size:0.86rem;font-weight:700;color:var(--accent-bright);margin-bottom:4px;text-transform:uppercase;">💬 Word-for-Word Interview Script</div>
-                <div class="script-box">${esc(s.wordForWordScript)}</div>
-              </div>
-              <div class="compare-grid">
-                <div class="bad-box"><strong>❌ Beginner Trap:</strong><br/>${esc(s.badExample)}</div>
-                <div class="good-box"><strong>✅ Offer-Winning Move:</strong><br/>${esc(s.goodExample)}</div>
+      const steps = CURRICULUM.sixSteps || [];
+      const curIdx = Math.max(0, Math.min(steps.length - 1, state.academyFocusStep || 0));
+      const renderStepCard = (s) => `
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 220px;">
+              <span class="stage-num">0${s.stepNum}</span>
+              <div style="min-width:0;">
+                <h3 style="margin:0;font-size:1.08rem;">${esc(s.name)}</h3>
+                <div style="font-size:0.88rem;color:var(--text-muted);">${esc(s.tagline)}</div>
               </div>
             </div>
-          `).join('')}
+            <span class="pill pill-blue">Time budget: ${esc(s.timeBudget)}</span>
+          </div>
+          <p style="font-size:0.93rem;margin:0 0 8px;"><strong>Why interviewers grade this:</strong> ${esc(s.whyInterviewersCare)}</p>
+          <ul style="margin:0 0 10px;padding-left:18px;font-size:0.92rem;color:var(--text-muted);">
+            ${s.checklist.map(c => `<li style="margin-bottom:3px;">${esc(c)}</li>`).join('')}
+          </ul>
+          <div style="margin-bottom:10px;">
+            <div style="font-size:0.78rem;font-family:var(--mono);font-weight:600;color:var(--accent-bright);margin-bottom:4px;text-transform:uppercase;">Word-for-Word Script</div>
+            <div class="script-box">${esc(s.wordForWordScript)}</div>
+          </div>
+          <div class="compare-grid">
+            <div class="bad-box"><strong>Trap to avoid:</strong><br/>${esc(s.badExample)}</div>
+            <div class="good-box"><strong>Strong move:</strong><br/>${esc(s.goodExample)}</div>
+          </div>
         </div>
+      `;
+
+      const focusStep = steps[curIdx];
+      body = `
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+          <div class="tip-box" style="flex:1 1 300px;">
+            <strong>Golden Rule:</strong> Never rush into solutions. Interviewers grade 4 habits: (1) Clarify scope, (2) Present a MECE tree, (3) Prioritize P0 drivers, and (4) Synthesize with metrics &amp; guardrails.
+          </div>
+          <button type="button" class="btn btn-sm" id="acad-toggle-all-steps">
+            ${state.academyShowAllSteps ? 'Focus 1 Step at a Time' : 'View All 6 Steps'}
+          </button>
+        </div>
+
+        ${state.academyShowAllSteps ? `
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            ${steps.map(renderStepCard).join('')}
+          </div>
+        ` : (focusStep ? `
+          <div class="step-rail">
+            ${steps.map((st, i) => `
+              <button type="button" class="step-rail-btn ${i === curIdx ? 'active' : ''}" data-acad-step="${i}">
+                <span class="step-rail-num">STEP 0${st.stepNum}</span>
+                <span class="step-rail-label">${esc(st.name)}</span>
+              </button>
+            `).join('')}
+          </div>
+          ${renderStepCard(focusStep)}
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px;">
+            <button type="button" class="btn btn-sm" id="acad-prev-step" ${curIdx === 0 ? 'disabled style="opacity:0.45;"' : ''}>← Previous Step</button>
+            <span style="font-family:var(--mono);font-size:0.82rem;color:var(--text-dim);">Use ← / → keys · Step ${curIdx + 1} of ${steps.length}</span>
+            <button type="button" class="btn btn-sm btn-primary" id="acad-next-step" ${curIdx >= steps.length - 1 ? 'disabled style="opacity:0.45;"' : ''}>Next Step →</button>
+          </div>
+        ` : '')}
       `;
     } else if (tab === 'wizard') {
       const wiz = CURRICULUM.decisionWizard || {};
@@ -475,84 +614,90 @@
 
       const scDone = Object.keys(state.scenarioAnswers).length;
       const scCorrect = (wiz.scenarios || []).filter(s => state.scenarioAnswers[s.id] === s.correctIndex).length;
+      const sub = state.wizardSubTab || 'wizard';
 
       body = `
-        <div class="card" style="margin-bottom:13px;">
-          <h3 style="margin:0 0 4px;font-size:1.1rem;">🧭 Interactive Case Framework Decision Wizard</h3>
-          <p style="margin:0 0 10px;font-size:0.96rem;color:var(--text-muted);">Blanking out on a prompt? Pick what the prompt is asking you to do to get the exact framework, first 3 questions, and trap:</p>
-          <div class="grid-2" style="margin-bottom:10px;">
-            <div class="section-block">
-              <strong style="font-size:0.96rem;">Q1. What is the prompt’s core ask or symptom?</strong>
-              <div style="display:flex;flex-direction:column;gap:5px;margin-top:6px;">
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'rca' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="rca">Metric dropped or failures spiked (Orders / Retention / Errors)</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'gtm' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="gtm">Launch a new product / feature into a market (GTM)</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'design' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="design">Design a 0-to-1 feature or improve Activation/UX</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'metrics' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="metrics">Define success metrics, dashboard, or critique a product</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'pricing' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="pricing">Set or change prices / subscription monetization</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'profit' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="profit">Profits or margins fell / costs spiked (Profitability)</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'entry' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="entry">Should Company X enter a new country or vertical?</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'growth' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="growth">2x Growth, M&amp;A Acquisition, or Unconventional Puzzle</button>
-              </div>
-            </div>
-            <div class="section-block">
-              <strong style="font-size:0.96rem;">Q2. What context / track is the interview for?</strong>
-              <div style="display:flex;flex-direction:column;gap:5px;margin-top:6px;">
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q2 === 'pm' ? 'btn-primary' : ''}" data-wiz-q="q2" data-wiz-v="pm">Product Management (User Journey, Persona, North Star + Guardrails, A/B Test)</button>
-                <button class="btn btn-sm btn-block-left ${wizardAnswers.q2 === 'consulting' ? 'btn-primary' : ''}" data-wiz-q="q2" data-wiz-v="consulting">Management Consulting (Value Chain, Revenue/Cost Math, Market Sizing, Entry Mode)</button>
-              </div>
-              <div style="margin-top:10px;font-size:0.9rem;color:var(--text-muted);">
-                <strong>Context lens:</strong> ${wizardAnswers.q2 === 'pm' ? 'Emphasize User Personas, Funnel Drop-offs, North Star + Counter-Metrics, and Experimentation.' : wizardAnswers.q2 === 'consulting' ? 'Emphasize P&L/Value Chain math, Industry vs Company-specific checks, Breakeven, and Pyramid synthesis.' : 'Pick your interview track to tailor the advice.'}
-              </div>
-            </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+          <div class="sub-seg">
+            <button type="button" class="sub-seg-btn ${sub === 'wizard' ? 'active' : ''}" data-wiz-sub="wizard">Framework Decision Router</button>
+            <button type="button" class="sub-seg-btn ${sub === 'drills' ? 'active' : ''}" data-wiz-sub="drills">16 Spot-the-Case Drills (${scCorrect}/${(wiz.scenarios || []).length})</button>
           </div>
-          ${rec ? `
-            <div class="good-box">
-              <div style="font-size:0.86rem;text-transform:uppercase;font-weight:700;">Recommended Strategy</div>
-              <h4 style="margin:3px 0;font-size:1.12rem;">${esc(rec.name)} <span class="pill pill-green">${esc(rec.badge)}</span></h4>
-              <p style="margin:3px 0 6px;">${esc(rec.whenToUse)}</p>
-              <div class="formula-banner">${esc(rec.coreFormula)}</div>
-              <div style="margin:7px 0 0;font-size:0.93rem;">
-                <strong>First 3 Questions to Ask:</strong>
-                <ul style="margin:3px 0 5px;padding-left:18px;">
-                  ${(rec.firstQuestions || []).map(q => `<li>${esc(q)}</li>`).join('')}
-                </ul>
-                <strong>⚠️ Watch out for:</strong> ${esc(rec.watchOutFor)}
-              </div>
-            </div>
-          ` : '<div class="tip-box">Select Q1 above to reveal the exact framework, opening questions, and pitfalls.</div>'}
+          <span class="pill pill-green">${scDone}/${(wiz.scenarios || []).length} drills answered</span>
         </div>
 
-        <div class="card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
-            <div>
-              <h3 style="margin:0;font-size:1.08rem;">⚡ "Spot the Case Type &amp; First Move" — 16 Mini-Drills</h3>
-              <p style="margin:3px 0 0;font-size:0.94rem;color:var(--text-muted);">Train your 10-second pattern recognition before speaking.</p>
-            </div>
-            <span class="pill pill-green">Score: ${scCorrect}/${(wiz.scenarios || []).length} (${scDone} attempted)</span>
-          </div>
-          <div class="grid-2">
-            ${(wiz.scenarios || []).map((sc, idx) => {
-              const chosen = state.scenarioAnswers[sc.id];
-              const hasChosen = chosen !== undefined;
-              return `
-                <div class="section-block">
-                  <div style="font-weight:700;font-size:0.98rem;margin-bottom:6px;">${idx + 1}. ${esc(sc.question)}</div>
-                  <div>
-                    ${sc.options.map((opt, oi) => {
-                      let cls = 'quiz-opt';
-                      if (hasChosen) {
-                        if (oi === sc.correctIndex) cls += ' correct';
-                        else if (oi === chosen) cls += ' wrong';
-                      }
-                      return `<button class="${cls}" data-sc-id="${sc.id}" data-sc-opt="${oi}">${esc(opt)}</button>`;
-                    }).join('')}
-                  </div>
-                  ${hasChosen ? `<div style="font-size:0.92rem;color:var(--text-muted);margin-top:5px;">💡 ${esc(sc.explanation)}</div>` : ''}
+        ${sub === 'wizard' ? `
+          <div class="card">
+            <h3 style="margin:0 0 4px;font-size:1.05rem;">Match the Prompt to the Right Framework</h3>
+            <p style="margin:0 0 10px;font-size:0.92rem;color:var(--text-muted);">Choose the symptom asked in Q1 to reveal the core formula, opening questions, and traps:</p>
+            <div class="grid-2" style="margin-bottom:10px;">
+              <div class="section-block">
+                <strong class="block-label" style="margin-bottom:6px;">Q1. Core symptom or prompt ask</strong>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'rca' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="rca">Metric dropped or failures spiked (Orders / Retention / Errors)</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'gtm' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="gtm">Launch a new product / feature into a market (GTM)</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'design' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="design">Design a 0-to-1 feature or improve Activation/UX</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'metrics' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="metrics">Define success metrics, dashboard, or critique a product</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'pricing' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="pricing">Set or change prices / subscription monetization</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'profit' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="profit">Profits or margins fell / costs spiked (Profitability)</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'entry' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="entry">Should Company X enter a new country or vertical?</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q1 === 'growth' ? 'btn-primary' : ''}" data-wiz-q="q1" data-wiz-v="growth">2x Growth, M&amp;A Acquisition, or Unconventional Puzzle</button>
                 </div>
-              `;
-            }).join('')}
+              </div>
+              <div class="section-block">
+                <strong class="block-label" style="margin-bottom:6px;">Q2. Interview track lens</strong>
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q2 === 'pm' ? 'btn-primary' : ''}" data-wiz-q="q2" data-wiz-v="pm">Product Management (User Journey, Persona, North Star + Guardrails, A/B Test)</button>
+                  <button type="button" class="btn btn-sm btn-block-left ${wizardAnswers.q2 === 'consulting' ? 'btn-primary' : ''}" data-wiz-q="q2" data-wiz-v="consulting">Management Consulting (Value Chain, Revenue/Cost Math, Market Sizing, Entry Mode)</button>
+                </div>
+                <div class="tip-box" style="margin-top:10px;">
+                  <strong>Context lens:</strong> ${wizardAnswers.q2 === 'pm' ? 'Emphasize User Personas, Funnel Drop-offs, North Star + Counter-Metrics, and Experimentation.' : wizardAnswers.q2 === 'consulting' ? 'Emphasize P&L/Value Chain math, Industry vs Company-specific checks, Breakeven, and Pyramid synthesis.' : 'Pick your track to tailor what you emphasize first.'}
+                </div>
+              </div>
+            </div>
+            ${rec ? `
+              <div class="good-box">
+                <div style="font-size:0.78rem;font-family:var(--mono);text-transform:uppercase;font-weight:600;">Recommended Strategy</div>
+                <h4 style="margin:3px 0;font-size:1.06rem;">${esc(rec.name)} <span class="pill pill-green">${esc(rec.badge)}</span></h4>
+                <p style="margin:3px 0 6px;">${esc(rec.whenToUse)}</p>
+                <div class="formula-banner">${esc(rec.coreFormula)}</div>
+                <div style="margin:7px 0 0;font-size:0.9rem;">
+                  <strong>First 3 Questions to Ask:</strong>
+                  <ul style="margin:3px 0 5px;padding-left:18px;">
+                    ${(rec.firstQuestions || []).map(q => `<li>${esc(q)}</li>`).join('')}
+                  </ul>
+                  <strong>Watch out for:</strong> ${esc(rec.watchOutFor)}
+                </div>
+              </div>
+            ` : '<div class="tip-box">Select Q1 on the left to reveal the tailored framework, first 3 clarifying questions, and common trap.</div>'}
           </div>
-        </div>
+        ` : `
+          <div class="card">
+            <h3 style="margin:0 0 4px;font-size:1.05rem;">Spot the Case Type &amp; First Move (16 Mini-Drills)</h3>
+            <p style="margin:0 0 12px;font-size:0.9rem;color:var(--text-muted);">Practice 10-second pattern recognition before committing to a tree.</p>
+            <div class="grid-2">
+              ${(wiz.scenarios || []).map((sc, idx) => {
+                const chosen = state.scenarioAnswers[sc.id];
+                const hasChosen = chosen !== undefined;
+                return `
+                  <div class="section-block">
+                    <div style="font-weight:600;font-size:0.94rem;margin-bottom:6px;">${idx + 1}. ${esc(sc.question)}</div>
+                    <div>
+                      ${sc.options.map((opt, oi) => {
+                        let cls = 'quiz-opt';
+                        if (hasChosen) {
+                          if (oi === sc.correctIndex) cls += ' correct';
+                          else if (oi === chosen) cls += ' wrong';
+                        }
+                        return `<button type="button" class="${cls}" data-sc-id="${sc.id}" data-sc-opt="${oi}">${esc(opt)}</button>`;
+                      }).join('')}
+                    </div>
+                    ${hasChosen ? `<div style="font-size:0.88rem;color:var(--text-muted);margin-top:5px;">Note: ${esc(sc.explanation)}</div>` : ''}
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `}
       `;
     } else if (tab === 'blueprints') {
       body = `
@@ -562,20 +707,20 @@
               <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">
                 <span class="pill pill-purple">Blueprint #${t.num} · ${esc(t.category)}</span>
               </div>
-              <h3 style="margin:0 0 6px;font-size:1.12rem;">${esc(t.name)}</h3>
+              <h3 style="margin:0 0 6px;font-size:1.06rem;">${esc(t.name)}</h3>
               <div class="formula-banner" style="margin-bottom:8px;">${esc(t.formula)}</div>
-              <p style="font-size:0.96rem;margin:0 0 8px;"><strong>When to use:</strong> ${esc(t.whenToUse)}</p>
-              <div style="font-size:0.94rem;color:var(--text-muted);margin-bottom:8px;">
+              <p style="font-size:0.92rem;margin:0 0 8px;"><strong>When to use:</strong> ${esc(t.whenToUse)}</p>
+              <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:8px;">
                 <strong>Standard Tree Anatomy:</strong>
                 <ul style="margin:3px 0 0;padding-left:16px;">
                   ${t.anatomy.map(a => `<li>${esc(a)}</li>`).join('')}
                 </ul>
               </div>
-              <div class="good-box" style="margin-bottom:9px;font-size:0.93rem;"><strong>🔥 Insider Tip:</strong> ${esc(t.proTip)}</div>
+              <div class="good-box" style="margin-bottom:9px;font-size:0.89rem;"><strong>Insider tip:</strong> ${esc(t.proTip)}</div>
               <div style="display:flex;flex-wrap:wrap;gap:5px;">
                 ${(t.exampleIds || []).map(eid => {
                   const ep = CASES.find(x => x.id === eid);
-                  return ep ? `<button class="btn btn-sm" data-open-case="${esc(ep.id)}">📖 ${esc(ep.title.slice(0, 34))}${ep.title.length > 34 ? '…' : ''}</button>` : '';
+                  return ep ? `<button type="button" class="btn btn-sm" data-open-case="${esc(ep.id)}">${esc(ep.title.slice(0, 34))}${ep.title.length > 34 ? '…' : ''}</button>` : '';
                 }).join('')}
               </div>
             </div>
@@ -585,12 +730,12 @@
     } else if (tab === 'toolkit') {
       const groups = [...new Set((CURRICULUM.toolkit || []).map(t => t.group))];
       body = groups.map(grp => `
-        <h3 style="margin:8px 0;font-size:1.08rem;">🧰 ${esc(grp)}</h3>
+        <h3 style="margin:10px 0 7px;font-size:1.04rem;">${esc(grp)}</h3>
         <div class="grid-2" style="margin-bottom:12px;">
           ${(CURRICULUM.toolkit || []).filter(t => t.group === grp).map(t => `
             <div class="card-flat">
-              <strong style="font-size:1.02rem;color:var(--accent-bright);">${esc(t.name)}</strong>
-              <p style="font-size:0.94rem;margin:4px 0 6px;">${esc(t.summary)}</p>
+              <strong style="font-size:0.96rem;color:var(--accent-bright);">${esc(t.name)}</strong>
+              <p style="font-size:0.9rem;margin:4px 0 6px;">${esc(t.summary)}</p>
               <div class="tip-box"><strong>When to use:</strong> ${esc(t.whenToUse)}</div>
             </div>
           `).join('')}
@@ -598,24 +743,24 @@
       `).join('');
     } else {
       body = `
-        <h3 style="margin:0 0 8px;font-size:1.08rem;">🏢 What Different Firms Actually Grade For</h3>
-        <div class="grid-2" style="margin-bottom:14px;">
+        <h3 style="margin:0 0 8px;font-size:1.05rem;">How Different Firms &amp; Teams Evaluate Candidates</h3>
+        <div class="grid-2" style="margin-bottom:16px;">
           ${(CURRICULUM.firmPlaybooks || []).map(sec => `
             <div class="card-flat" style="display:flex;flex-direction:column;gap:5px;">
-              <strong style="font-size:1.04rem;color:var(--accent-2);">${esc(sec.firm)}</strong>
-              <div style="font-size:0.93rem;"><strong>Style:</strong> ${esc(sec.style)}</div>
-              <p style="font-size:0.95rem;color:var(--text-muted);margin:0;">${esc(sec.whatTheyLookFor)}</p>
-              <div class="tip-box tip-box-green" style="margin-top:auto;">💡 ${esc(sec.proTip)}</div>
+              <strong style="font-size:0.98rem;color:var(--accent-2);">${esc(sec.firm)}</strong>
+              <div style="font-size:0.89rem;"><strong>Style:</strong> ${esc(sec.style)}</div>
+              <p style="font-size:0.9rem;color:var(--text-muted);margin:0;">${esc(sec.whatTheyLookFor)}</p>
+              <div class="tip-box tip-box-green" style="margin-top:auto;">${esc(sec.proTip)}</div>
             </div>
           `).join('')}
         </div>
 
-        <h3 style="margin:0 0 8px;font-size:1.08rem;">🚨 Top 10 Fatal Mistakes That Cost Offers</h3>
+        <h3 style="margin:0 0 8px;font-size:1.05rem;">Top 10 Mistakes That Cost Offers</h3>
         <div class="card">
           ${(CURRICULUM.fatalMistakes || []).map(fm => `
             <div class="cs-item" style="flex-direction:column;align-items:flex-start;gap:3px;">
-              <strong style="color:var(--danger);font-size:0.98rem;">${esc(fm.mistake)}</strong>
-              <span style="font-size:0.94rem;color:var(--text-muted);">✅ <strong>Fix:</strong> ${esc(fm.fix)}</span>
+              <strong style="color:var(--danger);font-size:0.93rem;">${esc(fm.mistake)}</strong>
+              <span style="font-size:0.89rem;color:var(--text-muted);"><strong>Fix:</strong> ${esc(fm.fix)}</span>
             </div>
           `).join('')}
         </div>
@@ -625,7 +770,7 @@
     return tabsHtml + body;
   }
 
-  // ==================== VIEW 3: CASE LIBRARY ====================
+  // ==================== VIEW 3: CASE DOSSIERS (CALM PROGRESSIVE READER) ====================
   function getFilteredCases() {
     const f = state.filters;
     const q = f.search.trim().toLowerCase();
@@ -667,7 +812,8 @@
     if (!c) return '<div class="card">No cases matched your filters. Click Reset Filters.</div>';
     const isMastered = !!state.masteredIds[c.id];
     const isBookmarked = !!state.bookmarkedIds[c.id];
-    const stepLimit = state.progressiveMode ? state.studyRevealStep : 99;
+    const mode = state.caseReaderMode || (state.progressiveMode ? 'step' : 'full');
+    const stepLimit = mode === 'step' ? state.studyRevealStep : mode === 'brief' ? 3 : 99;
     const mg = c.metricsAndGuardrails || {};
 
     return `
@@ -675,151 +821,165 @@
         <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px;">
           <div style="min-width:0;flex:1 1 240px;">
             <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;">
-              ${c.isStarter ? '<span class="pill pill-green">⭐ Starter Pack</span>' : ''}
+              ${c.isStarter ? '<span class="pill pill-green">Starter</span>' : ''}
               <span class="pill pill-purple">${esc(c.category)}</span>
               <span class="pill pill-blue">${esc(c.track)} · ${esc(c.company)}</span>
               <span class="pill">${esc(c.source)}</span>
               ${diffDots(c.difficulty)}
             </div>
-            <h2 style="margin:0 0 2px;font-size:1.32rem;letter-spacing:-0.015em;">${esc(c.title)}</h2>
+            <h2 style="margin:0;font-size:1.22rem;letter-spacing:-0.015em;">${esc(c.title)}</h2>
           </div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px;">
-            <button class="btn btn-sm ${isMastered ? 'btn-primary' : ''}" data-toggle-master="${esc(c.id)}" aria-pressed="${isMastered}">
-              ${isMastered ? '✓ Mastered' : '○ Mark Mastered'}
+          <div style="display:flex;flex-wrap:wrap;gap:5px;">
+            <button type="button" class="btn btn-sm ${isMastered ? 'btn-primary' : ''}" data-toggle-master="${esc(c.id)}" aria-pressed="${isMastered}" title="Shortcut: m">
+              ${isMastered ? '✓ Mastered' : 'Mark Mastered'}
             </button>
-            <button class="btn btn-sm ${isBookmarked ? 'btn-warn' : ''}" data-toggle-bookmark="${esc(c.id)}" aria-pressed="${isBookmarked}">
-              ${isBookmarked ? '★ Bookmarked' : '☆ Bookmark'}
+            <button type="button" class="btn btn-sm ${isBookmarked ? 'btn-warn' : ''}" data-toggle-bookmark="${esc(c.id)}" aria-pressed="${isBookmarked}" title="Shortcut: s">
+              ${isBookmarked ? '★ Saved' : '☆ Save'}
             </button>
-            <button class="btn btn-sm btn-secondary" data-practice-id="${esc(c.id)}">🎯 Guided Solve</button>
-            <button class="btn btn-sm" data-mock-id="${esc(c.id)}">⏱️ Mock Test</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-practice-id="${esc(c.id)}">Guided Solve</button>
+            <button type="button" class="btn btn-sm" data-mock-id="${esc(c.id)}">Mock Test</button>
           </div>
         </div>
 
-        <div class="hero-banner" style="margin:0;padding:11px 13px;">
+        <div class="brief-banner" style="margin:0;padding:11px 14px;">
           <div style="min-width:0;flex:1 1 240px;">
-            <div style="font-size:0.84rem;text-transform:uppercase;font-weight:700;color:var(--accent-bright);">Interviewer Prompt</div>
-            <div style="font-size:1.06rem;font-weight:700;margin-top:2px;">“${esc(c.prompt)}”</div>
+            <div style="font-size:0.74rem;font-family:var(--mono);text-transform:uppercase;font-weight:600;color:var(--accent-2);">Interviewer Prompt</div>
+            <div style="font-size:1.02rem;font-weight:600;margin-top:2px;">“${esc(c.prompt)}”</div>
           </div>
           <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px;">
-            <button class="btn btn-sm ${state.progressiveMode ? 'btn-warn' : ''}" id="toggle-progressive-btn">
-              ${state.progressiveMode ? '🔒 Study Mode: Step-by-Step' : '👁️ Full Solution Visible'}
-            </button>
-            ${state.progressiveMode && stepLimit < 6 ? `<button class="btn btn-sm btn-primary" id="reveal-next-step-btn">Reveal Step ${stepLimit + 1}/6 →</button>` : ''}
+            <div class="sub-seg" title="Switch reading density (Shortcut: p)">
+              <button type="button" class="sub-seg-btn ${mode === 'brief' ? 'active' : ''}" data-reader-mode="brief">Brief (1–3)</button>
+              <button type="button" class="sub-seg-btn ${mode === 'full' ? 'active' : ''}" data-reader-mode="full">Full (1–6)</button>
+              <button type="button" class="sub-seg-btn ${mode === 'step' ? 'active' : ''}" data-reader-mode="step">Step-by-Step</button>
+            </div>
+            ${mode === 'step' && stepLimit < 6 ? `<button type="button" class="btn btn-sm btn-primary" id="reveal-next-step-btn" title="Shortcut: n">Reveal ${stepLimit + 1}/6 →</button>` : ''}
           </div>
         </div>
 
         <!-- Step 1 -->
-        <div class="section-block">
-          <h3>Step 1: Clarifying Questions &amp; Scope</h3>
-          ${(c.clarifyingQuestions || []).map(cq => `
-            <div style="margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid var(--border);">
-              <div style="font-weight:600;font-size:0.97rem;">❓ You ask: "${esc(cq.q)}"</div>
-              <div style="font-size:0.94rem;color:var(--accent-bright);margin-top:2px;">💬 Interviewer: ${esc(cq.a)}</div>
-              <div style="font-size:0.9rem;color:var(--text-muted);margin-top:2px;">Why it matters: ${esc(cq.why)}</div>
-            </div>
-          `).join('')}
-        </div>
+        <details class="dossier-step" open>
+          <summary><span>1. Clarifying Questions &amp; Scope</span></summary>
+          <div class="dossier-step-body">
+            ${(c.clarifyingQuestions || []).map(cq => `
+              <div style="padding:7px 0;border-bottom:1px solid var(--border);">
+                <div style="font-weight:600;font-size:0.92rem;">Ask: “${esc(cq.q)}”</div>
+                <div style="font-size:0.9rem;color:var(--accent-bright);margin-top:2px;">Interviewer: ${esc(cq.a)}</div>
+                <div style="font-size:0.86rem;color:var(--text-muted);margin-top:2px;">Why it matters: ${esc(cq.why)}</div>
+              </div>
+            `).join('')}
+          </div>
+        </details>
 
         <!-- Step 2 -->
         ${stepLimit >= 2 ? `
-        <div class="section-block">
-          <h3>Step 2: Framework &amp; Strategic Approach</h3>
-          <div style="margin-bottom:6px;"><span class="pill pill-blue">Framework: ${esc(c.frameworkUsed)}</span></div>
-          <p style="margin:0 0 8px;font-size:0.96rem;">${esc(c.strategyOverview)}</p>
-          <div class="formula-banner">${esc(c.coreEquation)}</div>
-        </div>` : ''}
+        <details class="dossier-step" open>
+          <summary><span>2. Framework &amp; Strategic Lens</span></summary>
+          <div class="dossier-step-body">
+            <div style="margin:8px 0 6px;"><span class="pill pill-blue">${esc(c.frameworkUsed)}</span></div>
+            <p style="margin:0 0 8px;font-size:0.92rem;">${esc(c.strategyOverview)}</p>
+            <div class="formula-banner">${esc(c.coreEquation)}</div>
+          </div>
+        </details>` : ''}
 
         <!-- Step 3 -->
         ${stepLimit >= 3 ? `
-        <div class="section-block">
-          <h3>Step 3: Visual MECE Issue Tree</h3>
-          <div class="issue-tree-wrap">${renderTreeNode(c.tree)}</div>
-        </div>` : ''}
+        <details class="dossier-step" open>
+          <summary><span>3. Visual MECE Issue Tree</span></summary>
+          <div class="dossier-step-body">
+            <div class="issue-tree-wrap">${renderTreeNode(c.tree)}</div>
+          </div>
+        </details>` : ''}
 
         <!-- Step 4 -->
         ${stepLimit >= 4 ? `
-        <div class="section-block">
-          <h3>Step 4: Case Walkthrough &amp; Interview Dialogue</h3>
-          <div class="dialogue-feed">
-            ${(c.walkthrough || []).map(w => {
-              const sp = (w.speaker || 'Candidate').toLowerCase();
-              const cls = sp.includes('interviewer') ? 'interviewer' : 'candidate';
-              return `
-                <div class="dialogue-turn ${cls}">
-                  <div class="dialogue-meta">
-                    <span class="dialogue-speaker">${cls === 'interviewer' ? '🧑‍💼 Interviewer' : '🎯 Candidate'} · ${esc(w.phase)}</span>
+        <details class="dossier-step" open>
+          <summary><span>4. Walkthrough Dialogue &amp; Prioritization</span></summary>
+          <div class="dossier-step-body">
+            <div class="dialogue-feed">
+              ${(c.walkthrough || []).map(w => {
+                const sp = (w.speaker || 'Candidate').toLowerCase();
+                const cls = sp.includes('interviewer') ? 'interviewer' : 'candidate';
+                return `
+                  <div class="dialogue-turn ${cls}">
+                    <div class="dialogue-meta">
+                      <span class="dialogue-speaker">${cls === 'interviewer' ? 'Interviewer' : 'Candidate'} · ${esc(w.phase)}</span>
+                    </div>
+                    ${w.prompt ? `<div style="font-weight:600;font-size:0.92rem;margin-bottom:3px;">${esc(w.prompt)}</div>` : ''}
+                    <div style="font-size:0.9rem;color:var(--text-muted);white-space:pre-line;">${esc(w.detail)}</div>
                   </div>
-                  ${w.prompt ? `<div style="font-weight:700;font-size:0.95rem;margin-bottom:3px;">${esc(w.prompt)}</div>` : ''}
-                  <div style="font-size:0.94rem;color:var(--text-muted);white-space:pre-line;">${esc(w.detail)}</div>
-                </div>
-              `;
-            }).join('')}
-          </div>
-          ${(c.prioritization && c.prioritization.length) ? `
-            <h4 style="margin:11px 0 5px;font-size:0.98rem;">📊 Prioritization Matrix</h4>
-            <div class="table-scroll">
-              <table class="priority-table">
-                <thead>
-                  <tr><th>Issue / Initiative</th><th>Impact</th><th>Effort</th><th>Priority</th><th>Rationale</th></tr>
-                </thead>
-                <tbody>
-                  ${c.prioritization.map(row => `
-                    <tr>
-                      <td><strong>${esc(row.item)}</strong></td>
-                      <td>${esc(row.impact)}</td>
-                      <td>${esc(row.effort)}</td>
-                      <td><span class="pill ${row.priority === 'P0' ? 'pill-green' : row.priority === 'Reject' ? 'pill-danger' : 'pill-blue'}">${esc(row.priority)}</span></td>
-                      <td style="color:var(--text-muted);">${esc(row.rationale)}</td>
-                    </tr>
-                  `).join('')}
-                </tbody>
-              </table>
+                `;
+              }).join('')}
             </div>
-          ` : ''}
-        </div>` : ''}
+            ${(c.prioritization && c.prioritization.length) ? `
+              <h4 style="margin:12px 0 4px;font-size:0.95rem;">Prioritization Matrix</h4>
+              <div class="table-scroll">
+                <table class="priority-table">
+                  <thead>
+                    <tr><th>Issue / Initiative</th><th>Impact</th><th>Effort</th><th>Priority</th><th>Rationale</th></tr>
+                  </thead>
+                  <tbody>
+                    ${c.prioritization.map(row => `
+                      <tr>
+                        <td><strong>${esc(row.item)}</strong></td>
+                        <td>${esc(row.impact)}</td>
+                        <td>${esc(row.effort)}</td>
+                        <td><span class="pill ${row.priority === 'P0' ? 'pill-green' : row.priority === 'Reject' ? 'pill-danger' : 'pill-blue'}">${esc(row.priority)}</span></td>
+                        <td style="color:var(--text-muted);">${esc(row.rationale)}</td>
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            ` : ''}
+          </div>
+        </details>` : ''}
 
         <!-- Step 5 -->
         ${stepLimit >= 5 ? `
-        <div class="section-block">
-          <h3>Step 5: Recommendations, Metrics &amp; Guardrails</h3>
-          <ul style="margin:0 0 10px;padding-left:18px;font-size:0.96rem;">
-            ${(c.recommendations || []).map(r => `<li style="margin-bottom:4px;">${esc(r)}</li>`).join('')}
-          </ul>
-          <div class="metric-grid">
-            <div class="metric-box">
-              <h4 style="color:var(--accent-bright);">🌟 North Star</h4>
-              <div style="font-size:0.92rem;">${esc(mg.northStar || 'Core value & revenue outcome')}</div>
-            </div>
-            <div class="metric-box">
-              <h4 style="color:var(--accent-2);">📈 Leading Drivers</h4>
-              <ul style="margin:0;padding-left:15px;font-size:0.9rem;color:var(--text-muted);">
-                ${(mg.leading || []).map(l => `<li>${esc(l)}</li>`).join('')}
-              </ul>
-            </div>
-            <div class="metric-box">
-              <h4 style="color:var(--danger);">🛡️ Guardrails</h4>
-              <ul style="margin:0;padding-left:15px;font-size:0.9rem;color:var(--text-muted);">
-                ${(mg.guardrails || []).map(g => `<li>${esc(g)}</li>`).join('')}
-              </ul>
+        <details class="dossier-step" open>
+          <summary><span>5. Recommendations, North Star &amp; Guardrails</span></summary>
+          <div class="dossier-step-body">
+            <ul style="margin:8px 0 10px;padding-left:18px;font-size:0.92rem;">
+              ${(c.recommendations || []).map(r => `<li style="margin-bottom:4px;">${esc(r)}</li>`).join('')}
+            </ul>
+            <div class="metric-grid">
+              <div class="metric-box">
+                <h4 style="color:var(--sage);">North Star</h4>
+                <div style="font-size:0.89rem;">${esc(mg.northStar || 'Core value & revenue outcome')}</div>
+              </div>
+              <div class="metric-box">
+                <h4 style="color:var(--accent-bright);">Leading Drivers</h4>
+                <ul style="margin:0;padding-left:15px;font-size:0.88rem;color:var(--text-muted);">
+                  ${(mg.leading || []).map(l => `<li>${esc(l)}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="metric-box">
+                <h4 style="color:var(--danger);">Guardrails</h4>
+                <ul style="margin:0;padding-left:15px;font-size:0.88rem;color:var(--text-muted);">
+                  ${(mg.guardrails || []).map(g => `<li>${esc(g)}</li>`).join('')}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>` : ''}
+        </details>` : ''}
 
         <!-- Step 6 -->
         ${stepLimit >= 6 ? `
-        <div class="section-block">
-          <h3>Step 6: 30-Second Pyramid Synthesis, Trap &amp; Curveballs</h3>
-          <div class="script-box" style="margin-bottom:8px;">${esc(c.synthesisScript)}</div>
-          <div class="bad-box" style="margin-bottom:8px;">
-            <strong>⚠️ Common Interviewer Trap:</strong> ${esc(c.interviewerTrap)}
-          </div>
-          ${(c.variations || []).map(vr => `
-            <div style="margin-bottom:5px;font-size:0.95rem;">
-              <strong>🔄 Curveball: ${esc(vr.question)}</strong>
-              <div style="color:var(--text-muted);font-size:0.91rem;">Hint: ${esc(vr.hint)}</div>
+        <details class="dossier-step" open>
+          <summary><span>6. 30-Second Pyramid Synthesis, Traps &amp; Curveballs</span></summary>
+          <div class="dossier-step-body">
+            <div class="script-box" style="margin:8px 0;">${esc(c.synthesisScript)}</div>
+            <div class="bad-box" style="margin-bottom:8px;">
+              <strong>Common Interviewer Trap:</strong> ${esc(c.interviewerTrap)}
             </div>
-          `).join('')}
-        </div>` : ''}
+            ${(c.variations || []).map(vr => `
+              <div style="margin-bottom:5px;font-size:0.9rem;">
+                <strong>Curveball: ${esc(vr.question)}</strong>
+                <div style="color:var(--text-muted);font-size:0.88rem;">Hint: ${esc(vr.hint)}</div>
+              </div>
+            `).join('')}
+          </div>
+        </details>` : ''}
       </div>
     `;
   }
@@ -827,17 +987,17 @@
   function renderLibraryListHtml(filtered, activeCase) {
     return filtered.map(c => `
       <div class="problem-list-item ${activeCase && activeCase.id === c.id ? 'selected' : ''}" data-select-case="${esc(c.id)}">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:5px;">
-          <span class="pill pill-purple" style="font-size:0.8rem;">${esc(c.category)}</span>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;">
+          <span class="pill pill-purple">${esc(c.category)}</span>
           <div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap;">
-            ${c.isStarter ? '<span class="pill pill-green" style="font-size:0.78rem;">★ Starter</span>' : ''}
-            ${state.bookmarkedIds[c.id] ? '<span>★</span>' : ''}
-            ${state.masteredIds[c.id] ? '<span class="pill pill-green" style="font-size:0.8rem;">✓</span>' : ''}
+            ${c.isStarter ? '<span class="pill pill-green">Starter</span>' : ''}
+            ${state.bookmarkedIds[c.id] ? '<span title="Saved">★</span>' : ''}
+            ${state.masteredIds[c.id] ? '<span class="pill pill-green">✓</span>' : ''}
             ${diffDots(c.difficulty)}
           </div>
         </div>
         <h4>${esc(c.title)}</h4>
-        <div style="font-size:0.85rem;color:var(--text-dim);">${esc(c.company)} · ${esc(c.source)}</div>
+        <div style="font-size:0.82rem;color:var(--text-dim);">${esc(c.company)} · ${esc(c.source)}</div>
       </div>
     `).join('') || '<div class="card-flat">No matching cases. Click Reset Filters.</div>';
   }
@@ -851,19 +1011,22 @@
       state.selectedCaseId = filtered[0].id;
     }
     const activeCase = filtered.find(c => c.id === state.selectedCaseId) || filtered[0] || null;
+    const extraCount = [state.filters.source !== 'All', state.filters.difficulty !== 'All', state.filters.status !== 'All'].filter(Boolean).length;
 
     return `
       <div class="page-header">
         <div>
-          <h1>Case Study Library</h1>
-          <p>Browse ${CASES.length} solved Product &amp; Consulting cases across RCA, GTM, Design, Metrics, Pricing, Profitability, Market Entry &amp; M&amp;A.</p>
+          <h1>Case Dossiers</h1>
+          <p>${CASES.length} solved Product &amp; Consulting cases — use <kbd class="keycap">j</kbd>/<kbd class="keycap">k</kbd> to step, <kbd class="keycap">p</kbd> for Brief vs Full.</p>
         </div>
+        <span id="lib-count-text" style="font-size:0.88rem;color:var(--text-muted);">Showing <strong>${filtered.length}</strong> of ${CASES.length}</span>
       </div>
-      <div class="filter-bar-6">
+
+      <div class="filter-bar-compact">
         <input type="text" class="input" id="lib-search" placeholder="Search company, topic, keyword..." value="${esc(state.filters.search)}" />
         <select class="select" id="lib-track">
           <option value="All" ${state.filters.track === 'All' ? 'selected' : ''}>Track: All</option>
-          <option value="Starter" ${state.filters.track === 'Starter' ? 'selected' : ''}>⭐ Starter Pack</option>
+          <option value="Starter" ${state.filters.track === 'Starter' ? 'selected' : ''}>Starter Pack</option>
           <option value="Product" ${state.filters.track === 'Product' ? 'selected' : ''}>Product (PM)</option>
           <option value="Consulting" ${state.filters.track === 'Consulting' ? 'selected' : ''}>Consulting</option>
         </select>
@@ -871,24 +1034,28 @@
           <option value="All" ${state.filters.category === 'All' ? 'selected' : ''}>Category: All</option>
           ${categories.filter(a => a !== 'All').map(a => `<option value="${esc(a)}" ${state.filters.category === a ? 'selected' : ''}>${esc(a)}</option>`).join('')}
         </select>
-        <select class="select" id="lib-source">
-          <option value="All" ${state.filters.source === 'All' ? 'selected' : ''}>Source: All</option>
-          ${sources.filter(s => s !== 'All').map(s => `<option value="${esc(s)}" ${state.filters.source === s ? 'selected' : ''}>${esc(s)}</option>`).join('')}
-        </select>
-        <select class="select" id="lib-diff">
-          <option value="All" ${state.filters.difficulty === 'All' ? 'selected' : ''}>Level: All</option>
-          ${[1, 2, 3, 4, 5].map(d => `<option value="${d}" ${String(state.filters.difficulty) === String(d) ? 'selected' : ''}>Level ${d}</option>`).join('')}
-        </select>
-        <select class="select" id="lib-status">
-          <option value="All" ${state.filters.status === 'All' ? 'selected' : ''}>Status: All</option>
-          ${['Unread', 'Mastered', 'Bookmarked'].map(st => `<option value="${st}" ${state.filters.status === st ? 'selected' : ''}>${st}</option>`).join('')}
-        </select>
+        <button type="button" class="btn btn-sm ${state.libMoreFiltersOpen || extraCount ? 'btn-secondary' : ''}" id="toggle-more-filters-btn">
+          More Filters${extraCount ? ` (${extraCount})` : ''}
+        </button>
+        <button type="button" class="btn btn-sm" id="clear-filters-btn">Reset</button>
       </div>
 
-      <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-        <span id="lib-count-text" style="font-size:0.94rem;color:var(--text-muted);">Showing <strong>${filtered.length}</strong> of ${CASES.length} solved cases</span>
-        <button class="btn btn-sm" id="clear-filters-btn">Reset Filters</button>
-      </div>
+      ${state.libMoreFiltersOpen ? `
+        <div class="filter-bar-extra">
+          <select class="select" id="lib-source">
+            <option value="All" ${state.filters.source === 'All' ? 'selected' : ''}>Source: All</option>
+            ${sources.filter(s => s !== 'All').map(s => `<option value="${esc(s)}" ${state.filters.source === s ? 'selected' : ''}>${esc(s)}</option>`).join('')}
+          </select>
+          <select class="select" id="lib-diff">
+            <option value="All" ${state.filters.difficulty === 'All' ? 'selected' : ''}>Level: All</option>
+            ${[1, 2, 3, 4, 5].map(d => `<option value="${d}" ${String(state.filters.difficulty) === String(d) ? 'selected' : ''}>Level ${d}</option>`).join('')}
+          </select>
+          <select class="select" id="lib-status">
+            <option value="All" ${state.filters.status === 'All' ? 'selected' : ''}>Status: All</option>
+            ${['Unread', 'Mastered', 'Bookmarked'].map(st => `<option value="${st}" ${state.filters.status === st ? 'selected' : ''}>${st}</option>`).join('')}
+          </select>
+        </div>
+      ` : ''}
 
       <div class="library-split">
         <div class="problem-list-panel" id="lib-list-panel">
@@ -910,31 +1077,31 @@
     const selectorHtml = `
       <div class="page-header">
         <div>
-          <h1>Guided Case Study Coach</h1>
-          <p>Step-by-step interactive sparring: clarify scope, pick the framework, build a MECE tree, diagnose/prioritize, and pitch your synthesis.</p>
+          <h1>Guided Case Coach</h1>
+          <p>Active sparring one stage at a time — use <kbd class="keycap">←</kbd>/<kbd class="keycap">→</kbd> to step through stages 1–5.</p>
         </div>
       </div>
-      <div class="card-flat" style="margin-bottom:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;">
+      <div class="card-flat" style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;">
         <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex:1 1 240px;min-width:0;">
-          <strong>Active Case:</strong>
-          <select class="select" id="guided-case-select" style="width:100%;max-width:440px;min-width:0;">
+          <strong style="font-size:0.9rem;">Active Case:</strong>
+          <select class="select" id="guided-case-select" style="width:100%;max-width:420px;min-width:0;">
             ${CASES.map(p => `<option value="${esc(p.id)}" ${p.id === c.id ? 'selected' : ''}>[L${p.difficulty}] ${esc(p.title)} · ${esc(p.category)}</option>`).join('')}
           </select>
         </div>
         <div style="display:flex;gap:5px;flex-wrap:wrap;">
-          <button class="btn btn-sm btn-primary" id="guided-rand-starter">🎲 Starter L1–2</button>
-          <button class="btn btn-sm" id="guided-rand-rca">🎲 RCA</button>
-          <button class="btn btn-sm" id="guided-rand-gtm">🎲 GTM</button>
-          <button class="btn btn-sm" id="guided-rand-pm">🎲 Design/Metrics</button>
-          <button class="btn btn-sm" id="guided-rand-cons">🎲 Consulting</button>
+          <button type="button" class="btn btn-sm btn-primary" id="guided-rand-starter">Starter L1–2</button>
+          <button type="button" class="btn btn-sm" id="guided-rand-rca">RCA</button>
+          <button type="button" class="btn btn-sm" id="guided-rand-gtm">GTM</button>
+          <button type="button" class="btn btn-sm" id="guided-rand-pm">Design/Metrics</button>
+          <button type="button" class="btn btn-sm" id="guided-rand-cons">Consulting</button>
         </div>
       </div>
     `;
 
     const progressStepper = `
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
-        ${['1. Clarify', '2. Framework', '3. MECE Tree', '4. Diagnose & Draft', '5. Synthesis & Debrief'].map((lbl, idx) => `
-          <button class="tab-btn ${g.step === idx + 1 ? 'active' : ''}" data-guided-step="${idx + 1}">${lbl}</button>
+      <div class="editorial-tabs" style="margin-bottom:14px;">
+        ${['1. Clarify', '2. Framework', '3. MECE Tree', '4. Diagnose & Draft', '5. Synthesis'].map((lbl, idx) => `
+          <button type="button" class="tab-btn ${g.step === idx + 1 ? 'active' : ''}" data-guided-step="${idx + 1}">${lbl}</button>
         `).join('')}
       </div>
     `;
@@ -943,26 +1110,26 @@
     if (g.step === 1) {
       stepContent = `
         <div class="card">
-          <div class="pill pill-blue" style="margin-bottom:6px;">Step 1 of 5 · Clarify Goal &amp; Scope</div>
-          <h3 style="margin:0 0 6px;font-size:1.1rem;">Prompt: “${esc(c.prompt)}”</h3>
-          <p style="font-size:0.96rem;color:var(--text-muted);margin:0 0 10px;">Click each clarifying question below to simulate asking the interviewer before structuring:</p>
+          <div class="pill pill-blue" style="margin-bottom:6px;">Stage 1 of 5 · Clarify Scope</div>
+          <h3 style="margin:0 0 6px;font-size:1.06rem;">“${esc(c.prompt)}”</h3>
+          <p style="font-size:0.91rem;color:var(--text-muted);margin:0 0 10px;">Ask clarifying questions before committing to any framework:</p>
           ${(c.clarifyingQuestions || []).map((cq, idx) => {
             const open = !!g.clarifyRevealed[idx];
             return `
               <div class="section-block" style="margin-bottom:8px;">
                 <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-                  <strong style="flex:1 1 200px;min-width:0;font-size:0.96rem;">❓ "${esc(cq.q)}"</strong>
-                  <button class="btn btn-sm ${open ? '' : 'btn-primary'}" data-clarify-idx="${idx}">${open ? 'Asked ✓' : 'Ask Interviewer'}</button>
+                  <strong style="flex:1 1 200px;min-width:0;font-size:0.92rem;">“${esc(cq.q)}”</strong>
+                  <button type="button" class="btn btn-sm ${open ? '' : 'btn-primary'}" data-clarify-idx="${idx}">${open ? 'Asked ✓' : 'Ask Interviewer'}</button>
                 </div>
                 ${open ? `
-                  <div style="margin-top:6px;font-size:0.95rem;color:var(--accent-bright);">💬 Interviewer: ${esc(cq.a)}</div>
-                  <div style="font-size:0.9rem;color:var(--text-muted);margin-top:2px;">Why this matters: ${esc(cq.why)}</div>
+                  <div style="margin-top:6px;font-size:0.9rem;color:var(--accent-bright);">Interviewer: ${esc(cq.a)}</div>
+                  <div style="font-size:0.86rem;color:var(--text-muted);margin-top:2px;">Why this matters: ${esc(cq.why)}</div>
                 ` : ''}
               </div>
             `;
           }).join('')}
           <div style="margin-top:10px;text-align:right;">
-            <button class="btn btn-primary" data-guided-step="2">Next: Pick Case Type &amp; Framework →</button>
+            <button type="button" class="btn btn-primary" data-guided-step="2">Next: Pick Case Type →</button>
           </div>
         </div>
       `;
@@ -970,8 +1137,8 @@
       const targetCat = (c.guidedPractice && c.guidedPractice.correctCategory) || c.category;
       stepContent = `
         <div class="card">
-          <div class="pill pill-blue" style="margin-bottom:6px;">Step 2 of 5 · Spot the Case Type</div>
-          <h3 style="margin:0 0 6px;font-size:1.1rem;">Which primary case category fits “${esc(c.title)}”?</h3>
+          <div class="pill pill-blue" style="margin-bottom:6px;">Stage 2 of 5 · Spot Case Category</div>
+          <h3 style="margin:0 0 8px;font-size:1.06rem;">Which primary category fits “${esc(c.title)}”?</h3>
           <div class="grid-3" style="margin-top:8px;">
             ${allCats.map(cat => {
               let cls = 'quiz-opt';
@@ -979,19 +1146,19 @@
                 if (cat === targetCat) cls += ' correct';
                 else if (cat === g.selectedCategory) cls += ' wrong';
               }
-              return `<button class="${cls}" style="margin-bottom:0;" data-guided-cat="${esc(cat)}">${esc(cat)}</button>`;
+              return `<button type="button" class="${cls}" style="margin-bottom:0;" data-guided-cat="${esc(cat)}">${esc(cat)}</button>`;
             }).join('')}
           </div>
           ${g.selectedCategory ? `
-            <div class="${g.selectedCategory === targetCat ? 'good-box' : 'bad-box'}" style="margin-top:9px;">
-              <strong>${g.selectedCategory === targetCat ? '✅ Spot on!' : '💡 Primary Category: ' + esc(targetCat)}</strong>
+            <div class="${g.selectedCategory === targetCat ? 'good-box' : 'bad-box'}" style="margin-top:10px;">
+              <strong>${g.selectedCategory === targetCat ? 'Spot on!' : 'Primary Category: ' + esc(targetCat)}</strong>
               <div style="margin-top:4px;">Recommended Framework: <strong>${esc(c.frameworkUsed)}</strong></div>
-              <div style="margin-top:4px;font-size:0.93rem;">${esc(c.strategyOverview)}</div>
+              <div style="margin-top:4px;font-size:0.9rem;">${esc(c.strategyOverview)}</div>
             </div>
           ` : ''}
           <div style="margin-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <button class="btn" data-guided-step="1">← Back</button>
-            <button class="btn btn-primary" data-guided-step="3">Next: Choose MECE Structure →</button>
+            <button type="button" class="btn" data-guided-step="1">← Back</button>
+            <button type="button" class="btn btn-primary" data-guided-step="3">Next: Choose MECE Structure →</button>
           </div>
         </div>
       `;
@@ -999,8 +1166,8 @@
       const opts = (c.guidedPractice && c.guidedPractice.structureOptions) || [];
       stepContent = `
         <div class="card">
-          <div class="pill pill-blue" style="margin-bottom:6px;">Step 3 of 5 · Choose the Cleanest MECE Structure</div>
-          <h3 style="margin:0 0 8px;font-size:1.1rem;">Pick the winning upfront issue tree:</h3>
+          <div class="pill pill-blue" style="margin-bottom:6px;">Stage 3 of 5 · Choose Cleanest MECE Structure</div>
+          <h3 style="margin:0 0 8px;font-size:1.06rem;">Pick the winning upfront issue tree:</h3>
           <div>
             ${opts.map((o, idx) => {
               let cls = 'quiz-opt';
@@ -1008,7 +1175,7 @@
                 if (o.correct) cls += ' correct';
                 else if (idx === g.selectedStructIdx) cls += ' wrong';
               }
-              return `<button class="${cls}" data-guided-struct="${idx}">${esc(o.label)}</button>`;
+              return `<button type="button" class="${cls}" data-guided-struct="${idx}">${esc(o.label)}</button>`;
             }).join('')}
           </div>
           ${g.selectedStructIdx !== null && opts[g.selectedStructIdx] ? `
@@ -1018,8 +1185,8 @@
             </div>
           ` : ''}
           <div style="margin-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <button class="btn" data-guided-step="2">← Back</button>
-            <button class="btn btn-primary" data-guided-step="4">Next: Diagnose &amp; Draft →</button>
+            <button type="button" class="btn" data-guided-step="2">← Back</button>
+            <button type="button" class="btn btn-primary" data-guided-step="4">Next: Diagnose &amp; Draft →</button>
           </div>
         </div>
       `;
@@ -1027,10 +1194,10 @@
       const dq = (c.guidedPractice && c.guidedPractice.decisionQuiz) || null;
       stepContent = `
         <div class="card">
-          <div class="pill pill-blue" style="margin-bottom:6px;">Step 4 of 5 · Diagnostic Check &amp; Scratchpad</div>
+          <div class="pill pill-blue" style="margin-bottom:6px;">Stage 4 of 5 · Diagnostic Judgment &amp; Notes</div>
           ${dq ? `
             <div class="section-block" style="margin-bottom:10px;">
-              <strong style="font-size:0.98rem;">🧠 Key Case Judgment Check: ${esc(dq.question)}</strong>
+              <strong style="font-size:0.94rem;">Judgment Check: ${esc(dq.question)}</strong>
               <div style="margin-top:7px;">
                 ${(dq.options || []).map((o, idx) => {
                   let cls = 'quiz-opt';
@@ -1038,7 +1205,7 @@
                     if (o.correct) cls += ' correct';
                     else if (idx === g.selectedQuizIdx) cls += ' wrong';
                   }
-                  return `<button class="${cls}" data-guided-quiz="${idx}">${esc(o.label)}</button>`;
+                  return `<button type="button" class="${cls}" data-guided-quiz="${idx}">${esc(o.label)}</button>`;
                 }).join('')}
               </div>
               ${g.selectedQuizIdx !== null && dq.options[g.selectedQuizIdx] ? `
@@ -1049,12 +1216,12 @@
             </div>
           ` : ''}
           <div class="section-block">
-            <strong style="font-size:0.96rem;">📝 Draft Your Top 2 Recommendations &amp; Guardrail Metrics:</strong>
-            <textarea class="input" id="guided-notes-txt" rows="3" style="margin-top:6px;" placeholder="Write your P0 fix, North Star metric, and what guardrail prevents side-effects...">${esc(g.notesInput)}</textarea>
+            <strong style="font-size:0.92rem;">Draft Your Top 2 Recommendations &amp; Guardrail Metrics:</strong>
+            <textarea class="input" id="guided-notes-txt" rows="3" style="margin-top:6px;" placeholder="Write your P0 fix, North Star metric, and guardrail against side-effects...">${esc(g.notesInput)}</textarea>
           </div>
           <div style="margin-top:10px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <button class="btn" data-guided-step="3">← Back</button>
-            <button class="btn btn-primary" data-guided-step="5">Next: Pyramid Synthesis &amp; Debrief →</button>
+            <button type="button" class="btn" data-guided-step="3">← Back</button>
+            <button type="button" class="btn btn-primary" data-guided-step="5">Next: Synthesis &amp; Debrief →</button>
           </div>
         </div>
       `;
@@ -1063,46 +1230,46 @@
       const mg = c.metricsAndGuardrails || {};
       stepContent = `
         <div class="card">
-          <div class="pill pill-green" style="margin-bottom:6px;">Step 5 of 5 · Pyramid Synthesis &amp; Full Debrief</div>
+          <div class="pill pill-green" style="margin-bottom:6px;">Stage 5 of 5 · Pyramid Synthesis &amp; Full Debrief</div>
           <div class="section-block" style="margin-bottom:9px;">
-            <strong style="font-size:0.96rem;">Write your 30-Second Pyramid Summary (Recommendation first → 2–3 reasons → Risk/Guardrail):</strong>
+            <strong style="font-size:0.92rem;">Draft Your 30-Second Pyramid Summary (Recommendation first → 2–3 reasons → Risk/Guardrail):</strong>
             <textarea class="input" id="guided-synth-txt" rows="2" style="margin-top:5px;" placeholder="I recommend... because (1)... (2)... while guarding against...">${esc(g.synthInput)}</textarea>
           </div>
           <div class="good-box" style="margin-bottom:9px;">
-            <strong>✅ Model 30-Sec Pyramid Synthesis:</strong><br/>${esc(c.synthesisScript)}
+            <strong>Model 30-Sec Pyramid Synthesis:</strong><br/>${esc(c.synthesisScript)}
           </div>
           <div class="bad-box" style="margin-bottom:9px;">
-            <strong>⚠️ Interviewer Trap to Avoid:</strong> ${esc(c.interviewerTrap)}
+            <strong>Interviewer Trap to Avoid:</strong> ${esc(c.interviewerTrap)}
           </div>
           <div class="section-block" style="margin-bottom:9px;">
-            <h3>Reference MECE Issue Tree &amp; Metrics</h3>
+            <h3>Reference MECE Tree &amp; Metrics</h3>
             <div class="issue-tree-wrap">${renderTreeNode(c.tree)}</div>
-            <div style="margin-top:8px;font-size:0.92rem;"><strong>North Star:</strong> ${esc(mg.northStar || '')} · <strong>Guardrails:</strong> ${(mg.guardrails || []).map(x => esc(x)).join(' | ')}</div>
+            <div style="margin-top:8px;font-size:0.89rem;"><strong>North Star:</strong> ${esc(mg.northStar || '')} · <strong>Guardrails:</strong> ${(mg.guardrails || []).map(x => esc(x)).join(' | ')}</div>
           </div>
           <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-            <button class="btn" data-guided-step="4">← Back</button>
+            <button type="button" class="btn" data-guided-step="4">← Back</button>
             <div style="display:flex;gap:6px;flex-wrap:wrap;">
-              <button class="btn ${isMastered ? 'btn-primary' : 'btn-secondary'}" data-toggle-master="${esc(c.id)}" aria-pressed="${isMastered}">
-                ${isMastered ? '✓ Mastered!' : '✓ Mark Case Mastered'}
+              <button type="button" class="btn ${isMastered ? 'btn-primary' : 'btn-secondary'}" data-toggle-master="${esc(c.id)}" aria-pressed="${isMastered}">
+                ${isMastered ? '✓ Mastered' : '✓ Mark Mastered'}
               </button>
-              <button class="btn btn-primary" id="guided-next-unmastered">Next Unsolved Case →</button>
+              <button type="button" class="btn btn-primary" id="guided-next-unmastered">Next Unsolved Case →</button>
             </div>
           </div>
         </div>
       `;
     }
 
-    return selectorHtml + progressStepper + stepContent;
+    return `<div class="coach-stage">${selectorHtml + progressStepper + stepContent}</div>`;
   }
 
-  // ==================== VIEW 5: MOCK WORKBENCH ====================
+  // ==================== VIEW 5: MOCK STUDIO (TABBED INTERVIEWER CONSOLE) ====================
   function getMockPhaseLabel() {
     const elapsed = mockState.durationSec - mockState.timeLeft;
     const pct = mockState.durationSec ? (elapsed / mockState.durationSec) : 0;
-    if (pct > 0.78) return 'Phase 4: Metrics, Guardrails & 30s Pyramid Pitch!';
-    if (pct > 0.30) return 'Phase 3: Drill Down, Prioritize P0 & Solve';
-    if (pct > 0.12) return 'Phase 2: Pause & Build MECE Issue Tree';
-    return 'Phase 1: Clarify Goal & Scope (0–2m)';
+    if (pct > 0.78) return 'Phase 4: Metrics, Guardrails & 30s Pitch';
+    if (pct > 0.30) return 'Phase 3: Drill Down & Prioritize P0';
+    if (pct > 0.12) return 'Phase 2: Build MECE Issue Tree';
+    return 'Phase 1: Clarify Goal & Scope';
   }
 
   function formatMockPitchHtml() {
@@ -1125,7 +1292,7 @@
     const phaseEl = document.getElementById('mock-phase-badge');
     if (phaseEl) phaseEl.textContent = getMockPhaseLabel();
     const startBtn = document.getElementById('mock-start-pause');
-    if (startBtn) startBtn.textContent = mockState.running ? '⏸ Pause' : '▶ Start Timer';
+    if (startBtn) startBtn.textContent = mockState.running ? 'Pause (t)' : 'Start Timer (t)';
   }
 
   function updateMockPitchInPlace() {
@@ -1139,16 +1306,69 @@
     const secs = String(mockState.timeLeft % 60).padStart(2, '0');
     const wt = c.walkthrough || [];
     const shownWt = wt.slice(0, mockState.revealedWalkthroughCount);
+    const rTab = state.mockRightTab || 'clarify';
+
+    let rightTabBody = '';
+    if (rTab === 'clarify') {
+      rightTabBody = `
+        <p style="font-size:0.89rem;color:var(--text-muted);margin:0 0 8px;">Ask opening questions to narrow metric, timeline, segment, and constraints:</p>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          ${(c.clarifyingQuestions || []).map((cq, idx) => {
+            const asked = !!mockState.clarifiedIdx[idx];
+            return `
+              <div>
+                <button type="button" class="btn btn-sm btn-block-left ${asked ? 'btn-secondary' : ''}" data-mock-clarify="${idx}">
+                  ${asked ? '✓' : '?'} ${esc(cq.q)}
+                </button>
+                ${asked ? `<div style="font-size:0.89rem;color:var(--accent-bright);padding:4px 8px;">“${esc(cq.a)}”</div>` : ''}
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    } else if (rTab === 'clues') {
+      rightTabBody = `
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:8px;">
+          <span style="font-size:0.89rem;color:var(--text-muted);">Reveal interviewer turns progressively (Shortcut: <kbd class="keycap">c</kbd>)</span>
+          ${mockState.revealedWalkthroughCount < wt.length ? `<button type="button" class="btn btn-sm btn-primary" id="mock-next-clue-btn">Reveal Clue (${shownWt.length}/${wt.length}) →</button>` : '<span class="pill pill-green">All clues revealed</span>'}
+        </div>
+        ${shownWt.length ? `
+          <div class="dialogue-feed">
+            ${shownWt.map(w => `
+              <div class="dialogue-turn ${(w.speaker || '').toLowerCase().includes('interviewer') ? 'interviewer' : 'candidate'}">
+                <div class="dialogue-meta"><span class="dialogue-speaker">${esc(w.phase)}</span></div>
+                <div style="font-size:0.89rem;color:var(--text-muted);">${esc(w.detail)}</div>
+              </div>
+            `).join('')}
+          </div>
+        ` : '<div class="tip-box">Structure your MECE buckets on the left first, then reveal clues one step at a time.</div>'}
+      `;
+    } else if (rTab === 'curveball') {
+      rightTabBody = `
+        <p style="font-size:0.89rem;color:var(--text-muted);margin:0 0 8px;">Stress-test your structure with a sudden constraint from the interviewer:</p>
+        <div class="bad-box" style="font-size:0.91rem;">
+          <strong>Interviewer interrupts:</strong> “${esc((c.variations && c.variations[0]) ? c.variations[0].question : 'How would your recommendation change under half the budget?')}”
+          <div style="margin-top:6px;font-size:0.88rem;color:var(--text-muted);"><strong>Coach Hint:</strong> ${esc((c.variations && c.variations[0]) ? c.variations[0].hint : 'Focus strictly on P0 high-impact low-effort fixes.')}</div>
+        </div>
+      `;
+    } else {
+      rightTabBody = `
+        <div class="good-box" style="margin-bottom:9px;">
+          <strong>Pyramid Synthesis:</strong> ${esc(c.synthesisScript)}
+        </div>
+        <div class="issue-tree-wrap">${renderTreeNode(c.tree)}</div>
+      `;
+    }
 
     return `
       <div class="page-header">
         <div>
-          <h1>Timed Mock Interview &amp; Case Workbench</h1>
-          <p>Simulate real interview pacing: ask clarifying questions, structure MECE buckets, pull progressive data clues, and deliver your Pyramid pitch.</p>
+          <h1>Mock Interview Studio</h1>
+          <p>Press <kbd class="keycap">t</kbd> to start/pause timer, <kbd class="keycap">c</kbd> to pull next clue — structure out loud cleanly.</p>
         </div>
       </div>
 
-      <div class="card" style="margin-bottom:11px;">
+      <div class="card" style="margin-bottom:12px;">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
           <div style="min-width:0;flex:1 1 260px;">
             <div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap;margin-bottom:5px;">
@@ -1156,31 +1376,31 @@
               <span class="pill pill-blue">${esc(c.company)} · ${diffDots(c.difficulty)}</span>
               <span class="pill pill-warn" id="mock-phase-badge">${esc(getMockPhaseLabel())}</span>
             </div>
-            <h2 style="margin:0;font-size:1.18rem;">“${esc(c.prompt)}”</h2>
+            <h2 style="margin:0;font-size:1.12rem;">“${esc(c.prompt)}”</h2>
           </div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
             <span class="timer-pill" id="mock-timer-display" style="${mockState.timeLeft <= 60 ? 'color:var(--danger);border-color:var(--danger);' : ''}">${mins}:${secs}</span>
-            <button class="btn btn-primary btn-sm" id="mock-start-pause">${mockState.running ? '⏸ Pause' : '▶ Start Timer'}</button>
-            <button class="btn btn-sm" id="mock-reset-timer">↺ Reset (${state.mockDurationMins || 25}m)</button>
-            <button class="btn btn-sm btn-secondary" id="mock-random-btn">🎲 Random Case</button>
+            <button type="button" class="btn btn-primary btn-sm" id="mock-start-pause">${mockState.running ? 'Pause (t)' : 'Start Timer (t)'}</button>
+            <button type="button" class="btn btn-sm" id="mock-reset-timer">Reset (${state.mockDurationMins || 25}m)</button>
+            <button type="button" class="btn btn-sm btn-secondary" id="mock-random-btn">New Case</button>
           </div>
         </div>
       </div>
 
       <div class="grid-2" style="align-items:start;">
-        <!-- Left: Interactive MECE Bucket & Hypothesis Tracker -->
+        <!-- Left: Interactive MECE Scratchpad -->
         <div class="card">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">
-            <h3 style="margin:0;font-size:1.08rem;">🌳 Interactive MECE Issue-Tree Scratchpad</h3>
-            <button class="btn btn-sm btn-primary" id="wb-add-bucket">+ Add Bucket</button>
+            <h3 style="margin:0;font-size:1.02rem;">MECE Issue-Tree Scratchpad</h3>
+            <button type="button" class="btn btn-sm btn-primary" id="wb-add-bucket">+ Branch</button>
           </div>
           <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px;">
-            <span style="font-size:0.86rem;color:var(--text-dim);align-self:center;">Load skeleton:</span>
-            <button class="btn btn-sm" data-load-tpl="rca">RCA</button>
-            <button class="btn btn-sm" data-load-tpl="gtm">GTM</button>
-            <button class="btn btn-sm" data-load-tpl="design">Design</button>
-            <button class="btn btn-sm" data-load-tpl="profitability">Profitability</button>
-            <button class="btn btn-sm" data-load-tpl="marketentry">Market Entry</button>
+            <span style="font-size:0.82rem;color:var(--text-dim);align-self:center;">Templates:</span>
+            <button type="button" class="btn btn-sm" data-load-tpl="rca">RCA</button>
+            <button type="button" class="btn btn-sm" data-load-tpl="gtm">GTM</button>
+            <button type="button" class="btn btn-sm" data-load-tpl="design">Design</button>
+            <button type="button" class="btn btn-sm" data-load-tpl="profitability">Profit</button>
+            <button type="button" class="btn btn-sm" data-load-tpl="marketentry">Entry</button>
           </div>
 
           <div id="wb-buckets-container">
@@ -1188,101 +1408,44 @@
               <div class="bucket-row" data-b-idx="${idx}">
                 <input type="text" class="bucket-title-inp" data-b-idx="${idx}" value="${esc(b.title)}" placeholder="MECE Branch" />
                 <select class="bucket-status-sel" data-b-idx="${idx}">
-                  <option value="Exploring" ${b.status === 'Exploring' ? 'selected' : ''}>🔍 Exploring</option>
-                  <option value="Priority P0" ${b.status === 'Priority P0' ? 'selected' : ''}>🎯 Priority P0</option>
-                  <option value="Ruled Out" ${b.status === 'Ruled Out' ? 'selected' : ''}>✕ Ruled Out</option>
+                  <option value="Exploring" ${b.status === 'Exploring' ? 'selected' : ''}>Exploring</option>
+                  <option value="Priority P0" ${b.status === 'Priority P0' ? 'selected' : ''}>Priority P0</option>
+                  <option value="Ruled Out" ${b.status === 'Ruled Out' ? 'selected' : ''}>Ruled Out</option>
                 </select>
-                <input type="text" class="bucket-note-inp" data-b-idx="${idx}" value="${esc(b.note)}" placeholder="Key insight / hypothesis..." />
-                ${mockState.buckets.length > 1 ? `<button class="btn btn-sm btn-danger b-del" data-b-idx="${idx}" style="padding:3px 7px;">✕</button>` : ''}
+                <input type="text" class="bucket-note-inp" data-b-idx="${idx}" value="${esc(b.note)}" placeholder="Hypothesis / insight..." />
+                ${mockState.buckets.length > 1 ? `<button type="button" class="btn btn-sm btn-danger b-del" data-b-idx="${idx}" style="padding:3px 7px;">✕</button>` : ''}
               </div>
             `).join('')}
           </div>
 
           <div class="section-block" style="margin-top:8px;">
-            <strong style="font-size:0.95rem;">📌 Final Decision, Metrics &amp; Auto-Generated 30s Pyramid Pitch</strong>
-            <input type="text" class="input" id="mock-recs-input" style="margin-top:6px;" placeholder="Your P0 recommendation (e.g. launch doorstep cash refund + bonus balance)..." value="${esc(mockState.recsNote)}" />
+            <strong class="block-label" style="font-size:0.89rem;">Final Recommendation &amp; Auto-Drafted Pitch</strong>
+            <input type="text" class="input" id="mock-recs-input" style="margin-top:6px;" placeholder="P0 recommendation (e.g. launch doorstep cash refund + bonus wallet)..." value="${esc(mockState.recsNote)}" />
             <div class="grid-2" style="margin-top:6px;">
               <input type="text" class="input" id="mock-ns-input" placeholder="North Star metric..." value="${esc(mockState.northStarNote)}" />
-              <input type="text" class="input" id="mock-gr-input" placeholder="Guardrail / counter-metric..." value="${esc(mockState.guardrailNote)}" />
+              <input type="text" class="input" id="mock-gr-input" placeholder="Guardrail metric..." value="${esc(mockState.guardrailNote)}" />
             </div>
-            <div class="script-box" style="margin-top:8px;font-size:0.93rem;" id="wb-pitch-box">${formatMockPitchHtml()}</div>
+            <div class="script-box" style="margin-top:8px;font-size:0.89rem;" id="wb-pitch-box">${formatMockPitchHtml()}</div>
           </div>
 
-          <div class="live-result-bar" style="margin-top:9px;">
+          <div class="live-result-bar">
             <div>
-              <div style="font-size:0.84rem;text-transform:uppercase;font-weight:700;color:var(--accent-bright);">Mock Session Status</div>
-              <div style="font-size:1rem;font-weight:700;">${mockState.completed ? 'Completed &amp; Saved!' : 'In Progress — Speak your tree out loud!'}</div>
+              <div style="font-size:0.76rem;font-family:var(--mono);text-transform:uppercase;font-weight:600;color:var(--sage);">Mock Status</div>
+              <div style="font-size:0.94rem;font-weight:600;">${mockState.completed ? 'Completed & Saved' : 'Active Practice'}</div>
             </div>
-            <button class="btn btn-sm ${mockState.completed ? 'btn-secondary' : 'btn-primary'}" id="mock-complete-btn">${mockState.completed ? '✓ Completed' : '✓ Complete Mock'}</button>
+            <button type="button" class="btn btn-sm ${mockState.completed ? 'btn-secondary' : 'btn-primary'}" id="mock-complete-btn">${mockState.completed ? '✓ Completed' : 'Complete Mock'}</button>
           </div>
         </div>
 
-        <!-- Right: Simulated Interviewer Persona -->
+        <!-- Right: 4-Tab Interviewer Console -->
         <div class="card">
-          <h3 style="margin:0 0 6px;font-size:1.08rem;">🧑‍💼 Simulated Interviewer Persona</h3>
-          <p style="font-size:0.92rem;color:var(--text-muted);margin:0 0 9px;">Ask clarifying questions, pull progressive data clues one turn at a time, or trigger a curveball!</p>
-
-          <div class="section-block" style="margin-bottom:9px;">
-            <strong style="font-size:0.95rem;">1. Clarifying Questions</strong>
-            <div style="margin-top:6px;display:flex;flex-direction:column;gap:5px;">
-              ${(c.clarifyingQuestions || []).map((cq, idx) => {
-                const asked = !!mockState.clarifiedIdx[idx];
-                return `
-                  <div>
-                    <button class="btn btn-sm btn-block-left ${asked ? 'btn-secondary' : ''}" data-mock-clarify="${idx}">
-                      ${asked ? '✓' : '❓'} ${esc(cq.q)}
-                    </button>
-                    ${asked ? `<div style="font-size:0.92rem;color:var(--accent-bright);padding:3px 7px;">💬 "${esc(cq.a)}"</div>` : ''}
-                  </div>
-                `;
-              }).join('')}
-            </div>
+          <div class="editorial-tabs" style="margin-bottom:12px;">
+            <button type="button" class="tab-btn ${rTab === 'clarify' ? 'active' : ''}" data-mock-rtab="clarify">1. Clarify</button>
+            <button type="button" class="tab-btn ${rTab === 'clues' ? 'active' : ''}" data-mock-rtab="clues">2. Clues (${shownWt.length}/${wt.length})</button>
+            <button type="button" class="tab-btn ${rTab === 'curveball' ? 'active' : ''}" data-mock-rtab="curveball">3. Curveball</button>
+            <button type="button" class="tab-btn ${rTab === 'reference' ? 'active' : ''}" data-mock-rtab="reference">4. Reference</button>
           </div>
-
-          <div class="section-block" style="margin-bottom:9px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:6px;">
-              <strong style="font-size:0.95rem;">2. Progressive Interview Clues (${shownWt.length}/${wt.length})</strong>
-              ${mockState.revealedWalkthroughCount < wt.length ? `<button class="btn btn-sm btn-primary" id="mock-next-clue-btn">Reveal Next Clue →</button>` : '<span class="pill pill-green">All clues revealed</span>'}
-            </div>
-            ${shownWt.length ? `
-              <div class="dialogue-feed">
-                ${shownWt.map(w => `
-                  <div class="dialogue-turn ${(w.speaker || '').toLowerCase().includes('interviewer') ? 'interviewer' : 'candidate'}">
-                    <div class="dialogue-meta"><span class="dialogue-speaker">${esc(w.phase)}</span></div>
-                    <div style="font-size:0.91rem;color:var(--text-muted);">${esc(w.detail)}</div>
-                  </div>
-                `).join('')}
-              </div>
-            ` : '<div class="tip-box">Try structuring your own buckets on the left first, then click "Reveal Next Clue" when you need interviewer data!</div>'}
-          </div>
-
-          <div class="section-block" style="margin-bottom:9px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
-              <strong style="font-size:0.95rem;">3. Mid-Case Curveball Twist</strong>
-              <button class="btn btn-sm btn-warn" id="mock-curveball-btn">${mockState.showVariation ? 'Hide Curveball' : '⚡ Throw Curveball'}</button>
-            </div>
-            ${mockState.showVariation ? `
-              <div class="bad-box" style="margin-top:6px;font-size:0.94rem;">
-                <strong>Interviewer interrupts:</strong> "${esc((c.variations && c.variations[0]) ? c.variations[0].question : 'How would your recommendation change under half the budget?')}"
-                <div style="margin-top:3px;font-size:0.9rem;color:var(--text-muted);">Hint: ${esc((c.variations && c.variations[0]) ? c.variations[0].hint : 'Focus strictly on P0 high-impact low-effort fixes.')}</div>
-              </div>
-            ` : ''}
-          </div>
-
-          <div class="section-block">
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
-              <strong style="font-size:0.95rem;">4. Reference Solution &amp; Tree</strong>
-              <button class="btn btn-sm" id="mock-reveal-sol-btn">${mockState.showSolutionRef ? 'Hide Reference' : '👁️ Reveal Answer & Tree'}</button>
-            </div>
-            ${mockState.showSolutionRef ? `
-              <div style="margin-top:8px;">
-                <div class="good-box" style="margin-bottom:6px;">
-                  <strong>Pyramid Synthesis:</strong> ${esc(c.synthesisScript)}
-                </div>
-                <div class="issue-tree-wrap">${renderTreeNode(c.tree)}</div>
-              </div>
-            ` : ''}
-          </div>
+          ${rightTabBody}
         </div>
       </div>
     `;
@@ -1296,8 +1459,8 @@
       if (!items.length) return '';
       return `
         <div class="card">
-          <h3 style="margin:0 0 2px;font-size:1.1rem;">${esc(sec.title)}</h3>
-          <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:8px;">${esc(sec.subtitle)}</div>
+          <h3 style="margin:0 0 2px;font-size:1.04rem;">${esc(sec.title)}</h3>
+          <div style="font-size:0.86rem;color:var(--text-muted);margin-bottom:8px;">${esc(sec.subtitle)}</div>
           ${items.map(it => `
             <div class="cs-item">
               <div>
@@ -1315,62 +1478,66 @@
 
   function renderPrimersAndFlowsHtml(qText) {
     const q = (qText || '').trim().toLowerCase();
+    const sub = state.primersSubTab || 'primers';
     const primers = (REF.industryPrimers || []).filter(p => !q || `${p.industry} ${p.valueChain} ${p.revenueDrivers} ${p.costDrivers} ${p.keyKPIs.join(' ')} ${p.caseTwists}`.toLowerCase().includes(q));
     const flows = (REF.userFlows || []).filter(f => !q || `${f.app} ${f.sector} ${f.goal} ${f.steps.join(' ')}`.toLowerCase().includes(q));
 
+    if (sub === 'flows') {
+      return `
+        <div class="grid-2">
+          ${flows.map(f => `
+            <div class="card">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:5px;">
+                <strong style="font-size:1rem;">${esc(f.app)}</strong>
+                <span class="pill pill-purple">${esc(f.sector)}</span>
+              </div>
+              <div style="font-size:0.88rem;color:var(--text-muted);margin-bottom:5px;"><strong>Goal:</strong> ${esc(f.goal)}</div>
+              <div class="flow-strip">
+                ${f.steps.map((st, idx) => `<span class="flow-step">${esc(st)}</span>${idx < f.steps.length - 1 ? '<span class="flow-arrow">→</span>' : ''}`).join('')}
+              </div>
+              <div style="font-size:0.86rem;margin-top:6px;"><strong>Drop-Offs:</strong> ${f.keyDropOffPoints.map(x => esc(x)).join(' · ')}</div>
+              <div style="font-size:0.86rem;color:var(--accent-bright);margin-top:3px;"><strong>Monetization:</strong> ${f.monetizationTouchpoints.map(x => esc(x)).join(' · ')}</div>
+            </div>
+          `).join('') || '<div class="card-flat">No matching app user flows.</div>'}
+        </div>
+      `;
+    }
+
     return `
-      <h3 style="margin:0 0 8px;font-size:1.1rem;">🏭 20 Industry Primers (Value Chains, Drivers &amp; Case Twists)</h3>
-      <div class="grid-2" style="margin-bottom:16px;">
+      <div class="grid-2">
         ${primers.map(p => `
           <div class="card">
-            <strong style="font-size:1.06rem;color:var(--accent-bright);">${esc(p.industry)}</strong>
-            <div style="font-size:0.9rem;margin:5px 0;"><strong>Value Chain:</strong> <span style="color:var(--text-muted);">${esc(p.valueChain)}</span></div>
-            <div style="font-size:0.9rem;margin:4px 0;"><strong>Revenue Drivers:</strong> <span style="color:var(--text-muted);">${esc(p.revenueDrivers)}</span></div>
-            <div style="font-size:0.9rem;margin:4px 0;"><strong>Cost Drivers:</strong> <span style="color:var(--text-muted);">${esc(p.costDrivers)}</span></div>
+            <strong style="font-size:1.02rem;color:var(--accent-bright);">${esc(p.industry)}</strong>
+            <div style="font-size:0.88rem;margin:5px 0;"><strong>Value Chain:</strong> <span style="color:var(--text-muted);">${esc(p.valueChain)}</span></div>
+            <div style="font-size:0.88rem;margin:4px 0;"><strong>Revenue Drivers:</strong> <span style="color:var(--text-muted);">${esc(p.revenueDrivers)}</span></div>
+            <div style="font-size:0.88rem;margin:4px 0;"><strong>Cost Drivers:</strong> <span style="color:var(--text-muted);">${esc(p.costDrivers)}</span></div>
             <div style="display:flex;flex-wrap:wrap;gap:4px;margin:6px 0;">
               ${(p.keyKPIs || []).map(k => `<span class="pill pill-blue">${esc(k)}</span>`).join('')}
             </div>
-            <div class="tip-box tip-box-green"><strong>🔥 Case Twist:</strong> ${esc(p.caseTwists)}</div>
+            <div class="tip-box tip-box-green"><strong>Case Twist:</strong> ${esc(p.caseTwists)}</div>
           </div>
         `).join('') || '<div class="card-flat">No matching industry primers.</div>'}
-      </div>
-
-      <h3 style="margin:0 0 8px;font-size:1.1rem;">📱 8 Essential App User Flows (E-Cell IITG Reference)</h3>
-      <div class="grid-2">
-        ${flows.map(f => `
-          <div class="card">
-            <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:5px;">
-              <strong style="font-size:1.06rem;">${esc(f.app)}</strong>
-              <span class="pill pill-purple">${esc(f.sector)}</span>
-            </div>
-            <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:5px;"><strong>Goal:</strong> ${esc(f.goal)}</div>
-            <div class="flow-strip">
-              ${f.steps.map((st, idx) => `<span class="flow-step">${esc(st)}</span>${idx < f.steps.length - 1 ? '<span class="flow-arrow">→</span>' : ''}`).join('')}
-            </div>
-            <div style="font-size:0.89rem;margin-top:6px;"><strong>⚠️ Key Drop-Offs:</strong> ${f.keyDropOffPoints.map(x => esc(x)).join(' · ')}</div>
-            <div style="font-size:0.89rem;color:var(--accent-bright);margin-top:3px;"><strong>💰 Monetization:</strong> ${f.monetizationTouchpoints.map(x => esc(x)).join(' · ')}</div>
-          </div>
-        `).join('') || '<div class="card-flat">No matching app user flows.</div>'}
       </div>
     `;
   }
 
   function renderDrillOptionsHtml(qObj) {
     if (!qObj) return '';
+    const letters = ['A', 'B', 'C', 'D'];
     return qObj.options.map((opt, idx) => `
-      <button class="quiz-opt" data-drill-opt="${idx}">
+      <button type="button" class="quiz-opt" data-drill-opt="${idx}">
         <span>${esc(opt)}</span>
-        <span class="drill-key-hint">${idx + 1}</span>
+        <span class="drill-key-hint">${letters[idx] || idx + 1}</span>
       </button>
     `).join('');
   }
 
   function renderDrillReviewListHtml() {
     const history = drillState.history || [];
-    if (!history.length) return '<div style="font-size:0.9rem;color:var(--text-muted);padding:6px 2px;">No questions answered before time ran out.</div>';
+    if (!history.length) return '<div style="font-size:0.89rem;color:var(--text-muted);padding:6px 2px;">No questions answered before time ran out.</div>';
     const filter = drillState.reviewFilter || 'all';
     const filtered = history.filter(item => filter === 'wrong' ? !item.isCorrect : filter === 'correct' ? item.isCorrect : true);
-    if (!filtered.length) return '<div style="font-size:0.9rem;color:var(--text-muted);padding:6px 2px;">No items in this filter.</div>';
+    if (!filtered.length) return '<div style="font-size:0.89rem;color:var(--text-muted);padding:6px 2px;">No items in this filter.</div>';
     return filtered.map(item => `
       <div class="drill-review-item ${item.isCorrect ? 'is-correct' : 'is-wrong'}">
         <div class="drill-review-head">
@@ -1381,7 +1548,7 @@
           <span>Your Answer: <span class="${item.isCorrect ? 'drill-ans-right' : 'drill-ans-wrong'}">${esc(item.chosenText)}</span></span>
           ${!item.isCorrect ? `<span>Correct: <span class="drill-ans-right">${esc(item.correctText)}</span></span>` : ''}
         </div>
-        <div class="drill-review-exp">💡 ${esc(item.exp)}</div>
+        <div class="drill-review-exp">${esc(item.exp)}</div>
       </div>
     `).join('');
   }
@@ -1392,14 +1559,14 @@
       <div class="page-header">
         <div>
           <h1>Memorize &amp; Rapid Reference</h1>
-          <p>Cheat sheets, 20 Industry Primers, 8 App User Flows, 60 Flashcards, and 60s Case Reflex Drills.</p>
+          <p>Cheat sheets, 20 Industry Primers, 8 App User Flows, 60 Flashcards, and 60s Reflex Drills.</p>
         </div>
       </div>
-      <div class="tab-bar">
-        <button class="tab-btn ${tab === 'cheatsheet' ? 'active' : ''}" data-mem-tab="cheatsheet">📄 Cheat Sheet</button>
-        <button class="tab-btn ${tab === 'primers' ? 'active' : ''}" data-mem-tab="primers">🏭 Industry Primers &amp; User Flows</button>
-        <button class="tab-btn ${tab === 'flashcards' ? 'active' : ''}" data-mem-tab="flashcards">🃏 Flashcards (${(REF.flashcards || []).length})</button>
-        <button class="tab-btn ${tab === 'drill' ? 'active' : ''}" data-mem-tab="drill">⚡ 60s Case Reflex Drill</button>
+      <div class="editorial-tabs">
+        <button type="button" class="tab-btn ${tab === 'cheatsheet' ? 'active' : ''}" data-mem-tab="cheatsheet">Cheat Sheet</button>
+        <button type="button" class="tab-btn ${tab === 'primers' ? 'active' : ''}" data-mem-tab="primers">Industry &amp; Flows</button>
+        <button type="button" class="tab-btn ${tab === 'flashcards' ? 'active' : ''}" data-mem-tab="flashcards">Flashcards (${(REF.flashcards || []).length})</button>
+        <button type="button" class="tab-btn ${tab === 'drill' ? 'active' : ''}" data-mem-tab="drill">60s Reflex Drill</button>
       </div>
     `;
 
@@ -1407,15 +1574,20 @@
     if (tab === 'cheatsheet') {
       body = `
         <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;" class="no-print">
-          <input type="text" class="input" id="cs-search" style="width:100%;max-width:340px;flex:1 1 200px;min-width:0;" placeholder="Filter formulas, RCA, GTM, A/B..." value="${esc(cheatSearch)}" />
-          <button class="btn btn-secondary btn-sm" onclick="window.print()">🖨️ Print Cheat Sheet</button>
+          <input type="text" class="input" id="cs-search" style="width:100%;max-width:320px;flex:1 1 200px;min-width:0;" placeholder="Filter formulas, RCA, GTM, A/B..." value="${esc(cheatSearch)}" />
+          <button type="button" class="btn btn-secondary btn-sm" id="print-cs-btn">Print Cheat Sheet</button>
         </div>
         <div class="grid-2" id="cs-grid-container">${renderCheatSheetCards(cheatSearch)}</div>
       `;
     } else if (tab === 'primers') {
+      const sub = state.primersSubTab || 'primers';
       body = `
-        <div style="margin-bottom:12px;">
-          <input type="text" class="input" id="primer-search" style="width:100%;max-width:360px;" placeholder="Filter industries or apps (e.g. Fintech, Airlines, Zomato, CRED)..." value="${esc(primerSearch)}" />
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+          <div class="sub-seg">
+            <button type="button" class="sub-seg-btn ${sub === 'primers' ? 'active' : ''}" data-primer-sub="primers">Industry Primers (${(REF.industryPrimers || []).length})</button>
+            <button type="button" class="sub-seg-btn ${sub === 'flows' ? 'active' : ''}" data-primer-sub="flows">App User Flows (${(REF.userFlows || []).length})</button>
+          </div>
+          <input type="text" class="input" id="primer-search" style="width:100%;max-width:300px;" placeholder="Filter industries or apps..." value="${esc(primerSearch)}" />
         </div>
         <div id="primers-flows-container">${renderPrimersAndFlowsHtml(primerSearch)}</div>
       `;
@@ -1435,11 +1607,11 @@
       body = `
         <div class="flashcard-stage">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-            <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;">
-              <select class="select" id="fc-cat" style="width:155px;max-width:100%;">
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <select class="select" id="fc-cat" style="width:150px;max-width:100%;">
                 ${cats.map(c => `<option ${flashState.category === c ? 'selected' : ''}>${esc(c)}</option>`).join('')}
               </select>
-              <label style="font-size:0.95rem;display:flex;align-items:center;gap:5px;cursor:pointer;">
+              <label style="font-size:0.9rem;display:flex;align-items:center;gap:5px;cursor:pointer;">
                 <input type="checkbox" id="fc-only-review" ${flashState.onlyReview ? 'checked' : ''} /> Needs Review Only
               </label>
             </div>
@@ -1448,29 +1620,29 @@
           ${card ? `
             <div class="flashcard" id="fc-card-box">
               <div class="flashcard-header">
-                <span class="flashcard-face-label">${flashState.flipped ? 'ANSWER · CLICK TO FLIP BACK' : 'QUESTION · CLICK TO REVEAL'} (${flashState.index + 1}/${filtered.length})</span>
+                <span class="flashcard-face-label">${flashState.flipped ? 'ANSWER' : 'QUESTION'} · ${flashState.index + 1}/${filtered.length}</span>
                 <div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap;">
-                  ${cardStatus === 'mastered' ? '<span class="pill pill-green">✓ Mastered</span>' : cardStatus === 'review' ? '<span class="pill pill-warn">🔁 Needs Review</span>' : ''}
+                  ${cardStatus === 'mastered' ? '<span class="pill pill-green">✓ Mastered</span>' : cardStatus === 'review' ? '<span class="pill pill-warn">Needs Review</span>' : ''}
                   <span class="pill pill-blue">${esc(card.category)}</span>
                 </div>
               </div>
               <div class="flashcard-body">
                 ${!flashState.flipped ? `
-                  <h2 style="margin:0;font-size:1.28rem;max-width:560px;width:100%;">${esc(card.front)}</h2>
-                  <div style="margin-top:6px;font-size:0.93rem;color:var(--text-dim);">Click anywhere on card to flip</div>
+                  <h2 style="margin:0;font-size:1.22rem;max-width:520px;width:100%;">${esc(card.front)}</h2>
+                  <div style="margin-top:6px;font-size:0.86rem;color:var(--text-dim);">Click card or press <kbd class="keycap">Space</kbd> / <kbd class="keycap">f</kbd> to flip</div>
                 ` : `
-                  <div style="font-size:1.18rem;font-weight:700;color:var(--accent-bright);white-space:pre-line;max-width:560px;width:100%;">${esc(card.back)}</div>
-                  <div class="tip-box" style="max-width:560px;text-align:left;">💡 ${esc(card.tip)}</div>
+                  <div style="font-size:1.12rem;font-weight:600;color:var(--accent-bright);white-space:pre-line;max-width:520px;width:100%;">${esc(card.back)}</div>
+                  <div class="tip-box" style="max-width:520px;text-align:left;">${esc(card.tip)}</div>
                 `}
               </div>
             </div>
             <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px;flex-wrap:wrap;">
-              <button class="btn" id="fc-prev">← Previous</button>
+              <button type="button" class="btn btn-sm" id="fc-prev" title="ArrowLeft">← Prev</button>
               <div style="display:flex;gap:6px;flex-wrap:wrap;">
-                <button class="btn btn-warn" id="fc-mark-review">🔁 Need Review</button>
-                <button class="btn btn-primary" id="fc-mark-mastered">✓ Got It!</button>
+                <button type="button" class="btn btn-sm btn-warn" id="fc-mark-review" title="Shortcut: r">Need Review (r)</button>
+                <button type="button" class="btn btn-sm btn-primary" id="fc-mark-mastered" title="Shortcut: g">Got It (g)</button>
               </div>
-              <button class="btn" id="fc-next">Next →</button>
+              <button type="button" class="btn btn-sm" id="fc-next" title="ArrowRight">Next →</button>
             </div>
           ` : '<div class="card">All cards in this filter are mastered! Uncheck "Needs Review Only" to browse all.</div>'}
         </div>
@@ -1485,50 +1657,55 @@
           <div class="card" id="drill-card-box">
             <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
               <div>
-                <h3 style="margin:0;font-size:1.1rem;">⚡ 60-Second Case Reflex Drill</h3>
-                <div style="font-size:0.93rem;color:var(--text-muted);">Train 5-second interview judgment across RCA, GTM, Design, Metrics &amp; Consulting.</div>
+                <h3 style="margin:0;font-size:1.05rem;">60-Second Case Reflex Drill</h3>
+                <div style="font-size:0.89rem;color:var(--text-muted);">Fast pattern training across RCA, GTM, Product &amp; Consulting — keys <kbd class="keycap">A</kbd> <kbd class="keycap">B</kbd> <kbd class="keycap">C</kbd> <kbd class="keycap">D</kbd>.</div>
               </div>
-              <span class="pill pill-purple">Best Score: ${state.bestDrillScore} pts</span>
+              <span class="pill pill-purple">Best: ${state.bestDrillScore} pts</span>
             </div>
 
             ${!drillState.active ? `
               <div style="text-align:center;padding:10px 6px;">
                 ${drillState.completed ? `
                   <div class="good-box" style="margin-bottom:10px;text-align:left;">
-                    <h2 style="margin:0 0 4px;font-size:1.22rem;">⏱️ Time’s Up! Final Score: ${drillState.score} pts ${drillState.beatBest ? '🏆 New Best!' : ''}</h2>
-                    <div>Answered <strong>${drillState.answered}</strong> · <span style="color:var(--accent-bright);font-weight:700;">${drillState.correctCount} correct</span> · <span style="color:var(--danger);font-weight:700;">${wrongCount} wrong</span> · ${accPct}% accuracy · Best Streak: ${drillState.bestStreak}</div>
+                    <h2 style="margin:0 0 4px;font-size:1.14rem;">Time’s Up — Score: ${drillState.score} pts ${drillState.beatBest ? '(New Best!)' : ''}</h2>
+                    <div>Answered <strong>${drillState.answered}</strong> · <span style="color:var(--sage);font-weight:600;">${drillState.correctCount} correct</span> · <span style="color:var(--danger);font-weight:600;">${wrongCount} wrong</span> · ${accPct}% accuracy · Best Streak: ${drillState.bestStreak}</div>
                   </div>
                 ` : ''}
-                <button class="btn btn-primary" id="start-drill-btn" style="font-size:1.05rem;padding:8px 18px;">▶ ${drillState.completed ? 'Play Again (New Shuffled Deck)' : 'Start 60-Second Drill'}</button>
+                <button type="button" class="btn btn-primary" id="start-drill-btn" style="padding:7px 18px;">${drillState.completed ? 'Play Again' : 'Start 60-Second Drill'}</button>
+                <p style="margin:8px auto 0;max-width:460px;font-size:0.86rem;color:var(--text-muted);">${drillState.completed ? 'Review every question and explanation below before switching views.' : 'Shuffled prompts every round. Answer with clicks or keys A–D (or 1–4); explanations unlock after 60s.'}</p>
               </div>
               ${drillState.completed ? `
-                <div class="drill-review-section">
+                <div class="drill-review-section" id="drill-review-section">
                   <div class="drill-review-toolbar">
-                    <strong style="font-size:1rem;">📖 Round Solutions (${drillState.history.length})</strong>
+                    <strong style="font-size:0.95rem;">Round Review (${drillState.history.length})</strong>
                     <div class="drill-review-filters">
-                      <button class="btn btn-sm ${rf === 'all' ? 'btn-primary' : ''}" data-drill-filter="all">All (${drillState.history.length})</button>
-                      <button class="btn btn-sm ${rf === 'wrong' ? 'btn-primary' : ''}" data-drill-filter="wrong">Wrong (${wrongCount})</button>
-                      <button class="btn btn-sm ${rf === 'correct' ? 'btn-primary' : ''}" data-drill-filter="correct">Correct (${drillState.correctCount})</button>
+                      <button type="button" class="btn btn-sm ${rf === 'all' ? 'btn-primary' : ''}" data-drill-filter="all">All (${drillState.history.length})</button>
+                      <button type="button" class="btn btn-sm ${rf === 'wrong' ? 'btn-primary' : ''}" data-drill-filter="wrong">Wrong (${wrongCount})</button>
+                      <button type="button" class="btn btn-sm ${rf === 'correct' ? 'btn-primary' : ''}" data-drill-filter="correct">Correct (${drillState.correctCount})</button>
                     </div>
                   </div>
-                  <div class="drill-review-list" id="drill-review-list">${renderDrillReviewListHtml()}</div>
+                  <div class="drill-review-list" id="drill-review-list">
+                    ${renderDrillReviewListHtml()}
+                  </div>
                 </div>
               ` : ''}
             ` : `
               <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:10px;">
-                <span class="timer-pill" id="drill-timer-pill">⏱️ ${drillState.timeLeft}s</span>
+                <span class="timer-pill" id="drill-timer-pill" style="${drillState.timeLeft <= 10 ? 'color:var(--danger);border-color:var(--danger);' : ''}">${drillState.timeLeft}s</span>
                 <div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap;">
                   <span class="pill pill-green" id="drill-score-pill">Score: ${drillState.score}</span>
-                  <span class="pill pill-warn" id="drill-streak-pill">Streak: ${drillState.streak}🔥</span>
+                  <span class="pill pill-warn" id="drill-streak-pill">Streak: ${drillState.streak}</span>
                   <span class="pill" id="drill-count-pill">Q: ${drillState.answered}</span>
-                  <button class="btn btn-sm btn-danger" id="quit-drill-btn">✕ Quit</button>
+                  <button type="button" class="btn btn-sm btn-danger" id="quit-drill-btn">Quit</button>
                 </div>
               </div>
               ${qObj ? `
                 <div class="section-block">
-                  <div id="drill-question-text" style="font-size:1.04rem;font-weight:700;margin-bottom:7px;">${esc(qObj.q)}</div>
-                  <div class="drill-feedback-slot" id="drill-feedback-slot">Pick an option or press keys 1–4 — full explanations unlock after 60s</div>
-                  <div class="drill-options-grid" id="drill-options-grid">${renderDrillOptionsHtml(qObj)}</div>
+                  <div id="drill-question-text" style="font-size:1.02rem;font-weight:600;margin-bottom:8px;">${esc(qObj.q)}</div>
+                  <div class="drill-feedback-slot" id="drill-feedback-slot">Press keys A–D (or 1–4) — explanations unlock after 60s</div>
+                  <div class="drill-options-grid" id="drill-options-grid">
+                    ${renderDrillOptionsHtml(qObj)}
+                  </div>
                 </div>
               ` : ''}
             `}
@@ -1540,9 +1717,89 @@
     return tabsHtml + body;
   }
 
+  // ==================== COMMAND PALETTE (CTRL+K) ====================
+  function getCommandEntries(query) {
+    const q = (query || '').trim().toLowerCase();
+    const actions = [
+      { kind: 'Action', title: state.sidebarCollapsed ? 'Expand Sidebar Rail' : 'Collapse Sidebar Rail', hint: '[ or Ctrl+B', run: () => toggleSidebar() },
+      { kind: 'Action', title: `Switch Palette (${state.theme === 'midnight' ? 'Warm Paper' : 'Midnight Slate'})`, hint: 'Shift+T', run: () => toggleTheme() },
+      { kind: 'Action', title: state.focusMode ? 'Exit Zen Reading Mode' : 'Enter Zen Reading Mode', hint: 'Shift+D', run: () => toggleFocusMode() },
+      { kind: 'View', title: '4-Day Sprint Dashboard', hint: 'Alt+1', run: () => setView('dashboard') },
+      { kind: 'View', title: 'Approach Guide & Frameworks', hint: 'Alt+2', run: () => setView('academy') },
+      { kind: 'View', title: 'Memorize, Primers & 60s Drill', hint: 'Alt+3', run: () => setView('memorize') },
+      { kind: 'View', title: `Case Dossiers Library (${CASES.length})`, hint: 'Alt+4', run: () => setView('library') },
+      { kind: 'View', title: 'Guided 5-Step Case Coach', hint: 'Alt+5', run: () => setView('practice') },
+      { kind: 'View', title: 'Timed Mock Interview Studio', hint: 'Alt+6', run: () => setView('mock') },
+      { kind: 'Action', title: 'Start 60-Second Case Reflex Drill', hint: 'Drill', run: () => setView('memorize', { memorizeTab: 'drill' }) },
+      { kind: 'Action', title: 'Open Random Starter Case (Guided)', hint: 'Starter', run: () => {
+        const pool = CASES.filter(c => c.isStarter);
+        const pick = (pool.length ? pool : CASES)[Math.floor(Math.random() * (pool.length || CASES.length))];
+        if (pick) { startGuidedCase(pick.id); setView('practice'); }
+      }}
+    ];
+
+    const matchedActions = actions.filter(a => !q || `${a.kind} ${a.title} ${a.hint}`.toLowerCase().includes(q));
+    const matchedCases = CASES
+      .filter(c => !q || `${c.title} ${c.company} ${c.category} ${c.source} ${c.track}`.toLowerCase().includes(q))
+      .slice(0, q ? 12 : 6)
+      .map(c => ({
+        kind: c.category,
+        title: c.title,
+        hint: `${c.company} · L${c.difficulty}`,
+        run: () => setView('library', { caseId: c.id })
+      }));
+
+    return [...matchedActions, ...matchedCases].slice(0, 14);
+  }
+
+  let currentCmdEntries = [];
+  function renderCommandResults(query) {
+    const resEl = document.getElementById('cmd-results');
+    if (!resEl) return;
+    currentCmdEntries = getCommandEntries(query);
+    if (cmdActiveIdx >= currentCmdEntries.length) cmdActiveIdx = 0;
+    if (!currentCmdEntries.length) {
+      resEl.innerHTML = '<div style="padding:12px;color:var(--text-dim);font-size:0.9rem;">No matching commands or case dossiers.</div>';
+      return;
+    }
+    resEl.innerHTML = currentCmdEntries.map((item, i) => `
+      <button type="button" class="cmd-item ${i === cmdActiveIdx ? 'active' : ''}" data-cmd-idx="${i}">
+        <span style="min-width:0;display:flex;align-items:center;gap:8px;">
+          <span class="pill">${esc(item.kind)}</span>
+          <span style="font-weight:500;">${esc(item.title)}</span>
+        </span>
+        <span class="cmd-item-sub">${esc(item.hint)}</span>
+      </button>
+    `).join('');
+    resEl.querySelectorAll('[data-cmd-idx]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const entry = currentCmdEntries[Number(btn.dataset.cmdIdx)];
+        closeCommandPalette();
+        if (entry) entry.run();
+      });
+    });
+  }
+
+  function openCommandPalette() {
+    const modal = document.getElementById('cmd-modal');
+    const inp = document.getElementById('cmd-input');
+    if (!modal || !inp) return;
+    modal.classList.add('open');
+    cmdActiveIdx = 0;
+    inp.value = '';
+    renderCommandResults('');
+    setTimeout(() => inp.focus(), 10);
+  }
+
+  function closeCommandPalette() {
+    const modal = document.getElementById('cmd-modal');
+    if (modal) modal.classList.remove('open');
+  }
+
   // ==================== MAIN RENDER & EVENT WIRING ====================
   function render() {
     applyTheme();
+    applySidebarState();
     updateSidebarStats();
     syncNavUI();
     const container = document.getElementById('main-content');
@@ -1559,6 +1816,16 @@
   }
 
   function attachDynamicListeners() {
+    document.querySelectorAll('[data-toggle-stage]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const map = ensureOpenStages();
+        const k = btn.dataset.toggleStage;
+        map[k] = !map[k];
+        saveState();
+        render();
+      });
+    });
+
     document.querySelectorAll('[data-roadmap-task]').forEach(cb => {
       cb.addEventListener('change', (e) => {
         state.roadmapDone[e.target.dataset.roadmapTask] = e.target.checked;
@@ -1571,27 +1838,32 @@
       btn.addEventListener('click', () => {
         const v = btn.dataset.jumpView;
         const t = btn.dataset.jumpTab;
-        if (v === 'library' && (t === 'Product' || t === 'Consulting' || t === 'Starter')) {
-          setView('library', { trackFilter: t });
-        } else {
-          setView(v, {
-            academyTab: v === 'academy' && t ? t : undefined,
-            memorizeTab: v === 'memorize' && t ? t : undefined
-          });
-        }
+        setView(v, {
+          academyTab: v === 'academy' && t ? t : undefined,
+          memorizeTab: v === 'memorize' && t ? t : undefined
+        });
       });
     });
 
-    const dashStartersBtn = document.getElementById('dash-view-starters-btn');
-    if (dashStartersBtn) {
-      dashStartersBtn.addEventListener('click', () => {
-        state.filters = { ...defaultState.filters, track: 'Starter' };
-        setView('library');
+    const dashToggleStarters = document.getElementById('dash-toggle-starters-btn');
+    if (dashToggleStarters) {
+      dashToggleStarters.addEventListener('click', () => {
+        state.dashShowAllStarters = !state.dashShowAllStarters;
+        saveState();
+        render();
       });
+    }
+
+    const dashStBtn = document.getElementById('dash-view-starters-btn');
+    if (dashStBtn) {
+      dashStBtn.addEventListener('click', () => setView('library', { trackFilter: 'Starter' }));
     }
 
     document.querySelectorAll('[data-open-case]').forEach(btn => {
       btn.addEventListener('click', () => setView('library', { caseId: btn.dataset.openCase }));
+    });
+    document.querySelectorAll('[data-practice-id]').forEach(btn => {
+      btn.addEventListener('click', () => { startGuidedCase(btn.dataset.practiceId); setView('practice'); });
     });
 
     function attachLibraryDetailListeners(root = document) {
@@ -1609,20 +1881,21 @@
         });
       });
 
-      const progBtn = root.querySelector('#toggle-progressive-btn');
-      if (progBtn) {
-        progBtn.addEventListener('click', () => {
-          state.progressiveMode = !state.progressiveMode;
-          state.studyRevealStep = state.progressiveMode ? 1 : 99;
+      root.querySelectorAll('[data-reader-mode]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mode = btn.dataset.readerMode;
+          state.caseReaderMode = mode;
+          state.progressiveMode = mode === 'step';
+          state.studyRevealStep = mode === 'step' ? 1 : mode === 'brief' ? 3 : 99;
           saveState();
           renderCaseDetailInPlace();
         });
-      }
+      });
 
       const revNextBtn = root.querySelector('#reveal-next-step-btn');
       if (revNextBtn) {
         revNextBtn.addEventListener('click', () => {
-          state.studyRevealStep = Math.min(6, state.studyRevealStep + 1);
+          state.studyRevealStep = Math.min(6, (state.studyRevealStep || 1) + 1);
           saveState();
           renderCaseDetailInPlace();
         });
@@ -1667,9 +1940,9 @@
         return;
       }
       const topbar = document.querySelector('.topbar');
-      const stickyTop = (topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 44) + 10;
+      const stickyTop = (topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 44) + 12;
       listPanel.style.setProperty('--lib-sticky-top', `${stickyTop}px`);
-      const viewportCap = Math.max(220, window.innerHeight - stickyTop - 14);
+      const viewportCap = Math.max(220, window.innerHeight - stickyTop - 16);
       const rightH = Math.ceil(detailWrap.getBoundingClientRect().height);
       const hasItems = !!listPanel.querySelector('.problem-list-item');
       if (rightH > 0) {
@@ -1704,12 +1977,13 @@
       attachLibraryDetailListeners(wrap);
       syncLibraryListHeight();
     }
+    window.__cmRenderCaseDetailInPlace = renderCaseDetailInPlace;
 
     function bindLibraryListClicks() {
       document.querySelectorAll('[data-select-case]').forEach(el => {
         el.addEventListener('click', () => {
           state.selectedCaseId = el.dataset.selectCase;
-          state.studyRevealStep = state.progressiveMode ? 1 : 99;
+          state.studyRevealStep = (state.caseReaderMode === 'step') ? 1 : (state.caseReaderMode === 'brief' ? 3 : 99);
           saveState();
           document.querySelectorAll('#lib-list-panel .problem-list-item.selected').forEach(x => x.classList.remove('selected'));
           el.classList.add('selected');
@@ -1717,7 +1991,7 @@
           if (window.innerWidth > 980) {
             const detailWrap = document.getElementById('lib-detail-wrap');
             const topbar = document.querySelector('.topbar');
-            const stickyTop = (topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 50) + 12;
+            const stickyTop = (topbar ? Math.ceil(topbar.getBoundingClientRect().height) : 48) + 12;
             if (detailWrap && detailWrap.getBoundingClientRect().top < stickyTop) {
               window.scrollTo({ top: Math.max(0, window.scrollY + detailWrap.getBoundingClientRect().top - stickyTop), behavior: 'smooth' });
             }
@@ -1740,7 +2014,7 @@
       }
       const activeCase = filtered.find(c => c.id === state.selectedCaseId) || filtered[0] || null;
 
-      if (countEl) countEl.innerHTML = `Showing <strong>${filtered.length}</strong> of ${CASES.length} solved cases`;
+      if (countEl) countEl.innerHTML = `Showing <strong>${filtered.length}</strong> of ${CASES.length}`;
       listPanel.innerHTML = renderLibraryListHtml(filtered, activeCase);
       bindLibraryListClicks();
       if (activeCase && prevSelectedId === activeCase.id) {
@@ -1759,9 +2033,28 @@
     bindLibraryListClicks();
     if (state.view === 'library') observeLibraryDetailHeight();
 
-    // Academy tabs & wizard
+    // Academy listeners
     document.querySelectorAll('[data-acad-tab]').forEach(btn => {
       btn.addEventListener('click', () => { state.academyTab = btn.dataset.acadTab; saveState(); render(); });
+    });
+    document.querySelectorAll('[data-acad-step]').forEach(btn => {
+      btn.addEventListener('click', () => { state.academyFocusStep = Number(btn.dataset.acadStep); saveState(); render(); });
+    });
+    const acadToggleAll = document.getElementById('acad-toggle-all-steps');
+    if (acadToggleAll) {
+      acadToggleAll.addEventListener('click', () => { state.academyShowAllSteps = !state.academyShowAllSteps; saveState(); render(); });
+    }
+    const acadPrev = document.getElementById('acad-prev-step');
+    if (acadPrev) {
+      acadPrev.addEventListener('click', () => { state.academyFocusStep = Math.max(0, (state.academyFocusStep || 0) - 1); saveState(); render(); });
+    }
+    const acadNext = document.getElementById('acad-next-step');
+    if (acadNext) {
+      const maxStep = Math.max(0, (CURRICULUM.sixSteps || []).length - 1);
+      acadNext.addEventListener('click', () => { state.academyFocusStep = Math.min(maxStep, (state.academyFocusStep || 0) + 1); saveState(); render(); });
+    }
+    document.querySelectorAll('[data-wiz-sub]').forEach(btn => {
+      btn.addEventListener('click', () => { state.wizardSubTab = btn.dataset.wizSub; saveState(); render(); });
     });
     document.querySelectorAll('[data-wiz-q]').forEach(btn => {
       btn.addEventListener('click', () => { wizardAnswers[btn.dataset.wizQ] = btn.dataset.wizV; render(); });
@@ -1795,6 +2088,15 @@
     bindFilter('lib-diff', 'difficulty');
     bindFilter('lib-status', 'status');
 
+    const moreFiltersBtn = document.getElementById('toggle-more-filters-btn');
+    if (moreFiltersBtn) {
+      moreFiltersBtn.addEventListener('click', () => {
+        state.libMoreFiltersOpen = !state.libMoreFiltersOpen;
+        saveState();
+        render();
+      });
+    }
+
     const clearBtn = document.getElementById('clear-filters-btn');
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
@@ -1809,7 +2111,7 @@
       });
     }
 
-    // Guided Practice listeners
+    // Guided Coach listeners
     const gcSel = document.getElementById('guided-case-select');
     if (gcSel) gcSel.addEventListener('change', (e) => { startGuidedCase(e.target.value); render(); });
 
@@ -1859,34 +2161,13 @@
       });
     }
 
-    // Mock Simulator listeners
+    // Mock Studio listeners
+    document.querySelectorAll('[data-mock-rtab]').forEach(btn => {
+      btn.addEventListener('click', () => { state.mockRightTab = btn.dataset.mockRtab; saveState(); render(); });
+    });
+
     const mockStartBtn = document.getElementById('mock-start-pause');
-    if (mockStartBtn) {
-      mockStartBtn.addEventListener('click', () => {
-        if (mockState.running) {
-          clearInterval(mockState.timerId);
-          mockState.running = false;
-          updateMockTimerUI();
-        } else {
-          clearInterval(mockState.timerId);
-          if (mockState.timeLeft <= 0) mockState.timeLeft = mockState.durationSec;
-          mockState.running = true;
-          updateMockTimerUI();
-          mockState.timerId = setInterval(() => {
-            if (!mockState.running) return;
-            if (mockState.timeLeft > 0) {
-              mockState.timeLeft--;
-              updateMockTimerUI();
-              if (mockState.timeLeft <= 0) {
-                clearInterval(mockState.timerId);
-                mockState.running = false;
-                updateMockTimerUI();
-              }
-            }
-          }, 1000);
-        }
-      });
-    }
+    if (mockStartBtn) mockStartBtn.addEventListener('click', toggleMockTimer);
 
     const mockResetBtn = document.getElementById('mock-reset-timer');
     if (mockResetBtn) {
@@ -1918,7 +2199,7 @@
         }
         state.masteredIds[mockState.caseId] = true;
         saveState();
-        mockState.showSolutionRef = true;
+        state.mockRightTab = 'reference';
         render();
       });
     }
@@ -1937,10 +2218,6 @@
         render();
       });
     }
-    const curveBtn = document.getElementById('mock-curveball-btn');
-    if (curveBtn) curveBtn.addEventListener('click', () => { mockState.showVariation = !mockState.showVariation; render(); });
-    const solRefBtn = document.getElementById('mock-reveal-sol-btn');
-    if (solRefBtn) solRefBtn.addEventListener('click', () => { mockState.showSolutionRef = !mockState.showSolutionRef; render(); });
 
     document.querySelectorAll('[data-load-tpl]').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -2002,6 +2279,13 @@
       });
     });
 
+    document.querySelectorAll('[data-primer-sub]').forEach(btn => {
+      btn.addEventListener('click', () => { state.primersSubTab = btn.dataset.primerSub; saveState(); render(); });
+    });
+
+    const printCsBtn = document.getElementById('print-cs-btn');
+    if (printCsBtn) printCsBtn.addEventListener('click', () => window.print());
+
     const csSearch = document.getElementById('cs-search');
     if (csSearch) {
       csSearch.addEventListener('input', (e) => {
@@ -2030,22 +2314,10 @@
     const fcNext = document.getElementById('fc-next');
     if (fcNext) fcNext.addEventListener('click', () => { flashState.index++; flashState.flipped = false; render(); });
 
-    const markCard = (status) => {
-      const cards = (REF.flashcards || []).filter(c => {
-        if (flashState.category !== 'All' && c.category !== flashState.category) return false;
-        if (flashState.onlyReview && state.flashcardStatus[c.id] === 'mastered') return false;
-        return true;
-      });
-      const current = cards[flashState.index];
-      if (current) { state.flashcardStatus[current.id] = status; saveState(); }
-      if (!(flashState.onlyReview && status === 'mastered')) flashState.index++;
-      flashState.flipped = false;
-      render();
-    };
     const fcMarkRev = document.getElementById('fc-mark-review');
     const fcMarkMast = document.getElementById('fc-mark-mastered');
-    if (fcMarkRev) fcMarkRev.addEventListener('click', () => markCard('review'));
-    if (fcMarkMast) fcMarkMast.addEventListener('click', () => markCard('mastered'));
+    if (fcMarkRev) fcMarkRev.addEventListener('click', () => gradeCurrentFlashcard('review'));
+    if (fcMarkMast) fcMarkMast.addEventListener('click', () => gradeCurrentFlashcard('mastered'));
 
     const startDrillBtn = document.getElementById('start-drill-btn');
     if (startDrillBtn) startDrillBtn.addEventListener('click', startRapidDrill);
@@ -2062,6 +2334,45 @@
     });
 
     bindDrillOptionListeners();
+  }
+
+  function gradeCurrentFlashcard(status) {
+    const cards = (REF.flashcards || []).filter(c => {
+      if (flashState.category !== 'All' && c.category !== flashState.category) return false;
+      if (flashState.onlyReview && state.flashcardStatus[c.id] === 'mastered') return false;
+      return true;
+    });
+    if (flashState.index >= cards.length) flashState.index = 0;
+    const current = cards[flashState.index];
+    if (current) { state.flashcardStatus[current.id] = status; saveState(); }
+    if (!(flashState.onlyReview && status === 'mastered')) flashState.index++;
+    flashState.flipped = false;
+    render();
+  }
+
+  function toggleMockTimer() {
+    if (mockState.running) {
+      clearInterval(mockState.timerId);
+      mockState.running = false;
+      updateMockTimerUI();
+    } else {
+      clearInterval(mockState.timerId);
+      if (mockState.timeLeft <= 0) mockState.timeLeft = mockState.durationSec;
+      mockState.running = true;
+      updateMockTimerUI();
+      mockState.timerId = setInterval(() => {
+        if (!mockState.running) return;
+        if (mockState.timeLeft > 0) {
+          mockState.timeLeft--;
+          updateMockTimerUI();
+          if (mockState.timeLeft <= 0) {
+            clearInterval(mockState.timerId);
+            mockState.running = false;
+            updateMockTimerUI();
+          }
+        }
+      }, 1000);
+    }
   }
 
   function shuffleArray(arr) {
@@ -2094,7 +2405,7 @@
   function updateDrillTimerUI() {
     const pill = document.getElementById('drill-timer-pill');
     if (!pill) return;
-    pill.textContent = `⏱️ ${drillState.timeLeft}s`;
+    pill.textContent = `${drillState.timeLeft}s`;
     pill.style.color = drillState.timeLeft <= 10 ? 'var(--danger)' : '';
     pill.style.borderColor = drillState.timeLeft <= 10 ? 'var(--danger)' : '';
   }
@@ -2107,7 +2418,7 @@
     if (!qObj || !qEl || !fbEl || !gridEl) return;
     qEl.textContent = qObj.q;
     fbEl.className = 'drill-feedback-slot';
-    fbEl.textContent = 'Pick an option or press keys 1–4 — full explanations unlock after 60s';
+    fbEl.textContent = 'Press keys A–D (or 1–4) — explanations unlock after 60s';
     gridEl.innerHTML = renderDrillOptionsHtml(qObj);
     bindDrillOptionListeners();
   }
@@ -2160,7 +2471,7 @@
     const streakEl = document.getElementById('drill-streak-pill');
     const countEl = document.getElementById('drill-count-pill');
     if (scoreEl) scoreEl.textContent = `Score: ${drillState.score}`;
-    if (streakEl) streakEl.textContent = `Streak: ${drillState.streak}🔥`;
+    if (streakEl) streakEl.textContent = `Streak: ${drillState.streak}`;
     if (countEl) countEl.textContent = `Q: ${drillState.answered}`;
 
     document.querySelectorAll('#drill-options-grid [data-drill-opt]').forEach(btn => {
@@ -2176,7 +2487,7 @@
     const fbEl = document.getElementById('drill-feedback-slot');
     if (fbEl) {
       fbEl.className = isCorrect ? 'drill-feedback-slot good' : 'drill-feedback-slot bad';
-      fbEl.textContent = isCorrect ? `✅ Correct! (+${pts} pts)` : '❌ Wrong!';
+      fbEl.textContent = isCorrect ? `Correct (+${pts} pts)` : 'Incorrect';
     }
 
     clearTimeout(drillState.advanceTimeoutId);
@@ -2267,15 +2578,34 @@
     mockState.buckets = structuredClone(MOCK_TEMPLATES[tplKey]);
   }
 
-  // Global Topbar & Sidebar Controls
+  // ==================== GLOBAL CONTROLS & MODALS ====================
   document.querySelectorAll('.nav-btn[data-view]').forEach(btn => {
     btn.addEventListener('click', () => setView(btn.dataset.view));
   });
-  document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.toggle('open');
-  });
+
+  const sideLogoBtn = document.getElementById('sidebar-brand-toggle');
+  const topLogoBtn = document.getElementById('topbar-brand-toggle');
+  const scrimEl = document.getElementById('sidebar-scrim');
+  if (sideLogoBtn) sideLogoBtn.addEventListener('click', () => toggleSidebar());
+  if (topLogoBtn) topLogoBtn.addEventListener('click', () => toggleSidebar());
+  if (scrimEl) scrimEl.addEventListener('click', () => toggleSidebar(false));
+
+  const topThemeBtn = document.getElementById('topbar-theme-btn');
+  if (topThemeBtn) topThemeBtn.addEventListener('click', toggleTheme);
+  const topFocusBtn = document.getElementById('topbar-focus-btn');
+  if (topFocusBtn) topFocusBtn.addEventListener('click', toggleFocusMode);
+
+  const settingsModal = document.getElementById('settings-modal');
+  const shortcutsModal = document.getElementById('shortcuts-modal');
+  const toggleSettings = (open) => { if (settingsModal) settingsModal.classList.toggle('open', open); };
+  const toggleShortcuts = (open) => {
+    if (!shortcutsModal) return;
+    const next = typeof open === 'boolean' ? open : !shortcutsModal.classList.contains('open');
+    shortcutsModal.classList.toggle('open', next);
+  };
+
   document.querySelectorAll('[data-set-theme]').forEach(btn => {
-    btn.addEventListener('click', () => { state.theme = btn.dataset.setTheme; saveState(); applyTheme(); });
+    btn.addEventListener('click', () => { state.theme = normalizeTheme(btn.dataset.setTheme); saveState(); applyTheme(); });
   });
   document.querySelectorAll('[data-set-font]').forEach(btn => {
     btn.addEventListener('click', () => { state.fontScale = btn.dataset.setFont; saveState(); applyTheme(); });
@@ -2293,8 +2623,6 @@
     });
   });
 
-  const settingsModal = document.getElementById('settings-modal');
-  const toggleSettings = (open) => { if (settingsModal) settingsModal.classList.toggle('open', open); };
   const openSettingsBtn = document.getElementById('open-settings-btn');
   const closeSettingsBtn = document.getElementById('close-settings-btn');
   const doneSettingsBtn = document.getElementById('done-settings-btn');
@@ -2302,6 +2630,49 @@
   if (closeSettingsBtn) closeSettingsBtn.addEventListener('click', () => toggleSettings(false));
   if (doneSettingsBtn) doneSettingsBtn.addEventListener('click', () => toggleSettings(false));
   if (settingsModal) settingsModal.addEventListener('click', (e) => { if (e.target === settingsModal) toggleSettings(false); });
+
+  const openShortcutsBtn = document.getElementById('open-shortcuts-btn');
+  const closeShortcutsBtn = document.getElementById('close-shortcuts-btn');
+  if (openShortcutsBtn) openShortcutsBtn.addEventListener('click', () => toggleShortcuts(true));
+  if (closeShortcutsBtn) closeShortcutsBtn.addEventListener('click', () => toggleShortcuts(false));
+  if (shortcutsModal) shortcutsModal.addEventListener('click', (e) => { if (e.target === shortcutsModal) toggleShortcuts(false); });
+
+  const cmdModal = document.getElementById('cmd-modal');
+  const cmdInput = document.getElementById('cmd-input');
+  const openCmdBtn = document.getElementById('open-cmd-btn');
+  const closeCmdBtn = document.getElementById('close-cmd-btn');
+  if (openCmdBtn) openCmdBtn.addEventListener('click', openCommandPalette);
+  if (closeCmdBtn) closeCmdBtn.addEventListener('click', closeCommandPalette);
+  if (cmdModal) cmdModal.addEventListener('click', (e) => { if (e.target === cmdModal) closeCommandPalette(); });
+  if (cmdInput) {
+    cmdInput.addEventListener('input', (e) => {
+      cmdActiveIdx = 0;
+      renderCommandResults(e.target.value);
+    });
+    cmdInput.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (currentCmdEntries.length) {
+          cmdActiveIdx = (cmdActiveIdx + 1) % currentCmdEntries.length;
+          renderCommandResults(cmdInput.value);
+        }
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (currentCmdEntries.length) {
+          cmdActiveIdx = (cmdActiveIdx - 1 + currentCmdEntries.length) % currentCmdEntries.length;
+          renderCommandResults(cmdInput.value);
+        }
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const entry = currentCmdEntries[cmdActiveIdx];
+        closeCommandPalette();
+        if (entry) entry.run();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeCommandPalette();
+      }
+    });
+  }
 
   const exportBtn = document.getElementById('export-progress-btn');
   if (exportBtn) {
@@ -2328,13 +2699,15 @@
           state = {
             ...structuredClone(defaultState),
             ...parsed,
+            uiVersion: 2,
+            theme: normalizeTheme(parsed.theme),
             filters: { ...defaultState.filters, ...(parsed.filters || {}) },
             guided: { ...defaultState.guided, ...(parsed.guided || {}) }
           };
           saveState();
           toggleSettings(false);
           render();
-          alert('Progress imported successfully!');
+          alert('Progress imported successfully.');
         } catch {
           alert('Invalid backup JSON file.');
         }
@@ -2347,7 +2720,7 @@
   const resetBtn = document.getElementById('reset-progress-btn');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      if (confirm('Reset all 4-day sprint checkmarks, mastered cases, and flashcard progress?')) {
+      if (confirm('Reset all 4-day sprint checkmarks, mastered dossiers, and flashcards?')) {
         abortRapidDrill();
         clearInterval(mockState.timerId);
         wizardAnswers = { q1: null, q2: null };
@@ -2386,27 +2759,250 @@
     });
   }
 
+  // ==================== DISTINCT KEYBOARD ENGINE ====================
+  const VIEW_ORDER = ['dashboard', 'academy', 'memorize', 'library', 'practice', 'mock'];
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') toggleSettings(false);
+    const mod = e.ctrlKey || e.metaKey;
+    const keyLower = (e.key || '').toLowerCase();
+
+    if (e.key === 'Escape') {
+      closeCommandPalette();
+      toggleSettings(false);
+      toggleShortcuts(false);
+      if (window.innerWidth <= 820) toggleSidebar(false);
+      return;
+    }
+
+    if (mod && keyLower === 'k') {
+      e.preventDefault();
+      if (cmdModal && cmdModal.classList.contains('open')) closeCommandPalette();
+      else openCommandPalette();
+      return;
+    }
+
+    if (mod && keyLower === 'b') {
+      e.preventDefault();
+      toggleSidebar();
+      return;
+    }
+
+    if (e.altKey && !mod && ['1', '2', '3', '4', '5', '6'].includes(e.key)) {
+      e.preventDefault();
+      const targetView = VIEW_ORDER[Number(e.key) - 1];
+      if (targetView) setView(targetView);
+      return;
+    }
+
     const activeTag = (document.activeElement && document.activeElement.tagName) || '';
     const inField = ['INPUT', 'TEXTAREA', 'SELECT'].includes(activeTag);
-    if (e.key === '/' && !inField) {
+    if (inField) return;
+
+    if ((cmdModal && cmdModal.classList.contains('open')) ||
+        (settingsModal && settingsModal.classList.contains('open')) ||
+        (shortcutsModal && shortcutsModal.classList.contains('open'))) {
+      return;
+    }
+
+    if (e.key === '[') {
+      e.preventDefault();
+      toggleSidebar();
+      return;
+    }
+    if (e.key === '?') {
+      e.preventDefault();
+      toggleShortcuts();
+      return;
+    }
+    if (e.shiftKey && keyLower === 't') {
+      e.preventDefault();
+      toggleTheme();
+      return;
+    }
+    if (e.shiftKey && keyLower === 'd') {
+      e.preventDefault();
+      toggleFocusMode();
+      return;
+    }
+    if (e.key === '/') {
       e.preventDefault();
       if (globalSearchEl) globalSearchEl.focus();
       return;
     }
-    if (!inField && state.view === 'memorize' && state.memorizeTab === 'drill' && drillState.active) {
-      if (['1', '2', '3', '4'].includes(e.key) && drillState.lockedChoice === null) {
+
+    // View-specific shortcuts
+    if (state.view === 'library') {
+      const filtered = getFilteredCases();
+      const curIdx = filtered.findIndex(c => c.id === state.selectedCaseId);
+      if (e.key === 'j' || e.key === 'ArrowDown') {
+        if (filtered.length) {
+          e.preventDefault();
+          const next = filtered[Math.min(filtered.length - 1, curIdx + 1)];
+          if (next) {
+            state.selectedCaseId = next.id;
+            saveState();
+            if (typeof window.__cmUpdateLibraryResults === 'function') window.__cmUpdateLibraryResults(true);
+            const selEl = document.querySelector('#lib-list-panel .problem-list-item.selected');
+            if (selEl) selEl.scrollIntoView({ block: 'nearest' });
+          }
+        }
+        return;
+      }
+      if (e.key === 'k' || e.key === 'ArrowUp') {
+        if (filtered.length) {
+          e.preventDefault();
+          const prev = filtered[Math.max(0, curIdx - 1)];
+          if (prev) {
+            state.selectedCaseId = prev.id;
+            saveState();
+            if (typeof window.__cmUpdateLibraryResults === 'function') window.__cmUpdateLibraryResults(true);
+            const selEl = document.querySelector('#lib-list-panel .problem-list-item.selected');
+            if (selEl) selEl.scrollIntoView({ block: 'nearest' });
+          }
+        }
+        return;
+      }
+      const active = filtered[curIdx];
+      if (active && keyLower === 'm') {
         e.preventDefault();
-        handleDrillAnswer(Number(e.key) - 1);
+        state.masteredIds[active.id] = !state.masteredIds[active.id];
+        saveState();
+        updateSidebarStats();
+        if (typeof window.__cmUpdateLibraryResults === 'function') window.__cmUpdateLibraryResults(true);
+        return;
+      }
+      if (active && keyLower === 's') {
+        e.preventDefault();
+        state.bookmarkedIds[active.id] = !state.bookmarkedIds[active.id];
+        saveState();
+        updateSidebarStats();
+        if (typeof window.__cmUpdateLibraryResults === 'function') window.__cmUpdateLibraryResults(true);
+        return;
+      }
+      if (keyLower === 'p') {
+        e.preventDefault();
+        const cycle = ['brief', 'full', 'step'];
+        const curMode = state.caseReaderMode || 'full';
+        const nextMode = cycle[(cycle.indexOf(curMode) + 1) % cycle.length];
+        state.caseReaderMode = nextMode;
+        state.progressiveMode = nextMode === 'step';
+        state.studyRevealStep = nextMode === 'step' ? 1 : nextMode === 'brief' ? 3 : 99;
+        saveState();
+        if (typeof window.__cmRenderCaseDetailInPlace === 'function') window.__cmRenderCaseDetailInPlace();
+        return;
+      }
+      if (keyLower === 'n' && state.caseReaderMode === 'step') {
+        e.preventDefault();
+        state.studyRevealStep = Math.min(6, (state.studyRevealStep || 1) + 1);
+        saveState();
+        if (typeof window.__cmRenderCaseDetailInPlace === 'function') window.__cmRenderCaseDetailInPlace();
+        return;
+      }
+    }
+
+    if (state.view === 'academy' && (state.academyTab || 'algorithm') === 'algorithm' && !state.academyShowAllSteps) {
+      const maxStep = Math.max(0, (CURRICULUM.sixSteps || []).length - 1);
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        state.academyFocusStep = Math.min(maxStep, (state.academyFocusStep || 0) + 1);
+        saveState();
+        render();
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        state.academyFocusStep = Math.max(0, (state.academyFocusStep || 0) - 1);
+        saveState();
+        render();
+        return;
+      }
+    }
+
+    if (state.view === 'practice') {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        state.guided.step = Math.min(5, (state.guided.step || 1) + 1);
+        saveState();
+        render();
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        state.guided.step = Math.max(1, (state.guided.step || 1) - 1);
+        saveState();
+        render();
+        return;
+      }
+    }
+
+    if (state.view === 'memorize' && state.memorizeTab === 'flashcards') {
+      if (e.key === ' ' || keyLower === 'f') {
+        e.preventDefault();
+        flashState.flipped = !flashState.flipped;
+        render();
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        flashState.index = Math.max(0, flashState.index - 1);
+        flashState.flipped = false;
+        render();
+        return;
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        flashState.index++;
+        flashState.flipped = false;
+        render();
+        return;
+      }
+      if (keyLower === 'g') {
+        e.preventDefault();
+        gradeCurrentFlashcard('mastered');
+        return;
+      }
+      if (keyLower === 'r') {
+        e.preventDefault();
+        gradeCurrentFlashcard('review');
+        return;
+      }
+    }
+
+    if (state.view === 'memorize' && state.memorizeTab === 'drill' && drillState.active) {
+      const optMap = { '1': 0, '2': 1, '3': 2, '4': 3, a: 0, b: 1, c: 2, d: 3 };
+      if (Object.prototype.hasOwnProperty.call(optMap, keyLower) && drillState.lockedChoice === null) {
+        e.preventDefault();
+        handleDrillAnswer(optMap[keyLower]);
       } else if ((e.key === ' ' || e.key === 'Enter') && drillState.lockedChoice !== null) {
         e.preventDefault();
         advanceDrillQuestion();
+      }
+      return;
+    }
+
+    if (state.view === 'mock') {
+      if (keyLower === 't') {
+        e.preventDefault();
+        toggleMockTimer();
+        return;
+      }
+      if (keyLower === 'c') {
+        e.preventDefault();
+        const c = getCase(mockState.caseId);
+        const total = (c && c.walkthrough) ? c.walkthrough.length : 0;
+        if (mockState.revealedWalkthroughCount < total) {
+          mockState.revealedWalkthroughCount++;
+          state.mockRightTab = 'clues';
+          saveState();
+          render();
+        }
+        return;
       }
     }
   });
 
   window.addEventListener('resize', () => {
+    applySidebarState();
     if (state.view === 'library' && typeof window.__cmSyncLibraryListHeight === 'function') window.__cmSyncLibraryListHeight();
   });
   window.addEventListener('pagehide', () => { if (hasDrillSessionData()) abortRapidDrill(); });
@@ -2441,7 +3037,7 @@
     if (standalone) {
       if (sideBtn) sideBtn.style.display = 'none';
       if (modalBtn) modalBtn.style.display = 'none';
-      if (descEl) descEl.textContent = 'Running as an installed standalone desktop app — zero browser tabs or distractions.';
+      if (descEl) descEl.textContent = 'Running as its own installed standalone CaseMaster window.';
       return;
     }
     const canPrompt = !!deferredInstallPrompt;
@@ -2449,8 +3045,8 @@
     if (modalBtn) modalBtn.style.display = canPrompt ? 'inline-flex' : 'none';
     if (descEl) {
       descEl.textContent = canPrompt
-        ? 'Install CaseMaster Pro on your desktop for a dedicated app window with offline support.'
-        : 'Open in Chrome or Edge on desktop and click Install in the address bar (when served over HTTP) to run as a standalone app.';
+        ? 'Install CaseMaster as a standalone desktop app (completely separate from GuessMaster Pro).'
+        : 'Click Install in the browser address bar when hosted over HTTPS to run CaseMaster in its own window.';
     }
   }
   async function triggerDesktopInstall() {

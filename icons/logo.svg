@@ -1,21 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#151921" />
-      <stop offset="100%" stop-color="#090b0f" />
+    <linearGradient id="cm-indigo" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#1e335c" />
+      <stop offset="100%" stop-color="#111d36" />
     </linearGradient>
-    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#34b384" />
-      <stop offset="100%" stop-color="#1e875e" />
+    <linearGradient id="cm-copper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0b35a" />
+      <stop offset="55%" stop-color="#e07a47" />
+      <stop offset="100%" stop-color="#c4562c" />
     </linearGradient>
+    <linearGradient id="cm-ivory" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffdf8" />
+      <stop offset="100%" stop-color="#ede4d3" />
+    </linearGradient>
+    <clipPath id="cm-clip">
+      <rect x="8" y="8" width="496" height="496" rx="120" />
+    </clipPath>
   </defs>
-  <rect x="8" y="8" width="496" height="496" rx="112" fill="url(#bg)" stroke="#272e38" stroke-width="10" />
-  <!-- Briefcase + MECE Branch Motif -->
-  <rect x="116" y="136" width="280" height="240" rx="34" fill="none" stroke="#334155" stroke-width="20" />
-  <path d="M 196 136 V 104 C 196 92 206 84 218 84 H 294 C 306 84 316 92 316 104 V 136" fill="none" stroke="#34b384" stroke-width="22" stroke-linecap="round" />
-  <path d="M 256 184 V 252 M 176 252 H 336 M 176 252 V 312 M 256 252 V 312 M 336 252 V 312" fill="none" stroke="#cbd5e1" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
-  <circle cx="256" cy="184" r="24" fill="url(#emerald)" />
-  <rect x="154" y="304" width="44" height="44" rx="12" fill="#f1f5f9" />
-  <rect x="234" y="304" width="44" height="44" rx="12" fill="#34b384" />
-  <rect x="314" y="304" width="44" height="44" rx="12" fill="#f1f5f9" />
+  <g clip-path="url(#cm-clip)">
+    <rect x="8" y="8" width="496" height="496" rx="120" fill="url(#cm-indigo)" />
+    <!-- Subtle diagonal dossier fold sheen -->
+    <polygon points="310,8 504,8 504,202" fill="#274275" opacity="0.55" />
+    <line x1="310" y1="8" x2="504" y2="202" stroke="#d99b43" stroke-opacity="0.32" stroke-width="3" />
+  </g>
+  <!-- Warm gold inner hairline border -->
+  <rect x="12" y="12" width="488" height="488" rx="116" fill="none" stroke="#d99b43" stroke-opacity="0.42" stroke-width="8" />
+  <!-- Architectural Ivory 'C' Crest Arc (center 248,256; r=136; open on right) -->
+  <path
+    d="M 344.2 159.8 A 136 136 0 1 0 344.2 352.2"
+    fill="none"
+    stroke="url(#cm-ivory)"
+    stroke-width="46"
+    stroke-linecap="round"
+  />
+  <!-- Subtle gold top-right compass pointer ray -->
+  <line x1="282" y1="256" x2="404" y2="156" stroke="#f0b35a" stroke-width="10" stroke-linecap="round" stroke-opacity="0.72" />
+  <!-- Copper-Gold 4-point Compass Diamond / Strategic Prism -->
+  <polygon
+    points="282,188 310,236 376,256 310,276 282,324 254,276 210,256 254,236"
+    fill="url(#cm-copper)"
+    stroke="#faf6ee"
+    stroke-width="5"
+    stroke-linejoin="round"
+  />
+  <!-- Crisp Ivory core focal dot -->
+  <circle cx="282" cy="256" r="14" fill="#faf6ee" />
 </svg>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'casemaster-pro-v1';
+const CACHE_NAME = 'casemaster-pro-v2';
 
 const CORE_ASSETS = [
   './',
@@ -43,6 +43,7 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
+  if (!req.url.startsWith(self.registration.scope)) return;
 
   event.respondWith(
     fetch(req)
@@ -54,7 +55,7 @@ self.addEventListener('fetch', (event) => {
         return res;
       })
       .catch(async () => {
-        const cached = await caches.match(req);
+        const cached = await caches.match(req, { ignoreSearch: true });
         if (cached) return cached;
         if (req.mode === 'navigate') {
           return caches.match('./index.html');
