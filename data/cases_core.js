@@ -17,22 +17,22 @@ window.CM_DATA.cases.push(
     "COD",
     "Funnel Diagnosis"
   ],
-  "prompt": "You are a Retention PM at Meesho (a value-first e-commerce platform in Tier-2/3 cities). Data shows activated users who have returned at least one item have higher long-term retention than activated users who never returned. How would you increase returns among activated users so retention rises?",
+  "prompt": "You are a Retention PM at Meesho, a value-first e-commerce platform serving Tier-2 and Tier-3 cities. Data shows activated users who have returned at least one item have higher long-term retention than activated users who never returned. How would you increase returns among activated users so retention rises?",
   "clarifyingQuestions": [
     {
-      "q": "What is the overarching business goal here?",
+      "q": "What is the overarching business goal behind increasing returns here?",
       "a": "Increase Customer Lifetime Value (LTV) by improving long-term platform retention.",
-      "why": "Anchors every downstream decision to LTV rather than artificially inflating return rates."
+      "why": "Anchors every downstream decision to LTV rather than artificially inflating return volume or hurting unit economics."
     },
     {
-      "q": "By \"return\", do you mean RTO (Return to Origin / undelivered) or RVP (Reverse Pickup initiated by customer after delivery)?",
-      "a": "RVP — the order was delivered to the customer, and the customer initiates a return on their own.",
-      "why": "RTO is a logistics/intent failure (bad for cost), whereas successful RVP builds trust that Meesho honors refunds!"
+      "q": "By 'return', do we mean RTO (Return to Origin on undelivered orders) or RVP (Reverse Pickup initiated by the customer after delivery)?",
+      "a": "RVP—the order was delivered, and the customer initiates a return on their own.",
+      "why": "Separates destructive logistics failures (RTO) from trust-building post-delivery refunds (RVP) that prove Meesho honors returns."
     },
     {
-      "q": "Is this trend restricted to a specific product category, geography, or AOV band?",
-      "a": "No — it holds broadly across all categories, demographics, and AOV ranges.",
-      "why": "Confirms this is a platform-wide horizontal UX/trust issue rather than a single category defect."
+      "q": "Is this gap restricted to a specific product category, geography, or AOV band?",
+      "a": "No, it holds broadly across all categories, demographics, and AOV ranges.",
+      "why": "Confirms we are diagnosing a horizontal platform UX and trust bottleneck rather than a single-category defect."
     }
   ],
   "frameworkUsed": "User Journey Funnel Decomposition + Cohort Sizing + Root-Cause Prioritization",
@@ -92,40 +92,64 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Clarify & Define Cohorts",
-      "speaker": "Candidate",
-      "prompt": "Define Business Goal, RVP vs RTO, and Exact User Segments",
-      "detail": "Defined Non-Return Activated Users (≥1 delivered order, 0 successful RVP) vs Return-Activated Users (≥1 delivered, ≥1 successful RVP). Confirmed the 11-step user journey from Delivery → OLP → ODP → Return Window → Return CTA → Reason → Photo → Request → Pickup → Doorstep QC → Instant Refund."
-    },
-    {
-      "phase": "2. Quantify Cohort Split",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Reveal Top-Level Funnel Split",
-      "detail": "80% of Non-Return Activated Users never successfully raised a return request; 20% raised a request that failed (10% user cancelled, 5% pickup failed, 3% QC failed)."
+      "kind": "prompt",
+      "detail": "We noticed activated Meesho users who have completed at least one return retain significantly better over time than those who never returned an item. As Retention PM, how would you drive more returns among activated users to lift retention?"
     },
     {
-      "phase": "3. Persona & Friction Analysis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Diagnose Tier-2/3 Persona in the 80% Cohort",
-      "detail": "Persona: Tier-2/3, value-seeking, less tech-savvy, defaults to Cash-on-Delivery (COD), low trust in online payments. Forward order flow is easy via COD, but reverse flow asks for UPI ID or Bank Account + IFSC (or Meesho Balance, which lacks perceived cash value)."
+      "kind": "question",
+      "detail": "Before structuring, I want to align on three bounds: is our North Star long-term LTV, are we strictly targeting customer-initiated RVP rather than undelivered RTO, and does this pattern hold across all categories and AOV bands?",
+      "reasoning": "Distinguishing RVP from RTO ensures we only encourage trust-building post-delivery returns rather than costly logistics failures."
     },
     {
-      "phase": "4. Locate Peak Funnel Drop-Off",
+      "phase": "Structure",
       "speaker": "Interviewer",
-      "prompt": "Reveal Sub-Funnel Numbers Inside the 80%",
-      "detail": "Out of the 80%: 50% never tried clicking Return CTA, and 30% started but dropped off—with 50% of those funnel dropouts happening specifically on the Refund Payment Method screen (UPI/Bank details)."
+      "kind": "data",
+      "detail": "Yes—our goal is LTV via retention, we mean RVP only, and the trend holds across all categories and AOV tiers. How would you segment these Non-Return Activated Users and map their journey?"
     },
     {
-      "phase": "5. Size Buckets & Prioritize",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Calculate Impact Share & Pick P0",
-      "detail": "Refund Instrument friction = 50% × 30% × 80% = 12% of ALL non-return activated users (single largest concentrated drop-off!). Prioritize this P0 over pickup service quality (1%) or general UI friction."
+      "kind": "framework",
+      "detail": "I will define Non-Return Activated Users as shoppers with at least one delivered order and zero successful RVPs, then trace the 11-step RVP journey from Delivery through OLP, ODP, Return Window, Return CTA, Reason, Photo, Request, Pickup, Doorstep QC, and Instant Refund. Top-level, let's split users into those who never raised a return versus those whose initiated request failed.",
+      "reasoning": "Mapping the exact 11-step reverse funnel prevents jumping to UI tweaks before sizing whether drop-offs occur in intent, initiation, or fulfillment ops."
     },
     {
-      "phase": "6. Solutions & Experimentation",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Our funnel data shows 80% of Non-Return Activated Users never successfully raised a return request, while 20% raised one that failed—10% cancelled by the user, 5% pickup failed, and 3% QC failed. Within that 80%, 50% never clicked the Return CTA and 30% started the flow but dropped off, with half of those funnel dropouts abandoning specifically on the Refund Payment Method screen.",
+      "causes": [
+        "80% of non-return users never completed a return request vs 20% operational/user-cancelled failures",
+        "50% of in-funnel dropouts abandon on the Refund Payment Method screen"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Propose COD Refund & Incentivized Meesho Balance",
-      "detail": "1) Offer Cash-on-Delivery (doorstep cash refund) at pickup for COD buyers. 2) Offer a small bonus (e.g., extra ₹10–20 or 5% top-up) on Meesho Balance refunds to overcome perceived-value resistance. Validate via A/B test that return-activated retention uplift holds causally (correlation vs causation check!)."
+      "kind": "root-cause",
+      "detail": "Sizing that bucket makes the bottleneck unmistakable: 50% times 30% times 80% equals 12% of all Non-Return Activated Users dropping specifically on the Refund Payment Method screen, making it far larger than pickup failures at 1%. Our Tier-2 and Tier-3 COD shoppers find forward ordering effortless, but reverse checkout hits a wall when we demand UPI IDs or Bank Account plus IFSC details, or offer Meesho Balance which lacks perceived cash value.",
+      "reasoning": "Multiplying step drop-offs by cohort share isolates the single 12% P0 lever instead of over-investing in 1% pickup ops edge cases.",
+      "causes": [
+        "12% of all non-return activated users drop at Refund Payment Method (UPI/IFSC friction)",
+        "Low trust in online payouts and weak perceived cash value of Meesho Balance among COD buyers"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That 12% calculation is spot on. What product interventions would you ship to unlock that segment, and how would you ensure we aren't mistaking correlation for causation?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "First, I would launch Cash Refund at Doorstep for verified COD cohorts so buyers never need UPI or bank details to recover cash. Second, I would introduce an incentivized Meesho Balance option—say an extra ₹10 to ₹20 or 5% top-up clearly framed as instant cash on the next order. Finally, I would run an A/B test tracking 60- and 90-day repeat purchase retention against return-abuse and margin guardrails to prove causality.",
+      "reasoning": "Pairing zero-friction COD cash payouts with an incentivized wallet nudge directly removes the 12% refund-instrument barrier while validating true retention lift."
     }
   ],
   "prioritization": [
@@ -159,9 +183,9 @@ window.CM_DATA.cases.push(
     }
   ],
   "recommendations": [
-    "Launch Cash Refund at Doorstep (COD Reverse Payout) for trusted/verified COD cohorts so users never need UPI/IFSC to get money back.",
-    "Introduce Bonus Meesho Balance (e.g., +₹15 or instant wallet credit) with clear \"equals real cash on next order\" framing to lift perceived value.",
-    "Run a controlled experiment specifically tracking whether nudging a user into an easy first return causally increases 60/90-day repeat purchase retention (guarding against spurious correlation and return abuse)."
+    "Launch Cash Refund at Doorstep (COD Reverse Payout) for trusted, verified COD cohorts so users never need UPI IDs or bank IFSC details to receive refunds.",
+    "Introduce Bonus Meesho Balance (e.g., +₹15 or a 5% instant wallet top-up) with explicit 'equals real cash on your next order' framing to overcome perceived-value resistance.",
+    "Run a controlled A/B experiment measuring 60- and 90-day repeat purchase retention to confirm causal LTV uplift while guarding against return abuse and logistics margin erosion."
   ],
   "metricsAndGuardrails": {
     "northStar": "Return Request Initiation → Successful RVP Completion Rate & 90-Day Repeat Purchase Retention (LTV)",
@@ -176,7 +200,7 @@ window.CM_DATA.cases.push(
       "Courier partner cash-handling discrepancy rate"
     ]
   },
-  "synthesisScript": "To boost LTV via retention, I decomposed Non-Return Activated Users and found the single largest concentrated drop-off (12% of the entire cohort) occurs on the Refund Instrument screen—where Tier-2/3 COD shoppers get stuck entering UPI or bank details. I recommend prioritizing P0 fixes: doorstep cash refunds and incentivized Meesho Balance credits, while A/B testing to confirm that easier returns causally lift long-term retention without spiking return abuse.",
+  "synthesisScript": "To lift LTV via retention, I decomposed Meesho's Non-Return Activated Users and found an 80%/20% split where 12% of the entire cohort drops off specifically on the Refund Payment Method screen—stuck entering UPI or bank details after buying via COD. I recommend prioritizing P0 fixes with doorstep cash refunds for verified COD users and incentivized Meesho Balance credits, validated through a controlled experiment tracking 60/90-day repeat retention and return-abuse guardrails.",
   "interviewerTrap": "Assuming \"more returns = automatically good\" (correlation vs causation trap!). Users who returned once might simply be higher-intent shoppers who browse more. Always propose an experiment to prove causality AND add abuse/unit-economics guardrails.",
   "variations": [
     {
@@ -248,19 +272,19 @@ window.CM_DATA.cases.push(
   "prompt": "You are a Product Manager at Meesho. Your goal is to improve the activation rate of rural users on the Meesho mobile app. How would you approach this?",
   "clarifyingQuestions": [
     {
-      "q": "How do we define \"Activation\" here? Is it app install + first completed purchase?",
-      "a": "Yes, users coming to the Meesho app and making their first purchase.",
-      "why": "Separates top-of-funnel install/signup from actual commerce activation."
+      "q": "How do we define 'Activation' here—app install plus signup, or first completed purchase?",
+      "a": "Users coming to the Meesho mobile app and completing their first purchase.",
+      "why": "Anchors activation to real commerce value rather than hollow top-of-funnel registrations."
     },
     {
-      "q": "Which platform and product categories are in scope?",
-      "a": "Mobile App only, across all product categories.",
-      "why": "Keeps solutions focused on mobile UX rather than mobile web or a single category."
+      "q": "Which platforms and product categories are in scope?",
+      "a": "The mobile app only, across all product categories.",
+      "why": "Focuses solutions on mobile UX constraints and cross-category trust signals rather than mobile web or single-vertical fixes."
     },
     {
       "q": "How are rural users currently being acquired?",
-      "a": "Mainly Facebook, Instagram, and organic channels (organic has the highest share).",
-      "why": "Indicates users arrive with curiosity/social proof rather than deep search intent."
+      "a": "Mainly via Facebook, Instagram, and organic channels, with organic holding the largest share.",
+      "why": "Indicates users arrive through social curiosity and word of mouth rather than high-intent keyword search."
     }
   ],
   "frameworkUsed": "User Persona → Pain-Point Discovery → Impact × Frequency Matrix → Targeted Trust Solutions",
@@ -296,34 +320,65 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Clarify & State Roadmap",
-      "speaker": "Candidate",
-      "prompt": "Confirm Definition & Present 6-Step Plan",
-      "detail": "Confirmed Activation = first app purchase across all categories. Stated upfront roadmap: User Personas → Pain Points → Prioritization → Solutions → Trade-offs → Metrics (interviewer approved immediately)."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "As a Product Manager at Meesho, we want to improve the activation rate of rural users on our mobile app. Walk me through how you would diagnose the gap and design solutions."
     },
     {
-      "phase": "2. Build Rural User Persona",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Contrast Offline Shopping Habits vs App Reality",
-      "detail": "Rural users are price-sensitive, new to e-commerce, less tech-savvy, English-averse (prefer vernacular), prefer Cash-on-Delivery, fear hidden return rules, and are used to local shopkeepers acting as trusted guides."
+      "kind": "question",
+      "detail": "To set clear boundaries, does activation mean completing a first purchase on the mobile app across all categories, and which acquisition channels bring most rural users into the funnel?",
+      "reasoning": "Confirming first-purchase activation and social/organic acquisition reveals whether users arrive with high purchase intent or exploratory curiosity."
     },
     {
-      "phase": "3. Categorize 5 Core Pain Points",
-      "speaker": "Candidate",
-      "prompt": "Group Friction into Clear MECE Themes",
-      "detail": "1) Trust (quality/seller credibility, \"will I get what I see?\"), 2) Language & Usability (size charts, specs in English), 3) Payment Anxiety (COD comfort), 4) Returns & Refunds uncertainty, 5) Lack of Assisted Guidance (decision fatigue without a salesperson)."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes—first completed order on the mobile app across all categories, with users arriving mainly from organic, Facebook, and Instagram. How would you structure your approach?"
     },
     {
-      "phase": "4. Prioritize via Impact × Frequency",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Rank Pain Points P0 to P2",
-      "detail": "Ranked \"Trust in Product/Seller\" as P0 (High Impact, High Frequency) and \"Lack of Assistance\" as P1, ahead of Payment, Returns, and Language (P2)."
+      "kind": "framework",
+      "detail": "I will follow a structured roadmap: first define the rural user persona, next map pain points across discovery to checkout, prioritize via an Impact by Frequency matrix, and then design solutions with clear trade-offs and metrics. Rural buyers are price-sensitive, new to e-commerce, English-averse, COD-reliant, anxious about hidden return rules, and accustomed to local shopkeepers acting as trusted guides.",
+      "reasoning": "Contrasting offline shopkeeper-assisted buying with self-serve app browsing highlights why rural users stall even when prices are attractive."
     },
     {
-      "phase": "5. Solve the P0 Trust Gap",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That persona rings true. How would you categorize their core friction points and decide which ones to tackle first?",
+      "causes": [
+        "Trust deficit around product quality and seller credibility ('will I get what I see?')",
+        "Absence of assisted guidance causing decision fatigue without a local shopkeeper"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Design Concrete Trust-Building Product Features",
-      "detail": "1) Verified Seller / Quality Checked Badges, 2) Real Customer Photo & Video Reviews, 3) Vernacular Reviews & voice/regional cues so platform feels relatable, 4) Prominent \"Easy 7-Day Return Guarantee\" + Clear Refund Timeline, 5) COD Badge displayed upfront on product cards & PDP."
+      "kind": "root-cause",
+      "detail": "I see five MECE friction themes: product and seller trust, English language and usability, COD payment anxiety, return and refund uncertainty, and lack of assisted guidance. Scoring by Impact and Frequency puts Trust in Product and Seller as P0 and Lack of Assisted Guidance as P1, ahead of payment, returns, and language as P2 because buyers never reach checkout unless they first trust what they are viewing.",
+      "reasoning": "Prioritizing trust as P0 before checkout tweaks ensures we fix the upstream psychological blocker stopping rural browsers from tapping Buy.",
+      "causes": [
+        "P0: Product quality & seller credibility gap on PDP",
+        "P1: Decision fatigue from missing assisted-commerce cues",
+        "P2: English specs, COD visibility, and unclear return terms"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good prioritization. What concrete features would you ship to solve the P0 trust gap and P1 guidance gap without triggering a spike in low-intent RTO?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Above the fold on the PDP, I would surface 'Meesho Verified Quality' badges alongside real buyer photo and video reviews in vernacular languages with voice or regional cues. Next to the Buy CTA, I would display upfront '100% Cash on Delivery + Easy 7-Day Free Return' trust strips with clear refund timelines, plus lightweight guidance like 'Most bought in your district' and visual fabric/size explainers. We should track First-Order Activation Rate while guarding 30-day RTO and return rates.",
+      "reasoning": "Pairing social-proof vernacular media with upfront COD/return clarity builds genuine confidence while keeping RTO as a strict guardrail."
     }
   ],
   "prioritization": [
@@ -364,9 +419,9 @@ window.CM_DATA.cases.push(
     }
   ],
   "recommendations": [
-    "Surface \"Meesho Verified Quality\" badges and real buyer video/photo reviews right above the fold on Product Detail Pages (PDP).",
-    "Show vernacular customer reviews and \"100% Cash on Delivery + Easy 7-Day Free Return\" trust strips directly near the Buy CTA.",
-    "Add lightweight guided shopping cues (e.g., \"Most bought in your district\" / simple size/fabric explainer cards) to mimic offline shopkeeper reassurance."
+    "Surface 'Meesho Verified Quality' badges and authentic buyer photo and video reviews above the fold on Product Detail Pages (PDP).",
+    "Display vernacular customer reviews alongside prominent '100% Cash on Delivery + Easy 7-Day Free Return' trust strips and refund timelines directly near the Buy CTA.",
+    "Add lightweight guided-shopping cues—such as 'Most bought in your district' and simple visual size or fabric explainer cards—to replicate offline shopkeeper reassurance while tracking RTO as a guardrail."
   ],
   "metricsAndGuardrails": {
     "northStar": "Rural New-User First-Order Activation Rate (% of installs placing 1st order within 7 days)",
@@ -381,7 +436,7 @@ window.CM_DATA.cases.push(
       "App load time on low-end 3G/4G Android devices"
     ]
   },
-  "synthesisScript": "To lift rural activation on the Meesho app, I anchored on the rural buyer’s transition from trusted local shopkeepers to unfamiliar online listings. Using an Impact × Frequency matrix, I prioritized Trust in Product & Seller (P0) and Assisted Guidance (P1). Implementing verified seller badges, vernacular photo/video reviews, and prominent upfront COD + clear return guarantees directly neutralizes first-purchase fear while protecting against low-intent RTO.",
+  "synthesisScript": "To lift rural activation on the Meesho mobile app, I anchored on the rural buyer's shift from trusted local shopkeepers to unfamiliar online listings. Using an Impact by Frequency matrix, I prioritized Trust in Product and Seller (P0) and Assisted Guidance (P1). Surfacing verified quality badges, vernacular photo/video reviews, upfront COD and 7-day return strips, and district-level guided cues directly removes first-purchase fear while protecting against low-intent RTO.",
   "interviewerTrap": "Listing 10 generic features (\"add AI chatbot, gamification, referral rewards\") without ever stating the rural user persona, prioritizing P0 vs P2, or noticing that rural shoppers rely on physical-world trust cues.",
   "variations": [
     {
@@ -450,22 +505,22 @@ window.CM_DATA.cases.push(
     "COD Risk",
     "User & Ops Flow"
   ],
-  "prompt": "You are a PM at Meesho. Leadership wants to investigate Return Orders—specifically RTO (Return to Origin) and RVP (Reverse Pickup). Identify what causes both and how to reduce them.",
+  "prompt": "You are a Product Manager at Meesho. Leadership wants to investigate Return Orders—specifically RTO (Return to Origin) and RVP (Reverse Pickup). Identify what causes both and how to reduce them.",
   "clarifyingQuestions": [
     {
-      "q": "What is the primary business goal behind tackling returns?",
-      "a": "Cost reduction (minimizing wasted forward + reverse logistics expenditure).",
-      "why": "In R3, the goal was LTV/retention via RVP; here the goal is cost reduction, completely changing how we prioritize!"
+      "q": "What is the primary business objective behind tackling returns here?",
+      "a": "Cost reduction—specifically minimizing wasted forward and reverse logistics expenditure.",
+      "why": "Unlike retention cases where RVP builds trust, a cost-reduction mandate demands cutting every avoidable two-way shipment."
     },
     {
       "q": "What is our overall return rate and the split between RTO and RVP?",
-      "a": "Total Returns = 25% of orders: RTO = 20%, RVP = 5%.",
-      "why": "RTO drives 80% of all returns (20% out of 25%), making RTO the indisputable #1 focus!"
+      "a": "Total returns are 25% of orders: RTO is 20% and RVP is 5%.",
+      "why": "Proves RTO drives 80% of all return volume (20% out of 25%), making RTO the indisputable primary focus."
     },
     {
-      "q": "What is the share of Prepaid vs Cash-on-Delivery (COD) orders?",
-      "a": "Prepaid = 40%, COD = 60%.",
-      "why": "Zero financial commitment on COD makes casual browsing and doorstep rejection effortless."
+      "q": "What is the current split between Prepaid and Cash-on-Delivery (COD) orders?",
+      "a": "Prepaid accounts for 40% of orders and COD accounts for 60%.",
+      "why": "Zero upfront financial commitment on 60% COD volume makes impulsive ordering and doorstep rejection nearly frictionless."
     }
   ],
   "frameworkUsed": "Pareto Scoping (80/20) + Dual Flow Mapping (Operational Flow & User Flow) + Root-Cause Matrix",
@@ -515,34 +570,64 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Scope & Pareto Split",
-      "speaker": "Candidate",
-      "prompt": "Confirm Goal (Cost) & Quantify RTO vs RVP",
-      "detail": "Established goal = Cost Reduction. Uncovered 25% total returns = 20% RTO + 5% RVP → immediately prioritized RTO (80% of total return burden)."
-    },
-    {
-      "phase": "2. Dual Flow Mapping",
-      "speaker": "Candidate",
-      "prompt": "Verify Operational & User Journeys",
-      "detail": "Ops Flow: Order → Courier Aggregator → Courier Partner → Seller Pickup → Doorstep Delivery. User Flow: Browse → Category → PDP → ATC → Cart → Address → COD/Prepaid → Placement. Asked Prepaid vs COD split (40% vs 60%)."
-    },
-    {
-      "phase": "3. 4-Pillar RTO Diagnosis",
-      "speaker": "Candidate",
-      "prompt": "Bucket Causes Across Payment, Logistics, Platform, Categories",
-      "detail": "Identified COD zero-rejection penalty, missing lat/long + landmark-only addresses, no pre-delivery heads-up, ETA slips cooling intent, no pre-dispatch COD verification/risk scoring, and fragile SKU damage."
-    },
-    {
-      "phase": "4. Behavioral Deep-Dive",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "\"Go deeper into low purchase intent in Tier-2/3 cities.\"",
-      "detail": "Analyzed 4 Tier-2/3 behaviors: 1) Trust issues (COD used as safety net → High impact, P0), 2) Price sensitivity, 3) Low time-sensitivity (ETA matters less than price), 4) Ignoring unknown courier calls (communication gap → Medium impact)."
+      "kind": "prompt",
+      "detail": "Leadership at Meesho is worried about rising return orders—both RTO and RVP. How would you diagnose what is driving them and bring them down?"
     },
     {
-      "phase": "5. Prioritize & Solve",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Rank Behavioral Causes & Target P0/P1",
-      "detail": "Ranked Trust Issues (P0) and Low User Intent (P1) alongside Address Lat/Long capture and Pre-dispatch COD confirmation/risk scoring."
+      "kind": "question",
+      "detail": "First, is our primary goal cost reduction on logistics, and could you share our overall return rate, the RTO versus RVP split, and our Prepaid versus COD share?",
+      "reasoning": "Quantifying RTO versus RVP and COD share upfront immediately reveals where 80% of the logistics waste sits."
+    },
+    {
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Our goal is logistics cost reduction. Total returns are 25% of all orders—20% RTO and 5% RVP—and 60% of orders are COD versus 40% Prepaid. How will you break down the investigation?"
+    },
+    {
+      "phase": "Structure",
+      "speaker": "Candidate",
+      "kind": "framework",
+      "detail": "Since RTO is 20% out of 25%—80% of total return volume—I will prioritize RTO first. I will map both the Operational Flow (Order to Aggregator, Courier Partner, Seller Pickup, and Doorstep Delivery) and the User Flow (Browse to PDP, Cart, Address, and COD/Prepaid placement), then bucket RTO drivers across four pillars: Payment Method, Logistics, Platform, and Categories.",
+      "reasoning": "Mapping both the physical logistics chain and the buyer checkout flow catches mismatches between digital intent and doorstep delivery."
+    },
+    {
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Across those four pillars, we see missing lat/long landmark addresses, no pre-delivery alerts, ETA slips, zero pre-dispatch COD verification, and fragile SKU damage. Go deeper into low purchase intent in Tier-2 and Tier-3 cities.",
+      "causes": [
+        "60% COD share with zero rejection penalty enables casual browsing and doorstep refusal",
+        "Missing GPS lat/long, landmark-only addresses, and missed calls from unknown courier numbers"
+      ]
+    },
+    {
+      "phase": "Root Cause",
+      "speaker": "Candidate",
+      "kind": "root-cause",
+      "detail": "In Tier-2 and Tier-3 cities, four behaviors stand out: shoppers treat COD as a risk-free safety net due to trust gaps (P0), show high price sensitivity with low time sensitivity so longer ETAs cool impulse intent (P1), and ignore unknown courier phone numbers. Combined with unvalidated landmark addresses and no pre-dispatch COD risk check, low-intent COD orders fail cleanly at the doorstep.",
+      "reasoning": "Separating operational address/communication failures from COD behavioral intent ensures we don't block good buyers with blunt COD bans.",
+      "causes": [
+        "P0: Trust deficit pushing buyers to use COD as a risk-free trial",
+        "P1: Impulse COD orders cooling during ETA slips plus unverified high-RTO pincodes/users"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Makes total sense. How would you rank and execute fixes without hurting checkout conversion for legitimate COD shoppers?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend three targeted moves: first, deploy ML risk scoring on COD orders to trigger WhatsApp/OTP confirmation or restrict COD only for high-RTO user-pincode pairs. Second, enforce GPS pin-drop or standardized landmark validation at checkout alongside branded WhatsApp 'Out for Delivery' alerts so buyers answer courier calls. Third, offer small instant UPI prepaid discounts—cheaper than paying two-way RTO shipping—while guarding overall checkout conversion.",
+      "reasoning": "Targeted risk-gated verification and prepaid nudges cut wasted two-way shipping while preserving conversion for reliable repeat COD customers."
     }
   ],
   "prioritization": [
@@ -583,9 +668,9 @@ window.CM_DATA.cases.push(
     }
   ],
   "recommendations": [
-    "Deploy ML Risk Scoring on COD orders: auto-trigger WhatsApp/OTP order confirmation or disable COD only for high-RTO user/pincode pairs (never punish clean repeat users).",
-    "Enforce GPS/pin-drop or standardized landmark validation at checkout + send branded WhatsApp \"Out for Delivery\" alerts so users answer courier calls.",
-    "Convert high-intent COD buyers to Prepaid via small instant UPI discounts (cheaper than paying 2-way RTO shipping!)."
+    "Deploy ML risk scoring on COD orders to trigger WhatsApp or OTP confirmation—and restrict COD only for high-RTO user and pincode pairs without penalizing clean repeat buyers.",
+    "Enforce GPS pin-drop or standardized landmark validation at checkout and send branded WhatsApp 'Out for Delivery' alerts so buyers recognize and answer courier calls.",
+    "Nudge high-intent COD buyers toward Prepaid with small instant UPI discounts, which cost far less than two-way RTO shipping, while tracking checkout conversion as a hard guardrail."
   ],
   "metricsAndGuardrails": {
     "northStar": "Net RTO Rate (%) & Logistics Cost as % of GMV",
@@ -600,7 +685,7 @@ window.CM_DATA.cases.push(
       "Customer NPS / Delivery SLA"
     ]
   },
-  "synthesisScript": "Because RTO accounts for 80% of Meesho’s return volume (20% of all orders vs 5% RVP), reducing logistics cost starts with curbing COD-driven RTO. By separating operational bottlenecks (missing lat/long, missed courier calls) from Tier-2/3 behavioral intent gaps, I recommend rolling out risk-based COD OTP verification, branded WhatsApp delivery alerts, and targeted UPI prepaid nudges—while tracking checkout conversion as a strict guardrail.",
+  "synthesisScript": "Because RTO accounts for 80% of Meesho's return volume (20% of all orders vs 5% RVP), cutting logistics waste starts with curbing COD-driven RTO. By separating operational gaps like missing lat/long and missed courier calls from Tier-2/3 low-intent COD behavior, I recommend rolling out risk-based COD OTP confirmation, branded WhatsApp delivery alerts, and targeted UPI prepaid nudges—while holding checkout conversion as a strict guardrail.",
   "interviewerTrap": "Blocking COD completely for everyone! COD is 60% of Meesho’s orders and the primary trust bridge in Tier-2/3 cities—blanket removal would destroy GMV. Always use risk-tiered verification instead.",
   "variations": [
     {
@@ -672,19 +757,19 @@ window.CM_DATA.cases.push(
   "prompt": "You are the PM for Gemini. Users are complaining that Gemini is often confident but wrong. How would you diagnose and fix it, and how would you measure success?",
   "clarifyingQuestions": [
     {
-      "q": "What error types are driving complaints: factual errors, reasoning errors, stale info, misunderstood intent, or unsupported claims?",
+      "q": "What error types are driving complaints—factual errors, reasoning errors, stale information, misunderstood intent, or unsupported claims?",
       "a": "Assume a measurable rise in high-confidence incorrect answers across important Gemini journeys.",
-      "why": "Separates retrieval freshness from model reasoning, intent parsing, or tone calibration."
+      "why": "Separates retrieval freshness failures from base-model reasoning, intent parsing, or tone calibration gaps."
     },
     {
-      "q": "Which journeys are most affected (Q&A, research, coding, planning, multimodal, or agentic actions)?",
-      "a": "Cross-cutting across high-value journeys, especially as Gemini becomes more agentic in 2026.",
-      "why": "Agentic and consequential actions require stricter severity weighting than casual brainstorming."
+      "q": "Which user journeys are most affected—Q&A, research, coding, planning, multimodal, or agentic actions?",
+      "a": "It is cross-cutting across high-value journeys, especially as Gemini becomes more agentic.",
+      "why": "Consequential and agentic tasks demand stricter severity weighting than casual brainstorming."
     },
     {
-      "q": "How is \"confident\" currently measured—calibrated model signal, user feedback, or both? And what is our main constraint (latency, cost, trust)?",
-      "a": "Focus on reducing harmful confident errors without making the product unnecessarily hesitant, slow, or expensive.",
-      "why": "Sets up the core Accuracy vs Latency and Confidence vs Usefulness trade-offs upfront."
+      "q": "How is 'confident' measured—calibrated model uncertainty, user perception, or both—and what are our core constraints?",
+      "a": "Reduce harmful confident errors without making Gemini overly hesitant, slow, or expensive.",
+      "why": "Establishes the central trade-offs between Accuracy vs Latency and Confidence vs Usefulness upfront."
     }
   ],
   "frameworkUsed": "End-to-End AI Response Funnel + Metric Hierarchy (L0/L1/Diagnostic) + 6-Cut Root-Cause Matrix + Guardrailed Experimentation",
@@ -720,34 +805,64 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Clarify & Core Principle",
-      "speaker": "Candidate",
-      "prompt": "Define \"Wrong\" & \"Confident\" Before Proposing Features",
-      "detail": "Core Principle: A confident wrong answer is not just a model bug—it is a trust failure across the entire response system. Goal: reduce harmful confident errors without excessive hedging or latency."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Users are increasingly complaining that Gemini sounds confident even when it is wrong. As PM for Gemini, how would you diagnose the root causes, fix the experience, and measure success?"
     },
     {
-      "phase": "2. Map the AI Response Promise",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Trace Intent → Context → Retrieval/Tools → Reasoning → Response → Action → Eval",
-      "detail": "Identified stakeholders (User, Product/UX, Model/Research, Google Ecosystem Search/Workspace, Safety/Trust) and compared what user intended vs evidence available vs model conclusion vs user belief."
+      "kind": "question",
+      "detail": "Before jumping into solutions, I want to clarify whether complaints span factual, stale, or reasoning errors across high-stakes journeys like coding and agentic actions, and confirm our guardrails around latency, cost, and avoiding overly hesitant responses.",
+      "reasoning": "Scoping error severity by journey prevents applying heavy refusal or latency penalties to low-risk creative queries."
     },
     {
-      "phase": "3. Metric Hierarchy (North Star + Guardrails)",
-      "speaker": "Candidate",
-      "prompt": "Avoid Optimizing \"Fewer Wrong Answers\" in Isolation",
-      "detail": "Proposed North Star: Trusted Task Success. L0 outcomes: Trust, Task Completion, Severity-weighted Error Rate, Safety, Latency/Cost. L1 leading indicators: Groundedness score, Regeneration/Correction rate, Follow-up clarification rate, Citation clicks. Diagnostic: High-Confidence Error Rate."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes—treat this as a cross-cutting rise in high-confidence wrong answers across high-value journeys, and we must avoid making Gemini slow, costly, or timid. How do you frame the problem and metrics?"
     },
     {
-      "phase": "4. Diagnose via 6 Data Cuts",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Locate Root Cause Before Picking Intervention",
-      "detail": "Cut data by: Intent, User cohort, Model/routing version, Evidence freshness/tool success, Failure type, and Severity. Ranked segments by (Error Exposure × Severity × User Impact). Example: current-events spike points to retrieval freshness, not base model weights."
+      "kind": "framework",
+      "detail": "A confident wrong answer isn't just a model bug; it is a system-level trust failure across six stages: Intent, Context, Retrieval/Tools, Reasoning, Presentation, and Action. For measurement, I wouldn't optimize 'fewer wrong answers' alone—instead I'd set Trusted Task Success as our North Star, backed by L0 metrics (Trust, Task Completion, Severity-weighted Error Rate, Safety, Latency/Cost), L1 indicators (Groundedness, Regeneration rate, Follow-up clarification, Citation clicks), and High-Confidence Error Rate as our key diagnostic.",
+      "reasoning": "Pairing Trusted Task Success with High-Confidence Error Rate stops teams from gaming accuracy simply by refusing ambiguous prompts."
     },
     {
-      "phase": "5. Match Targeted Interventions & Trade-offs",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Solid metric hierarchy. How would you slice the data to pinpoint where these confident errors are actually coming from?",
+      "causes": [
+        "System-wide disconnect between user intent, retrieved evidence, model reasoning, and presented certainty"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Pair Specific Fixes + A/B Guardrails",
-      "detail": "Grounding gap → stronger RAG + verifiable citations; Reasoning gap → multi-step verification; Calibration gap → uncertainty-aware UX (avoid blanket disclaimers!) + clarifying questions on high-risk ambiguity. Balance Accuracy vs Latency, Confidence vs Usefulness, and Grounding vs Coverage."
+      "kind": "root-cause",
+      "detail": "I would segment failures across six cuts—Intent, User cohort, Model/routing version, Evidence freshness/tool success, Failure type, and Severity—and rank segments by Error Exposure times Severity times User Impact. That isolates the exact mechanism: for instance, a spike on current-events queries points to Search/Workspace retrieval freshness rather than base model weights, whereas fluent assertions without evidence point to calibration and UX gaps.",
+      "reasoning": "Six-cut segmentation prevents blanket prompt disclaimers by mapping each failure cluster to retrieval, reasoning, or calibration.",
+      "causes": [
+        "Grounding/retrieval freshness gaps in time-sensitive and tool-backed queries",
+        "Multi-step reasoning slips on complex coding/planning flows",
+        "Tone miscalibration presenting weak evidence with authoritative UX certainty"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Once you isolate those buckets, what targeted fixes would you ship and what trade-offs would you watch in A/B testing?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I would match interventions to root cause: tighten Search and Workspace RAG grounding with inline verifiable citations for factual/freshness gaps, add multi-step verification for reasoning tasks, and deploy uncertainty-aware UX plus clarifying questions on high-risk ambiguity instead of blanket disclaimers. In A/B tests, we must balance Accuracy vs Latency, Confidence vs Usefulness, and Grounding vs Coverage by holding refusal rate, task completion, and abandonment as hard guardrails.",
+      "reasoning": "Targeted RAG, verification, and calibrated UX solve each failure mode cleanly while guardrails protect helpfulness and speed."
     }
   ],
   "prioritization": [
@@ -781,9 +896,9 @@ window.CM_DATA.cases.push(
     }
   ],
   "recommendations": [
-    "Adopt \"Trusted Task Success\" as the North Star paired with severity-weighted High-Confidence Error Rate so fixes never win by simply refusing or hedging every prompt.",
-    "Route time-sensitive and consequential queries through stricter Search/Workspace grounding with inline verifiable citations.",
-    "A/B test uncertainty-aware UX and clarifying prompts on high-confidence error segments, tracking latency, completion, and abandonment as hard guardrails."
+    "Adopt 'Trusted Task Success' as the North Star paired with severity-weighted High-Confidence Error Rate so teams cannot win experiments merely by refusing prompts.",
+    "Route time-sensitive and consequential queries through stricter Search and Workspace RAG grounding with inline verifiable citations and multi-step verification.",
+    "A/B test uncertainty-aware UX and clarifying prompts on high-confidence error segments—avoiding blanket disclaimers—while enforcing latency, refusal rate, and task-completion guardrails."
   ],
   "metricsAndGuardrails": {
     "northStar": "Trusted Task Success (% of tasks materially correct, appropriately calibrated, and acted upon without correction/failure)",
@@ -799,7 +914,7 @@ window.CM_DATA.cases.push(
       "Task completion & repeat retention"
     ]
   },
-  "synthesisScript": "A confident wrong answer in Gemini is a system-level trust failure spanning intent, retrieval, reasoning, calibration, and UX—not just model weights. I would define success through Trusted Task Success and severity-weighted High-Confidence Error Rate, segment failures across six cuts to separate grounding vs reasoning vs calibration gaps, and A/B test targeted grounding and uncertainty-aware UX with latency, refusal, and task-completion guardrails.",
+  "synthesisScript": "Gemini sounding confident while wrong is an end-to-end system trust failure spanning intent, context, retrieval, reasoning, presentation, and action—not just model weights. I recommend measuring success via Trusted Task Success and severity-weighted High-Confidence Error Rate, slicing errors across six cuts to separate grounding, reasoning, and calibration gaps, and A/B testing targeted RAG citations and uncertainty-aware UX under strict latency and completion guardrails.",
   "interviewerTrap": "Optimizing \"fewer wrong answers\" alone! A model that responds \"I cannot be sure about that\" to 40% of queries drops wrong answers dramatically while destroying usefulness and user trust.",
   "variations": [
     {
@@ -856,7 +971,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-core-navi-namma-yatri-pricing",
   "title": "Navi PM: Should Namma Yatri Raise Prices to Match Competitors?",
-  "company": "Navi",
+  "company": "Namma Yatri",
   "track": "Product",
   "category": "Pricing",
   "difficulty": 3,
@@ -867,27 +982,22 @@ window.CM_DATA.cases.push(
     "Business Model",
     "Geo/Switchback A/B Test"
   ],
-  "prompt": "You are a PM at Namma Yatri. The business team has proposed increasing ride prices to match competitors (Ola, Uber, Rapido). Should we do it? If yes, how should we implement and test it?",
+  "prompt": "You are a PM at Namma Yatri. The business team has proposed increasing ride prices to match competitors like Ola, Uber, and Rapido. Should we do it? If yes, how should we implement and test it?",
   "clarifyingQuestions": [
     {
-      "q": "What is the business goal behind this pricing proposal?",
-      "a": "To increase Namma Yatri’s revenue.",
-      "why": "Critical anchor! You must know the exact revenue mechanism before assuming higher fares = higher platform revenue."
+      "q": "What is the primary business goal behind the proposal to match competitor prices?",
+      "a": "To increase Namma Yatri's platform revenue.",
+      "why": "You must map the exact monetization mechanism before assuming higher rider fares translate into platform revenue."
     },
     {
-      "q": "How does Namma Yatri make money—commission per ride or fixed driver subscription?",
+      "q": "How does Namma Yatri monetize rides—a per-ride commission or a fixed driver subscription?",
       "a": "Zero commission! Drivers keep 100% of the fare and pay a small fixed daily subscription fee.",
-      "why": "GAME-CHANGING INSIGHT: Higher fares go to the driver, NOT directly to Namma Yatri! Platform revenue ONLY grows if higher fares bring more drivers online on more days."
+      "why": "Crucial business-model twist: higher fares go to drivers, so platform revenue only rises if better earnings bring more drivers online on more days."
     },
     {
-      "q": "Which modes are in scope, and how much cheaper are we today?",
-      "a": "Both autos and cabs; currently 20–30% cheaper than competitors, mostly during peak hours.",
-      "why": "Reveals room to adjust peak pricing while preserving the brand’s \"cheaper than rivals\" positioning."
-    },
-    {
-      "q": "What % of rider searches fail to find a driver during peak vs non-peak hours?",
-      "a": "Peak hours: ~30% of searches get no driver. Non-peak hours: <10% fail.",
-      "why": "Proves Namma Yatri is supply-constrained in peak hours and demand-elastic in non-peak hours."
+      "q": "Which vehicle modes are in scope, how much cheaper are we today, and what share of searches fail to find a driver?",
+      "a": "Both autos and cabs; we are 20–30% cheaper than rivals, and ~30% of peak-hour searches get no driver versus <10% during non-peak hours.",
+      "why": "Proves Namma Yatri is supply-constrained during peak hours (~30% unfulfilled) but demand-elastic off-peak (<10% unfulfilled)."
     }
   ],
   "frameworkUsed": "Business Model Mechanics + Two-Sided Rider/Driver Funnel + Supply-Constrained Pricing + Interference-Safe Experimentation",
@@ -938,34 +1048,64 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Clarify Business Model Twist",
-      "speaker": "Candidate",
-      "prompt": "Verify Zero-Commission Subscription Model",
-      "detail": "Confirmed Namma Yatri takes 0% commission; drivers pay a flat daily fee. Immediately deduced: \"Extra fare goes to the driver, not us—our revenue only rises if more drivers come online on more days.\""
-    },
-    {
-      "phase": "2. Map Two-Sided Marketplace Journey",
-      "speaker": "Candidate",
-      "prompt": "Pinpoint Where Price Affects Riders vs Drivers",
-      "detail": "Steps 3–4 (Price view & confirm): higher price lowers booking conversion because riders compare 2–3 apps. Step 5 (Driver accepts): higher fare raises driver earnings, reducing \"no driver found\" failures. Asked for unfulfilled search %."
-    },
-    {
-      "phase": "3. Diagnose Peak Bottleneck & Decide",
-      "speaker": "Candidate",
-      "prompt": "Conditional Yes — Peak-Only Capped Multiplier",
-      "detail": "Since 30% of peak searches fail (vs <10% off-peak), peak hours are supply-constrained. Recommended: Price = Base + Distance + Capped Demand Multiplier (e.g. max 1.3x during rush hours, rain, or empty-return long trips) while staying below competitors."
-    },
-    {
-      "phase": "4. Handle Curveball on Rich/Loyal Users",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "\"Why not charge more in richer areas or to frequent loyal riders?\"",
-      "detail": "Refused! Penalizing loyal users destroys trust if discovered, and area-wealth pricing violates fair-pricing brand identity—plus genuine demand/supply multipliers already price busy zones naturally."
+      "kind": "prompt",
+      "detail": "The business team at Namma Yatri wants to raise ride prices to match Ola, Uber, and Rapido. Should we do it, and if so, how should we roll it out and test it?"
     },
     {
-      "phase": "5. Spot Experimentation Spillover Trap",
+      "phase": "Scoping",
+      "speaker": "Candidate",
+      "kind": "question",
+      "detail": "Before deciding, I want to verify our business goal and monetization model: are we aiming to grow platform revenue, do we charge zero commission with a flat daily driver fee, and how do our prices and 'no driver found' rates compare across peak and non-peak hours?",
+      "reasoning": "Checking the monetization mechanic first prevents the classic mistake of assuming higher fares automatically lift platform take-rate."
+    },
+    {
+      "phase": "Structure",
       "speaker": "Interviewer",
-      "prompt": "\"Why does a 20/80 user-level A/B test fail when both groups share the same drivers?\"",
-      "detail": "Caught marketplace network interference! Drivers would cherry-pick the 20% higher-paying rides and starve the 80% control group, corrupting both arms. Pivoted to Area-based (Geo-split) or Alternate-day Switchback testing for 4 weeks."
+      "kind": "data",
+      "detail": "Our goal is revenue growth. Namma Yatri takes 0% commission—drivers keep 100% of the fare and pay a flat daily subscription fee. Across autos and cabs, we are 20–30% cheaper than rivals, and about 30% of peak searches fail to find a driver compared to under 10% off-peak."
+    },
+    {
+      "phase": "Structure",
+      "speaker": "Candidate",
+      "kind": "framework",
+      "detail": "That zero-commission model changes everything: Platform Revenue equals Active Subscribed Drivers times Active Days Online. Extra fare goes straight to drivers, so higher prices only grow our revenue if they solve supply shortages and attract more active driver-days. Mapping the two-sided journey, higher fares hurt rider conversion at Price View and Confirm (Steps 3–4) because riders compare 2–3 apps, but boost driver acceptance at Step 5.",
+      "reasoning": "Separating Steps 3–4 rider price elasticity from Step 5 driver acceptance isolates exactly when higher fares help versus hurt."
+    },
+    {
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Right—so given 30% unfulfilled searches at peak versus under 10% off-peak, what is your pricing verdict?",
+      "causes": [
+        "0% commission model ties platform revenue strictly to active subscribed driver-days",
+        "30% peak search failure rate shows severe driver supply constraint vs <10% off-peak"
+      ]
+    },
+    {
+      "phase": "Root Cause",
+      "speaker": "Candidate",
+      "kind": "root-cause",
+      "detail": "It is a conditional yes—no blanket hike, only a selective Peak Demand Multiplier. Off-peak supply is healthy under 10% failure, so raising off-peak fares would just lose price-comparing riders. During peak rush, rain, or empty-return long trips, a transparent multiplier capped around 1.3x—while staying slightly below Ola, Uber, and Rapido—improves driver earnings, cuts the 30% fulfillment failure, and drives more subscribed driver-days.",
+      "reasoning": "Targeting only supply-constrained peak hours unlocks driver subscriptions while preserving Namma Yatri's affordable brand identity off-peak.",
+      "causes": [
+        "Blanket price hike would destroy off-peak rider conversion without adding supply",
+        "Capped ≤1.3x peak/rain/long-trip multiplier directly attacks the 30% peak driver-shortage bottleneck"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Two quick probes: why shouldn't we charge more in wealthier neighborhoods or to frequent loyal riders, and can we run a quick 20/80 user-level A/B test to validate this?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "We must reject both! Penalizing loyal users destroys trust if discovered, wealth-based pricing clashes with our fair-pricing identity, and genuine demand-supply multipliers already price busy zones naturally. Also, a 20/80 user-level A/B test fails due to marketplace network interference: shared drivers would cherry-pick the 20% higher-fare rides and starve the 80% control group. Instead, we should run a 4-week Geo-Cluster or Alternate-Day Switchback test tracking subscription revenue, active driver-days, fulfillment rate, and rider conversion.",
+      "reasoning": "Geo-clusters or switchback testing eliminate shared-driver spillover so we measure true net marketplace lift."
     }
   ],
   "prioritization": [
@@ -999,9 +1139,9 @@ window.CM_DATA.cases.push(
     }
   ],
   "recommendations": [
-    "Do NOT raise prices across the board; keep non-peak pricing untouched where driver supply is healthy (<10% unfulfilled).",
-    "Introduce a transparent, capped Demand Multiplier (e.g., ≤1.3x) only during peak hours, rain/events, and long empty-return routes—always priced slightly under Ola/Uber/Rapido.",
-    "Validate via a 4-week Geo-Cluster or Alternate-Day Switchback experiment (never a user-level split!) measuring driver subscription revenue, active hours, fulfillment rate, and conversion."
+    "Reject a blanket price hike; leave non-peak pricing untouched where driver supply is already healthy (<10% unfulfilled searches).",
+    "Launch a transparent, capped Demand Multiplier (e.g., ≤1.3x) strictly during peak hours, rain/events, and empty-return long routes—always staying slightly below Ola, Uber, and Rapido, and never charging by user loyalty or neighborhood wealth.",
+    "Validate via a 4-week Geo-Cluster or Alternate-Day Switchback experiment (never a user-level split) tracking driver subscription revenue, active driver-days, fulfillment rate, and booking conversion."
   ],
   "metricsAndGuardrails": {
     "northStar": "Subscription Revenue (Active Subscribed Drivers × Days Online) & Completed Rides per Area",
@@ -1016,7 +1156,7 @@ window.CM_DATA.cases.push(
       "Conversion drop kept within acceptable threshold (a few %)"
     ]
   },
-  "synthesisScript": "Because Namma Yatri runs on flat daily driver subscriptions with zero commission, higher fares only grow revenue if they attract more active driver-days. Peak hours face a 30% driver-shortage failure rate while non-peak is healthy (<10%), so I recommend a transparent, capped demand multiplier (≤1.3x) strictly during peak/high-demand moments—staying below rivals and avoiding unfair loyalty/wealth pricing. Finally, we must test by neighborhood or alternate-day switchback rather than user-level A/B to prevent shared-driver spillover.",
+  "synthesisScript": "Because Namma Yatri charges drivers a flat daily fee with 0% commission, higher fares only grow platform revenue if they attract more active driver-days. Peak hours suffer a 30% driver-shortage failure rate while non-peak stays under 10%, so I recommend a transparent, capped demand multiplier (≤1.3x) strictly for peak, rain, and empty-return trips—staying under rivals and rejecting loyalty or wealth pricing—tested via a 4-week geo-cluster or switchback experiment to avoid shared-driver spillover.",
   "interviewerTrap": "Two classic PM traps in one case: (1) Thinking higher fares directly increase Namma Yatri revenue per ride (forgetting the zero-commission subscription model!), and (2) Proposing a standard user-level A/B test in a shared-driver two-sided marketplace!",
   "variations": [
     {

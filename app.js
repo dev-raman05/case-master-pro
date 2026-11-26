@@ -25,6 +25,9 @@
     dashOpenStages: null,
     libMoreFiltersOpen: false,
     caseReaderMode: 'full',
+    showConvoReasoning: true,
+    showConvoCauses: true,
+    convoHighlightsOnly: false,
     selectedCaseId: CASES[0] ? CASES[0].id : null,
     studyRevealStep: 99,
     progressiveMode: false,
@@ -834,6 +837,89 @@
     `;
   }
 
+  function formatConvoKind(kind) {
+    const labels = {
+      prompt: 'Case Brief',
+      data: 'Data Reveal',
+      probe: 'Interviewer Probe',
+      question: 'Clarify',
+      framework: 'MECE Structure',
+      hypothesis: 'Hypothesis',
+      'root-cause': 'Root Cause',
+      recommendation: 'Recommendation',
+      synthesis: '30s Pitch'
+    };
+    return labels[kind] || '';
+  }
+
+  function renderConversationFeed(walkthrough, opts = {}) {
+    const list = walkthrough || [];
+    const showToolbar = opts.showToolbar !== false;
+    const showReasoning = opts.forceAll ? true : state.showConvoReasoning !== false;
+    const showCauses = opts.forceAll ? true : state.showConvoCauses !== false;
+    const skimOnly = opts.forceAll ? false : !!state.convoHighlightsOnly;
+
+    const visibleTurns = skimOnly
+      ? list.filter(w => (w.reasoning && w.reasoning.trim()) || (Array.isArray(w.causes) && w.causes.length))
+      : list;
+
+    let lastPhase = '';
+    const turnsHtml = visibleTurns.map(w => {
+      const sp = (w.speaker || 'Candidate').toLowerCase();
+      const isInt = sp.includes('interviewer');
+      const phase = (w.phase || '').trim();
+      let phaseHtml = '';
+      if (phase && phase !== lastPhase) {
+        lastPhase = phase;
+        phaseHtml = `<div class="convo-phase-divider">${esc(phase)}</div>`;
+      }
+      const kindLabel = formatConvoKind(w.kind);
+      const detail = (w.detail || '').trim();
+      const promptNorm = (w.prompt || '').trim();
+      const showSubHead = promptNorm && detail && !detail.toLowerCase().startsWith(promptNorm.slice(0, 32).toLowerCase());
+      const reasoningHtml = (showReasoning && w.reasoning && w.reasoning.trim())
+        ? `<div class="convo-reasoning"><span class="convo-tag">Reasoning</span>${esc(w.reasoning)}</div>`
+        : '';
+      const causesHtml = (showCauses && Array.isArray(w.causes) && w.causes.length)
+        ? `<div class="convo-causes"><span class="convo-tag">Root Cause / Key Driver</span><ul class="convo-cause-list">${w.causes.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`
+        : '';
+
+      return `
+        ${phaseHtml}
+        <div class="convo-row ${isInt ? 'is-interviewer' : 'is-candidate'}">
+          <div class="convo-header">
+            <span class="convo-speaker-group">
+              <span class="convo-avatar">${isInt ? 'IV' : 'YOU'}</span>
+              <span class="convo-speaker-name">${isInt ? 'Interviewer' : 'Candidate'}</span>
+            </span>
+            ${kindLabel ? `<span class="convo-kind-tag">${esc(kindLabel)}</span>` : ''}
+          </div>
+          ${showSubHead ? `<div style="font-weight:600;font-size:0.9rem;margin-bottom:4px;">${esc(promptNorm)}</div>` : ''}
+          <div class="convo-speech">${esc(detail)}</div>
+          ${reasoningHtml}
+          ${causesHtml}
+        </div>
+      `;
+    }).join('') || '<div class="tip-box">No turns match the current highlight filter. Toggle "Highlights Only" off to view all turns.</div>';
+
+    const toolbarHtml = showToolbar ? `
+      <div class="convo-toolbar">
+        <div class="convo-legend">
+          <span><span class="convo-legend-dot" style="background:var(--accent-2);"></span>Interviewer</span>
+          <span><span class="convo-legend-dot" style="background:var(--accent);"></span>Candidate</span>
+          <span><span class="convo-legend-dot" style="background:var(--sage);"></span>Root Causes</span>
+        </div>
+        <div class="convo-toggles">
+          <button type="button" class="convo-toggle-pill ${showReasoning ? 'active-reasoning' : ''}" data-toggle-convo="reasoning">Reasoning</button>
+          <button type="button" class="convo-toggle-pill ${showCauses ? 'active-causes' : ''}" data-toggle-convo="causes">Causes &amp; Drivers</button>
+          <button type="button" class="convo-toggle-pill ${skimOnly ? 'active-skim' : ''}" data-toggle-convo="skim">Highlights Only</button>
+        </div>
+      </div>
+    ` : '';
+
+    return `${toolbarHtml}<div class="dialogue-feed">${turnsHtml}</div>`;
+  }
+
   function renderCaseDetail(c) {
     if (!c) return '<div class="card">No cases matched your filters. Click Reset Filters.</div>';
     const isMastered = !!state.masteredIds[c.id];
@@ -918,23 +1004,9 @@
         <!-- Step 4 -->
         ${stepLimit >= 4 ? `
         <details class="dossier-step" open>
-          <summary><span>4. Walkthrough Dialogue &amp; Prioritization</span></summary>
+          <summary><span>4. Interview Conversation, Reasoning &amp; Root Causes</span></summary>
           <div class="dossier-step-body">
-            <div class="dialogue-feed">
-              ${(c.walkthrough || []).map(w => {
-                const sp = (w.speaker || 'Candidate').toLowerCase();
-                const cls = sp.includes('interviewer') ? 'interviewer' : 'candidate';
-                return `
-                  <div class="dialogue-turn ${cls}">
-                    <div class="dialogue-meta">
-                      <span class="dialogue-speaker">${cls === 'interviewer' ? 'Interviewer' : 'Candidate'} · ${esc(w.phase)}</span>
-                    </div>
-                    ${w.prompt ? `<div style="font-weight:600;font-size:0.92rem;margin-bottom:3px;">${esc(w.prompt)}</div>` : ''}
-                    <div style="font-size:0.9rem;color:var(--text-muted);white-space:pre-line;">${esc(w.detail)}</div>
-                  </div>
-                `;
-              }).join('')}
-            </div>
+            ${renderConversationFeed(c.walkthrough, { showToolbar: true })}
             ${(c.prioritization && c.prioritization.length) ? `
               <h4 style="margin:12px 0 4px;font-size:0.95rem;">Prioritization Matrix</h4>
               <div class="table-scroll">
@@ -1352,16 +1424,7 @@
           <span style="font-size:0.89rem;color:var(--text-muted);">Reveal interviewer turns progressively (Shortcut: <kbd class="keycap">c</kbd>)</span>
           ${mockState.revealedWalkthroughCount < wt.length ? `<button type="button" class="btn btn-sm btn-primary" id="mock-next-clue-btn">Reveal Clue (${shownWt.length}/${wt.length}) →</button>` : '<span class="pill pill-green">All clues revealed</span>'}
         </div>
-        ${shownWt.length ? `
-          <div class="dialogue-feed">
-            ${shownWt.map(w => `
-              <div class="dialogue-turn ${(w.speaker || '').toLowerCase().includes('interviewer') ? 'interviewer' : 'candidate'}">
-                <div class="dialogue-meta"><span class="dialogue-speaker">${esc(w.phase)}</span></div>
-                <div style="font-size:0.89rem;color:var(--text-muted);">${esc(w.detail)}</div>
-              </div>
-            `).join('')}
-          </div>
-        ` : '<div class="tip-box">Structure your MECE buckets on the left first, then reveal clues one step at a time.</div>'}
+        ${shownWt.length ? renderConversationFeed(shownWt, { showToolbar: false, forceAll: true }) : '<div class="tip-box">Structure your MECE buckets on the left first, then reveal clues one step at a time.</div>'}
       `;
     } else if (rTab === 'curveball') {
       rightTabBody = `
@@ -1907,6 +1970,17 @@
           state.caseReaderMode = mode;
           state.progressiveMode = mode === 'step';
           state.studyRevealStep = mode === 'step' ? 1 : mode === 'brief' ? 3 : 99;
+          saveState();
+          renderCaseDetailInPlace();
+        });
+      });
+
+      root.querySelectorAll('[data-toggle-convo]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const kind = btn.dataset.toggleConvo;
+          if (kind === 'reasoning') state.showConvoReasoning = state.showConvoReasoning === false;
+          else if (kind === 'causes') state.showConvoCauses = state.showConvoCauses === false;
+          else if (kind === 'skim') state.convoHighlightsOnly = !state.convoHighlightsOnly;
           saveState();
           renderCaseDetailInPlace();
         });

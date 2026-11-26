@@ -1,4 +1,4 @@
-const CACHE_NAME = 'casemaster-pro-v3';
+const CACHE_NAME = 'casemaster-pro-v4';
 
 const CORE_ASSETS = [
   './',

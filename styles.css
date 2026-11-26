@@ -1639,23 +1639,258 @@ body.midnight-theme .btn-primary {
   background: var(--bg-card-hover);
 }
 
-.dialogue-feed { display: flex; flex-direction: column; gap: 9px; margin-top: 6px; }
+.dialogue-feed { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 
-.dialogue-turn {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--border-strong);
-  border-radius: 6px;
-  padding: 10px 12px;
-  line-height: 1.56;
+.convo-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 0 4px;
+  border-bottom: 1px dashed var(--border);
+  margin-bottom: 8px;
 }
 
-.dialogue-turn.interviewer { border-left-color: var(--accent-2); background: var(--accent-2-soft); }
-.dialogue-turn.candidate { border-left-color: var(--accent); }
-.dialogue-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
-.dialogue-speaker { font-size: 0.78rem; font-family: var(--mono); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-.dialogue-turn.interviewer .dialogue-speaker { color: var(--accent-2); }
-.dialogue-turn.candidate .dialogue-speaker { color: var(--accent-bright); }
+.convo-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.convo-legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.convo-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.convo-toggle-pill {
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+}
+
+.convo-toggle-pill.active-reasoning {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-bright);
+  font-weight: 600;
+}
+
+.convo-toggle-pill.active-causes {
+  background: var(--accent-2-soft);
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.convo-toggle-pill.active-skim {
+  background: var(--sage-soft);
+  border-color: var(--sage);
+  color: var(--sage);
+  font-weight: 600;
+}
+
+.convo-phase-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 2px;
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.convo-phase-divider::before,
+.convo-phase-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.convo-row {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 13px;
+  line-height: 1.58;
+  transition: border-color 0.14s ease;
+}
+
+.convo-row.is-interviewer {
+  margin-right: 26px;
+  background: var(--accent-2-soft);
+  border-left: 3.5px solid var(--accent-2);
+}
+
+.convo-row.is-candidate {
+  margin-left: 26px;
+  background: var(--bg-card);
+  border-left: 3.5px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+
+body.midnight-theme .convo-row.is-interviewer {
+  background: rgba(224, 145, 88, 0.08);
+}
+
+.convo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.convo-speaker-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.convo-avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 20px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.convo-row.is-interviewer .convo-avatar {
+  background: var(--accent-2);
+  color: #fff;
+}
+
+.convo-row.is-candidate .convo-avatar {
+  background: var(--accent);
+  color: #fff;
+}
+
+body.midnight-theme .convo-row.is-interviewer .convo-avatar,
+body.midnight-theme .convo-row.is-candidate .convo-avatar {
+  color: #0b1120;
+}
+
+.convo-speaker-name {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.convo-row.is-interviewer .convo-speaker-name { color: var(--accent-2); }
+.convo-row.is-candidate .convo-speaker-name { color: var(--accent-bright); }
+
+.convo-kind-tag {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  text-transform: capitalize;
+}
+
+.convo-speech {
+  font-size: 0.92rem;
+  color: var(--text);
+  white-space: pre-line;
+}
+
+.convo-reasoning {
+  margin-top: 8px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  border: 1px solid rgba(44, 74, 138, 0.22);
+  border-left: 3px solid var(--accent);
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.48;
+}
+
+.convo-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 6px;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.convo-reasoning .convo-tag {
+  background: var(--accent);
+  color: #fff;
+}
+
+body.midnight-theme .convo-reasoning .convo-tag {
+  color: #0b1120;
+}
+
+.convo-causes {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--sage-soft);
+  border: 1px solid rgba(46, 111, 86, 0.28);
+  border-left: 3px solid var(--sage);
+  font-size: 0.86rem;
+  color: var(--text);
+}
+
+.convo-causes .convo-tag {
+  background: var(--sage);
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+body.midnight-theme .convo-causes .convo-tag {
+  color: #0b1120;
+}
+
+.convo-cause-list {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.convo-cause-list li {
+  color: var(--text);
+  font-weight: 500;
+}
 
 .table-scroll { width: 100%; overflow-x: auto; }
 .priority-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 6px; }
@@ -1907,6 +2142,8 @@ body.midnight-theme .btn-primary {
   .drill-options-grid { grid-template-columns: minmax(0, 1fr); }
   .cs-item { flex-direction: column; gap: 3px; }
   .cs-val { max-width: 100%; text-align: left; }
+  .convo-row.is-interviewer { margin-right: 6px; }
+  .convo-row.is-candidate { margin-left: 10px; }
 }
 
 @media print {

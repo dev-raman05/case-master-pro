@@ -5,34 +5,38 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-prof-fan-company",
   "title": "Fan Company Margin Revival",
-  "company": "BCG",
+  "company": "Fan Manufacturer",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 1,
   "isStarter": true,
   "tags": [
-    "BCG",
     "Profitability",
     "Manufacturing",
     "Value Chain",
     "Gross Margin"
   ],
-  "prompt": "Your client is a ceiling and table fan manufacturer in India (~12% market share, mid-range positioning). They want to improve their gross profit margin. How would you approach this?",
+  "prompt": "Your client is a ceiling and table fan manufacturer in India holding roughly 12% market share with mid-range positioning. They want to improve their gross profit margin. How would you approach this?",
   "clarifyingQuestions": [
     {
-      "q": "Are we aiming to improve gross profit margin via revenue growth, cost reduction, or both?",
-      "a": "Both—explore why margins are squeezed and how to expand them.",
-      "why": "Opens both Pricing/Differentiation and Value Chain Cost tracks."
+      "q": "Are we targeting gross margin expansion through revenue levers, cost reduction, or both?",
+      "a": "Both levers are on the table—diagnose why margins are constrained and identify where we can expand them.",
+      "why": "Confirms that both pricing/mix differentiation and value-chain COGS optimization should be included in the issue tree."
     },
     {
-      "q": "What products do we sell and how are we positioned vs competitors?",
-      "a": "Mid-range ceiling/table fans with weak differentiation; demand is price-elastic while rivals sell BLDC/IoT premium fans.",
-      "why": "Proves simple price hikes will fail without R&D differentiation."
+      "q": "What exact fan models do we sell, and how are we positioned against competitors?",
+      "a": "We sell standard ceiling and table fans with basic regulators and no smart features, while national rivals like Havells, Crompton, and Orient lead with ~12% share held by us.",
+      "why": "Establishes whether our mid-range SKU mix lacks differentiation and faces elastic demand."
+    },
+    {
+      "q": "Do competitors offer premium features that allow them to command higher margins?",
+      "a": "Yes, leading players sell energy-efficient BLDC motors, quieter blades, modern aesthetics, and IoT-enabled fans at higher price points.",
+      "why": "Determines if margin compression stems from an outdated product portfolio rather than industry-wide commoditization."
     }
   ],
   "frameworkUsed": "Gross Margin Tree = Revenue Differentiation (Price/Mix) − Value Chain Costs (Procurement → Mfg → Distribution)",
   "coreEquation": "Gross Margin % = (Revenue − COGS) ÷ Revenue",
-  "strategyOverview": "Since mid-range demand is elastic, blanket price hikes backfire. Attack Costs immediately across Procurement (copper/aluminum/plastic bulk vendor consolidation), Manufacturing (modular parts + automation/lean waste cuts), and Distribution, while investing savings into R&D for energy-efficient BLDC/IoT fans to command premium pricing.",
+  "strategyOverview": "Because mid-range standard fan demand is price-elastic, blanket price hikes will erode volume. Drive immediate gross margin relief across the value chain—bulk procurement of copper, aluminum, and plastics, SKU modularization, and lean manufacturing—while reinvesting savings into R&D for BLDC/IoT fans to shift mix toward higher-margin urban tiers.",
   "tree": {
     "label": "Fan Company Margin Revival — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -51,43 +55,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Fan Company Your client is a fan manufacturer in India. They want to improve their gross profit margin. How wo",
-      "detail": "Fan Company Your client is a fan manufacturer in India. They want to improve their gross profit margin. How would you approach this?\nStep 1: Clarify the Objective & Understand the Context Thank you. Before jumping into a solution, I’d like to clarify the problem statement to ensure alignment.\n1. Are we focusing on improving profit margins by increasing revenue, reducing costs, or both?\n2. What products do we make, and do they target a specific price segment?"
+      "kind": "prompt",
+      "detail": "Your client is a ceiling and table fan manufacturer in India holding roughly 12% market share with mid-range positioning. They want to improve their gross profit margin. How would you approach this?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "3. How competitive is the market, and what’s our market share?",
-      "detail": "3. How competitive is the market, and what’s our market share?\nWe manufacture ceiling and table fans, standard models with basic regulators and no advanced features.\nThe market is moderately competitive. National players like Havells, Crompton, and Orient dominate. Our market share is around 12%.\nYou can consider both revenue improvement and cost reduction levers."
+      "kind": "question",
+      "detail": "Before structuring my approach, I would like to clarify three points. Are we open to both revenue and cost levers, what specific models do we manufacture, and how do rivals like Havells, Crompton, and Orient differentiate their offerings?",
+      "reasoning": "Clarifying product positioning and competitive features determines whether the client has pricing power or must rely on cost cuts and mix upgrades."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Got it. So we’re a mid-range player with no strong differentiation.",
-      "detail": "Got it. So we’re a mid-range player with no strong differentiation.\nSince demand is elastic, simply raising prices isn’t an option.\nWe’ll need to explore both revenue differentiation and cost optimization .\nStep 2: Structure the Approach"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "You can explore both revenue and cost levers. We sell standard ceiling and table fans with basic regulators, whereas national leaders also offer BLDC motors, IoT controls, and modern designs at premium prices. How would you structure your analysis?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Here’s how I’d like to structure my approach:",
-      "detail": "Here’s how I’d like to structure my approach:\n● Revenue side: Assess how we can differentiate our product to command a premium.\n● Cost side: Analyze the value chain (procurement, manufacturing, distribution) to identify cost-saving opportunities.\nDoes that sound reasonable?"
+      "kind": "framework",
+      "detail": "Since gross margin equals Revenue minus COGS divided by Revenue, I will examine two branches. On revenue, I will assess pricing elasticity and product-mix differentiation toward premium segments; on costs, I will break down the value chain across raw material procurement, manufacturing conversion, and outbound distribution.",
+      "reasoning": "Splitting gross margin into mix-driven pricing power and value-chain COGS isolates immediate cost savings from medium-term product repositioning."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "That structure works well. Our mid-range buyers are highly price-sensitive, so raising prices on existing basic models will hurt unit volume. At the same time, our plants produce numerous non-standardized components across models, and raw material purchasing is fragmented.",
+      "causes": [
+        "Price-elastic mid-range demand prevents raising prices on basic models",
+        "Fragmented raw material purchasing and low component standardization inflate COGS"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Fan Company On the revenue side, the lack of differentiation is a challenge.",
-      "detail": "Fan Company On the revenue side, the lack of differentiation is a challenge.\nPremium players are already offering fans with BLDC motors, IoT-enabled controls, and modern aesthetic designs.\nIf we invest in R&D to develop energy-efficient, quieter, and modern-looking fans, we could reposition ourselves in urban markets and justify a higher price point.\nSuppose we invest in R&D. Where in the value chain could we cut costs to balance it out?"
+      "kind": "root-cause",
+      "detail": "That points to a two-part bottleneck: we lack differentiated features like BLDC motors to justify premium pricing, while low part commonality across ceiling and table models inflates copper, aluminum, and plastic procurement and assembly costs. Consolidating vendors and modularizing parts could lower COGS immediately to fund R&D.",
+      "reasoning": "Connecting fragmented BOMs to elastic mid-range pricing reveals that near-term value-chain savings are required to finance premium R&D.",
+      "causes": [
+        "Absence of energy-efficient BLDC and modern SKUs limits high-margin urban mix",
+        "Non-modular fan parts prevent bulk procurement discounts and lean assembly"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Exactly right. If management commits to R&D for BLDC and IoT-enabled fans, where specifically in the value chain should we cut costs first, and how should we sequence the rollout without hurting our core 12% share?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "We should execute a two-horizon margin revival plan: first, cut COGS by consolidating copper, aluminum, and plastic vendors, modularizing shared fan components, and optimizing dealer freight; second, reinvest those savings into BLDC and modern aesthetic R&D for urban premium tiers. We will track gross margin %, BOM cost per unit, and premium SKU mix while guarding against market-share loss in core mid-range SKUs.",
+      "reasoning": "Sequencing near-term value-chain COGS cuts ahead of medium-term BLDC mix expansion expands margins safely without alienating price-sensitive buyers."
     }
   ],
   "recommendations": [
-    "Short term: Cut Value Chain COGS via bulk copper/aluminum vendor consolidation, modular SKUs across fan models, and lean manufacturing automation.",
-    "Medium term: Reinvest savings into R&D for energy-efficient BLDC motors, quieter blades, and modern/IoT designs to shift mix into higher-margin urban tiers.",
-    "Optimize outbound distribution/dealer incentives before touching base mid-range retail prices."
+    "P0: Consolidate copper, aluminum, and plastic procurement under bulk vendor contracts and modularize shared components across ceiling and table fan SKUs to lower unit COGS immediately.",
+    "P1: Streamline plant assembly through lean automation and rebalance outbound freight and dealer slab incentives without raising list prices on elastic mid-range models.",
+    "P2: Reinvest near-term COGS savings into R&D for energy-efficient BLDC motors, quieter blade profiles, and IoT-ready designs to capture higher-margin urban demand."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (BCG)",
+    "northStar": "Gross & EBITDA Margin Recovery (Fan Manufacturer)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -97,11 +131,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "To restore gross margins for our mid-range fan client, we must execute a two-horizon plan: near-term Value Chain cost cuts across copper/aluminum procurement, modular manufacturing, and freight, paired with medium-term R&D into BLDC/IoT fans to shift product mix toward higher-margin premium tiers.",
+  "synthesisScript": "To revive gross profit margins for our mid-range fan manufacturer, we should pair immediate value-chain COGS reductions with disciplined product-mix upgrading. Consolidating copper and aluminum procurement, modularizing shared components, and tightening outbound freight will unlock near-term margin expansion without risking our 12% base share, funding BLDC and modern-design R&D to capture premium urban pricing.",
   "interviewerTrap": "Recommending a 10% price hike on commodity mid-range fans—elastic buyers will switch immediately unless you differentiate with BLDC efficiency or aesthetics!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Fan Manufacturer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -150,37 +184,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-02-clothing-fashion-profitability",
   "title": "Clothing Fashion Profitability",
-  "company": "BCG",
+  "company": "Apparel Brand",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "BCG",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Clothing Fashion Our client is a major fashion brand with a nationwide presence.",
+  "prompt": "Your client is a major apparel brand with a nationwide offline and e-commerce presence in India. Their profitability has declined even though revenues have remained stable. Identify the cost drivers behind this drop and recommend a recovery plan.",
   "clarifyingQuestions": [
     {
-      "q": "Understood. Is the slump unique to our client, or is the entire fashion industry facing similar challenges?",
-      "a": "The slump is specific to our client. The broader fashion industry has seen ~7% CAGR growth in the last two years That suggests this is more of a company-specific issue. Do we know if the problem lies more on the revenue side or cost side?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this profitability decline unique to our client, or is the broader Indian fashion industry facing similar margin pressure?",
+      "a": "The issue is specific to our client; the broader fashion industry has grown at roughly 7% CAGR over the past two years with healthy peer margins.",
+      "why": "Isolates internal operational cost drivers rather than macro or industry-wide margin compression."
     },
     {
-      "q": "The slump is specific to our client. The broader fashion industry has seen ~7% CAGR growth in the last two years That suggests this is more of a company-specific issue. Do we know if the problem lies more on the revenue",
-      "a": "Revenues have been stable. The decline in profits seems to be cost-related Noted. Before diving into costs, could you share the client’s geographic presence? Are they strong across the country or focused in certain regions?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Have revenues truly held steady, and how is our manufacturing and store footprint distributed across India?",
+      "a": "Revenues are stable. Our major factories and head offices are in Hyderabad and Chennai, and we distribute nationwide, though North India sales are relatively weaker.",
+      "why": "Highlights a potential geographic mismatch between South Indian production hubs and northern distribution."
     },
     {
-      "q": "Revenues have been stable. The decline in profits seems to be cost-related Noted. Before diving into costs, could you share the client’s geographic presence? Are they strong across the country or focused in certain regio",
-      "a": "They are a strong player in major parts of India but weaker in northern India. Sales there have been relatively weak And how about competition? Are peers experiencing similar profitability pressure?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are we seeing the cost surge in manufacturing, raw materials, or downstream storage and transportation?",
+      "a": "Manufacturing and sourcing costs are in line with peers, whereas transportation and storage costs are noticeably higher than competitors.",
+      "why": "Narrows the investigation directly to outbound logistics, route economics, and warehouse placement."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Clothing Fashion Profitability (BCG) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "With stable revenues and ~7% industry growth, margin erosion is driven by elevated outbound transportation and warehousing costs. Long-haul trucking from Hyderabad and Chennai factories to the Gurgaon warehouse via the MP–UP–NCR highway incurs heavy distance freight and repeated ~₹200 Madhya Pradesh tolls; switching to multimodal rail freight and northern warehousing will restore unit economics.",
   "tree": {
     "label": "Clothing Fashion Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -199,44 +232,76 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Clothing Fashion Our client is a major fashion brand with a nationwide presence.",
-      "detail": "Clothing Fashion Our client is a major fashion brand with a nationwide presence.\nTheir profitability has declined while revenues remain stable.\nFind the cost drivers and recommend a recovery plan.\nThanks. To clarify, does the client deal in any specific segment of fashion, or do they cover the entire clothing domain."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a major apparel brand with a nationwide offline and e-commerce presence in India. Their profitability has declined even though revenues have remained stable. Identify the cost drivers behind this drop and recommend a recovery plan."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "They deal in clothing fashion. They have offline outlets across the country and are also recognized in e-comme",
-      "detail": "They deal in clothing fashion. They have offline outlets across the country and are also recognized in e-commerce.\nUnderstood. Is the slump unique to our client, or is the entire fashion industry facing similar challenges?\nThe slump is specific to our client. The broader fashion industry has seen ~7% CAGR growth in the last two years That suggests this is more of a company-specific issue. Do we know if the problem lies more on the revenue side or cost side?\nRevenues have been stable. The decline in profits seems to be cost-related Noted. Before diving into costs, could you share the client’s geographic presence?"
+      "kind": "question",
+      "detail": "Thank you. To scope the problem, is this profitability slump industry-wide or specific to us, and where are our manufacturing units and key markets located?",
+      "reasoning": "Checking peer performance and geographic footprint tests whether internal supply-chain geometry is driving the cost gap."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "They are a strong player in major parts of India but weaker in northern India. Sales there have been relativel",
-      "detail": "They are a strong player in major parts of India but weaker in northern India. Sales there have been relatively weak And how about competition? Are peers experiencing similar profitability pressure?\nNot really. Other players are growing healthily.\nSince revenue is stable, I’ll focus on the cost side by breaking down the value chain into: R&D and raw material sourcing,Inventory and storage,Transportation and distribution,Outsourcing and marketing. Let’s begin with transportation and distribution , as that often drives significant costs.\nClothing Fashion How do our transportation and storage costs compare to compet"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The industry has grown around 7% CAGR over the last two years and competitors remain profitable. Our factories and head offices are in Hyderabad and Chennai, from where we supply nationwide stores and e-commerce, though North India sales are softer. How would you break down the cost side?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Higher than competitors.",
-      "detail": "Higher than competitors.\nInteresting. Could we explore the client’s distribution system, where factories and warehouses are located?\nThe client’s major factories are in Hyderabad and Chennai, with head offices in those two cities. Goods are then shipped to warehouses across India.\nSince all transport originates from these two hubs, we could break down costs by transport mode, distance traveled, and trade routes. What does that picture look like?"
+      "kind": "framework",
+      "detail": "Since revenue is stable, I will walk the cost value chain from raw material sourcing and factory conversion to inventory storage, outbound transportation, and marketing overhead. Given our factories sit in South India while serving a national footprint, I would like to compare our storage and transportation costs against peers first.",
+      "reasoning": "Mapping costs along the physical value chain prioritizes logistics early because all finished apparel originates from two southern cities."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good instinct. Sourcing and manufacturing costs are competitive, but our transportation and storage costs exceed industry benchmarks. Goods move primarily by road trucks from Hyderabad and Chennai to regional hubs—for example, along the MP–UP–NCR highway into our Gurgaon warehouse.",
+      "causes": [
+        "All national inventory originates from South Indian plants in Hyderabad and Chennai",
+        "Heavy reliance on long-haul road trucking across interstate corridors"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Goods are moved mainly by trucks and roadways. A common route is via the MP–UP–NCR highway, used to transport",
-      "detail": "Goods are moved mainly by trucks and roadways. A common route is via the MP–UP–NCR highway, used to transport to the Gurgaon warehouse Have there been any recent regulatory or infrastructure changes that could impact transport costs?\nYes. A year ago, the Madhya Pradesh government revised toll structures. Roads are being expanded, but tolls have increased.\nDo we know the magnitude of these costs?\nEach truck traverses ~600 km through Madhya Pradesh, incurring ~₹200 per toll, with multiple tolls along the way."
+      "kind": "root-cause",
+      "detail": "Shipping bulky apparel strictly by truck over 1,500+ km routes inflates per-unit freight, fuel, and transit inventory costs. Have there also been recent toll or highway regulatory changes along the Madhya Pradesh corridor that compounded these trucking expenses?",
+      "reasoning": "Probing route-level unit economics tests whether external highway toll hikes amplified an already inefficient single-mode trucking network.",
+      "causes": [
+        "Single-mode long-haul trucking leaves margins exposed to corridor toll and fuel spikes",
+        "Absence of northern production or regional consolidation hubs increases transit distance"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes—a year ago, Madhya Pradesh revised its toll structure during highway expansion. Every truck covers roughly 600 km through MP and pays around ₹200 at each of multiple toll plazas along the route. What recovery plan do you recommend?",
+      "causes": [
+        "Revised MP toll structure adds ~₹200 across multiple plazas over a 600 km stretch per truck"
+      ]
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Our margin drop is driven by South-to-North road logistics costs, compounded by repeated ~₹200 tolls across the 600 km MP corridor. Near term, we should shift bulk Hyderabad/Chennai-to-NCR replenishment onto rail/multimodal container freight and optimize truck load factors; medium term, we should add contract finishing or regional warehousing closer to North India. We will track freight cost per garment and EBITDA margin while guarding against stockouts and longer store lead times.",
+      "reasoning": "Replacing long-haul trucking with multimodal rail and closer northern fulfillment directly eliminates the corridor toll and distance penalty."
     }
   ],
   "recommendations": [
-    "High storage and transportation costs arise due to an",
-    "Quantify route costs and toll charges by origin, destination,",
-    "Compare northern warehousing, rail/multimodal freight, and",
-    "Pilot the lowest-cost route and track freight cost per unit, lead"
+    "P0: Shift long-haul Hyderabad and Chennai-to-Gurgaon replenishment from road trucking to rail/multimodal container freight and consolidate dispatch loads to bypass repeated ~₹200 Madhya Pradesh highway tolls.",
+    "P1: Evaluate contract manufacturing or regional finishing/warehousing partnerships in North India to shorten lead times and cut interstate transit distance.",
+    "P2: Re-optimize store-to-warehouse allocation using regional demand forecasting and track freight cost per unit alongside store on-shelf availability."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (BCG)",
+    "northStar": "Gross & EBITDA Margin Recovery (Apparel Brand)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -246,11 +311,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For BCG’s Clothing Fashion Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: High storage and transportation costs arise due to an We will validate success via Gross & EBITDA Margin Recovery (BCG) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The apparel brand's profitability decline stems from elevated outbound logistics costs caused by trucking all inventory from Hyderabad and Chennai plants across India—especially a 600 km Madhya Pradesh corridor where revised ~₹200 multi-plaza tolls sharply raised per-truck costs. Shifting trunk shipments to rail/multimodal freight in the near term and establishing northern warehousing or contract sourcing over the medium term will restore EBITDA margins without hurting store availability.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Apparel Brand had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -299,37 +364,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-03-energy-drink-profitability",
   "title": "Energy Drink Profitability",
-  "company": "Accenture",
+  "company": "Energy Drink Brand",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Accenture",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Energy Drink Your client is a FMCG company manufacturing energy drinks.",
+  "prompt": "Your client is an Indian FMCG company manufacturing a single flagship energy drink. Over the past five years, its market share has gradually fallen from 98% to 50%, and revenues have declined. Diagnose the root causes and recommend a turnaround plan.",
   "clarifyingQuestions": [
     {
-      "q": "Before starting off with the case, I would like to begin by asking a few questions. What is the exact product line of the company and where does it operate?",
-      "a": "The company manufactures only one type of energy drink and it is based in India.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Has the total Indian energy drink category grown, or has overall category demand stalled while our revenue fell?",
+      "a": "Overall category growth has stalled recently, and our absolute revenue has declined over the five-year period.",
+      "why": "Clarifies that share loss is not merely a denominator effect from rapid category expansion, but reflects real sales erosion."
     },
     {
-      "q": "How long has it taken for the company’s market share to decline from 98% to 50%? Was it gradual, or a sharp drop after a specific event like a recall, a price hike or a competitor launch?",
-      "a": "The original case states a gradual five-year decline. The following practice round uses a separate illustrative scenario.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is our revenue decline driven by lower realized price per unit or fewer units sold?",
+      "a": "Unit prices have remained largely unchanged; the decline is driven by a steady drop in units sold over the last five years.",
+      "why": "Focuses the root-cause tree on volume drivers—product relevance, affordability, distribution access, and competitive substitution."
     },
     {
-      "q": "Market share depends on the industry size and the revenue of the company. Do we know what has changed in the past 5 years?",
-      "a": "The industry is not growing at all, in addition to which the revenue has decreased.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How has the competitive landscape evolved, and do we offer any pack sizes or flavor variants?",
+      "a": "Several new competitors entered with diverse flavors, sugar-free options, and smaller price-point packs, whereas we still sell only one standard SKU.",
+      "why": "Tests whether product portfolio stagnation allowed rivals to capture shelf space and shifting consumer preferences."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Energy Drink Profitability (Accenture) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Market share fell from 98% to 50% as unit sales dropped under a single-SKU strategy while rivals entered with varied flavors, functional/sugar-free variants, and affordable pack sizes. Reclaim volume by launching targeted flavor and low-sugar line extensions, introducing entry price-point packs to improve affordability, and rebuilding cold-chain cooler visibility across modern trade and convenience outlets.",
   "tree": {
     "label": "Energy Drink Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -348,43 +412,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Energy Drink Your client is a FMCG company manufacturing energy drinks.",
-      "detail": "Energy Drink Your client is a FMCG company manufacturing energy drinks.\nInitially the client had a market share of about 98% which has now reduced to 50%. Find out the reasons for the possible dilution in market share and also suggest measures to regain the market share.\nBefore starting off with the case, I would like to begin by asking a few questions. What is the exact product line of the company and where does it operate?\nThe company manufactures only one type of energy drink and it is based in India."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is an Indian FMCG company manufacturing a single flagship energy drink. Over the past five years, its market share has gradually fallen from 98% to 50%, and revenues have declined. Diagnose the root causes and recommend a turnaround plan."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "How long has it taken for the company’s market share to decline from 98% to 50%? Was it gradual, or a sharp dr",
-      "detail": "How long has it taken for the company’s market share to decline from 98% to 50%? Was it gradual, or a sharp drop after a specific event like a recall, a price hike or a competitor launch?\nThe original case states a gradual five-year decline. The following practice round uses a separate illustrative scenario.\nMarket share depends on the industry size and the revenue of the company. Do we know what has changed in the past 5 years?\nThe industry is not growing at all, in addition to which the revenue has decreased."
+      "kind": "question",
+      "detail": "To establish the baseline, has the overall category expanded or stagnated over those five years, and is our revenue drop coming from lower pricing or fewer units sold?",
+      "reasoning": "Separating category growth from our unit volume and price trends confirms whether we are losing absolute demand to competitors."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "The revenue would in turn depend on the number of units sold and the price per unit. Since the revenue has dec",
-      "detail": "The revenue would in turn depend on the number of units sold and the price per unit. Since the revenue has decreased, we could say it is due to one of these two. Has the number of units being sold decreased?\nThat is indeed correct. The number of energy drinks being sold has gone down in the 5 years, which has led to a decrease in the revenue.\nThe number of units sold would be affected by customer needs, affordability, accessibility and the customer experience.\nCustomer needs would imply how much demand there is for the drink amongst the customers. Affordability would imply benchmarking our product against that of"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Category growth has plateaued, and our revenue fell because unit sales dropped steadily over five years while prices stayed flat. How would you structure your investigation into the unit volume decline?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Accessibility is how easily a customer can reach our product.",
-      "detail": "Accessibility is how easily a customer can reach our product.\nCustomer experience could possibly revolve around the product design and the taste. I would also like to look at the competition and the company’s internal operations. Is the share being lost in a particular region, channel or consumer segment?\nEnergy Drink Our energy-drink client once had 98% market share. It now has 50%. What happened, and how would you recover the share?\nI'll first confirm the metric. Is share measured in units, liters, retail sales value or distribution points? Is the comparison within the same geography and definition of “energy d"
+      "kind": "framework",
+      "detail": "I will decompose unit volume loss across four demand and channel levers: Consumer Need and Product Fit (taste, variants, health trends), Affordability (pack sizes and price points), Accessibility (retail reach and cold-chain shelf placement), and Brand Experience versus new entrants.",
+      "reasoning": "The 4As consumer-funnel framework captures both product-level obsolescence and retail distribution leakage in an FMCG beverage category."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Looking across those buckets, consumers increasingly ask for sugar-free options, new flavors, and smaller impulse-priced cans. Meanwhile, new entrants have offered aggressive retailer margins to win front-of-cooler placement in convenience stores, gyms, and modern trade, squeezing out our single legacy SKU.",
+      "causes": [
+        "Single legacy SKU misses rising demand for sugar-free, flavored, and lower-priced pack sizes",
+        "Competitors captured prime retail cooler space through higher trade margins"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Was 98% the share of a young category with few competitors? Has the total category grown? Market share can fal",
-      "detail": "Was 98% the share of a young category with few competitors? Has the total category grown? Market share can fall even when our absolute sales rise.\n[Illustrative assumption] Yes. The category expanded rapidly as several companies entered. Our annual unit sales are slightly higher than before.\nThat changes the interpretation. I'll decompose Market share = our volume / total category volume. There are two broad drivers: our sales trajectory and overall category expansion / competitor growth.\nA fall of 48 percentage points from 98% to 50% is not automatically a 48% fall in our own sales. In relative terms, share fell"
+      "kind": "root-cause",
+      "detail": "So our 48-point share loss stems from two reinforcing failures: portfolio stagnation—relying on one full-sugar, single-size SKU while consumers diversified—and distribution displacement as rivals outbid us for chilled point-of-sale visibility where impulse energy drinks are bought.",
+      "reasoning": "Linking product-mix rigidity to cooler displacement explains how a near-monopoly eroded steadily over five years without a sudden quality shock.",
+      "causes": [
+        "Lack of SKU innovation in flavors, zero-sugar formulas, and entry-level pack sizes",
+        "Loss of chilled impulse visibility and trade mindshare to aggressive challengers"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That captures the root cause well. Given limited marketing and CapEx budgets, how would you prioritize regaining volume and market share without triggering a margin-destroying price war?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To reverse the decline from 50% share, we should avoid across-the-board price cuts and instead launch a zero-sugar variant plus two core flavors, introduce a smaller entry price-point pack for impulse affordability, and deploy performance-linked retailer rebates tied to dedicated front-row cooler space in high-velocity urban outlets. We will track unit sales velocity, numeric weighted distribution, and gross margin per liter as guardrails.",
+      "reasoning": "Targeted SKU and pack-size innovation paired with visibility-linked trade spend restores volume while protecting flagship unit margins."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Energy Drink Profitability before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Expand the single-SKU portfolio with a zero-sugar formula and two high-demand flavor variants, alongside a smaller entry price-point pack to recapture trial and impulse buyers.",
+    "P1: Reallocate trade spend into performance-linked retailer margins and branded counter-top chillers across high-traffic convenience stores, gyms, and college clusters.",
+    "P2: Refresh brand positioning around modern sports, gaming, and active-lifestyle occasions while tracking repeat purchase rate and gross margin per case."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (Accenture)",
+    "northStar": "Gross & EBITDA Margin Recovery (Energy Drink Brand)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -394,11 +488,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Accenture’s Energy Drink Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Energy Drink Profitability before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (Accenture) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Our energy drink client lost 48 points of market share because a stagnant single-SKU portfolio left it exposed to challengers offering sugar-free variants, diverse flavors, smaller price packs, and better retailer cooler incentives. Launching targeted zero-sugar and impulse-pack extensions while tying trade rebates to chilled shelf visibility will rebuild unit sales without eroding per-liter profitability.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if Accenture had half the timeline or budget?",
+      "question": "How would your recommendation change if Energy Drink Brand had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -447,37 +541,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-04-fmcg-south-africa-margins",
   "title": "FMCG South Africa Margins",
-  "company": "KPMG",
+  "company": "FMCG Manufacturer",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "KPMG",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "South Africa Your client is an FMCG company with a global presence, specifically their operations in South Africa. They have observed a decline in profitability and have asked you to identify the root cause and recommend solutions.",
+  "prompt": "Your client is a global FMCG manufacturer whose South African operations have experienced a 15% decline in profitability over the past year. Identify the root causes and recommend solutions to restore margins.",
   "clarifyingQuestions": [
     {
-      "q": "Thank you. Just to confirm, we are focusing on the South African operations where there's been a decline in profitability. To get a clearer picture, could you tell me how significant this decline is and how long it has b",
-      "a": "The decline has been around 15% over the past year.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How have revenues and direct manufacturing inputs performed in South Africa over the past year?",
+      "a": "Revenues, raw material prices, and direct labor costs have all remained relatively stable over the past year.",
+      "why": "Rules out demand shortfalls and direct BOM inflation, focusing the audit on indirect plant and overhead costs."
     },
     {
-      "q": "First, let’s look into the revenue side. Have there been any significant changes in revenue over the past year?",
-      "a": "The revenue has remained relatively stable, with no significant growth or decline.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How many factories operate in South Africa, and which indirect cost lines moved the most?",
+      "a": "We run 40 factories across South Africa, and the sharpest cost spikes are in factory fuel and machinery maintenance.",
+      "why": "Directs the investigation to plant-level energy sourcing and spare-part procurement across the 40-site network."
     },
     {
-      "q": "FMCG South Africa I see. Let’s first focus on the fuel costs. Can you provide more detail on how fuel is used in these factories?",
-      "a": "The machinery in these factories runs on solid fuel, and the type of fuel used can change based on the availability. Each type of fuel has a different cost.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How are fuel sourcing and maintenance spare parts currently managed across those 40 plants?",
+      "a": "Plants switch solid fuels based on local availability with up to 20% price swings, and each factory sources roughly 7,000 maintenance SKUs via local contracts.",
+      "why": "Quantifies the decentralization penalty in both energy conversion and spare-parts purchasing."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach FMCG South Africa Margins (KPMG) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "With stable revenue and direct costs, the 15% profitability drop across 40 South African plants stems from decentralized indirect spend: ad-hoc switching between solid fuels (creating up to 20% fuel cost variance) and fragmented local purchasing across ~7,000 maintenance spare-part SKUs. Standardizing fuel specifications under central supply contracts and pooling spare-parts procurement will rapidly recover plant EBITDA.",
   "tree": {
     "label": "FMCG South Africa Margins — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -496,44 +589,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "FMCG South Africa Your client is an FMCG company with a global presence, specifically their operations in Sout",
-      "detail": "FMCG South Africa Your client is an FMCG company with a global presence, specifically their operations in South Africa. They have observed a decline in profitability and have asked you to identify the root cause and recommend solutions.\nThank you. Just to confirm, we are focusing on the South African operations where there's been a decline in profitability. To get a clearer picture, could you tell me how significant this decline is and how long it has been a concern?\nThe decline has been around 15% over the past year.\nUnderstood. I would like to take a structured approach by analyzing the profitability equation:"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a global FMCG manufacturer whose South African operations have experienced a 15% decline in profitability over the past year. Identify the root causes and recommend solutions to restore margins."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "First, let’s look into the revenue side. Have there been any significant changes in revenue over the past year",
-      "detail": "First, let’s look into the revenue side. Have there been any significant changes in revenue over the past year?\nThe revenue has remained relatively stable, with no significant growth or decline.\nThat’s clear. Since the revenue side seems stable, it suggests that the decline in profitability is likely driven by rising costs. To proceed, I’d like to break down the cost structure into direct and indirect costs. The direct costs would mainly include raw material, labor costs. Have we seen any changes in them?\nThese direct costs have remained stable over the past year."
+      "kind": "question",
+      "detail": "Thank you. To narrow down the 15% profit drop, have revenues shifted over the past year, and is this compression driven by direct production costs or plant overheads?",
+      "reasoning": "Testing revenue and direct COGS stability quickly isolates whether the margin leak sits inside indirect manufacturing overheads."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Thank you. Given that direct costs are stable, the issue might be stemming from the indirect costs. Indirect c",
-      "detail": "Thank you. Given that direct costs are stable, the issue might be stemming from the indirect costs. Indirect costs in this case would include Utilities, Fuel, Rent, Maintenance and Marketing costs.\nThe key indirect costs are related to fuel and machinery maintenance for our 40 factories.\nFMCG South Africa I see. Let’s first focus on the fuel costs. Can you provide more detail on how fuel is used in these factories?\nThe machinery in these factories runs on solid fuel, and the type of fuel used can change based on the availability. Each type of fuel has a different cost."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Revenues, raw materials, and direct labor have all been stable across our 40 South African factories. The surge sits inside indirect costs—specifically factory fuel and machinery maintenance. How would you diagnose these two buckets?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Okay so do we have data on does it vary across different factors like location, type of fuel, or availability?",
-      "detail": "Okay so do we have data on does it vary across different factors like location, type of fuel, or availability?\nFuel costs do vary significantly based on different types of fuel used and their availability.\nThat makes sense. So, the inconsistency in fuel types and their costs is likely contributing to inefficiencies. Do we have data on how often the fuel type changes and the cost differences between them?\nYes, data shows that the costs can differ by as much as 20% between the most and least expensive fuels, depending on the availability."
+      "kind": "framework",
+      "detail": "I will analyze both buckets across price, mix, and operational efficiency. For fuel, I want to examine fuel type mix, supplier pricing, and boiler thermal efficiency by factory; for maintenance, I will break down spare-parts SKU complexity, vendor pricing dispersion, and breakdown frequency.",
+      "reasoning": "Separating rate variance from usage efficiency pinpoints whether decentralized buying or deteriorating equipment is driving indirect spend."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Our machinery runs on solid fuel, and factories switch fuel types frequently based on local spot availability—driving up to 20% cost variance between the cheapest and costliest fuels. On maintenance, plants manage around 7,000 spare-part SKUs with widely varying prices across locations due to local supplier contracts and fragmented logistics.",
+      "causes": [
+        "Frequent solid-fuel switching across 40 plants drives up to 20% fuel cost variance",
+        "Decentralized purchasing of ~7,000 spare-part SKUs creates wide price and freight dispersion"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Have there been any recent regulatory or infrastructure changes that could impact transport costs?",
-      "detail": "Have there been any recent regulatory or infrastructure changes that could impact transport costs?\nThank you for that information. It sounds like standardizing the type of fuel used across factories could be a potential solution to manage these costs better. Before we discuss solutions, let’s move on to the maintenance costs you mentioned. What does maintenance entail, and what factors are influencing these costs Maintenance involves managing around 7,000 different SKUs for spare parts. The prices of these parts vary across our 40 factories due to differences in supplier contracts and logistics.\nI see. So, simila"
+      "kind": "root-cause",
+      "detail": "So both cost spikes share a common governance root cause: decentralized, reactive plant procurement. Spot-switching solid fuels forces plants to pay premium rates and likely degrades boiler burn efficiency, while letting 40 sites negotiate 7,000 spare-part SKUs individually forfeits volume rebates and duplicates inbound freight.",
+      "reasoning": "Connecting fuel volatility and spare-part price dispersion to decentralized plant buying enables a unified procurement and standardization fix.",
+      "causes": [
+        "Absence of standardized fuel specifications and central long-term energy contracts",
+        "Fragmented local vendor contracts across 7,000 unstandardized maintenance SKUs"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That is spot on. How would you structure your recommendations so that standardizing fuel and centralizing spare parts does not cause factory downtime during the transition?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To recover the 15% profitability drop, we should first standardize solid-fuel grades and sign centralized regional supply contracts with buffer inventories to eliminate the 20% spot-price swings. Second, we should centralize procurement for the top-spend maintenance SKUs into master vendor agreements while rationalizing duplicate parts across the 7,000-SKU catalog. Success should be tracked via fuel cost per ton, maintenance spend per plant, and unplanned machine downtime.",
+      "reasoning": "Pairing central contracts with regional safety buffers cuts unit rates while protecting factory uptime during rollout."
     }
   ],
   "recommendations": [
-    "Using various fuel types has caused higher costs and",
-    "Spare part costs fluctuate widely due to factory-specific local",
-    "Standardizing fuel supply to reduce costs and optimize",
-    "Centralizing spare part procurement across all factories to"
+    "P0: Standardize solid-fuel grades across the 40 factories and establish centralized multi-plant supply contracts with regional buffer stock to eliminate 20% spot-switching cost swings.",
+    "P1: Centralize procurement of the ~7,000 maintenance spare-part SKUs under master rate contracts, rationalize redundant parts, and consolidate regional spare-parts logistics.",
+    "P2: Deploy preventive maintenance schedules and boiler efficiency audits across high-cost plants while monitoring unplanned downtime and unit conversion cost."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (KPMG)",
+    "northStar": "Gross & EBITDA Margin Recovery (FMCG Manufacturer)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -543,11 +665,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For KPMG’s FMCG South Africa Margins case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Using various fuel types has caused higher costs and We will validate success via Gross & EBITDA Margin Recovery (KPMG) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The 15% profitability decline in South Africa is driven by decentralized plant procurement across 40 factories, resulting in up to 20% fuel-cost swings from ad-hoc solid-fuel switching and inflated prices across ~7,000 locally sourced maintenance SKUs. Standardizing fuel specs under centralized contracts and consolidating spare-parts purchasing will recover operating margins while safeguarding plant uptime.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if KPMG had half the timeline or budget?",
+      "question": "How would your recommendation change if FMCG Manufacturer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -596,37 +718,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-05-footwear-brand-profitability",
   "title": "Footwear Brand Profitability",
-  "company": "Deloitte",
+  "company": "Footwear Brand",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Deloitte",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Footwear Brand We are a footwear brand operating in India, and we're facing a significant decline in profitability. We're struggling to stay competitive in the market. We need your help to identify the core issues and recommend changes.",
+  "prompt": "Your client is a premium footwear brand operating in India that has experienced a 5–10% decline in profitability over the past one to two years and is losing market competitiveness. Identify the core drivers and recommend a turnaround plan.",
   "clarifyingQuestions": [
     {
-      "q": "Alright, I’d like to ask whether this issue has come up recently or if it’s been ongoing for a while?",
-      "a": "The decline has been observed over the past 1-2 years, amounting to approximately 5-10%.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this profitability decline affecting the entire footwear sector, or is our client underperforming peers?",
+      "a": "Other footwear brands saw a minor dip, but our client has been impacted disproportionately harder over the past 1–2 years.",
+      "why": "Indicates that company-specific product or channel gaps are amplifying broader market headwinds."
     },
     {
-      "q": "Is the decline in profits limited to our client's footwear brand, or have other brands in this sector also been facing similar challenges?",
-      "a": "Other footwear brands have also seen some dip in their profits, but the client has been significantly impacted.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Has the 5–10% profit decline come from rising costs or falling revenues, and which channels do we sell through?",
+      "a": "Costs are stable, so it is a revenue issue. We sell both online and offline, though most revenue comes from nationwide offline retail stores.",
+      "why": "Focuses the analysis on revenue components (price, volume, mix) and offline-heavy channel exposure."
     },
     {
-      "q": "Okay. Could you please tell me more about the client’s business and where their stores are located?",
-      "a": "The footwear brand sells both online and offline, but most of its sales come from offline retail stores located all across India.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What footwear categories do we offer, and where is the revenue drop concentrated?",
+      "a": "We only manufacture premium formal shoes and slippers for men and women; prices stayed flat, but unit sales fell sharply—especially in formal shoes.",
+      "why": "Pinpoints unit-volume loss in formal shoes caused by a narrow two-category portfolio."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Footwear Brand Profitability (Deloitte) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "With stable costs and flat prices, the 5–10% profit decline stems from falling unit volumes—disproportionately in formal shoes—due to an overly narrow portfolio (only premium formal shoes and slippers) and heavy offline reliance while rivals capture casual, sports, and athleisure demand. Revive growth by refreshing the formal line, launching men's and women's athleisure plus kids' casual footwear, and scaling targeted digital marketing.",
   "tree": {
     "label": "Footwear Brand Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -645,44 +766,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Footwear Brand We are a footwear brand operating in India, and we're facing a significant decline in profitabi",
-      "detail": "Footwear Brand We are a footwear brand operating in India, and we're facing a significant decline in profitability. We're struggling to stay competitive in the market. We need your help to identify the core issues and recommend changes.\nAlright, I’d like to ask whether this issue has come up recently or if it’s been ongoing for a while?\nThe decline has been observed over the past 1-2 years, amounting to approximately 5-10%.\nIs the decline in profits limited to our client's footwear brand, or have other brands in this sector also been facing similar challenges?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a premium footwear brand operating in India that has experienced a 5–10% decline in profitability over the past one to two years and is losing market competitiveness. Identify the core drivers and recommend a turnaround plan."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Other footwear brands have also seen some dip in their profits, but the client has been significantly impacted",
-      "detail": "Other footwear brands have also seen some dip in their profits, but the client has been significantly impacted.\nOkay. Could you please tell me more about the client’s business and where their stores are located?\nThe footwear brand sells both online and offline, but most of its sales come from offline retail stores located all across India.\nCould you tell me what types of products the client manufactures?"
+      "kind": "question",
+      "detail": "To ground the case, how have competitors performed over the last one to two years, is our profit drop driven by revenue or cost, and what products and channels make up our business?",
+      "reasoning": "Comparing peer performance alongside the revenue-versus-cost split establishes whether the problem is internal assortment weakness or cost inflation."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "They manufacture and retail two kinds of products - formal shoes and slippers for men and women, all of premiu",
-      "detail": "They manufacture and retail two kinds of products - formal shoes and slippers for men and women, all of premium quality.\nI would like to ask whether the brand has experienced a decline across all of its offered footwear segments, or is there a specific category that has been affected?\nSales have dipped across the category, but the decline has been disproportionately concentrated in our formal shoes segment.\nOkay, who are the major competitors and how are they performing?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Peers saw only a slight dip while our profits fell 5–10%. Costs are stable, so the drop is purely on revenue. We sell mainly through nationwide offline stores (plus some online) and only offer premium formal shoes and slippers for men and women. How would you diagnose the revenue decline?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Our client is a premium footwear brand in India selling mainly through offline stores. In the last 1–2 years,",
-      "detail": "Our client is a premium footwear brand in India selling mainly through offline stores. In the last 1–2 years, profits have fallen by 5–10%. Costs are stable, so the issue is on the revenue side.\nCase Notes ● Decline bigger for client than industry average.\n● Fewer units sold + narrow product range; price unchanged.\n● Portfolio limited to formal shoes and slippers."
+      "kind": "framework",
+      "detail": "I will decompose revenue into price per pair, unit volume, and category/channel mix. Since we carry only two categories and rely heavily on offline stores, I want to check whether price hikes hurt demand or whether shifting consumer tastes and limited SKU variety are pulling down store footfall and conversion.",
+      "reasoning": "Separating price realization from category-level volume trends tests if portfolio narrowness is causing lost occasions to multi-category rivals."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Our retail prices have remained unchanged, so the shortfall is entirely in fewer units sold—concentrated disproportionately in formal shoes. Meanwhile, competitors offer much wider assortments across casual, sports, and lifestyle categories and market aggressively online.",
+      "causes": [
+        "Unit volume dropped in formal shoes while retail prices remained unchanged",
+        "Narrow portfolio of only formal shoes and slippers misses casual and athleisure demand"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "● Formal shoes hit hardest; competitors offer more variety.",
-      "detail": "● Formal shoes hit hardest; competitors offer more variety.\nRecommended Solutions ● Diversify formal shoe line immediately.\n● Launch sports and athleisure footwear for men and women.\n● Add sandals and flip-flops for kids."
+      "kind": "root-cause",
+      "detail": "That explains why we trailed peers: post-pandemic shifts toward smart-casual and athleisure wear reduced formal shoe replacement frequency, yet our assortment stayed restricted to formal shoes and slippers. Because competitors offer broader family and lifestyle ranges with stronger digital pull, shoppers bypass our offline stores altogether.",
+      "reasoning": "Connecting formal-category shrinkage to missing adjacent segments and weak digital acquisition identifies both the demand and traffic bottlenecks.",
+      "causes": [
+        "Over-reliance on shrinking formal wear without sports, athleisure, or kids' lines",
+        "Offline-heavy distribution and under-invested targeted marketing reduce brand discovery"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Makes complete sense. Given we have an established premium brand and nationwide store network, how should we sequence our portfolio and channel moves to rebuild profitability?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To reverse the 5–10% profit decline, we should immediately modernize our formal shoe line with smart-casual comfort designs, expand into high-growth sports and athleisure footwear for men and women plus kids' sandals and flip-flops to lift store basket size, and scale targeted performance marketing to drive both e-commerce and offline store traffic. We will monitor same-store sales growth, category mix, and gross margin per pair to guard against over-discounting.",
+      "reasoning": "Leveraging existing offline real estate with higher-velocity casual SKUs and omnichannel demand generation raises revenue per store without inflating fixed rent."
     }
   ],
   "recommendations": [
-    "Diversify formal shoe line immediately.",
-    "Launch sports and athleisure footwear for men and women.",
-    "Add sandals and flip-flops for kids.",
-    "Strengthen marketing through targeted channels"
+    "P0: Refresh the core formal shoe assortment with modern smart-casual comfort designs and expand SKU variety in top-performing offline stores to stem immediate volume loss.",
+    "P1: Launch premium sports and athleisure lines for men and women, alongside kids' sandals and flip-flops, to capture multi-occasion family spend and lift store conversion.",
+    "P2: Scale targeted digital marketing and e-commerce merchandising to attract younger buyers and track same-store unit velocity alongside full-price sell-through."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (Deloitte)",
+    "northStar": "Gross & EBITDA Margin Recovery (Footwear Brand)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -692,11 +842,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Deloitte’s Footwear Brand Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Diversify formal shoe line immediately. We will validate success via Gross & EBITDA Margin Recovery (Deloitte) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The footwear brand's 5–10% profit drop is a revenue-volume problem centered on formal shoes, caused by an overly narrow two-category portfolio and heavy offline reliance while rivals win shifting casual and athleisure demand. Refreshing formal SKUs, launching men's/women's athleisure and kids' casual lines, and scaling targeted digital marketing will boost store conversion and restore margins.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if Deloitte had half the timeline or budget?",
+      "question": "How would your recommendation change if Footwear Brand had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -745,37 +895,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-06-gas-company-profitability",
   "title": "Gas Company Profitability",
-  "company": "KPMG",
+  "company": "Gas Utility",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "KPMG",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Gas Company Your client is a leading gas company in India. It has been seeing a decline in profitability for the last 2 years. Analyze the causes for it.",
+  "prompt": "Your client is a leading industrial gas company in India that has experienced declining profitability over the past two years. Diagnose the root causes and recommend corrective actions.",
   "clarifyingQuestions": [
     {
-      "q": "To begin, I would like to know more about our client. Which domain does it operate in, who are its clients, what is its position in the value chain, and which geographic regions does it serve?",
-      "a": "The client manufactures and supplies industrial gases directly to B2B clients across India. They operate across the entire value chain procurement, processing, storage, and distribution.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this profitability decline industry-wide, and which segments of the industrial gas value chain does our client operate in?",
+      "a": "It is specific to our client—competitors are performing well. We supply B2B clients nationwide across procurement, processing, storage, and distribution.",
+      "why": "Confirms an internal operational bottleneck across a vertically integrated industrial gas value chain."
     },
     {
-      "q": "Okay. Is the decline in profitability a industry wide problem or specific to our client?",
-      "a": "It is specific to our client and others are doing pretty good.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Have there been any recent product launches or portfolio shifts coinciding with the two-year profit decline?",
+      "a": "Yes—alongside our steady, growing non-cryogenic gas business, we entered cryogenic gases two years ago, and that segment has been unprofitable.",
+      "why": "Pinpoints the timeline overlap between cryogenic market entry and the two-year margin drop."
     },
     {
-      "q": "Okay. How long has it been since they started with cryogenic gases? Also could I know the market size and growth rate for the cryogenic gas industry?",
-      "a": "Coming to the market size, the global market is ~$100 billion, while the domestic Indian cryogenic gas market is approximately $3.5 billion (~₹29,000 crore), growing at 8–9% CAGR.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How attractive is the Indian cryogenic gas market, and is the issue on revenue realization or operating costs?",
+      "a": "The Indian cryogenic gas market is ~$3.5 billion (~₹29,000 crore) growing at 8–9% CAGR; the issue is on the cost side, not market demand.",
+      "why": "Rules out market attractiveness concerns and directs the deep dive to cryogenic unit costs."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Gas Company Profitability (KPMG) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Despite strong 8–9% CAGR growth in India's ~$3.5B cryogenic gas market, the client's two-year profit decline stems from high operating costs in its newly launched cryogenic segment—specifically raw material procurement and complex cryogenic storage/container logistics. Improving tank utilization, cutting boil-off losses, and renegotiating feedstock and container sourcing contracts will turn the segment profitable.",
   "tree": {
     "label": "Gas Company Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -794,43 +943,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Gas Company Your client is a leading gas company in India. It has been seeing a decline in profitability for t",
-      "detail": "Gas Company Your client is a leading gas company in India. It has been seeing a decline in profitability for the last 2 years. Analyze the causes for it.\nTo begin, I would like to know more about our client. Which domain does it operate in, who are its clients, what is its position in the value chain, and which geographic regions does it serve?\nThe client manufactures and supplies industrial gases directly to B2B clients across India. They operate across the entire value chain procurement, processing, storage, and distribution.\nOkay. Is the decline in profitability a industry wide problem or specific to our clien"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a leading industrial gas company in India that has experienced declining profitability over the past two years. Diagnose the root causes and recommend corrective actions."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "It is specific to our client and others are doing pretty good.",
-      "detail": "It is specific to our client and others are doing pretty good.\nI would like to know more about the different products that our client offers.\nThe client had been dealing with non-cryogenic gases for the last few years. Recently they have also entered into the cryogenic gases.\nOkay. How long has it been since they started with cryogenic gases? Also could I know the market size and growth rate for the cryogenic gas industry?"
+      "kind": "question",
+      "detail": "To begin, is the profit decline seen across Indian industrial gas peers or only our client, and have our product portfolio or operations changed over the past two years?",
+      "reasoning": "Checking peer health and recent portfolio changes quickly identifies whether a new business line triggered the two-year margin erosion."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Coming to the market size, the global market is ~$100 billion, while the domestic Indian cryogenic gas market",
-      "detail": "Coming to the market size, the global market is ~$100 billion, while the domestic Indian cryogenic gas market is approximately $3.5 billion (~₹29,000 crore), growing at 8–9% CAGR.\nAlright, that seems like a good industry to enter, so the issue might be with them entering into new products since after that period their profitability has started declining. Is the decline visible in the Non cryogenic sector as well?\nThe cryogenic sector has not been much rewarding for us, though the growth in non cryogenic sector has been steady and growing.\nGas Company Okay. The decline in profitability could be due to issues on th"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Peers are performing well, and our legacy non-cryogenic gas line is growing steadily. However, we entered cryogenic gases two years ago—a ~$3.5 billion Indian market growing at 8–9% CAGR—and our margins there are dragging down profits due to high costs. How would you structure the cost investigation?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Yes you are right, you can proceed with Cost side analysis for now.",
-      "detail": "Yes you are right, you can proceed with Cost side analysis for now.\nSure. I’d like to look into their value chain first. Starting from raw material procurement, processing, storage & transportation, distribution and finally marketing.\nYes, these factors look fine. You can proceed with them.\nNext, I would like to know which component causes maximum deviation from the costs."
+      "kind": "framework",
+      "detail": "Since we operate end-to-end for B2B clients, I will map cryogenic costs across the value chain: raw material and power procurement, liquefaction processing, specialized cryogenic storage and packaging, and insulated distribution to customers. Which stage shows the largest cost deviation versus benchmarks?",
+      "reasoning": "Walking the cryogenic value chain separates upstream feedstock/energy costs from capital-intensive ultra-low-temperature storage and transport."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Processing plant efficiency is fine, but raw material procurement and cryogenic storage and distribution stand out. Specifically, storing ultra-cold liquefied gases requires specialized vacuum-insulated containers, which are driving disproportionate cost overruns.",
+      "causes": [
+        "Cryogenic storage requires specialized insulated containers with high procurement and upkeep costs",
+        "Sub-scale raw material procurement contracts in the new cryogenic line inflate input costs"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Storage and raw material procurement costs seem to be an issue.",
-      "detail": "Storage and raw material procurement costs seem to be an issue.\nOkay, thank you. Raw material procurement could be divided into the cost of raw materials, supplier contracts, and efficiency of usage. For storage, I would like to examine packaging, warehouse costs, and distribution costs. Should I analyse all of these aspects, or is there a specific issue with only one of them?\nThe storage of these gases seems to be a bit complex and are causing concerns over profitability.\nOkay. Could you provide me with information on how these gases are stored and what is the scenario for the manufacturers of such containers?"
+      "kind": "root-cause",
+      "detail": "That makes sense—because we entered cryogenic gases only two years ago, we likely face high container capex or lease rates from limited domestic tank fabricators, low container turnaround utilization, and evaporation boil-off losses during storage and B2B transit, compounded by unoptimized feedstock contracts.",
+      "reasoning": "Connecting small initial scale to specialized tank scarcity and boil-off losses explains why cryogenic costs overwhelm an otherwise healthy 8–9% growth market.",
+      "causes": [
+        "Fragmented container sourcing/leasing and low turnaround utilization raise per-unit storage cost",
+        "Boil-off losses and long-haul B2B dispersion erode delivered cryogenic margins"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Yes—specialized container manufacturers have high pricing power and our tank utilization and storage losses are hurting unit economics. What concrete actions should management prioritize?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To restore profitability, we should first tighten cryogenic storage economics by partnering with qualified container fabricators on long-term lease/bulk contracts and deploying IoT monitoring to cut boil-off losses and idle tank turnaround time. Second, we should bundle non-cryogenic and cryogenic feedstock procurement for volume rebates and cluster B2B cryogenic deliveries around industrial corridors. We will track storage cost per liter, boil-off rate, and segment EBITDA margin.",
+      "reasoning": "Attacking container economics and delivery density directly fixes the cryogenic cost disadvantage while preserving share in an 8–9% CAGR market."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Gas Company Profitability before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Consolidate specialized cryogenic container sourcing under long-term vendor/leasing partnerships and implement IoT tank tracking to maximize turnaround utilization and reduce boil-off losses.",
+    "P1: Bundle upstream raw gas and power procurement across both cryogenic and non-cryogenic plants to unlock bulk supplier discounts.",
+    "P2: Focus B2B cryogenic customer acquisition on dense industrial clusters near filling hubs to cut insulated freight cost per ton while tracking segment EBITDA."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (KPMG)",
+    "northStar": "Gross & EBITDA Margin Recovery (Gas Utility)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -840,11 +1019,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For KPMG’s Gas Company Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Gas Company Profitability before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (KPMG) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Our industrial gas client's two-year profitability decline stems from its newly entered cryogenic gas segment, where expensive specialized storage containers, boil-off losses, low tank utilization, and sub-scale procurement outweigh strong 8–9% industry growth. Securing long-term container partnerships, tightening tank turnaround and boil-off controls, and bundling procurement with legacy non-cryogenic operations will restore overall profitability.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if KPMG had half the timeline or budget?",
+      "question": "How would your recommendation change if Gas Utility had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -893,37 +1072,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-07-insurance-company-profitability",
   "title": "Insurance Company Profitability",
-  "company": "PwC",
+  "company": "Insurance Provider",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "PwC",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Insurance Company Your client is a large insurance company which is facing a revenue drop in its healthcare insurance product. All other insurance products are going well. You have to find the cause and advise them on tackling this.",
+  "prompt": "Your client is a large insurance provider facing a sharp revenue drop exclusively in its healthcare insurance product, while all other insurance lines are performing well. Identify the root causes and recommend solutions.",
   "clarifyingQuestions": [
     {
-      "q": "Okay before analyzing this further I would like to know if this issue is only affecting our client or if it's something seen across the industry. And is it specific to any particular region?",
-      "a": "The competitors are doing good. The issue is faced within the company itself and is being observed throughout our operational areas.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the decline in health insurance revenue affecting competitors too, or is it specific to our client across regions?",
+      "a": "Competitors are performing well; the drop is internal to our company and visible across all our operating regions.",
+      "why": "Rules out external macroeconomic or regulatory shocks and points to internal product or distribution issues."
     },
     {
-      "q": "So considering the product is facing a revenue drop, I would like to know more about the cause of this decline. Is the price per policy decreased or the total number of policies sold?",
-      "a": "The client is facing a decline in the number of policies sold and the price per policy has remained constant throughout.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the revenue drop driven by lower premiums per policy or fewer health insurance policies sold?",
+      "a": "Premiums per policy have remained constant, while the number of new health policies sold has fallen significantly.",
+      "why": "Isolates the issue to customer acquisition volume and sales conversion rather than pricing."
     },
     {
-      "q": "I would first like to know that for onboarding new customers what are the current methods the company uses and can we see any particular drop in any of them?",
-      "a": "Currently, the company focuses on the Agent-based sales model apart from conventional sales and marketing, and there is no such deviation evidently visible.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which sales channels distribute our health policies, and where in the funnel are we losing conversions?",
+      "a": "We rely heavily on an agent-based sales model alongside conventional marketing, where agents earn flat extra commissions per total policy sold; lead generation is steady, but agents are failing to pitch and convert health prospects.",
+      "why": "Highlights agent incentive misalignment and pitching friction as the primary conversion bottleneck."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Insurance Company Profitability (PwC) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "With constant policy pricing and healthy peer growth, the healthcare revenue drop stems from declining unit policy sales across the agent channel—specifically fewer active agents pitching health plans and weak prospect conversion at the pitch stage. Realigning agent incentives toward health policy conversions, introducing more flexible/affordable long-tenure plans, and upgrading digital analytics-led pitching will restore policy volume.",
   "tree": {
     "label": "Insurance Company Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -942,44 +1120,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Insurance Company Your client is a large insurance company which is facing a revenue drop in its healthcare in",
-      "detail": "Insurance Company Your client is a large insurance company which is facing a revenue drop in its healthcare insurance product. All other insurance products are going well. You have to find the cause and advise them on tackling this.\nOkay before analyzing this further I would like to know if this issue is only affecting our client or if it's something seen across the industry. And is it specific to any particular region?\nThe competitors are doing good. The issue is faced within the company itself and is being observed throughout our operational areas.\nSo considering the product is facing a revenue drop, I would li"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a large insurance provider facing a sharp revenue drop exclusively in its healthcare insurance product, while all other insurance lines are performing well. Identify the root causes and recommend solutions."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The client is facing a decline in the number of policies sold and the price per policy has remained constant t",
-      "detail": "The client is facing a decline in the number of policies sold and the price per policy has remained constant throughout.\nSince the competitors are doing good, I feel there is no issue with the demand side of the product. So the problem must be in production side or distribution side.\nYes, the number of customers that we onboard has dipped drastically when compared to previous times Taking into consideration that our other products are working well, there is a chance that the issue resides in our conversion rate of specific Healthcare policy rather than the number of customers the company is onboarding in general,"
+      "kind": "question",
+      "detail": "To scope this cleanly, is the health insurance drop industry-wide or specific to us, and is it driven by lower average policy premiums or fewer policies sold?",
+      "reasoning": "Checking peer performance and separating price from policy count pinpoints whether internal acquisition execution is failing."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "I would first like to know that for onboarding new customers what are the current methods the company uses and",
-      "detail": "I would first like to know that for onboarding new customers what are the current methods the company uses and can we see any particular drop in any of them?\nCurrently, the company focuses on the Agent-based sales model apart from conventional sales and marketing, and there is no such deviation evidently visible.\nOkay, could you please elaborate on how this Agent-based Sales model works? Do the agents have any incentives based on how much they sell?\nInsurance Company Yes, you are right, so we have agents who work under us and get paid an extra commission according to the number of policies they sell as a whole Ok"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Competitors are growing well nationwide, and our policy pricing has not changed—the entire drop is from fewer healthcare policies sold. How would you structure your investigation into policy volume?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "The issue seems to be with both the number of agents and the volume of sales that each of them is producing.",
-      "detail": "The issue seems to be with both the number of agents and the volume of sales that each of them is producing.\nOh okay, this seems alarming, Is there any specific reason why we are not recruiting more agents if we know it’s an issue directly?\nYeah, we can do that but at the moment our priority is to maximise the volume of sales/agent.\nSure, for that I’d like to have a look at the agent’s journey. So all the way from finding the right target audience to pitching them and making them feel that our product is important to them and then converting them into customers, can you tell me where the issue is in these steps?"
+      "kind": "framework",
+      "detail": "Since our other insurance lines are healthy, demand for our brand is intact. I will map the health-policy sales funnel across our distribution channels—number of active agents/advisors, policies sold per agent, and stage-by-stage conversion from targeting to pitching to policy issuance—while checking product attractiveness versus peers.",
+      "reasoning": "Decomposing agent productivity alongside product competitiveness reveals whether agents lack motivation to sell health plans or struggle to convince buyers."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "We rely heavily on an agent-based sales model where agents earn extra commissions based on total policies sold across all lines. Data shows both the number of agents actively selling health policies and sales volume per agent have dropped, with the main bottleneck happening at the customer pitching stage.",
+      "causes": [
+        "Volume-based overall agent commissions discourage pitching complex health policies",
+        "Sharp drop-off occurs specifically during the agent-to-customer pitch stage"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "The main issue is found at the pitching part and we are unable to convert the customer in the first place.",
-      "detail": "The main issue is found at the pitching part and we are unable to convert the customer in the first place.\nOkay, then if this public perception of the product is a problem, We can improve it by doing the following:\n-Improve the insurance scheme by making it more affordable and increase the length of time duration, in order to average out the effect( increasing the number of people who take insurance, thereby producing more revenue and thus we’ll be able to reduce cost per policy) -Increase the commission for the agent, so that they can put better efforts into pitching the policy and converting the possible custom"
+      "kind": "root-cause",
+      "detail": "Two linked root causes stand out: first, paying commissions on total policy count lets agents hit targets faster with simpler motor or life policies rather than investing time in complex health underwriting pitches; second, rigid health plan pricing and shorter tenure options make the pitch harder to close against more flexible competitor offerings.",
+      "reasoning": "Linking flat commission structures to product-pitch friction explains why the same agent force thrives on other lines while failing on healthcare.",
+      "causes": [
+        "Misaligned agent commission tiers favor easier non-health insurance lines",
+        "Inflexible health plan structures and weak digital/awareness support hinder conversion"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That is a sharp diagnosis. Since recruiting new agents takes time and our priority is lifting sales per existing agent, what changes would you recommend across incentives, product design, and marketing?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To revive healthcare insurance revenue, we should introduce product-specific commission accelerators and recognition rewards for health policy conversions, modularize plans with flexible multi-year tenures and preventive value-added benefits to improve affordability, and equip agents with data-backed digital pitching tools alongside consumer awareness campaigns. We will track health policies per active agent, pitch-to-close rate, and claims loss ratio as guardrails.",
+      "reasoning": "Fixing both agent economics and plan flexibility removes the exact pitch-stage friction suppressing health policy conversions."
     }
   ],
   "recommendations": [
-    "Offer rewards to agents in order to encourage them to sell the",
-    "Customize plans and introduce value-added services to cater",
-    "Improve the online experience and utilize data analytics for",
-    "Launch sustained educational campaigns."
+    "P0: Restructure agent incentives with dedicated commission accelerators and tiered rewards specifically for healthcare insurance policy conversions rather than aggregate policy count.",
+    "P1: Redesign healthcare plans to offer affordable, customizable coverage tiers and multi-year tenure options with value-added wellness benefits that simplify the agent pitch.",
+    "P2: Upgrade online policy comparison and analytics-led lead scoring for agents while launching targeted educational campaigns to build consumer trust."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (PwC)",
+    "northStar": "Gross & EBITDA Margin Recovery (Insurance Provider)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -989,11 +1196,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For PwC’s Insurance Company Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Offer rewards to agents in order to encourage them to sell the We will validate success via Gross & EBITDA Margin Recovery (PwC) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Healthcare insurance revenue fell solely because unit policy conversions dropped in the agent channel, driven by aggregate volume commissions that steer agents toward easier lines and rigid plan terms that stall customer pitches. Introducing health-specific agent rewards, modular multi-year affordable plans, and digital pitching support will restore conversion rates and policy volume.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if PwC had half the timeline or budget?",
+      "question": "How would your recommendation change if Insurance Provider had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -1042,37 +1249,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-prof-retail-store",
   "title": "Retail Store Revenue & Profit Decline",
-  "company": "McKinsey & Company",
+  "company": "Retail Chain",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "McKinsey & Company",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Retail Store Your client is a retail store owner. They have been experiencing a decline in revenue, and would like you to analyze the causes of this issue and recommend potential solutions to address it.",
+  "prompt": "Your client owns a retail store operating for 10 years that has seen declining revenue and profitability over the past three years. Analyze the root causes and recommend a turnaround plan.",
   "clarifyingQuestions": [
     {
-      "q": "Ok, before beginning I would like to clarify some things, Is this issue faced by only your client’s store or all the stores?",
-      "a": "Most of the stores are facing the decline in sales.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this three-year decline affecting just our client's store, or are competing stores in the same area also struggling?",
+      "a": "Most legacy stores in the area are facing declining sales, except for one rival store opened six years ago that is growing profits.",
+      "why": "Sets up a direct benchmark comparison against the lone profitable competitor in the same local market."
     },
     {
-      "q": "Ok, so that means that the issue is not particular to our client’s service providing. As you said most stores, there are some stores which are not facing this issue. Is it a single store that is not facing the decline or",
-      "a": "There is only one store that is making more profit and is not facing a decline in revenue.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the decline concentrated in specific product categories, and how do our footfall and basket size compare to that profitable rival?",
+      "a": "Revenue fell across almost all categories; our footfall and basket size are lower than the profitable store's, even though our total revenue is roughly comparable.",
+      "why": "Clarifies that while revenue lags slightly, the sharpest gap lies in net profit and assortment/pricing competitiveness."
     },
     {
-      "q": "Okay,I would like to know about the timeline and magnitude of the decline, how long have these stores been operating?",
-      "a": "The stores have been operating for the past 10 years and the problem has been faced from the past three years. However, we don’t have exact data on the extent of the decline.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How do the profitable store's assortment, retail prices, and supplier terms compare with ours?",
+      "a": "They carry greater product variety and volume at slightly lower retail prices—yet earn higher net profit because our shared supplier gives them exclusive pricing deals.",
+      "why": "Pinpoints upstream supplier preferential pricing as the structural advantage enabling lower shelf prices and higher margins."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Retail Store Revenue & Profit Decline (McKinsey & Company) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Although local demand has pressured legacy shops, a 6-year-old competitor achieves higher net profit even at slightly lower retail prices because a shared supplier grants it exclusive deals, broader variety, and priority stock. Break supplier dependency by sourcing directly from manufacturers or alternative wholesalers, renegotiating binding parity contracts, and diversifying high-margin brand assortment.",
   "tree": {
     "label": "Retail Store Revenue & Profit Decline — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -1091,44 +1297,76 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Retail Store Your client is a retail store owner. They have been experiencing a decline in revenue, and would",
-      "detail": "Retail Store Your client is a retail store owner. They have been experiencing a decline in revenue, and would like you to analyze the causes of this issue and recommend potential solutions to address it.\nOk, before beginning I would like to clarify some things, Is this issue faced by only your client’s store or all the stores?\nMost of the stores are facing the decline in sales.\nOk, so that means that the issue is not particular to our client’s service providing. As you said most stores, there are some stores which are not facing this issue. Is it a single store that is not facing the decline or are there more tha"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client owns a retail store operating for 10 years that has seen declining revenue and profitability over the past three years. Analyze the root causes and recommend a turnaround plan."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "There is only one store that is making more profit and is not facing a decline in revenue.",
-      "detail": "There is only one store that is making more profit and is not facing a decline in revenue.\nOkay,I would like to know about the timeline and magnitude of the decline, how long have these stores been operating?\nThe stores have been operating for the past 10 years and the problem has been faced from the past three years. However, we don’t have exact data on the extent of the decline.\nWhen did the store in profit come into the race?"
+      "kind": "question",
+      "detail": "To understand the local competitive context, is this three-year slump affecting other neighborhood retailers as well, and are specific product categories driving our drop?",
+      "reasoning": "Benchmarking nearby stores tests whether macro neighborhood footfall fell or a specific rival is capturing disproportionate margin and share."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "They started their store 6 years ago.",
-      "detail": "They started their store 6 years ago.\nAs you mentioned that the decline is in revenue, can you please confirm if the revenue from a specific product decreased or has the revenue from all categories of products declined?\nThe revenue from almost all the products has declined.\nIs there a decrease in footfall across the stores or decrease in basket size?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Most 10-year-old stores are down across almost all product categories, except one competitor opened six years ago that is earning strong profits. How would you benchmark our store against that profitable rival?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "There is no decrease in footfall or basket size but, they are comparatively lower than the store in profit.",
-      "detail": "There is no decrease in footfall or basket size but, they are comparatively lower than the store in profit.\nRetail Store Okay, So does the competitor that is making a profit have the edge in profit or the revenue generated?\nThe difference is in the net profit gained by the stores while revenue is comparable.\nDo competitors offer a wider range of products? How do the prices compare between us?"
+      "kind": "framework",
+      "detail": "I will compare our P&L side-by-side with the profitable competitor across two pillars: Revenue Drivers (footfall, conversion, basket size, SKU variety, and pricing) and Cost Drivers (COGS and supplier terms versus store rent, labor, and overhead).",
+      "reasoning": "Comparing unit economics against a thriving local peer reveals whether the rival's edge comes from superior merchandising, lower procurement cost, or leaner store overhead."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Interestingly, our overall revenue is still fairly comparable, though our footfall and basket size trail theirs. The big gap is in net profit: the rival offers higher volume and wider product variety at slightly lower selling prices, yet still makes significantly higher margins.",
+      "causes": [
+        "Rival achieves higher net profit despite slightly lower retail shelf prices",
+        "Wider SKU variety and volume attract stronger footfall and larger baskets to the competitor"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "That’s a good observation. They have more volume and variety of products, and their selling price is slightly",
-      "detail": "That’s a good observation. They have more volume and variety of products, and their selling price is slightly lower.\nSo let me clarify, the revenue is similar but profit margins are higher for the competitor, which means the issue is on the cost side.\nYes you are moving in the right direction.\nThat’s interesting. So, even after selling at less price they are earning more .This can lead to two observations, that either the supplier provides them with more quantity and diverse products or they have less expenditure."
+      "kind": "root-cause",
+      "detail": "Earning higher margins while charging lower prices means the competitor must have materially lower COGS or operating costs. Since store rents and wages in the same locality should be similar, does our shared wholesale supplier give them exclusive rebates, priority SKUs, or bulk discounts that we do not receive?",
+      "reasoning": "Applying the profit equation under uniform local rent isolates wholesale COGS and supplier exclusivity as the decisive margin lever.",
+      "causes": [
+        "Shared supplier grants exclusive pricing and assortment deals to the rival store",
+        "Single-supplier dependency leaves our store with higher COGS and narrower product range"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Exactly right—the supplier has been offering exclusive deals and priority assortment to that profitable store. What concrete steps should our client take to recover both revenue and margins?",
+      "causes": [
+        "Discriminatory wholesale terms block price competitiveness and SKU breadth"
+      ]
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To eliminate this COGS and assortment disadvantage, we should immediately onboard alternative wholesale distributors or source directly from manufacturers for core fast-moving lines, use those quotes as leverage to lock our current supplier into binding parity contracts, and diversify shelf space toward comparable high-margin brands to win back footfall. We will track gross margin %, basket size, and SKU stockout rate.",
+      "reasoning": "Replacing single-supplier dependency with direct/multi-vendor sourcing immediately restores pricing power and product variety."
     }
   ],
   "recommendations": [
-    "Supplier also provides exclusive deals to the store in profit.",
-    "To buy the supplies from any other supplier or directly from the",
-    "Negotiate with the supplier to come into a legal binding contract to deliver",
-    "Diversify our products to other brands of similar quality and customer"
+    "P0: Diversify procurement by sourcing core fast-moving SKUs directly from manufacturers or alternative wholesalers to eliminate single-supplier dependency and lower COGS.",
+    "P1: Leverage competitive vendor quotes to negotiate a legally binding supply contract guaranteeing pricing parity and fair access to high-demand product lines.",
+    "P2: Expand shelf assortment into comparable quality alternative brands and value bundles to match rival variety and rebuild footfall and basket size."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (McKinsey & Company)",
+    "northStar": "Gross & EBITDA Margin Recovery (Retail Chain)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -1138,11 +1376,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For McKinsey & Company’s Retail Store Revenue & Profit Decline case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Supplier also provides exclusive deals to the store in profit. We will validate success via Gross & EBITDA Margin Recovery (McKinsey & Company) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The retail store's three-year revenue and profit erosion stems from an upstream wholesale disadvantage: a shared supplier grants exclusive pricing and assortment deals to a competing store, letting that rival undercut our prices while earning higher margins. Onboarding direct manufacturers and alternative suppliers, enforcing binding contract parity, and diversifying high-margin brand variety will restore both footfall and net profitability.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if McKinsey & Company had half the timeline or budget?",
+      "question": "How would your recommendation change if Retail Chain had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -1191,37 +1429,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-09-steel-manufacturer-1",
   "title": "Steel Manufacturer - 1",
-  "company": "KPMG",
+  "company": "Steel Manufacturer",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "KPMG",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Your client is a steel manufacturer facing declining profits, the client has asked you to find out why and recommend solutions.",
+  "prompt": "Your client is a nationwide steel household-furniture manufacturer facing a 20% decline in profits over the past 12–15 months. Identify the root causes and recommend solutions to restore profitability.",
   "clarifyingQuestions": [
     {
-      "q": "Do we have any information on the quantum of profit decline and for how long they have been experiencing it?",
-      "a": "Yes, the client is facing the decline of 20% over the 12-15 months.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this 20% profit drop an industry-wide trend or specific to our client, and which products do we manufacture?",
+      "a": "Only our client is seeing declining profits across India while peers are profitable. We manufacture steel household furniture—wardrobes, tables, and chairs.",
+      "why": "Isolates an internal competitiveness gap within our steel furniture portfolio rather than a steel-market downturn."
     },
     {
-      "q": "So is this decline specific to our client or is it an industry wide issue and whether the decline is specific to any particular geography?",
-      "a": "No, only our client faces declining profits from all over the India, while others have been experiencing profits.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Where do we sit in the value chain, and is the profit drop coming from rising costs or falling revenues?",
+      "a": "We procure steel, manufacture furniture, and distribute via suppliers to retail stores. Our costs have remained constant, so the issue is purely on the revenue side.",
+      "why": "Rules out cost inflation and focuses the diagnostic tree on price, volume, and product mix."
     },
     {
-      "q": "What kind of product does our client manufactures and in which geography do they operate?",
-      "a": "So, our client manufactures household furniture like Wardrobes, Tables, and chairs and their business has expanded across India.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the revenue split across wardrobes, tables, and chairs, and where did sales drop?",
+      "a": "Wardrobes generate 70% of revenue while tables and chairs contribute 15% each; the steepest revenue decline is in our core wardrobe segment.",
+      "why": "Pinpoints the 70%-share wardrobe line as the highest-leverage segment to investigate."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Steel Manufacturer - 1 (KPMG) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "With costs flat, the 20% profit decline is driven by revenue loss concentrated in wardrobes (70% of sales), where competitors are winning buyers through sharper pricing, bundled room sets, lighter/modern alternative materials, and online D2C channels. Restore volume by realigning wardrobe pricing, launching furniture bundles and e-commerce distribution, and testing hybrid/alternative materials.",
   "tree": {
     "label": "Steel Manufacturer - 1 — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -1240,44 +1477,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Your client is a steel manufacturer facing declining profits, the client has asked you to find out why and rec",
-      "detail": "Your client is a steel manufacturer facing declining profits, the client has asked you to find out why and recommend solutions.\nOkay. I want to ask a few preliminary questions before diving deep into my overall structure and strategy.\nOkay. Let's go ahead.\nDo we have any information on the quantum of profit decline and for how long they have been experiencing it?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a nationwide steel household-furniture manufacturer facing a 20% decline in profits over the past 12–15 months. Identify the root causes and recommend solutions to restore profitability."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Yes, the client is facing the decline of 20% over the 12-15 months.",
-      "detail": "Yes, the client is facing the decline of 20% over the 12-15 months.\nSo is this decline specific to our client or is it an industry wide issue and whether the decline is specific to any particular geography?\nNo, only our client faces declining profits from all over the India, while others have been experiencing profits.\nWhat kind of product does our client manufactures and in which geography do they operate?"
+      "kind": "question",
+      "detail": "Before structuring, is this 20% decline affecting peers as well, what specific steel products do we make across which parts of the value chain, and have our costs moved?",
+      "reasoning": "Establishing peer health, product scope, and cost stability determines whether to prioritize the revenue or cost branch."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "So, our client manufactures household furniture like Wardrobes, Tables, and chairs and their business has expa",
-      "detail": "So, our client manufactures household furniture like Wardrobes, Tables, and chairs and their business has expanded across India.\nIn which part of value chain, does our client operates?\nSo, our client procures and manufactures the steel furniture and distribute it through various suppliers to the stores.\nNow, I would like to look at the Profit Revenue Cost, and then I will deep dive into the various buckets under them."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Peers across India remain profitable. We procure steel, manufacture household wardrobes, tables, and chairs, and sell through retail store distributors. Our costs have stayed flat, so please focus on the revenue side."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Your structure seems good. Our cost have remained the same.",
-      "detail": "Your structure seems good. Our cost have remained the same.\nWhy don't you go ahead with the revenue?\nSure, I will break the revenue into three buckets, that is- Number of units sold, price per unit, and the product portfolio.\nDo you want me to look at any specific bucket out of them?"
+      "kind": "framework",
+      "detail": "I will break revenue into product portfolio mix, units sold, and price per unit. First, how is revenue split across wardrobes, tables, and chairs, and which product drove the drop over the last 12–15 months?",
+      "reasoning": "Identifying the exact SKU mix and lagging category prevents spreading analysis evenly across low-impact lines."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Wardrobes account for 70% of revenue, with tables and chairs at 15% each—and the sharpest drop came in wardrobes. Competitors are offering slightly lower prices, modern engineered-wood or hybrid designs, furniture bundles, and strong online ordering while we sell standalone steel units purely through offline retail.",
+      "causes": [
+        "Core wardrobe segment (70% of revenue) is losing unit share to lower-priced rivals",
+        "Standalone offline-only steel positioning lags competitor bundles, alternative materials, and online channels"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Yes, please go ahead with the Product portfolio.",
-      "detail": "Yes, please go ahead with the Product portfolio.\nSure. According to my data, our client manufactures three kinds of steel furniture. Do we have any data on the % revenue share by each product?\nYes, wardrobe has a significant chunk of 70%, while tables and chairs contribute about 15% each.\nSo, out of these three, we have experienced a decline in the revenue share from which product?"
+      "kind": "root-cause",
+      "detail": "That explains the 20% profit drop cleanly: our flagship wardrobe line—70% of revenue—is overpriced relative to rivals and misses two major buyer shifts toward online furniture discovery and lighter, aesthetic hybrid materials, while selling unbundled items loses multi-piece basket value.",
+      "reasoning": "Connecting wardrobe volume erosion to price gaps, offline-only reach, and rigid pure-steel design identifies actionable commercial and product fixes.",
+      "causes": [
+        "Uncompetitive price-to-value perception in wardrobes against rival designs",
+        "Absence of online/omnichannel sales and bundled room packages limits reach and order size"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Well diagnosed. How would you turn around wardrobe and overall furniture revenue without destroying unit margins?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To recover the 20% profit decline, we should immediately match competitive entry pricing on core wardrobes while launching bundled wardrobe-table-chair packages to protect overall ticket margin, expand into e-commerce marketplaces and D2C channels to capture digital buyers, and pilot lighter steel-wood hybrid designs for urban apartments. We will monitor wardrobe unit volume, bundle attach rate, and gross margin per order.",
+      "reasoning": "Combining competitive wardrobe pricing with margin-accretive bundles and online reach rebuilds volume while defending overall profitability."
     }
   ],
   "recommendations": [
-    "Client should decrease the price of the products and match with",
-    "Client should sell their products in bundles.",
-    "Explore the other materials for furniture.",
-    "Increase the online presence."
+    "P0: Realign wardrobe pricing to match competitive benchmarks and introduce wardrobe-table-chair value bundles to recover unit volume while preserving blended order margins.",
+    "P1: Launch an online sales presence across major furniture marketplaces and a D2C storefront to complement traditional retail store distribution.",
+    "P2: Expand R&D into lighter hybrid and alternative furniture materials (such as steel-engineered wood finishes) to recapture modern urban household demand."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (KPMG)",
+    "northStar": "Gross & EBITDA Margin Recovery (Steel Manufacturer)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -1287,11 +1553,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For KPMG’s Steel Manufacturer - 1 case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Client should decrease the price of the products and match with We will validate success via Gross & EBITDA Margin Recovery (KPMG) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The steel furniture manufacturer's 20% profit drop is a revenue issue concentrated in wardrobes (70% of sales), where rigid pure-steel pricing, offline-only distribution, and unbundled offerings lost buyers to agile rivals. Matching competitive wardrobe pricing, selling multi-piece room bundles, building online channels, and introducing hybrid material designs will restore volume and profits.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if KPMG had half the timeline or budget?",
+      "question": "How would your recommendation change if Steel Manufacturer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -1340,37 +1606,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-10-steel-manufacturer-2-coal-wastage",
   "title": "Steel Manufacturer - 2 (Coal Wastage)",
-  "company": "Accenture",
+  "company": "Steel Manufacturer",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Accenture",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Your client is a steel manufacturer facing increasing costs,the client has asked you to find out the reason and recommend solutions.",
+  "prompt": "Your client is a steel manufacturer facing steadily rising operating costs and shrinking margins at one of its plants. Diagnose the drivers of this cost increase and recommend practical solutions.",
   "clarifyingQuestions": [
     {
-      "q": "Do we have any information on the quantum of cost increase and for how long they have been experiencing it?",
-      "a": "No, we do not have any data on that.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this cost spike industry-wide across all steelmakers, or is it isolated to specific plants of our client?",
+      "a": "Competitors and our other plants are unaffected; the cost surge is isolated to one manufacturing unit located in the middle of a Tier-2 city.",
+      "why": "Narrows the problem to plant-specific local operations and inbound logistics rather than global steel or commodity cycles."
     },
     {
-      "q": "Okay. Is this increase in Cost specific to our client or an industry-wide issue and whether this issue related to any specific geography?",
-      "a": "No, this is limited to a specific manufacturing unit in a tier 2 city of our client only.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Have revenues, sales volumes, or product mix changed at this Tier-2 plant over the same period?",
+      "a": "No—plant output and revenues have stayed steady, so the margin squeeze is entirely driven by higher unit production costs.",
+      "why": "Confirms a pure cost-side profitability diagnosis with no demand-side distortion."
     },
     {
-      "q": "Great. You've understood the situation well, how do you propose going about the solution?",
-      "a": "Sure, I would like to look at the Profit Revenue Cost, and then I will deep dive into the various buckets under them.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which cost buckets—fixed plant overhead or variable raw materials and fuel—drove the increase?",
+      "a": "Fixed overheads and iron-ore prices are stable, but coal cost per ton of steel produced has jumped sharply over the past year.",
+      "why": "Focuses the value-chain breakdown directly on coal procurement, inbound transport, storage, and furnace consumption."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Steel Manufacturer - 2 (Coal Wastage) (Accenture) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "With revenues and fixed overheads stable, rising costs at the Tier-2 city-center steel plant are driven by elevated coal cost per ton of steel. Sourcing coal from a distant supplier via open trucks into a congested urban plant causes ~12–15% transit spillage, pilferage, and moisture absorption—degrading calorific quality and forcing higher furnace coal burn; closed-container transport and closer grade-certified sourcing will eliminate the wastage.",
   "tree": {
     "label": "Steel Manufacturer - 2 (Coal Wastage) — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -1389,44 +1654,76 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Your client is a steel manufacturer facing increasing costs,the client has asked you to find out the reason an",
-      "detail": "Your client is a steel manufacturer facing increasing costs,the client has asked you to find out the reason and recommend solutions.\nBefore preliminary questions, I would like to reiterate the facts and objective of the case.\nOkay. Our client is a steel manufacturer facing the problem of increasing costs and we have to find out why and recommend solutions to their problems.\nDo we have any information on the quantum of cost increase and for how long they have been experiencing it?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a steel manufacturer facing steadily rising operating costs and shrinking margins at one of its plants. Diagnose the drivers of this cost increase and recommend practical solutions."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "No, we do not have any data on that.",
-      "detail": "No, we do not have any data on that.\nOkay. Is this increase in Cost specific to our client or an industry-wide issue and whether this issue related to any specific geography?\nNo, this is limited to a specific manufacturing unit in a tier 2 city of our client only.\nOkay, I have completed my preliminary questions. Give me a couple of minutes, and I will be back with my approach."
+      "kind": "question",
+      "detail": "Thank you. To scope the issue, is this cost surge affecting the broader steel industry or just us, is it confined to specific plants, and have revenues or output volumes changed there?",
+      "reasoning": "Checking geographic concentration and output stability separates network-wide commodity inflation from a localized plant operational failure."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Okay, I would like to look at the cost and dive deep into the various buckets under it. Cost broadly includes",
-      "detail": "Okay, I would like to look at the cost and dive deep into the various buckets under it. Cost broadly includes two buckets i.e. Fixed Cost and Variable Cost.\nSure, the fixed Cost includes the labour wages, electricity bills, and rents, while variable Cost includes the raw materials, R&D and machinery.\nGreat. You've understood the situation well, how do you propose going about the solution?\nSure, I would like to look at the Profit Revenue Cost, and then I will deep dive into the various buckets under them."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Revenues and output volumes are steady, and peers plus our other factories are unaffected. The cost spike is isolated to a single plant situated in the middle of a Tier-2 city. How would you structure your cost breakdown for this plant?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Your structure seems good. Our cost have remained the same.",
-      "detail": "Your structure seems good. Our cost have remained the same.\nWhy don't you go ahead with the revenue?\nSure, I will break the revenue into three buckets, that is- Number of units sold, price per unit, and the product portfolio. Do you want me to look at any specific bucket out of them?\nYes, please go ahead with the Product portfolio."
+      "kind": "framework",
+      "detail": "I will split plant costs into Fixed Costs (labor, land/rent, depreciation) and Variable Costs along the steelmaking chain: raw material and fuel procurement (iron ore, coking/thermal coal), inbound logistics and yard handling, furnace smelting efficiency, and outbound dispatch. Where are costs rising fastest?",
+      "reasoning": "Walking the steelmaking cost chain pinpoints whether price rate, transit loss, or furnace conversion yield is driving the plant's cost overrun."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Fixed costs and iron-ore procurement are stable, while coal spend per ton of steel produced has surged. Both our inbound coal freight bill and the tons of coal consumed per ton of steel in the furnace have increased over the past year.",
+      "causes": [
+        "Inbound coal logistics cost rose sharply at the Tier-2 city-center plant",
+        "Specific coal consumption per ton of steel increased inside the furnace"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Sure. According to my data, our client manufactures three kinds of steel furniture. Do we have any data on the",
-      "detail": "Sure. According to my data, our client manufactures three kinds of steel furniture. Do we have any data on the % revenue share by each product?\nYes, wardrobe has a significant chunk of 70%, while tables and chairs contribute about 15% each.\nSo, out of these three, have we experienced a decline in the revenue share from any product?\nWe have experienced a decline in every segment of the product."
+      "kind": "root-cause",
+      "detail": "Seeing both higher inbound cost and higher coal burn per ton points to a coal supply-chain breakdown. Have we switched to a more distant coal supplier whose open-truck transport through city congestion causes physical coal spillage, pilferage, and moisture absorption—lowering calorific value and forcing the furnace to burn extra coal?",
+      "reasoning": "Connecting higher burn ratios to open-haul transit distance tests whether physical wastage and moisture degradation explain both cost symptoms.",
+      "causes": [
+        "Long-distance open-truck hauling into a congested city-center plant causes spillage and pilferage",
+        "Moisture absorption and grade loss during transit reduce calorific value and furnace yield"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Spot on—switching to a distant vendor forced long open-truck hauls into the city center, causing roughly 12–15% coal wastage, pilferage, and moisture contamination that degrades furnace thermal efficiency. Since relocating the plant is not feasible near term, what short- and long-term fixes do you recommend?",
+      "causes": [
+        "Open-truck long hauls cause ~12–15% transit wastage and moisture-driven furnace inefficiency"
+      ]
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To eliminate this coal cost overrun without relocating the Tier-2 plant, we should immediately mandate sealed closed boxes or covered containers with weighbridge checks on all inbound coal trucks to stop spillage, pilferage, and rain exposure. Over the medium term, we should contract with geographically closer coal suppliers under strict calorific-value and moisture SLAs, and cover on-site coal yards while tuning furnace air-fuel ratios. We will track landed coal cost per ton of steel and furnace thermal yield.",
+      "reasoning": "Pairing immediate closed-container transport with closer supplier contracting addresses both transit wastage and furnace burn efficiency."
     }
   ],
   "recommendations": [
-    "Client’s manufacturing plant is in the middle of the city",
-    "Transportation of coal to a longer distance has increased the",
-    "Short term: Client should use closed boxes/containers to transport",
-    "Long term: Client should contract with the coal supplier based in"
+    "P0: Mandate sealed closed containers or covered tipper boxes with GPS and origin-to-gate weighbridge reconciliation on all inbound coal shipments to eliminate 12–15% transit spillage, moisture, and pilferage.",
+    "P1: Transition supply contracts to geographically closer coal vendors with binding calorific-value and moisture-content penalties to cut freight distance and improve furnace burn efficiency.",
+    "P2: Build covered dry-storage sheds at the Tier-2 plant and recalibrate furnace air-fuel ratios while tracking coal cost per ton of steel as the primary KPI."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (Accenture)",
+    "northStar": "Gross & EBITDA Margin Recovery (Steel Manufacturer)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -1436,11 +1733,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Accenture’s Steel Manufacturer - 2 (Coal Wastage) case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Client’s manufacturing plant is in the middle of the city We will validate success via Gross & EBITDA Margin Recovery (Accenture) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Rising operating costs at our Tier-2 city-center steel plant are driven by coal wastage and thermal inefficiency from hauling coal long distances in open trucks, causing ~12–15% transit loss, pilferage, and moisture degradation. Enforcing closed-container transport with weighbridge controls immediately and contracting with closer, grade-certified coal suppliers over the long term will restore unit margins.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if Accenture had half the timeline or budget?",
+      "question": "How would your recommendation change if Steel Manufacturer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -1489,37 +1786,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-11-tractor-manufacturer-profitability",
   "title": "Tractor Manufacturer Profitability",
-  "company": "BCG",
+  "company": "Tractor Manufacturer",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "BCG",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Tractor Manufacturer Your client is a luxurious tractor manufacturer who is facing loss from the past 6 months, you have been hired as a consultant to find out the reason and suggest some solutions.",
+  "prompt": "Your client is a luxury, all-weather tractor manufacturer that has been operating at a loss for the past six months while competitors remain profitable. Identify the drivers of these losses and recommend a turnaround plan.",
   "clarifyingQuestions": [
     {
-      "q": "Okay. Is this loss specific to our client or an industry-wide issue?",
-      "a": "No, this is limited to our client only. Our competitor is enjoying profits.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the downturn affecting the entire tractor industry, and what differentiates our client's product and value chain?",
+      "a": "Competitors are profitable. We build state-of-the-art tractors designed for adverse weather on any terrain; we make most core parts in-house, outsource select components, and sell via dealer networks.",
+      "why": "Establishes that losses are company-specific and flags outsourced component supply and dealer distribution as potential risk nodes."
     },
     {
-      "q": "In which part of the value chain, does our client operates?",
-      "a": "So, our client manufactures the Tractors and distributes them through various suppliers.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are the recent six-month losses driven by declining revenues, rising costs, or both?",
+      "a": "The client is experiencing both rising costs and declining revenue; let's examine the cost side first.",
+      "why": "Confirms a dual-sided P&L squeeze and aligns on investigating cost drivers before commercial volume levers."
     },
     {
-      "q": "You have mentioned that the Tractor is a premium product, so what features make it a premium product?",
-      "a": "Our Tractors are an example of state-of-the-art manufacturing and provide various features that make them run on any kind of field in adverse weather conditions.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Within costs, have fixed overheads increased or are variable manufacturing inputs driving the surge?",
+      "a": "Fixed costs like wages, electricity, and rent are flat, whereas raw material and outsourced component spending increased sharply over the past few months.",
+      "why": "Isolates variable component procurement—specifically insourced versus outsourced parts—as the primary cost culprit."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Tractor Manufacturer Profitability (BCG) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Six-month losses stem from a two-sided squeeze: variable COGS jumped due to third-party price hikes on outsourced specialty components, while passing through high prices and part-shortage delays eroded unit sales against profitable rivals. Stabilize COGS via dual-sourcing or selective insourcing of critical parts, and revive volume by introducing modular mid-premium trims and dealer financing.",
   "tree": {
     "label": "Tractor Manufacturer Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -1538,43 +1834,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Tractor Manufacturer Your client is a luxurious tractor manufacturer who is facing loss from the past 6 months",
-      "detail": "Tractor Manufacturer Your client is a luxurious tractor manufacturer who is facing loss from the past 6 months, you have been hired as a consultant to find out the reason and suggest some solutions.\nBefore moving forward, I want to reiterate the case that our client is a premium Tractor manufacturer facing loss from the past 6 months and we have to find out why and recommend solutions to their problems.\nDo we have any information on the quantum of loss No, we do not have any data on that.\nOkay. Is this loss specific to our client or an industry-wide issue?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a luxury, all-weather tractor manufacturer that has been operating at a loss for the past six months while competitors remain profitable. Identify the drivers of these losses and recommend a turnaround plan."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "No, this is limited to our client only. Our competitor is enjoying profits.",
-      "detail": "No, this is limited to our client only. Our competitor is enjoying profits.\nIn which part of the value chain, does our client operates?\nSo, our client manufactures the Tractors and distributes them through various suppliers.\nYou have mentioned that the Tractor is a premium product, so what features make it a premium product?"
+      "kind": "question",
+      "detail": "To ground the analysis, is this loss industry-wide or isolated to us, how do our luxury tractors operate across manufacturing and distribution, and is the issue driven by revenue, cost, or both?",
+      "reasoning": "Confirming peer profitability, make-versus-buy manufacturing structure, and the P&L split avoids blind hypothesis testing."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Our Tractors are an example of state-of-the-art manufacturing and provide various features that make them run",
-      "detail": "Our Tractors are an example of state-of-the-art manufacturing and provide various features that make them run on any kind of field in adverse weather conditions.\nComing to the various parts of the Tractor whether our Client manufacture all parts or they have to outbound them?\nGood question, The Client manufactures most of the essential parts but they have to outbound some parts to the third-party manufacturer.\nOkay, I would like to propose my strategy that, first I will look at the Profit - Revenue - Cost and dive deep into the various buckets under it."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Competitors are profitable. Our state-of-the-art tractors handle all terrains and weather; we manufacture core assemblies in-house, outsource select components, and distribute through dealers. We face both rising costs and falling revenue—please analyze costs first."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Your structure seems exhaustive. Please proceed ahead.",
-      "detail": "Your structure seems exhaustive. Please proceed ahead.\nTractor Manufacturer Sure, do we have any idea whether the Client has faced a decline in their revenue or an increase in cost?\nActually, the Client is facing both issues and wants you to analyze both. Why don't you go ahead with the cost?\nSure. Cost broadly includes two buckets, i.e., Fixed Cost and Variable Cost where the fixed Cost includes labor wages, electricity bills, and rents, while variable Cost includes the raw materials, R&D, and machinery."
+      "kind": "framework",
+      "detail": "I will split manufacturing costs into Fixed Costs (labor, electricity, plant rent) and Variable Costs (raw materials, insourced vs. outsourced components, and warranty/logistics). Have any specific buckets spiked over the last six months?",
+      "reasoning": "Separating fixed overhead from insourced and outsourced variable inputs isolates where third-party supplier inflation is hitting unit margins."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Fixed costs are flat, and in-house fabrication costs are steady. However, spending on outsourced specialty components—such as precision weather-sealed hydraulics and sensors—jumped sharply due to single-vendor price hikes and supply delays, which also delayed dealer deliveries and hurt unit sales.",
+      "causes": [
+        "Single-vendor price hikes on outsourced precision hydraulics and sensors inflated variable COGS",
+        "Part supply bottlenecks delayed dealer deliveries and depressed tractor unit sales"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Okay. We have no issue with the fixed Cost. Can you look at the variable costs?",
-      "detail": "Okay. We have no issue with the fixed Cost. Can you look at the variable costs?\nSure, coming to the variable costs. Do we have any data on the changes in any of the aforementioned buckets?\nYes, our spending on raw materials has increased in the past few month Next, in raw materials, I’ll analyze insourcing vs. outsourcing.\nHave we seen any cost increases in either?"
+      "kind": "root-cause",
+      "detail": "That links both sides of our P&L loss: single-source dependency on outsourced specialty components let suppliers hike prices into our COGS, while component delays and high luxury price points pushed price-conscious farm buyers and dealers toward reliably stocked, lower-priced rivals.",
+      "reasoning": "Connecting outsourced part concentration to both unit cost inflation and lost dealer fill rates explains how six months of losses materialized rapidly.",
+      "causes": [
+        "Unhedged single-vendor reliance for specialized outsourced tractor assemblies",
+        "Over-engineered luxury pricing and delivery delays alienated value-focused tractor buyers"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That captures both the cost and revenue dynamics well. How should management return to profitability without compromising our core all-weather durability reputation?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To reverse the six-month loss, we should immediately qualify backup suppliers and selectively insource high-markup outsourced components to restore variable COGS and dealer fill rates. Simultaneously, we should introduce a modular mid-premium trim—preserving all-weather drivetrain durability while making luxury cabin/sensor extras optional—paired with seasonal dealer financing. We will track unit gross margin, on-time dealer delivery rate, and monthly unit volume.",
+      "reasoning": "Fixing outsourced supply concentration while unbundling non-core luxury features protects brand durability while restoring both cost efficiency and sales velocity."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Tractor Manufacturer Profitability before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Dual-source critical outsourced hydraulics and electronics—or selectively insource high-margin sub-assemblies—under fixed-price, penalty-backed vendor SLAs to cut variable COGS and eliminate delivery delays.",
+    "P1: Introduce a modular mid-premium tractor trim that retains core all-weather terrain performance while unbundling optional luxury cabin tech to expand addressable buyer demand.",
+    "P2: Partner with rural NBFCs on seasonal EMI financing and track unit contribution margin alongside dealer fill rates."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (BCG)",
+    "northStar": "Gross & EBITDA Margin Recovery (Tractor Manufacturer)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -1584,11 +1910,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For BCG’s Tractor Manufacturer Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Tractor Manufacturer Profitability before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (BCG) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The tractor manufacturer's six-month losses stem from single-vendor price hikes and supply delays in outsourced specialty components, combined with rigid luxury pricing that slowed dealer unit sales. Qualifying secondary suppliers or selectively insourcing high-cost parts while launching a modular mid-premium all-weather trim will cut variable COGS and rebuild profitable volume.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Tractor Manufacturer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -1637,37 +1963,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-12-barb-s-bbq-profitability",
   "title": "Barb's BBQ Profitability",
-  "company": "PrepLounge",
+  "company": "Barb's BBQ Deli",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "PrepLounge",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Barb’s BBQ Your client is Barb B. Queue, the owner of a deli shop situated inside a busy supermarket. The shop has been facing stiff competition from neighboring supermarket offerings and nearby fast-food chains. Barb is concerned because store profits have stagnated and are beginning to decline over the long term. He has asked us to look into his books, diagnose the root causes of this stagnation, and propose action",
+  "prompt": "Your client is Barb B. Queue, the owner of a deli shop situated inside a busy supermarket. Facing stiff competition from neighboring supermarket counters and nearby fast-food chains, store profits have stagnated and begun declining over the long term. Diagnose the root causes of this profit decline and recommend actionable solutions.",
   "clarifyingQuestions": [
     {
-      "q": "Thank you. To establish a baseline, could you clarify what Barb’s business model looks like in terms of operating hours, core product categories, and any major operational constraints he is currently facing?",
-      "a": "Barb’s operates as a food business serving both deli meats and pre-processed prepared foods. The shop runs across two primary shifts—one in the morning and one in the evening—to align with the peak foot-traffic hours of the supermarket. As",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What does Barb's operating model look like in terms of product mix, shifts, and store footprint?",
+      "a": "Barb's sells two categories—deli meats (led by BBQ chicken wings and a popular pulled pork burger combo) and prepared foods—across morning and evening shifts matching peak supermarket traffic.",
+      "why": "Establishes the revenue mix and shift structure before isolating whether margin erosion stems from specific SKUs or fixed overhead."
     },
     {
-      "q": "Understood. Looking at the product mix, what specific items are we selling, and are there any signature items or combo meals?",
-      "a": "Furthermore, is there a particular product line driving this stagnation, and how is the broader competitive landscape performing?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Has the profit decline been driven by falling supermarket foot traffic, pricing pressure, or rising operating costs?",
+      "a": "Supermarket foot traffic is actually growing, while Barb's deli revenue has flatlined around $280,000 as cost of goods sold and hourly labor costs climbed.",
+      "why": "Separates external foot-traffic demand from internal conversion, pricing competitiveness, and unit cost structure."
     },
     {
-      "q": "Furthermore, is there a particular product line driving this stagnation, and how is the broader competitive landscape performing?",
-      "a": "Revenue is generated across two primary categories: deli foods and prepared foods. Within deli meats, the core offerings are BBQ chicken wings and pulled pork burgers. We don’t immediately know which specific product is responsible for the",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How does Barb's pricing and sourcing compare with neighboring supermarket deli counters?",
+      "a": "Competitors sell comparable burgers for $0.50 less with more aggressive in-store promotions, while Barb's sources all ingredients from a single large supplier.",
+      "why": "Tests whether single-supplier procurement and competitor undercutting are squeezing gross margin and limiting price flexibility."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Barb's BBQ Profitability (PrepLounge) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Barb's BBQ Deli profitability by decomposing Profit = Revenue (Foot Traffic × Conversion × Price/Mix) − Costs (COGS + Shift Labor + Fixed Kitchen Overhead), isolating the $0.50 price gap, scratch-kitchen throughput cap, and weak new-shopper acquisition, and sequencing P0–P2 operational and promotional fixes.",
   "tree": {
     "label": "Barb's BBQ Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -1686,43 +2011,75 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Barb’s BBQ Your client is Barb B. Queue, the owner of a deli shop situated inside a busy supermarket. The shop",
-      "detail": "Barb’s BBQ Your client is Barb B. Queue, the owner of a deli shop situated inside a busy supermarket. The shop has been facing stiff competition from neighboring supermarket offerings and nearby fast-food chains. Barb is concerned because store profits have stagnated and are beginning to decline over the long term. He has asked us to look into his books, diagnose the root causes of this stagnation, and propose actionable solutions. How would you like to approach this?\nThank you. To establish a baseline, could you clarify what Barb’s business model looks like in terms of operating hours, core product categories, a"
+      "kind": "prompt",
+      "detail": "Your client, Barb B. Queue, operates a deli counter inside a busy supermarket. Despite strong mall and grocery foot traffic, store profits have stagnated and are now declining amid pressure from neighboring supermarket offerings and nearby fast-food chains. How would you diagnose the problem and turn profitability around?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Furthermore, is there a particular product line driving this stagnation, and how is the broader competitive la",
-      "detail": "Furthermore, is there a particular product line driving this stagnation, and how is the broader competitive landscape performing?\nRevenue is generated across two primary categories: deli foods and prepared foods. Within deli meats, the core offerings are BBQ chicken wings and pulled pork burgers. We don’t immediately know which specific product is responsible for the stagnation, so we'll need to dig into the financials. We do know that Barb's pulled pork burger combo is quite popular and budget-friendly. In terms of competition, we are inside a busy supermarket where several rivals sell comparable food items.\nHer"
+      "kind": "question",
+      "detail": "Before structuring my analysis, I want to confirm Barb's core revenue streams, operating schedule, and competitive baseline. Could you share the product mix between deli and prepared foods, shift timings, and whether overall supermarket foot traffic has changed?",
+      "reasoning": "Confirming product mix, shift capacity, and macro foot traffic prevents chasing a demand downturn that does not exist."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Deli food revenue has also remained stagnant around $280,000 while cost of goods increased. How are our compet",
-      "detail": "Deli food revenue has also remained stagnant around $280,000 while cost of goods increased. How are our competitors pricing and marketing these categories?\nYou are spot on. In deli meats, our competitors have more aggressive marketing and undercut us on price. On the prepared foods side, our primary pressure comes from surrounding quick-service fast-food outlets.\nGiven that deli food has flatlined, I'd like to dissect the pricing and cost structure. Are our supplier contracts and employee labor rates competitive, and how does our burger price compare to the market?\nWe source all ingredients from a single large-sc"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Barb's runs morning and evening shifts aligned with peak grocery hours, selling deli meats—primarily BBQ chicken wings and pulled pork burgers—alongside prepared foods. Deli revenue has plateaued at $280,000 while COGS increased, even though overall supermarket foot traffic is rising. How would you structure your investigation?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "That highlights two immediate headwinds: our competitors undercut us by $0.50 on identical quality, and our la",
-      "detail": "That highlights two immediate headwinds: our competitors undercut us by $0.50 on identical quality, and our labor costs are too high to support that price point. With a $2.00 material cost and 31 daily sales across 4 hours, Barb's labor rate would need to stay below $23–$24 an hour just to break even, and ideally drop between $16 and $20 an hour to carve out a sustainable margin and allow us to match competitor pricing. Beyond price and cost, should I investigate sales volume across supply and demand?\nBarb’s BBQ Sales are driven by both dimensions, so analyzing both makes sense.\nSince our raw material supply is s"
+      "kind": "framework",
+      "detail": "I will break profitability into unit economics and volume drivers. On unit economics, I want to examine price realization versus rivals, single-supplier ingredient COGS, and labor cost per order; on volume, I will separate supply-side kitchen throughput from demand-side new-shopper capture. Let's start with pricing and unit costs.",
+      "reasoning": "Flat revenue at $280,000 alongside rising COGS suggests both a margin squeeze and a ceiling on order volume."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good call. Competitors undercut Barb's burgers by $0.50 at identical quality while running aggressive in-store promotions. On our cost side, ingredients come from one large supplier at $2.00 per burger, and at 31 daily burger sales across a 4-hour shift, labor rates must stay under $23–$24/hour just to break even and $16–$20/hour to restore healthy margin.",
+      "causes": [
+        "Competitors undercut Barb's by $0.50 per burger at equivalent quality.",
+        "Single-supplier sourcing keeps ingredient COGS at $2.00 without bulk rebates.",
+        "Low shift volume (31 burgers per 4-hour shift) makes hourly labor costs unsustainable above $20/hour."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "That points to an operational throughput bottleneck: scratch cooking inside a fixed kitchen footprint slows or",
-      "detail": "That points to an operational throughput bottleneck: scratch cooking inside a fixed kitchen footprint slows order fulfillment and caps capacity. Turning to the demand side, is foot traffic dropping across the supermarket, or is the issue localized to our store?\nSupermarket foot traffic is actually increasing. However, our customer base consists almost entirely of repeat, loyal patrons rather than new foot traffic.\nThat indicates a low customer acquisition rate despite a growing pool of potential shoppers. Is our store poorly located, or are competitors doing a better job capturing shoppers' attention?\nStore locat"
+      "kind": "root-cause",
+      "detail": "That exposes a dual cost-and-throughput squeeze: at ~7.75 burgers per hour, high hourly labor cannot be amortized, preventing us from matching the $0.50 price gap. Turning to volume, is kitchen capacity capping output during peak rushes, and are we capturing the rising supermarket foot traffic?",
+      "reasoning": "Testing both kitchen throughput and shopper funnel conversion reveals whether lowering price alone would hit an operational wall.",
+      "causes": [
+        "Scratch cooking inside a fixed kitchen footprint bottlenecks peak fulfillment speed.",
+        "Customer base relies heavily on repeat loyalists rather than new supermarket shoppers.",
+        "Weak aisle visibility and lack of promotional sampling limit new customer acquisition."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Exactly right—scratch cooking in a tight kitchen caps peak throughput, and while supermarket traffic is growing, almost all our buyers are existing repeat customers rather than new shoppers. How would you sequence recommendations to restore sustainable profit growth?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To reverse the profit decline, Barb's should attack labor-and-throughput efficiency first, unlock new shopper conversion second, and renegotiate sourcing third. Pre-batching core prep off-peak and optimizing shift staffing toward $16–$20/hour recovers unit margin, enabling targeted combo pricing and in-aisle sampling to convert rising supermarket traffic without sacrificing food quality.",
+      "reasoning": "Sequencing kitchen throughput and labor efficiency ahead of price-led promotions ensures incremental traffic converts profitably."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Barb's BBQ Profitability before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Shift from full scratch-to-order cooking to off-peak batch prep for pulled pork and BBQ wings, and realign shift rosters toward a $16–$20/hour blended labor rate to unlock peak throughput and restore unit margin.",
+    "P1: Re-benchmark single-supplier contracts against two regional wholesalers to cut the $2.00 ingredient cost by 10–15%, funding a competitive $0.50 price match on the flagship pulled pork combo.",
+    "P2: Launch high-visibility deli signage, supermarket cross-aisle coupons, and peak-hour tasting samples to convert growing store foot traffic beyond the existing repeat-customer base."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (PrepLounge)",
+    "northStar": "Gross & EBITDA Margin Recovery (Barb's BBQ Deli)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -1732,11 +2089,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For PrepLounge’s Barb's BBQ Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Barb's BBQ Profitability before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (PrepLounge) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Barb's BBQ Deli can restore long-term profitability by resolving a two-sided squeeze: high labor and single-supplier COGS block matching rivals' $0.50 lower burger price, while scratch-kitchen bottlenecks and weak aisle marketing cap volume at repeat loyalists despite rising supermarket traffic. Prioritize off-peak batch prep and shift labor optimization to lift throughput and cut hourly cost per order, then use multi-vendor sourcing savings to match combo pricing and run in-store sampling while tracking gross margin and repeat customer retention.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if PrepLounge had half the timeline or budget?",
+      "question": "How would your recommendation change if Barb's BBQ Deli had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -1785,37 +2142,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-13-drug-manufacturer-profitability",
   "title": "Drug Manufacturer Profitability",
-  "company": "BCG",
+  "company": "Pharma Manufacturer",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "BCG",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Drug Manufacturer Your client, an oncology drug manufacturer, is facing a decline in profitability. The client has asked you to find the reasons, and hence recommend solutions.",
+  "prompt": "Your client is an oncology drug manufacturer in India experiencing a decline in profitability over the past year. Diagnose the root causes of this decline and recommend viable solutions that align with the client's operating principles.",
   "clarifyingQuestions": [
     {
-      "q": "To the best of my knowledge, oncology is related to cancer. Is that correct?",
-      "a": "That’s right.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the profitability decline industry-wide or specific to our client, and where does the client operate?",
+      "a": "The decline is specific to our client over the past 12 months. They sell across India except the Northeast, with steeper losses in high-competition regions.",
+      "why": "Isolates company-specific competitive dynamics and identifies an untapped regional white space in Northeast India."
     },
     {
-      "q": "Is the problem company specific or industry specific?",
-      "a": "The decline is specific to our client.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which customer channels does the client serve, and has their cost structure changed?",
+      "a": "The client sells oncology drugs to hospitals and pharmacies, and manufacturing and operating costs have remained flat over the year.",
+      "why": "Rules out cost inflation and directs the deep dive squarely onto hospital and pharmacy revenue drivers."
     },
     {
-      "q": "For how long has the client been experiencing the decline in profitability?",
-      "a": "The client has been facing a decline for a year.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How do the client's drug efficacy, pricing, and go-to-market approach compare with competitors?",
+      "a": "Product quality and prices are identical to rivals, but the client relies on ethical sales reps, workshops, and patient support programs rather than paying doctor commissions.",
+      "why": "Surfaces the non-price competitive disadvantage and ethical boundary that constrain standard trade-promotion levers."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Drug Manufacturer Profitability (BCG) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Diagnose the oncology Pharma Manufacturer's profit drop using Profit = Revenue (Price × Volume × Regional Mix) − Flat Costs, pinpointing volume share loss to rivals' commission-led prescribing in competitive hubs while preserving the client's ethical stance through institutional partnerships, public-channel advocacy, and Northeast expansion.",
   "tree": {
     "label": "Drug Manufacturer Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -1834,44 +2190,75 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Drug Manufacturer Your client, an oncology drug manufacturer, is facing a decline in profitability. The client",
-      "detail": "Drug Manufacturer Your client, an oncology drug manufacturer, is facing a decline in profitability. The client has asked you to find the reasons, and hence recommend solutions.\nOkay. I want to ask a few preliminary questions before diving deep into my overall structure and strategy.\nTo the best of my knowledge, oncology is related to cancer. Is that correct?\nIs the problem company specific or industry specific?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Our client is an Indian oncology drug manufacturer facing a year-long decline in profitability. They want us to diagnose why profits are falling and propose practical turnaround levers. How would you begin?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The decline is specific to our client.",
-      "detail": "The decline is specific to our client.\nFor how long has the client been experiencing the decline in profitability?\nThe client has been facing a decline for a year.\nHow does the client sell its products?"
+      "kind": "question",
+      "detail": "I'd like to confirm a few baseline facts first: is this decline industry-wide or specific to our client, which channels and geographies do they serve, and has there been any major shift in manufacturing or distribution costs?",
+      "reasoning": "Clarifying industry vs. company variance, channel footprint, and cost stability narrows the search space before building the issue tree."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "The drug is sold to pharmacies and hospitals.",
-      "detail": "The drug is sold to pharmacies and hospitals.\nWhat geographics does our client manufacture in, and is the problem related to a specific geography?\nIt has nationwide presence except the Northeast and the client is facing declining profits from all over India. The decline is more noticeable in regions where competition is high.\nOkay, I have understood the situation. I would like to look at profit which is revenue - costs and hence dive deeper into each bucket."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The decline is client-specific over the last year. They sell to hospitals and pharmacies across India—excluding the Northeast—with the sharpest drop in high-competition metro clusters, while costs have stayed completely flat. How would you structure your analysis?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "The cost has been stagnant. The challenge really seems to be on the revenue side.",
-      "detail": "The cost has been stagnant. The challenge really seems to be on the revenue side.\nOkay. I would like to divide my revenue into three buckets, number of units sold, price per unit, and product portfolio. Firstly, is it fair to say that there has been a decrease in the number of units sold?\nDrug Manufacturer Yes, although the client’s product is the same as competitors’ product, there has been a decline in the number of units sold.\nHas the price of our client’s product fluctuated? And has the price of competitors’ products fluctuated in the same time frame?"
+      "kind": "framework",
+      "detail": "Since costs are flat, the issue is purely revenue-driven. I will decompose revenue into price per unit, unit volume sold, and geographic or product mix, then examine the hospital and pharmacy prescribing funnel to understand why rivals are outperforming us in competitive regions.",
+      "reasoning": "Holding costs constant focuses every analytical cycle on whether price erosion or volume loss is driving the revenue shortfall."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good direction. Neither our client nor competitors have changed prices, and our drug molecule is clinically identical to rival offerings, yet our unit volumes have fallen sharply in competitive cities. Our client promotes via medical reps, CME workshops, and patient support programs.",
+      "causes": [
+        "Unit volume has fallen in high-competition markets despite identical pricing and clinical parity.",
+        "Competitors use aggressive doctor commissions and channel incentives to capture prescriptions.",
+        "Client maintains a strict ethical policy prohibiting doctor kickbacks."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "No. The prices of the client’s as well as the competitor’s product have been maintained in the required time f",
-      "detail": "No. The prices of the client’s as well as the competitor’s product have been maintained in the required time frame.\nWhat are the promotion strategies used by our client?\nOur client's primary method of promotion is through their team pharmaceutical sales representatives. Other methods are patient support programs, workshops and training sessions.\nWhat are the promotion strategies offered by our competitors?"
+      "kind": "root-cause",
+      "detail": "With identical pricing and clinical efficacy, the volume drop stems from competitors using doctor commissions that our client ethically refuses to match, compounded by zero presence in Northeast India where competition is lighter. Are there institutional channels or ethical manufacturers we can partner with to bypass commission-driven prescribing?",
+      "reasoning": "Because ethical compliance is a hard constraint, growth must come from institutional procurement and underserved regions rather than individual prescriber kickbacks.",
+      "causes": [
+        "Over-reliance on private individual prescribers where rival commissions distort share.",
+        "Under-penetration of centralized institutional tenders and hospital formularies.",
+        "Absence in Northeast India leaves a lower-competition growth market untapped."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Yes—large oncology hospital chains, government cancer institutes, and ethical peer manufacturers are open to structured collaborations, and Northeast India remains underserved. What concrete action plan would you present to the CEO?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a three-pillar volume recovery plan that protects the client's ethical positioning: lock in centralized hospital-chain and government formulary contracts, co-promote complementary portfolios with another ethical manufacturer to boost rep coverage, and enter Northeast India where competitive intensity is lower.",
+      "reasoning": "Shifting mix toward institutional formularies and underserved territories offsets private-clinic commission bias without compromising compliance."
     }
   ],
   "recommendations": [
-    "Client maintains an ethical stance and avoids doctor commissions.",
-    "Strategic Partnership: Collaborate with another ethical manufacturer to",
-    "Advocacy: Lobby for government support/subsidies to improve visibility",
-    "Market Expansion: Establish presence in Northeast region to capture New Market"
+    "P0: Pivot metro go-to-market from individual clinics toward centralized hospital-chain formularies, corporate insurance panels, and government oncology tenders where procurement is price- and quality-driven rather than commission-led.",
+    "P1: Form a co-promotion alliance with a complementary ethical specialty pharma player to share hospital salesforce bandwidth and expand reach across Tier-1 and Tier-2 oncology centers.",
+    "P2: Launch distribution in Northeast India via regional stockists and cancer-care partnerships to capture incremental, lower-competition volume while tracking net realization and compliance metrics."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (BCG)",
+    "northStar": "Gross & EBITDA Margin Recovery (Pharma Manufacturer)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -1881,11 +2268,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For BCG’s Drug Manufacturer Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Client maintains an ethical stance and avoids doctor commissions. We will validate success via Gross & EBITDA Margin Recovery (BCG) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The oncology Pharma Manufacturer's 12-month profit decline is driven by unit volume loss in high-competition cities—not cost inflation or price cuts—because rivals offer doctor commissions that our client rightly refuses on ethical grounds. To recover volume profitably without violating compliance, prioritize centralized hospital and public-tender formulary wins, pursue co-promotion alliances with ethical peers, and expand into underserved Northeast India while monitoring regional volume recovery and hospital contract margins.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Pharma Manufacturer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -1934,37 +2321,31 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-14-fashion-mail-order-profitability",
   "title": "Fashion Mail Order Profitability",
-  "company": "PrepLounge",
+  "company": "Mail-Order Apparel",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "PrepLounge",
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Fashion Mail Order Your client is a direct mail clothing retailer. Postage costs for catalogs will rise to 40 cents each next year. The client wants to know if their current business model is still profitable.",
+  "prompt": "Your client is a direct-mail clothing retailer in Europe whose sole sales channel is mailed product catalogs. Next year, catalog postage costs will rise to $0.40 per catalog. Assess whether the current business model remains profitable and recommend strategic options.",
   "clarifyingQuestions": [
     {
-      "q": "Could you tell me more about the current setup? What exactly do you sell, and through which channel?",
-      "a": "We sell a wide variety of low-cost clothing. Our only distribution channel is product catalogs mailed directly to customers.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the average revenue and pre-mailing profit margin generated per mailed catalog?",
+      "a": "Each catalog generates $2.50 in average revenue across initial and repeat orders, with a 15% operating margin excluding mailing costs.",
+      "why": "Allows immediate calculation of unit profit per catalog against the upcoming $0.40 postage threshold."
     },
     {
-      "q": "How are margins currently?",
-      "a": "Profit margin per order is 15% (excluding mailing costs).",
-      "why": "Scopes the problem boundary before building the issue tree."
-    },
-    {
-      "q": "Has the number of catalog orders been stable?",
-      "a": "No, catalog orders have been declining over the past years, in line with the market trend in Europe.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How have European catalog order volumes been trending, and is there room to raise prices or cut supply-chain costs?",
+      "a": "Catalog orders have been declining in line with European trends, procurement is already lean, and price-elasticity studies show sharp volume drops if prices rise.",
+      "why": "Tests whether traditional pricing or cost-cutting levers can absorb the postage shock before evaluating channel and market pivots."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Approach Fashion Mail Order Profitability (PrepLounge) using a Profitability structure: start by confirming the business objective and scope, decompose the problem cleanly along Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain), and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Evaluate the European Mail-Order Apparel retailer by testing catalog unit economics ($2.50 revenue × 15% margin = $0.375 pre-mail profit vs. $0.40 postage = -$0.025 loss), ruling out price hikes or supply cuts, and applying a Market/Channel expansion matrix toward European e-commerce and emerging-market catalogs.",
   "tree": {
     "label": "Fashion Mail Order Profitability — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -1983,44 +2364,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Fashion Mail Order Your client is a direct mail clothing retailer. Postage costs for catalogs will rise to 40",
-      "detail": "Fashion Mail Order Your client is a direct mail clothing retailer. Postage costs for catalogs will rise to 40 cents each next year. The client wants to know if their current business model is still profitable.\nCould you tell me more about the current setup? What exactly do you sell, and through which channel?\nWe sell a wide variety of low-cost clothing. Our only distribution channel is product catalogs mailed directly to customers.\nHow are margins currently?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Our client sells low-cost clothing in Europe exclusively through mailed product catalogs. Next year, postage will increase to $0.40 per catalog. They want to know whether their current business model stays profitable and what they should do."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Profit margin per order is 15% (excluding mailing costs).",
-      "detail": "Profit margin per order is 15% (excluding mailing costs).\nHas the number of catalog orders been stable?\nNo, catalog orders have been declining over the past years, in line with the market trend in Europe.\nLet’s estimate revenue per catalog. What’s the average order behavior?"
+      "kind": "question",
+      "detail": "To establish unit economics per catalog, what is the average revenue per mailed catalog, our profit margin excluding postage, and the recent trajectory of catalog order volumes in Europe?",
+      "reasoning": "Testing revenue and margin per catalog directly answers whether the $0.40 postage hike pushes unit contribution negative."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Each catalog generates about $2.50 in revenue on average (considering both initial and repeat orders).",
-      "detail": "Each catalog generates about $2.50 in revenue on average (considering both initial and repeat orders).\nOkay, so with a 15% margin, that’s about 37.5 cents profit per catalog before mailing cost.With the new 40-cent mailing cost, we lose about 2.5 cents per catalog which means the current business model becomes unprofitable.\nWhat about raising prices?\nNot feasible. Price elasticity studies show even small price increases cause sharp customer drop-offs."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Each catalog yields $2.50 in average revenue across initial and repeat orders at a 15% pre-mailing margin, and European catalog order volumes have been steadily declining. How do you evaluate the economics and strategic options?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Since we already run a lean supply chain, cutting costs further in procurement or operations won’t be feasible",
-      "detail": "Since we already run a lean supply chain, cutting costs further in procurement or operations won’t be feasible either.\nFashion Mail Order So,If we stick to our current market and current channel, what happens?\nThat means continuing with catalogs in Europe. But since catalog orders in Europe are already declining and postage costs are rising, this is unsustainable.\nWhat if we keep the current market but switch to a new channel?"
+      "kind": "framework",
+      "detail": "First, let's check catalog unit math: 15% of $2.50 is $0.375 profit before postage, which leaves a $0.025 net loss per catalog once postage hits $0.40. Since the current model turns unprofitable, I'll evaluate short-term levers—raising prices, cutting operating costs, or pruning low-ROI mailings—alongside channel and geographic pivots.",
+      "reasoning": "Quantifying the -$0.025 per-catalog deficit upfront frames the urgency of finding either internal margin levers or new growth avenues."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Your unit math is spot on. However, price-elasticity tests show even modest price hikes trigger steep customer defection, and our sourcing and fulfillment costs are already fully optimized. What strategic paths remain?",
+      "causes": [
+        "Higher postage ($0.40 vs. $0.375 gross profit/catalog) turns average catalog mailings unprofitable by $0.025.",
+        "High price elasticity among budget apparel buyers blocks passing postage costs to customers.",
+        "Lean supply chain leaves negligible room for further procurement or fulfillment savings."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "In Europe, instead of relying only on mail-order catalogs, we can launch an online store. This helps us captur",
-      "detail": "In Europe, instead of relying only on mail-order catalogs, we can launch an online store. This helps us capture customers who are shifting to digital shopping while reducing mailing costs.\nWhat if we keep the current channel but explore new markets?\nThat would mean expanding catalog sales into emerging markets. In some developing regions, catalogs may still be relevant for cost-conscious buyers or areas with limited internet penetration.\nAnd finally, what if we explore both new markets and new channels?"
+      "kind": "root-cause",
+      "detail": "Because both pricing and supply-chain cuts are exhausted in a structurally shrinking European catalog market, we face a channel-market mismatch. Using a channel-by-market matrix, we can either shift European buyers to an e-commerce store to eliminate postage, or selectively deploy catalogs into emerging markets with lower digital penetration—while culling unprofitable European mailing segments immediately.",
+      "reasoning": "Separating channel shift from geographic expansion clarifies which moves protect European repeat customers versus capturing net-new offline demand.",
+      "causes": [
+        "Secular decline in European print-catalog shopping compresses order yield per mailed book.",
+        "100% dependence on physical mail exposes all revenue to postal tariff inflation."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That makes strong strategic sense. Between launching European e-commerce, expanding catalogs into emerging markets, and pruning current mailings, how should management sequence execution next year?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "The current pure-catalog model in Europe will lose $0.025 per catalog next year and is unsustainable. Immediately prune low-converting European mailing cohorts to stay cash-positive, launch a direct e-commerce storefront and online marketplace presence in Europe to migrate repeat buyers off print, and pilot catalog or hybrid distribution in high-demand emerging markets only after proving unit ROI.",
+      "reasoning": "Cutting negative-ROI mailings stops near-term cash burn while digital migration preserves the European customer base."
     }
   ],
   "recommendations": [
-    "Raising prices is unviable due to high price sensitivity.",
-    "Costs already optimized, so efficiency gains limited.",
-    "Explore new channels : e-commerce (website), partnerships with online",
-    "Consider new markets : emerging economies with demand for low-cost"
+    "P0: Segment the European mailing database by historical order yield and immediately halt mailings to cohorts generating below $2.70 revenue per catalog so remaining print runs stay above the $0.40 postage breakeven.",
+    "P1: Launch a European e-commerce storefront and partner with regional fashion marketplaces, using QR codes and digital-only discounts inside final catalog drops to migrate repeat buyers online.",
+    "P2: Pilot low-cost catalog distribution in select emerging markets with strong budget-apparel demand and lower e-commerce penetration, scaling only after validating positive post-postage contribution margins."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Gross & EBITDA Margin Recovery (PrepLounge)",
+    "northStar": "Gross & EBITDA Margin Recovery (Mail-Order Apparel)",
     "leading": [
       "Unit realization vs COGS/unit",
       "Capacity utilization & waste/scrap %"
@@ -2030,11 +2441,11 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For PrepLounge’s Fashion Mail Order Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Raising prices is unviable due to high price sensitivity. We will validate success via Gross & EBITDA Margin Recovery (PrepLounge) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "With postage rising to $0.40 against $0.375 in pre-mailing profit per catalog ($2.50 revenue at 15% margin), Mail-Order Apparel's current European model turns unprofitable by $0.025 per catalog—and price sensitivity plus an already lean supply chain rule out pricing or cost fixes. Management should immediately prune below-breakeven European mailing lists, launch a direct e-commerce and marketplace channel to migrate repeat European shoppers off print, and selectively test emerging-market expansion while tracking contribution margin per customer and digital migration rate.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
-      "question": "How would your recommendation change if PrepLounge had half the timeline or budget?",
+      "question": "How would your recommendation change if Mail-Order Apparel had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -2083,39 +2494,33 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-me-airport-taxi",
   "title": "Airport Taxi Market Entry",
-  "company": "BCG",
+  "company": "Airport Taxi Operator",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 1,
   "isStarter": true,
   "tags": [
-    "BCG",
     "Market Entry",
     "Mobility",
     "Airport",
     "Breakeven"
   ],
-  "prompt": "Airport Taxi Dubai Airport is retracting all existing permits and is issuing 2,100 new permits to the three largest operators in the country. Our client is a local Big-three taxi operator with a 3,000-car fleet, but he is not servicing the airport yet. He has a spare capacity of 500 taxis and he is considering applying for 500 new permits. He asked us to help him determine if he should pursue applying for the permits",
+  "prompt": "Dubai Airport is retracting all existing taxi permits and issuing 2,100 new permits to the country's three largest operators. Our client is a Big-three taxi operator with a 3,000-car fleet and 500 idle taxis not yet serving the airport. Determine whether the client should apply for 500 new permits given a 20% one-year ROI target.",
   "clarifyingQuestions": [
     {
-      "q": "What is the target profit for our client?",
-      "a": "Our client is looking for an investment target of 20% ROI over 1 year.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How many passengers use Dubai Airport annually, and what share require a taxi into the city across day and night hours?",
+      "a": "Of 84 million annual passengers, 20% take taxis into Dubai while 80% transit. Half of taxi demand (adjusted for ride sharing) occurs between 12 AM–6 AM and half between 6 AM–12 AM.",
+      "why": "Establishes hourly taxi demand across peak night and daytime windows to test whether 2,100 total airport cabs face supply shortages or idle capacity."
     },
     {
-      "q": "Okay, so I would like to dive into the revenues first. On average how many passengers use the airport and how many of them go into Dubai?",
-      "a": "The airport has 84 million passengers per year, and 20% go into Dubai using a taxi, the remaining 80% are transit passengers.",
-      "why": "Scopes the problem boundary before building the issue tree."
-    },
-    {
-      "q": "Is there a variation between amount of passengers overnight and during the day?",
-      "a": "Yes, Between midnight(12 AM) and 6 AM, 50% require a taxi (this takes into account multiple passengers sharing a taxi). Between 6 AM and 12 AM(over a duration of 18 hours), the other 50% require a taxi (this takes into account multiple pass",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the round-trip duration, day and night fares, and cost structure per permitted taxi?",
+      "a": "Each round trip takes 60 minutes, earning $80 at night and $70 by day. Drivers keep 50% of revenue, annual operating cost is $5,000 per cab, and each permit costs $250,000 upfront.",
+      "why": "Provides the exact unit revenue, variable driver split, and upfront permit capex required to calculate utilization-adjusted Year-1 ROI."
     }
   ],
   "frameworkUsed": "Market Attractiveness (Airport Pax Sizing) → Competition (Ola/Uber/Metro) → Unit Economics & Entry Mode",
   "coreEquation": "Year-1 Profit = (Daily Trips × Captured Share × Take-Rate/Margin × 365) − Fixed Fleet/Permit/Tech Capex",
-  "strategyOverview": "Evaluate entering dedicated airport taxi operations by sizing daily arriving/departing passenger taxi demand, checking incumbent competition (prepaid booths, app aggregators, metro), assessing airport concession/parking permit economics, and picking the lowest-capex entry mode (aggregator fleet partnership vs owning cabs).",
+  "strategyOverview": "Evaluate the Dubai Airport permit bid by sizing hourly taxi demand vs. the 2,100-cab permit cap (100% night utilization, ~61% day utilization), computing realistic annual profit for 500 idle cabs (~$111M net after 50% driver split and $2.5M opex) against the $125M upfront license fee (~89% Year-1 ROI vs. 20% hurdle), and recommending a Go with utilization and regulatory guardrails.",
   "tree": {
     "label": "Airport Taxi Market Entry — Market Entry Tree",
     "valueText": "Should & How?",
@@ -2138,44 +2543,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Airport Taxi Dubai Airport is retracting all existing permits and is issuing 2,100 new permits to the three la",
-      "detail": "Airport Taxi Dubai Airport is retracting all existing permits and is issuing 2,100 new permits to the three largest operators in the country. Our client is a local Big-three taxi operator with a 3,000-car fleet, but he is not servicing the airport yet. He has a spare capacity of 500 taxis and he is considering applying for 500 new permits. He asked us to help him determine if he should pursue applying for the permits or not.\nWhat is the target profit for our client?\nOur client is looking for an investment target of 20% ROI over 1 year.\nOkay, so I would like to dive into the revenues first. On average how many pas"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Dubai Airport is revoking existing taxi permits and issuing 2,100 new permits across the three largest operators. Our client, a Big-three operator with 500 idle taxis in its 3,000-car fleet, wants to know if applying for 500 permits will clear its 20% one-year ROI hurdle."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The airport has 84 million passengers per year, and 20% go into Dubai using a taxi, the remaining 80% are tran",
-      "detail": "The airport has 84 million passengers per year, and 20% go into Dubai using a taxi, the remaining 80% are transit passengers.\nIs there a variation between amount of passengers overnight and during the day?\nYes, Between midnight(12 AM) and 6 AM, 50% require a taxi (this takes into account multiple passengers sharing a taxi). Between 6 AM and 12 AM(over a duration of 18 hours), the other 50% require a taxi (this takes into account multiple passengers sharing a taxi).\nAlright, what are the fares for the two respective timings?"
+      "kind": "question",
+      "detail": "To size revenue and payback accurately, could you share annual airport passenger traffic, the share needing taxis into Dubai across day and night shifts, average round-trip duration, fares, and the upfront permit plus operating costs?",
+      "reasoning": "Getting passenger demand, shift timing, trip cycle time, and permit capex upfront lets us test utilization rather than assuming 100% occupancy."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "The night fares are $80 and the day fares are $70. The taxis operate 24/7 - assume no need for fuel, maintenan",
-      "detail": "The night fares are $80 and the day fares are $70. The taxis operate 24/7 - assume no need for fuel, maintenance, and that there are no traffic jams.\nHow long is the journey of the passenger on average?\nEvery trip takes 60 minutes to leave the airport and get back on average.\nCalculating the demand for taxis, during the night, there are 50% * 20% * 84,000,000 = 8,400,000 passengers per year which is 3,835 passengers per hour. During the daytime, there are 50%*20%*84,000,000=8,400,000 passengers per year which is 1,278 passengers per hour."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The airport serves 84 million passengers annually; 20% take a taxi into Dubai and 80% transit. After adjusting for shared rides, 50% of taxi demand falls between 12 AM–6 AM at $80/fare and 50% between 6 AM–12 AM at $70/fare, with each round trip taking 60 minutes. Drivers take 50% of revenue, operating cost is $5,000/cab/year, and permits cost $250,000 each upfront. How would you model this?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Airport Taxi As it is known that there is a supply of 2100 taxis expected to be available during this time, we",
-      "detail": "Airport Taxi As it is known that there is a supply of 2100 taxis expected to be available during this time, we can see that there is almost a 61% utilization during the daytime (1278/2100) (61% assuming the taxis travel with individual passengers).\nRight. And what is the actual revenue per taxi?\nThe daily revenue of one taxi is (6*$80)+(18*$70)=$1,740. The annual revenue of 500 taxis is (500 * $1,740) * 365 = $317.5 m.\nThis revenue calculation assumes that the taxi utilization is 100%."
+      "kind": "framework",
+      "detail": "I will compare hourly passenger taxi demand against the 2,100-taxi supply cap for both day and night windows to determine realistic utilization, calculate annual revenue and profit for 500 cabs, and compare Year-1 cash profit against the $125 million upfront permit investment.",
+      "reasoning": "Checking demand against total permitted supply avoids overstating daytime revenue if the 2,100-cab pool exceeds daytime arrivals."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Walk me through the demand-versus-supply utilization math and what revenue 500 cabs generate.",
+      "causes": [
+        "Night demand (8.4M rides / 2,190 hrs = 3,836/hr) far exceeds 2,100 cabs, driving 100% night utilization.",
+        "Day demand (8.4M rides / 6,570 hrs = 1,279/hr) yields ~61% utilization across 2,100 cabs."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Seems right. You can dive into the costs now.",
-      "detail": "Seems right. You can dive into the costs now.\nRight so breaking this into different buckets, for our client, there are Operating costs, License costs, and Driver Costs. What are the general costs per cab for each of these buckets?\nSo, drivers get 50% of the revenue instead of a salary. The operating costs are $5,000 per cab per year, and the license costs are $250,000 per cab paid in advance as a one-time fee.\nSo the total payroll comes out to 50% * $317.5 m = $158.8 m."
+      "kind": "root-cause",
+      "detail": "Total taxi demand is 16.8 million rides per year—8.4 million in the 6-hour night window (~3,836 rides/hour, capping our supply at 100% utilization) and 8.4 million over the 18-hour day window (~1,279 rides/hour, or 60.9% utilization across 2,100 cabs). Each cab earns ~$1,247/day ($480 at night plus ~$767 by day), generating ~$227.6 million annually for 500 cabs—versus $317.5 million if naively assuming 100% daytime utilization. Should I factor any extra fleet capex or fuel costs into the ROI?",
+      "reasoning": "Distinguishing the 61% daytime utilization reality from a naive 100% occupancy calculation prevents a ~40% revenue overestimate while still capturing massive night demand.",
+      "causes": [
+        "Realistic annual revenue for 500 cabs is ~$227.6M after adjusting daytime occupancy to 60.9%.",
+        "Drivers' 50% revenue split ($113.8M) and $2.5M opex leave ~$111.3M Year-1 operating profit."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "No extra fleet capex is needed since those 500 taxis are already idle, and assume fuel and traffic friction are negligible in this baseline. What is your final recommendation and key risk caveats?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Apply for all 500 airport permits immediately. Even with 61% daytime utilization, 500 cabs generate ~$111.3 million in Year-1 net profit against a $125 million license outlay—an ~89% Year-1 ROI that clears the 20% hurdle by over 4x, while deploying idle fleet capacity.",
+      "reasoning": "Highlighting both the 89% base-case ROI and operational risks gives leadership an actionable decision with clear downside protection."
     }
   ],
   "recommendations": [
-    "Supply and demand side approach for the revenue",
-    "The client should consider the investment",
-    "The utilization calculation is an important addition to",
-    "The utilization percentage could’ve been included"
+    "P0: Submit the bid for all 500 Dubai Airport permits immediately using the existing idle fleet, locking in an estimated ~89% Year-1 ROI ($111.3M net profit on $125M permit capex) without new vehicle capex.",
+    "P1: Schedule driver shifts specifically to maximize 12 AM–6 AM coverage where demand (3,836 rides/hr) guarantees 100% utilization at the higher $80 night fare, and permit app-dispatch return trips to lift daytime occupancy above 61%.",
+    "P2: Stress-test permit renewal terms, fuel/maintenance pass-throughs, and potential ride-hail competition in the bid contract so payback stays under 15 months even if daytime fares soften."
   ],
   "metricsAndGuardrails": {
-    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (BCG)",
+    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Airport Taxi Operator)",
     "leading": [
       "Breakeven volume vs pilot traction",
       "Partner/channel onboarding velocity"
@@ -2185,11 +2619,11 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For BCG’s Airport Taxi Market Entry case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Supply and demand side approach for the revenue We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (BCG) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "The Airport Taxi Operator should definitely apply for all 500 Dubai Airport permits using its 500 idle cabs. Accounting for 100% night utilization (3,836 rides/hour vs. 2,100 cabs) and 60.9% daytime utilization (1,279 rides/hour), the 500-cab fleet generates ~$227.6M in annual revenue and ~$111.3M in net profit after the 50% driver split and $2.5M operating cost—delivering an ~89% Year-1 ROI on the $125M permit fee, well above the 20% hurdle, provided night-shift coverage and permit renewal terms are protected.",
   "interviewerTrap": "Assuming 100% of airport passengers take taxis and ignoring airport concession fees + empty return (deadhead) rides!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Airport Taxi Operator had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -2238,37 +2672,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-me-airline-route",
   "title": "Airline Route Expansion",
-  "company": "Grant Thornton",
+  "company": "Commercial Airline",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Grant Thornton",
     "Market Entry",
     "Consulting"
   ],
-  "prompt": "Your client is an airline considering launching a new flight route from City A to City B. You are tasked with evaluating the feasibility of this initiative.How would you approach this scenario?",
+  "prompt": "Your client is a commercial airline known for reliability and superior on-time performance. Management is considering launching a new direct flight route from its City A hub to City B. Evaluate the commercial and operational feasibility of this route.",
   "clarifyingQuestions": [
     {
-      "q": "What’s the distance between the cities and the typical flight duration? Also, what’s the current demand like?",
-      "a": "The cities are about 700 km apart, with a flight time of roughly 1.5 hours. Existing carriers operate at around 80% load factors.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the route distance, flight duration, current load factors on competing carriers, and passenger mix?",
+      "a": "The cities are 700 km apart (~1.5-hour flight), existing carriers operate at roughly 80% load factors, and traffic is split 40% business and 60% leisure.",
+      "why": "Confirms whether route length suits narrow-body economics and whether demand balances weekday business yield with weekend leisure volume."
     },
     {
-      "q": "Are there any government incentives or regulatory schemes that would apply to this route?",
-      "a": "Yes, the route falls under the UDAN scheme, which offers ATF tax rebates, reduced airport charges, and potential subsidies.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How do the airports in City A and City B compare on slot availability, hub connectivity, and regulatory incentives?",
+      "a": "City A is already our modern hub with spare slots, adding City B connects six additional spoke cities, and the route qualifies for UDAN ATF rebates, reduced airport fees, and subsidies.",
+      "why": "Assesses network feed value and whether government scheme incentives de-risk early route breakeven."
     },
     {
-      "q": "That’s definitely helpful. Lower costs and regulatory support would reduce early-stage break-even pressure and make the initial operations less risky.Finally, how does this route fit with the airline’s broader network an",
-      "a": "City A is already a hub. Adding City B enables connections to six additional cities. Government encourages fuel-efficient aircraft and carbon offset programs.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which aircraft would serve the route, and how do incumbent competitors perform?",
+      "a": "Competitors run frequent low-cost flights with inconsistent punctuality, while fuel-efficient A320 or B737 narrow-body jets fit the 700 km mission.",
+      "why": "Identifies our punctuality differentiation and validates fleet suitability before finalizing the go/no-go recommendation."
     }
   ],
   "frameworkUsed": "Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode",
   "coreEquation": "Go / No-Go = Attractive SOM × Client Right-to-Win × (Breakeven Volume ≤ Achievable Share)",
-  "strategyOverview": "Approach Airline Route Expansion (Grant Thornton) using a Market Entry structure: start by confirming the business objective and scope, decompose the problem cleanly along Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Assess the Commercial Airline's City A–City B launch across Route Attractiveness (700 km, 80% load factors, 40/60 business-leisure split), Competitive Right-to-Win (on-time reliability vs. erratic LCCs), Hub Network & UDAN Cost Advantage (6 feeder connections + ATF rebates), and phased narrow-body deployment.",
   "tree": {
     "label": "Airline Route Expansion — Market Entry Tree",
     "valueText": "Should & How?",
@@ -2291,44 +2724,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Your client is an airline considering launching a new flight route from City A to City B. You are tasked with",
-      "detail": "Your client is an airline considering launching a new flight route from City A to City B. You are tasked with evaluating the feasibility of this initiative.How would you approach this scenario?\nThank you. I’d approach this systematically. First, I’d like to clarify some key details about the route, the competitive landscape, airport infrastructure, demand, government incentives, and strategic fit.To start, could you share the airline’s USP and how it compares with competitors on this route?\nYour airline is known for reliability, superior on-time performance, and excellent customer service. The frequent flyer prog"
+      "kind": "prompt",
+      "detail": "Our client is a commercial airline recognized for reliability and strong on-time performance. They are considering launching a new route between City A and City B and want your assessment of its feasibility."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "What’s the distance between the cities and the typical flight duration? Also, what’s the current demand like?",
-      "detail": "What’s the distance between the cities and the typical flight duration? Also, what’s the current demand like?\nThe cities are about 700 km apart, with a flight time of roughly 1.5 hours. Existing carriers operate at around 80% load factors.\nPassenger mix is about 40% business and 60% leisure.\nThat makes sense. 700 km is ideal long enough that flying saves a lot of time compared to rail, but short enough for narrow-body jets to operate efficiently. And the demand profile seems healthy.How do the airports compare in terms of infrastructure, connectivity, and scalability?"
+      "kind": "question",
+      "detail": "To frame the feasibility check, could you share the route distance, current demand and passenger mix, airport slot availability at both cities, and any government incentives or fleet constraints?",
+      "reasoning": "Route economics depend equally on stage length, load-factor depth, slot access, and any regulatory subsidies."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "City A’s airport is modern, with multiple terminals and sufficient slots. City B’s airport is smaller but well",
-      "detail": "City A’s airport is modern, with multiple terminals and sufficient slots. City B’s airport is smaller but well-connected to the city center.\nPerfect. City A can act as a mini-hub for feeder traffic, while City B’s central location will be convenient for tourists. Good airport infrastructure is crucial for maintaining our USP of reliability, and available slots make scaling easier.\nAre there any government incentives or regulatory schemes that would apply to this route?\nYes, the route falls under the UDAN scheme, which offers ATF tax rebates, reduced airport charges, and potential subsidies."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The route is 700 km (~1.5 hours), incumbents average 80% load factors with a 40% business and 60% leisure mix, and City A is already our hub with available slots while City B is smaller but central. The route also qualifies under the UDAN scheme for ATF tax rebates, lower airport fees, and subsidies. How would you evaluate this?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "That’s definitely helpful. Lower costs and regulatory support would reduce early-stage break-even pressure and",
-      "detail": "That’s definitely helpful. Lower costs and regulatory support would reduce early-stage break-even pressure and make the initial operations less risky.Finally, how does this route fit with the airline’s broader network and sustainability objectives?\nCity A is already a hub. Adding City B enables connections to six additional cities. Government encourages fuel-efficient aircraft and carbon offset programs.\nGot it. Strategically, this isn’t just a point-to-point route—it strengthens the hub-and-spoke network. Deploying fuel-efficient aircraft would help with ESG commitments, and carbon offset initiatives could enhan"
+      "kind": "framework",
+      "detail": "I'll assess four pillars: demand durability and yield mix, competitive positioning versus incumbents, unit economics including UDAN cost relief and aircraft fit, and hub-and-spoke network synergies. Let's examine competitive weaknesses and aircraft options first.",
+      "reasoning": "At 700 km and 80% incumbent load factors, demand is proven, so differentiation and unit cost determine whether we win profitable share."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Competitors operate frequent low-cost services on the route but suffer from inconsistent punctuality. We have fuel-efficient A320 and B737 narrow-body aircraft available, and linking City B into City A opens feeder connections to six additional cities.",
+      "causes": [
+        "Incumbent LCCs average 80% load factors yet underperform on punctuality, alienating the 40% business segment.",
+        "UDAN ATF tax rebates and lower airport charges materially lower early-stage breakeven load factor.",
+        "Connecting City B into the City A hub unlocks feeder traffic across six onward routes."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Yes, the current load factors and dual passenger mix indicate sufficient demand.",
-      "detail": "Yes, the current load factors and dual passenger mix indicate sufficient demand.\nThe 40% business segment ensures weekday stability, while the leisure segment provides weekend and seasonal peaks.It also suggests we could start with a modest frequency and scale up based on observed demand.What about competitor operations and aircraft suitability?\nCompetitors operate frequent low-cost services but with variable punctuality. A320/B737 narrow-body jets are suitable for this route.\nCompetitors’ inconsistent punctuality gives us an opportunity to differentiate on reliability. Using A320/B737 jets ensures fuel efficienc"
+      "kind": "root-cause",
+      "detail": "This looks highly attractive: the 40% business segment gives weekday yield stability that incumbents underserve due to poor punctuality, while UDAN subsidies and A320/B737 fuel efficiency protect margins. Adding six onward hub connections also raises total network RASK beyond standalone route revenue. What risks should we guard against in City B operations?",
+      "reasoning": "Recognizing both standalone route economics and network feeder uplift prevents undervaluing the City A hub synergy while checking turnaround risk.",
+      "causes": [
+        "Smaller City B airport turnaround delays could erode our core on-time reliability brand.",
+        "Over-allocating initial daily frequency risks diluting load factor below breakeven before feeder demand ramps."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "City B has manageable ground capacity if turnarounds are tightly scheduled, and the government also encourages carbon-offset programs for ESG alignment. How should the airline structure the launch?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend launching the City A–City B route with a phased A320/B737 schedule timed to City A hub connection banks. By combining UDAN cost rebates, superior on-time reliability for weekday business travelers, and feeder traffic from six onward cities, the route should rapidly reach profitable load factors without straining turnaround reliability.",
+      "reasoning": "A disciplined initial frequency timed to hub banks balances yield capture with operational reliability."
     }
   ],
   "recommendations": [
-    "Leverage UDAN incentives to reduce costs and improve",
-    "Deploy A320 fuel-efficient aircraft to optimize operational",
-    "Integrate the route into City A hub to feed six new",
-    "Monitor load factors closely; expand capacity only after"
+    "P0: Launch with 1–2 daily A320/B737 frequencies timed to City A hub connection banks, capturing high-yield weekday business travelers dissatisfied with incumbent LCC delays and feeding six onward destinations.",
+    "P1: Lock in UDAN ATF tax rebates, reduced airport charges, and route subsidies before launch, and build dedicated ground-turnaround SLAs at City B to safeguard on-time performance.",
+    "P2: Pair corporate frequent-flyer promotions with optional carbon-offset ticketing to meet ESG goals, expanding capacity only after sustained route load factors exceed 75–80%."
   ],
   "metricsAndGuardrails": {
-    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Grant Thornton)",
+    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Commercial Airline)",
     "leading": [
       "Breakeven volume vs pilot traction",
       "Partner/channel onboarding velocity"
@@ -2338,11 +2801,11 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For Grant Thornton’s Airline Route Expansion case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Leverage UDAN incentives to reduce costs and improve We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (Grant Thornton) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "The Commercial Airline should launch the 700 km City A–City B route on a phased schedule using fuel-efficient A320/B737 narrow-body aircraft. Incumbents' 80% load factors and inconsistent punctuality leave a clear opening to win the 40% weekday business segment on reliability, while UDAN fuel-tax and airport-fee rebates lower breakeven and City A hub feed unlocks traffic across six onward cities—tracked via route load factor, on-time performance, and net contribution margin.",
   "interviewerTrap": "Saying 'YES enter!' purely because TAM is huge—forgetting competition, regulatory hurdles, breakeven math, and Build vs Buy vs Partner!",
   "variations": [
     {
-      "question": "How would your recommendation change if Grant Thornton had half the timeline or budget?",
+      "question": "How would your recommendation change if Commercial Airline had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -2391,37 +2854,31 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-me-steel-3",
   "title": "Steel Manufacturer - 3 (Expansion)",
-  "company": "KPMG",
+  "company": "Steel Manufacturer",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "KPMG",
     "Market Entry",
     "Consulting"
   ],
-  "prompt": "There is a major Steel company that wants to expand to the Middle East part of the globe. You have been approached to suggest a suitable market entry strategy.",
+  "prompt": "Your client is a major global producer of hot-rolled steel considering expanding into the Middle East to establish cold-rolled steel manufacturing. Evaluate the attractiveness of this opportunity and recommend an appropriate market entry strategy.",
   "clarifyingQuestions": [
     {
-      "q": "Okay, to proceed, could you shed light on the specific objectives the company aims to achieve through this expansion?",
-      "a": "The company aims to expand into the Middle East with the motive of dominating the other kind of steel i.e. cold rolled steel.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Does the client currently produce cold-rolled steel anywhere, and what is the strategic rationale for starting in the Middle East?",
+      "a": "No, the client only manufactures hot-rolled steel today. They see an underdeveloped regional cold-rolled market with competitive labor costs that can support both local sales and exports.",
+      "why": "Clarifies technical capability gaps and tests whether the Middle East serves purely domestic demand or an export manufacturing base."
     },
     {
-      "q": "Okay, has the company ever explored cold-rolled steel manufacturing earlier or are you planning to start it from the Middle East only?",
-      "a": "No, the company is planning to start it from the Middle East itself.",
-      "why": "Scopes the problem boundary before building the issue tree."
-    },
-    {
-      "q": "Any particular reason to do so?",
-      "a": "The industry is very underdeveloped in the region and the company wants to leverage this opportunity. Moreover, cheap labour in the region provides an option to export to other countries as well Okay, can you explain a bit about the usage a",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the size, growth rate, and end-use demand profile for cold-rolled steel in the Middle East?",
+      "a": "Cold-rolled steel serves automotive, appliances, and precision construction, and the Middle East market is growing at 6.2% CAGR to reach $21 billion by 2026.",
+      "why": "Quantifies market attractiveness and confirms high-value industrial demand before evaluating entry modes."
     }
   ],
   "frameworkUsed": "Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode",
   "coreEquation": "Go / No-Go = Attractive SOM × Client Right-to-Win × (Breakeven Volume ≤ Achievable Share)",
-  "strategyOverview": "Approach Steel Manufacturer - 3 (Expansion) (KPMG) using a Market Entry structure: start by confirming the business objective and scope, decompose the problem cleanly along Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Assess the Steel Manufacturer's Middle East cold-rolled expansion across Market Attractiveness ($21B by 2026 at 6.2% CAGR), Value-Chain Synergy (hot-rolled coils are the direct feedstock for cold-rolling without reheating), and Greenfield vs. Brownfield entry modes to serve regional demand and exports.",
   "tree": {
     "label": "Steel Manufacturer - 3 (Expansion) — Market Entry Tree",
     "valueText": "Should & How?",
@@ -2444,43 +2901,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "There is a major Steel company that wants to expand to the Middle East part of the globe. You have been approa",
-      "detail": "There is a major Steel company that wants to expand to the Middle East part of the globe. You have been approached to suggest a suitable market entry strategy.\nGreat can you give some details about the present market and expertise of the Company The company is a prominent market share holder globally in the production of hot-rolled steel.\nOkay, to proceed, could you shed light on the specific objectives the company aims to achieve through this expansion?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Our client is a major global hot-rolled steel producer exploring an expansion into the Middle East to manufacture cold-rolled steel. How would you assess this market entry and recommend a strategy?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The company aims to expand into the Middle East with the motive of dominating the other kind of steel i.e. col",
-      "detail": "The company aims to expand into the Middle East with the motive of dominating the other kind of steel i.e. cold rolled steel.\nOkay, has the company ever explored cold-rolled steel manufacturing earlier or are you planning to start it from the Middle East only?\nNo, the company is planning to start it from the Middle East itself."
+      "kind": "question",
+      "detail": "First, I'd like to confirm whether the client already produces cold-rolled steel in other geographies, what motivates targeting the Middle East specifically, and what the regional demand size and growth look like.",
+      "reasoning": "Establishing existing technical capabilities and regional market size determines whether this is a capability extension or a greenfield technology build."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Any particular reason to do so?",
-      "detail": "Any particular reason to do so?\nThe industry is very underdeveloped in the region and the company wants to leverage this opportunity. Moreover, cheap labour in the region provides an option to export to other countries as well Okay, can you explain a bit about the usage and demand of cold roll steel in this market?\nCold rolled steel is used in high-precision applications like the automobile industry, appliances, and certain construction materials. The market is expected to grow at 6.2% CAGR and reach $21B by 2026."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The client has no cold-rolled operations yet and wants to start in the Middle East because regional capacity is underdeveloped and competitive labor enables exports. End uses include automotive, appliances, and precision construction, with the regional market growing at 6.2% CAGR to $21 billion by 2026. How would you structure your evaluation?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Great, considering this opportunity, there are two potential pathways: Brownfield Investment and Greenfield In",
-      "detail": "Great, considering this opportunity, there are two potential pathways: Brownfield Investment and Greenfield Investment. Is there a preference for either one?\nI'd like you to explore both options.\nCertainly, first could you explain the differences in the manufacturing processes between hot-rolled steel and cold-rolled steel?"
+      "kind": "framework",
+      "detail": "I will evaluate three areas: regional market attractiveness and export economics, technical synergy between our existing hot-rolled operations and cold-rolled manufacturing, and entry-mode trade-offs between Greenfield construction and Brownfield acquisition or joint venture.",
+      "reasoning": "Comparing Greenfield versus Brownfield requires understanding how tightly cold-rolling integrates with our existing hot-rolled feedstock."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "That makes sense. Technically, cold-rolled steel is made by passing hot-rolled steel through precision rollers at room temperature without reheating. Should we pursue a Greenfield build or a Brownfield acquisition?",
+      "causes": [
+        "Middle East cold-rolled demand is scaling at 6.2% CAGR toward $21B with limited local supply.",
+        "Hot-rolled steel is the direct input for cold-rolling, creating strong vertical integration synergy.",
+        "Competitive regional labor and energy economics support export hubs alongside domestic supply."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Cold rolled steel is produced by passing previously hot rolled steel through rollers without reheating, unlike",
-      "detail": "Cold rolled steel is produced by passing previously hot rolled steel through rollers without reheating, unlike the manufacturing process of hot rolled steel.\nUnderstood. Given this insight, it appears viable to leverage our current manufacturing capabilities while incorporating the necessary technological advancements for cold-rolled steel production. This aligns well with a Greenfield Investment strategy, we could establish new facilities in the Middle East, capable of producing both types of steel. These facilities would cater to local demand while also facilitating exports to broader markets.\nGood enough. Any"
+      "kind": "root-cause",
+      "detail": "Because hot-rolled coil is the direct feedstock for cold-rolling, our client already controls the hardest upstream step. Since regional capacity is underdeveloped, quality Brownfield targets may be scarce or carry legacy equipment, whereas a Greenfield cold-rolling facility—fed initially by our global hot-rolled coils and expandable into an integrated complex—lets us deploy modern precision lines tailored for automotive and appliance specs.",
+      "reasoning": "Connecting upstream hot-rolled feedstock control to Greenfield equipment quality explains why building new beats retrofitting outdated mills.",
+      "causes": [
+        "Underdeveloped regional industry limits viable Brownfield targets capable of auto-grade tolerances.",
+        "Greenfield investment carries longer lead times and high upfront capex risk if export tariffs or local offtake lag."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good insight on feedstock integration and equipment quality. How would you mitigate the capex and ramp-up risks of a Greenfield entry?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a phased Greenfield entry near a deep-water Middle East industrial port: build modern cold-rolling and finishing lines first using our existing hot-rolled coils as captive feedstock, lock in anchor offtake agreements with regional construction and appliance OEMs, and evaluate local hot-rolling expansion only after Phase 1 utilization exceeds 80%.",
+      "reasoning": "Staging downstream cold-rolling ahead of full upstream smelting cuts initial capex and accelerates time-to-revenue."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Steel Manufacturer - 3 (Expansion) before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Execute a phased Greenfield cold-rolling mill near a Middle East export port, feeding the plant initially with the client's existing global hot-rolled coils to halve upfront capex and speed commissioning.",
+    "P1: Secure multi-year anchor offtake contracts with regional precision-construction and appliance manufacturers before groundbreaking, targeting high-margin coated/cold-rolled SKUs.",
+    "P2: Benchmark local labor, energy tariffs, and export trade agreements across UAE/Saudi industrial zones, triggering Phase 2 upstream hot-rolling integration only after Phase 1 hits >80% utilization."
   ],
   "metricsAndGuardrails": {
-    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (KPMG)",
+    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Steel Manufacturer)",
     "leading": [
       "Breakeven volume vs pilot traction",
       "Partner/channel onboarding velocity"
@@ -2490,11 +2978,11 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For KPMG’s Steel Manufacturer - 3 (Expansion) case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Steel Manufacturer - 3 (Expansion) before secondary optimizations. We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (KPMG) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "The Steel Manufacturer should enter the $21B (6.2% CAGR) Middle East cold-rolled steel market via a phased Greenfield strategy anchored near a deep-water export port. Because cold-rolling processes hot-rolled coils directly without reheating, launching Phase 1 with modern cold-rolling lines fed by our existing global hot-rolled supply captures regional supply gaps and competitive labor for exports while containing capex risk—with Phase 2 upstream integration gated on 80%+ plant utilization and secured OEM offtake.",
   "interviewerTrap": "Saying 'YES enter!' purely because TAM is huge—forgetting competition, regulatory hurdles, breakeven math, and Build vs Buy vs Partner!",
   "variations": [
     {
-      "question": "How would your recommendation change if KPMG had half the timeline or budget?",
+      "question": "How would your recommendation change if Steel Manufacturer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -2543,37 +3031,31 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-18-argentinian-toy-manufacturer-entry",
   "title": "Argentinian Toy Manufacturer Entry",
-  "company": "PrepLounge",
+  "company": "Argentinian Toy Maker",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "PrepLounge",
     "Market Entry",
     "Consulting"
   ],
-  "prompt": "Argentinian Toy Manufacturer The Client is an Argentinian toy manufacturer. It has 50% market share in Argentina and is the market leader in South America.",
+  "prompt": "Your client is an Argentinian toy manufacturer holding a 50% domestic market share and leading the South American market, yet only 5% market share internationally. The CEO wants to expand global market share, improve international profit margins, and identify new revenue streams.",
   "clarifyingQuestions": [
     {
-      "q": "Fine, could you kindly furnish me with some data pertaining to the market expansion within the toy industry?",
-      "a": "The global toy market is growing at an average of 1% per year.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How fast are the global and regional toy markets growing across North America, Europe, Latin America, and Asia?",
+      "a": "The global toy market grows ~1% annually: Argentina (+10%), India (+10%), and China (+15%) are expanding rapidly, while the U.S. and Europe are shrinking at 5% per year.",
+      "why": "Reveals whether our 5% international share stagnates because we are targeting shrinking Western markets instead of high-growth Asia."
     },
     {
-      "q": "Alright, I would now like to comprehend the Client’s business with greater clarity. Could you please brief me about the challenges that you are facing?",
-      "a": "Sure, our company is a prominent toy manufacturer in Argentina, holding a solid 50% market share in the country. We're proud to be the market leader in South America as well. However, when it comes to international markets, our market share",
-      "why": "Scopes the problem boundary before building the issue tree."
-    },
-    {
-      "q": "Further, can I know a little bit about the competitive environment?",
-      "a": "Are the competitors also facing the same issue as us?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What does our international product portfolio look like in terms of unit volumes, selling prices, and unit costs?",
+      "a": "Across three core international SKUs, Product 1 sells 200k units ($17 ASP, $9.00 cost), Product 2 sells 100k units ($14 ASP, $6.60 cost), and Product 3 sells 50k units ($8 ASP, $5.60 cost).",
+      "why": "Exposes SKU-level gross margins and volume concentration so we can isolate low-margin drags and high-leverage winners."
     }
   ],
   "frameworkUsed": "Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode",
   "coreEquation": "Go / No-Go = Attractive SOM × Client Right-to-Win × (Breakeven Volume ≤ Achievable Share)",
-  "strategyOverview": "Approach Argentinian Toy Manufacturer Entry (PrepLounge) using a Market Entry structure: start by confirming the business objective and scope, decompose the problem cleanly along Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Grow the Argentinian Toy Maker's international share and margins by redirecting expansion from shrinking US/EU markets (-5%/yr) toward high-growth APAC markets (India +10%, China +15%), pruning or repricing low-margin Product 3 (30% margin vs. ~47–53% on Products 1–2), and scaling e-commerce and IP licensing.",
   "tree": {
     "label": "Argentinian Toy Manufacturer Entry — Market Entry Tree",
     "valueText": "Should & How?",
@@ -2596,43 +3078,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Argentinian Toy Manufacturer The Client is an Argentinian toy manufacturer. It has 50% market share in Argenti",
-      "detail": "Argentinian Toy Manufacturer The Client is an Argentinian toy manufacturer. It has 50% market share in Argentina and is the market leader in South America.\nHowever, its international market share is only 5%. Their CEO wants you to brainstorm and structure potential ideas to increase the company’s profit margins and market share. The CEO also wants you to think about exploiting new revenue sources.\nCommencing on our discussion, I would like to know about the competitors of the company, both local and international.\nThe company segments their customers into local and international markets. Since there are no signif"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Our client leads South America with a 50% toy market share in Argentina, but holds just 5% internationally. The CEO wants a structured plan to lift international market share, boost profit margins, and open new revenue streams."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Fine, could you kindly furnish me with some data pertaining to the market expansion within the toy industry?",
-      "detail": "Fine, could you kindly furnish me with some data pertaining to the market expansion within the toy industry?\nThe global toy market is growing at an average of 1% per year.\nFurther every year, India’s market grows 10% and China’s market grows 15%.However, the U.S. and European markets are shrinking at a yearly rate of 5%. The Argentinian toy market is growing at a yearly rate of 10%.\nAlright, I would now like to comprehend the Client’s business with greater clarity. Could you please brief me about the challenges that you are facing?"
+      "kind": "question",
+      "detail": "To ground our strategy, could you share growth rates across major international toy markets, how our international SKU portfolio performs on price, cost, and volume, and whether competitors face the same international drag?",
+      "reasoning": "Separating regional market growth from SKU-level unit economics reveals whether the problem is geographic mix, product mix, or competitive execution."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Sure, our company is a prominent toy manufacturer in Argentina, holding a solid 50% market share in the countr",
-      "detail": "Sure, our company is a prominent toy manufacturer in Argentina, holding a solid 50% market share in the country. We're proud to be the market leader in South America as well. However, when it comes to international markets, our market share is just 5%, which is significantly lower. We're facing the challenge of expanding our global presence and increasing our profit margins while maintaining our leadership locally.\nArgentinian Toy Manufacturer Thank you for that overview. Expanding internationally is certainly a big step. To successfully expand your global market, I would like to inquire about the company’s produ"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Global toy growth is just 1% annually: U.S. and European markets are shrinking 5% per year, whereas Argentina (+10%), India (+10%), and China (+15%) are growing fast. Internationally, we sell three SKUs: Product 1 (200k units at $17 ASP, $9.00 cost), Product 2 (100k units at $14 ASP, $6.60 cost), and Product 3 (50k units at $8 ASP, $5.60 cost), while rivals have been growing faster abroad. How do you structure the turnaround?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Further, can I know a little bit about the competitive environment?",
-      "detail": "Further, can I know a little bit about the competitive environment?\nAre the competitors also facing the same issue as us?\nClothing fashion is a dense industry. There has obviously been healthy competition. But our competitors, in general, have seen significant growth.\nOkay. So let me focus on the cost aspects. I will start by analyzing the value chain. I will start by dividing the value chain into the following major subgroups:"
+      "kind": "framework",
+      "detail": "I'll structure this into three levers: geographic reallocation toward high-growth regions, SKU and value-chain margin optimization, and new revenue models. First, let's quantify international SKU profitability—total international revenue is $5.2 million with $2.46 million gross profit, and Product 3 stands out as a major margin drag.",
+      "reasoning": "Calculating exact SKU revenue and gross profit highlights where margin dollars actually come from before choosing markets or channels."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good math—Product 1 earns $8.00/unit (47% margin) and Product 2 earns $7.40/unit (53% margin), while Product 3 yields just $2.40/unit (30% margin) on 50k units. Moreover, heavy shipping, storage, and distributor markups out of South America erode net margins overseas.",
+      "causes": [
+        "Product 3 generates only $2.40/unit (30% gross margin) on low volume (50k units).",
+        "Over-exposure to shrinking US/EU markets (-5%/yr) instead of growing APAC markets (India +10%, China +15%).",
+        "Long-haul export logistics and distributor layers compress landed international net margins."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "R&D, Raw material extraction, Inventory management, Storage Transportation and Distribution and finally outsou",
-      "detail": "R&D, Raw material extraction, Inventory management, Storage Transportation and Distribution and finally outsourcing and marketing.\nThe unit costs of the products are 9.00$, 6.60$ and 5.60$ respectively. However, the international sales are not so promising with only 200000, 100000, and 50000 sales of products 1,2, and 3 respectively. The average selling price of the products at an international level are 17.00$, 14.00$ and 8.00$ respectively.\nThank you for that overview. Expanding internationally is certainly a big step. To successfully expand your global market, I would like to inquire about the company’s produc"
+      "kind": "root-cause",
+      "detail": "Three root causes explain the weak 5% share and thin margins: chasing shrinking Western markets, exporting low-margin Product 3 across expensive long-haul freight, and relying on traditional wholesalers rather than localized contract manufacturing or direct e-commerce. Beyond refocusing on Products 1 and 2 in India and China, how feasible are regional contract manufacturing and IP licensing?",
+      "reasoning": "Testing regional contract manufacturing directly addresses the freight-and-tariff drag on South American exports while supporting APAC scale.",
+      "causes": [
+        "Centralized South American production inflates freight and import tariffs into Asia and North America.",
+        "Lack of digital D2C channels and licensed IP partnerships limits international brand pull."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Regional contract manufacturing in Asia is feasible for high-volume SKUs, and the client owns strong proprietary character designs. How would you pull these pieces together for the CEO?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a three-part global reset: reallocate commercial spend toward India (+10%) and China (+15%) led by high-margin Products 1 and 2 while bundling or discontinuing Product 3; shift Asian fulfillment to local contract manufacturers and cross-border e-commerce marketplaces to cut freight; and monetize proprietary characters through B2B IP licensing and subscription toy kits.",
+      "reasoning": "Pairing geographic pivot with localized manufacturing and IP licensing expands both international share and net margin simultaneously."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Argentinian Toy Manufacturer Entry before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Focus international expansion on high-growth India (+10%) and China (+15%) using high-margin Products 1 (47% GM) and 2 (53% GM), while repricing, bundling, or retiring low-margin Product 3 (30% GM).",
+    "P1: Partner with regional contract manufacturers in Asia and launch direct marketplace storefronts (e.g., regional e-commerce platforms) to cut trans-oceanic freight, inventory holding, and distributor margin layers.",
+    "P2: Create high-margin recurring revenue streams by licensing proprietary toy IP for apparel/media and launching quarterly age-based educational toy subscription boxes."
   ],
   "metricsAndGuardrails": {
-    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (PrepLounge)",
+    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Argentinian Toy Maker)",
     "leading": [
       "Breakeven volume vs pilot traction",
       "Partner/channel onboarding velocity"
@@ -2642,11 +3155,11 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For PrepLounge’s Argentinian Toy Manufacturer Entry case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Argentinian Toy Manufacturer Entry before secondary optimizations. We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (PrepLounge) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "The Argentinian Toy Maker's 5% international share and lagging margins stem from targeting shrinking Western markets (-5%/yr), shipping low-margin Product 3 ($2.40/unit, 30% GM) over costly long-haul export lanes, and underusing digital channels. Management should pivot international growth toward India (+10%) and China (+15%) anchored on Products 1 and 2 (47–53% GM), adopt Asian contract manufacturing plus direct e-commerce to strip logistics drag, and monetize proprietary IP via licensing and subscription kits while tracking international contribution margin and market share.",
   "interviewerTrap": "Saying 'YES enter!' purely because TAM is huge—forgetting competition, regulatory hurdles, breakeven math, and Build vs Buy vs Partner!",
   "variations": [
     {
-      "question": "How would your recommendation change if PrepLounge had half the timeline or budget?",
+      "question": "How would your recommendation change if Argentinian Toy Maker had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -2695,37 +3208,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-19-perpetual-motion-invention-commercialization",
   "title": "Perpetual Motion Invention Commercialization",
-  "company": "American Express",
+  "company": "Energy Tech Venture",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "American Express",
     "Market Entry",
     "Consulting"
   ],
-  "prompt": "Perpetual Motion Invention A scientist wants to sell his perpetual-motion invention in Europe.",
+  "prompt": "A scientist wants to commercialize a claimed perpetual-motion power device in Europe. Evaluate whether this venture is commercially viable, identify realistic target segments if validated, and estimate potential first-year economics.",
   "clarifyingQuestions": [
     {
-      "q": "How do you approach the market and first-year earnings?",
-      "a": "I'd address three sequential questions: does it actually generate net usable energy, where would its physical characteristics create customer value if validated, and what first-year revenue and cash profit are realistic given capacity and a",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the device's claimed electrical output, physical dimensions, and manufacturing cost?",
+      "a": "The prototype claims 50 watts of continuous electrical output, weighs 30 kg, occupies 1 cubic meter, and costs $1,000 to manufacture using readily available materials.",
+      "why": "Quantifies power density and capital cost per watt, which immediately determines whether residential or grid applications are even physically plausible."
     },
     {
-      "q": "What product information do you need?",
-      "a": "Claimed continuous electrical output, all measured energy inputs, size, weight, reliability, manufacturing and installation cost, maintenance requirements, regulatory safety, intellectual-property position and production readiness.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Has the device undergone independent scientific verification, and what future upgrades does the inventor claim?",
+      "a": "No independent testing has occurred yet. The inventor claims a future version could double output to 100W while cutting weight to 7.5 kg and volume to 0.25 m³.",
+      "why": "Establishes physics verification as a mandatory go/no-go gate and separates speculative roadmap claims from current unit economics."
     },
     {
-      "q": "The scientist says it can later double power while reducing weight and volume to one-quarter. Does that change your assessment?",
-      "a": "It would improve an otherwise valid product but not remove the need to prove the underlying physics. Under the claim, power would rise from 50W to 100W, weight fall from 30 kg to 7.5 kg, and volume fall from 1 m³ to 0.25 m³. This is a futur",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What benchmark electricity price and European household assumptions should we use to test residential payback?",
+      "a": "Assume roughly 700 million people in Europe (175 million 4-person households), $1,500 average annual household electricity spend, and an illustrative retail electricity rate of $0.30/kWh.",
+      "why": "Allows testing whether top-down European household electricity spend translates into viable bottom-up unit payback for a 50W machine."
     }
   ],
   "frameworkUsed": "Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode",
   "coreEquation": "Go / No-Go = Attractive SOM × Client Right-to-Win × (Breakeven Volume ≤ Achievable Share)",
-  "strategyOverview": "Approach Perpetual Motion Invention Commercialization (American Express) using a Market Entry structure: start by confirming the business objective and scope, decompose the problem cleanly along Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Evaluate the Energy Tech Venture with a strict gating sequence: (1) independent physics verification to rule out hidden energy inputs, (2) bottom-up 50W output math (438 kWh/yr = $131.40/yr electricity value vs. $1,000 COGS = >7.6-year simple payback), and (3) rejecting residential grid replacement in favor of niche off-grid remote sensors only if verified.",
   "tree": {
     "label": "Perpetual Motion Invention Commercialization — Market Entry Tree",
     "valueText": "Should & How?",
@@ -2748,43 +3260,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Perpetual Motion Invention A scientist wants to sell his perpetual-motion invention in Europe.",
-      "detail": "Perpetual Motion Invention A scientist wants to sell his perpetual-motion invention in Europe.\nHow do you approach the market and first-year earnings?\nI'd address three sequential questions: does it actually generate net usable energy, where would its physical characteristics create customer value if validated, and what first-year revenue and cash profit are realistic given capacity and a business model. Scientific validation is a gating requirement; market sizing is premature without it.\nWhat product information do you need?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "An inventor claims to have built a perpetual-motion machine and wants to commercialize it across Europe. How would you assess market viability and realistic first-year earnings?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Claimed continuous electrical output, all measured energy inputs, size, weight, reliability, manufacturing and",
-      "detail": "Claimed continuous electrical output, all measured energy inputs, size, weight, reliability, manufacturing and installation cost, maintenance requirements, regulatory safety, intellectual-property position and production readiness.\nThe brief gives a manufacturing cost of $1,000, weight 30 kg, volume 1 m³, available materials, and a claim of continuous power.\nLater it specifies 50 watts output.\nThen only conditional on independent verification it's a 50-watt continuous source that is physically large for its output. I'd verify metering, hidden batteries, temperature gradients, external fields, fuel inputs and instru"
+      "kind": "question",
+      "detail": "Because perpetual motion violates thermodynamics, scientific validation must be our first gate. Assuming we test it, could you share the current device's power output, weight, volume, manufacturing cost, and any benchmark European electricity assumptions?",
+      "reasoning": "Checking physical specifications and unit cost upfront prevents wasting effort sizing a residential energy market the device cannot serve."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "The scientist says it can later double power while reducing weight and volume to one-quarter. Does that change",
-      "detail": "The scientist says it can later double power while reducing weight and volume to one-quarter. Does that change your assessment?\nIt would improve an otherwise valid product but not remove the need to prove the underlying physics. Under the claim, power would rise from 50W to 100W, weight fall from 30 kg to 7.5 kg, and volume fall from 1 m³ to 0.25 m³. This is a future design hypothesis, not a current specification.\nPerpetual Motion Invention Where would you search for customers?\nSegment by problem being solved, not only by total electricity demand: residential backup; ordinary commercial users; industrial/grid use"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The current device outputs 50 watts continuously, weighs 30 kg, takes up 1 cubic meter, and costs $1,000 to build—though the inventor claims a future version could reach 100W at 7.5 kg and 0.25 m³. For context, Europe has ~175 million households spending $1,500/year on electricity at roughly $0.30/kWh. How do you structure your assessment?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Could you size the European opportunity by household electricity spending?",
-      "detail": "Could you size the European opportunity by household electricity spending?\nThat would give context on electricity expenditure, but not our serviceable product market. The source assumes approximately 700 million people, four people per household and $1,500 annual electricity spend, producing 175 million households × $1,500 = $262.5 billion in theoretical household electricity spending. These are case assumptions, not verified current European data. Applying an arbitrary 2% market share to that spending does not establish first-year revenue from a 50W device.\nWhy is that distinction so important?\nBecause a 50W mac"
+      "kind": "framework",
+      "detail": "I'll evaluate three sequential gates: first, independent physics verification ruling out hidden batteries, thermal gradients, or external fields; second, bottom-up unit economics of a 50W generator versus $0.30/kWh grid power; and third, identifying any niche off-grid segment where 50W continuous power actually creates high willingness to pay.",
+      "reasoning": "A top-down 2% share of $262.5B European household spend would be meaningless if a 50W box cannot power a home or pay back its cost."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good catch avoiding top-down sizing traps. Walk me through the exact annual energy value and simple payback of one 50W unit at $0.30/kWh.",
+      "causes": [
+        "50W continuous output yields only 438 kWh/year (0.05 kW × 24 × 365), worth $131.40/year at $0.30/kWh.",
+        "At $1,000 manufacturing COGS alone, simple payback exceeds 7.6 years before retail margin, installation, or maintenance."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Perpetual Motion Invention Calculate the theoretical annual output of one 50W machine.",
-      "detail": "Perpetual Motion Invention Calculate the theoretical annual output of one 50W machine.\nIf it operates 24 hours every day, 50 W = 0.05 kW; 0.05 × 24 × 365 = 438 kWh/year. At the source's illustrative electricity price of $0.30/kWh, the annual energy value is 438 × $0.30 = $131.40 per device before any maintenance or downtime. The earlier document also mentions $88/year for the same assumptions; that figure is inconsistent. $131.40 is the arithmetic result.\nIs the economics compelling at a $1,000 manufacturing cost?\nIgnoring many real costs, a theoretical simple payback from avoided electricity purchases is $1,000"
+      "kind": "root-cause",
+      "detail": "One 50W unit running 24/7 produces 438 kWh/year—worth only $131.40/year at $0.30/kWh. Even ignoring retail markups, distribution, and maintenance, a $1,000 unit cost means a 7.6-year simple payback, while taking up 1 m³ for less power than a single light bulb! Even the claimed 100W upgrade would only generate $263/year. Where could 50W off-grid continuous power actually command a premium?",
+      "reasoning": "Calculating $131.40/year proves residential grid replacement is DOA commercially, forcing a pivot to remote off-grid reliability if the physics holds.",
+      "causes": [
+        "Extreme physical bulk (1 m³ / 30 kg for 50W) makes consumer and residential deployment impractical.",
+        "Unverified thermodynamic claims expose investors to severe fraud, IP, and regulatory liability."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Remote telecom relays, weather stations, maritime buoys, and defense sensors often pay far more than $0.30/kWh for diesel or battery swaps. What is your go/no-go recommendation and Year-1 plan?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Recommend a strict 'Conditional Hold / No-Go on Consumer Launch.' First, fund an accredited third-party lab audit to verify true net energy output; only if validated, abandon residential Europe and run a paid B2B pilot for remote off-grid telemetry or telecom relays where replacing battery-swap maintenance justifies a >$1,500–$2,000 unit price, targeting realistic Year-1 validation revenue rather than mass scale.",
+      "reasoning": "Gating capital on independent lab proof prevents reputational and financial loss while preserving optionality in high-WTP remote B2B niches."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Perpetual Motion Invention Commercialization before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Enforce a hard funding gate requiring independent accredited lab testing (calorimetry, EM shielding, and 30-day closed-box metering) before committing commercial capital.",
+    "P1: Abandon European residential electricity sizing ($131.40/yr output vs. $1,000 COGS gives >7.6-year payback) and pivot go-to-market solely to remote off-grid industrial telemetry, telecom towers, or maritime sensors if validated.",
+    "P2: Structure Year 1 around 50–100 paid B2B pilot units priced for avoided diesel/battery maintenance rather than mass manufacturing, gating volume scale-up on achieving the 100W / 0.25 m³ engineering milestone."
   ],
   "metricsAndGuardrails": {
-    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (American Express)",
+    "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Energy Tech Venture)",
     "leading": [
       "Breakeven volume vs pilot traction",
       "Partner/channel onboarding velocity"
@@ -2794,11 +3336,11 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For American Express’s Perpetual Motion Invention Commercialization case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Perpetual Motion Invention Commercialization before secondary optimizations. We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (American Express) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "The Energy Tech Venture should NOT pursue mass European residential commercialization: even assuming the device works, 50W continuous output yields only 438 kWh ($131.40/year at $0.30/kWh) against a $1,000 build cost (>7.6-year simple payback) and bulky 1 m³ footprint. Investors must require accredited third-party physics verification as a strict P0 gate, and only if validated, pilot the technology in high-value off-grid industrial telemetry or remote telecom niches where avoided battery-replacement costs justify unit pricing.",
   "interviewerTrap": "Saying 'YES enter!' purely because TAM is huge—forgetting competition, regulatory hurdles, breakeven math, and Build vs Buy vs Partner!",
   "variations": [
     {
-      "question": "How would your recommendation change if American Express had half the timeline or budget?",
+      "question": "How would your recommendation change if Energy Tech Venture had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -2847,38 +3389,37 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-pricing-hair-oil",
   "title": "Hair Oil Pricing Strategy",
-  "company": "Deloitte",
+  "company": "Hair Oil Brand",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 1,
   "isStarter": true,
   "tags": [
-    "Deloitte",
     "Pricing",
     "FMCG",
     "Cost-Plus vs Value"
   ],
-  "prompt": "Hair Oil The client is the market leader in hair oil in India. They have one brand and two standard SKUs. They have seen stagnancy in the productivity of their sales team for the last 3 years. You have been hired as a consultant to figure out the reasons May I know the distribution model adopted by the company?",
+  "prompt": "Your client is the market leader in hair oil in India, operating one flagship brand with two standard SKUs through an offline distributor-retailer network. Over the past three years, salesforce productivity has stagnated. Diagnose the root causes and recommend pricing and pack-mix fixes.",
   "clarifyingQuestions": [
     {
-      "q": "They follow a typical retailer distributor model, all sales happen offline Okay. How is productivity defined here?",
-      "a": "Productivity = (Total Revenue)/(Total salary of salesforce). Can you look into the possible reasons for stagnancy issue?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How does the client define salesforce productivity, and which component—revenue or total salesforce salary—has shifted?",
+      "a": "Productivity equals Total Revenue divided by Total Salesforce Salary. Headcount stayed flat, while both revenue and average rep salary grew at roughly the same steady rate (~6% over the period).",
+      "why": "Clarifies that flat productivity stems from revenue failing to outpace wage inflation rather than over-hiring."
     },
     {
-      "q": "Productivity = (Total Revenue)/(Total salary of salesforce). Can you look into the possible reasons for stagnancy issue?",
-      "a": "Sure. The stagnancy in productivity can be due to the following reasons 1. Both Increasing at a steady rate 2. Both decreasing at a steady rate 3. Both are constant at the same level Correct. We are facing the first problem here i.e. both a",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How do our price increases and unit volume growth compare against the broader Indian hair oil industry?",
+      "a": "Our price and unit volume each grew 3% (6% combined), whereas the industry grew 5% on price and 5% on units (10% combined).",
+      "why": "Pins down the exact 4-percentage-point revenue growth gap versus competitors across both price realization and unit volume."
     },
     {
-      "q": "For Salary = No. of Sales employees * Average salary / employee, which of these factors have fluctuated?",
-      "a": "No. of employees has been the same. Can you list down different reasons due to which the second part can increase?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the two standard SKUs, and how did their pricing and sales mix evolve?",
+      "a": "The SKUs are 250 ml and 500 ml packs; prices rose on both, with a steeper increase on the 250 ml SKU, shifting sales toward the 500 ml pack.",
+      "why": "Reveals whether skewed SKU price hikes triggered pack-size trade-up and lowered purchase frequency in neighborhood retail."
     }
   ],
   "frameworkUsed": "3Cs of Pricing (Cost Floor, Competitor Anchor, Brand Value Ceiling) + Pack Architecture",
   "coreEquation": "Recommended Price = Max(COGS + Target Trade Margin, Competitor Price ± Differentiation Premium)",
-  "strategyOverview": "Price the new hair oil by checking COGS + distributor/retailer trade margins (~25–30%), benchmarking mainstream vs ayurvedic/premium rivals per 100ml, and using small ₹10/₹20 trial sachets or 100ml/200ml packs to drive trial without eroding brand equity.",
+  "strategyOverview": "Diagnose the Hair Oil Brand's flat salesforce productivity (Revenue ÷ Salesforce Salary) by showing how revenue growth (+6%) lagged the industry (+10%) while merely matching salary inflation: raising 250 ml prices faster than 500 ml pushed buyers into larger packs, reducing purchase frequency and hurting small-kirana shelf rotation.",
   "tree": {
     "label": "Hair Oil Pricing Strategy — 3Cs Pricing Tree",
     "valueText": "Floor · Anchor · Ceiling",
@@ -2900,44 +3441,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Hair Oil The client is the market leader in hair oil in India. They have one brand and two standard SKUs. They",
-      "detail": "Hair Oil The client is the market leader in hair oil in India. They have one brand and two standard SKUs. They have seen stagnancy in the productivity of their sales team for the last 3 years. You have been hired as a consultant to figure out the reasons May I know the distribution model adopted by the company?\nThey follow a typical retailer distributor model, all sales happen offline Okay. How is productivity defined here?\nProductivity = (Total Revenue)/(Total salary of salesforce). Can you look into the possible reasons for stagnancy issue?\nSure. The stagnancy in productivity can be due to the following reasons"
+      "kind": "prompt",
+      "detail": "Our client is India's market-leading hair oil brand, selling two standard SKUs solely through offline distributors and retailers. For the past three years, salesforce productivity has stagnated. How would you diagnose why?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Okay, I would like to proceed by analyzing the costs first.",
-      "detail": "Okay, I would like to proceed by analyzing the costs first.\nSure, go ahead with your analysis.\nFor Salary = No. of Sales employees * Average salary / employee, which of these factors have fluctuated?\nNo. of employees has been the same. Can you list down different reasons due to which the second part can increase?"
+      "kind": "question",
+      "detail": "First, how is salesforce productivity defined, and has headcount, rep salary, or revenue been changing? Also, could you share how our pricing and unit volumes compare with industry growth?",
+      "reasoning": "Breaking a productivity ratio into its numerator (revenue) and denominator (headcount × average salary) immediately shows which side is underperforming."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Sure. Few reasons that I can think of are: Promotion of employees, Inflation, Market Adjustments.",
-      "detail": "Sure. Few reasons that I can think of are: Promotion of employees, Inflation, Market Adjustments.\nFair enough. Let's focus on the Revenue side then.\nComing to the Revenue part, let revenue be defined as Price*No.\nof units sold. Is there any data on the increased figures of these?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Productivity is Total Revenue divided by Total Salesforce Salary. Rep headcount has stayed constant while average salaries rose steadily with inflation and promotions; meanwhile, our revenue grew roughly in line with salaries—3% from price and 3% from units—versus 10% industry growth (5% price, 5% units). How would you investigate this 4-point revenue lag?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Hair Oil Price and No. of Units Sold have both increased by 3% each, whereas the industry average is a 5% incr",
-      "detail": "Hair Oil Price and No. of Units Sold have both increased by 3% each, whereas the industry average is a 5% increase on both, resulting in a total increase of 10%. Why is this happening?\nFor this, I want to focus on why the average price increase is lower for us. May I know the pricing of the two SKUs and the volume of the SKUs?\nOf the 2 SKUs, one is 250 ml and other 500 ml SKUs. Price of both the SKUs have increased, however, the price of 250 ml SKU is greater than that of 500 ml.\nOkay, then if the average price increase is defined as the weighted average of the price increase across the SKUs based on sales figure"
+      "kind": "framework",
+      "detail": "Since headcount is fixed and wage inflation is normal, productivity stalled because revenue grew 6% instead of the industry's 10%. I'll break revenue into SKU-level weighted average price realization and unit volume drivers (Customers × Purchase Frequency × Quantity per Purchase) across retail channels.",
+      "reasoning": "Decomposing both SKU mix and purchase frequency tests whether a pricing imbalance between the two packs is cannibalizing repeat trips."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good approach. Our two SKUs are 250 ml and 500 ml bottles. We raised prices on both, but hiked the 250 ml SKU more steeply than the 500 ml SKU, which drove more consumers to buy the 500 ml pack.",
+      "causes": [
+        "Steeper price hike on the 250 ml SKU pushed shoppers toward the lower-margin/ml 500 ml pack.",
+        "Weighted average price realization lagged the 5% industry benchmark due to pack-mix shift.",
+        "Shift to 500 ml bottles stretched household consumption cycles, lowering purchase frequency."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Yeah Perfect, Go Ahead Sure, the 500 ml SKUs are getting sold more. As, Number of Units sold = No. of customer",
-      "detail": "Yeah Perfect, Go Ahead Sure, the 500 ml SKUs are getting sold more. As, Number of Units sold = No. of customers * Freq of purchase * Avg Quantity per purchase.\nOut of these three, Freq of purchase will be less as people are buying more 500 ml SKUs without a drastic change in consumption pattern.\nCorrect, now can you think of any other reasons behind the sales getting stagnated?\nRetail channels can be Modern Trade, Small Shops and Malls. As per my understanding hair oils are generally sold through Small shops close to home."
+      "kind": "root-cause",
+      "detail": "That explains both halves of the lag! Shifting buyers into 500 ml packs lowers our blended price growth per ml and stretches out repurchase intervals, capping unit growth at 3%. Furthermore, most hair oil sells through small neighborhood kirana shops where shoppers prefer low cash-outlay packs and retailers dislike stocking slow-turning large bottles. Are we missing smaller trial or convenience SKUs in kiranas?",
+      "reasoning": "Linking 500 ml pack velocity to kirana working-capital and shopper outlay constraints explains why our reps struggle to hit industry growth.",
+      "causes": [
+        "Lack of smaller 50 ml/100 ml or sachet price points limits impulse conversion and kirana shelf penetration.",
+        "Slow-turning 500 ml inventory ties up small-retailer working capital and rep visit productivity."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Exactly right—smaller neighborhood stores under-stock our 500 ml SKU, and competitors are winning new shoppers with smaller packs. What pricing and pack-architecture recommendations would you propose?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To lift salesforce productivity above wage inflation, rebalance the price-pack ladder: narrow the per-ml gap between 250 ml and 500 ml packs to restore blended price realization, introduce low-outlay 100 ml bottles and ₹10–₹20 trial sachets tailored for small kirana stores, and align rep incentives to active outlet reach and SKU mix rather than raw tonnage.",
+      "reasoning": "Fixing pack architecture and rep KPIs turns existing store visits into higher revenue per rep without expanding headcount."
     }
   ],
   "recommendations": [
-    "Client is a market leader in Hair Oil in India",
-    "Client have one brand and two standard SKUs.",
-    "Client has been facing stagnancy in their productivity",
-    "Both the factors of productivity are increasing at the"
+    "P0: Rebalance SKU pricing by adjusting the 500 ml pack price upward relative to 250 ml so per-ml discounting no longer dilutes weighted price realization or stretches repurchase frequency.",
+    "P1: Launch low-outlay 100 ml bottles and ₹10/₹20 trial sachets specifically for small neighborhood kirana stores to accelerate inventory turns and capture new budget buyers.",
+    "P2: Restructure salesforce incentives away from pure volume toward high-margin SKU mix, active kirana outlet coverage, and revenue-per-rep growth above salary inflation."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Net Contribution Margin & Paid ARPU Growth (Deloitte)",
+    "northStar": "Net Contribution Margin & Paid ARPU Growth (Hair Oil Brand)",
     "leading": [
       "Pricing page → checkout conversion %",
       "Tier upgrade / annual plan share"
@@ -2947,11 +3518,11 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For Deloitte’s Hair Oil Pricing Strategy case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Client is a market leader in Hair Oil in India We will validate success via Net Contribution Margin & Paid ARPU Growth (Deloitte) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "The Hair Oil Brand's salesforce productivity stalled because revenue growth (+6%) lagged the industry (+10%) while merely matching rep salary inflation. Raising 250 ml prices faster than 500 ml shifted shoppers into larger packs—diluting blended price realization, slowing repeat purchase frequency, and hurting small-kirana inventory turns. Rebalance the 250 ml/500 ml price ladder, introduce 100 ml and sachet packs for kirana velocity, and tie rep incentives to revenue-per-rep and SKU mix while monitoring channel margin and churn.",
   "interviewerTrap": "Forgetting distributor and kirana retailer trade margins when setting consumer MRP!",
   "variations": [
     {
-      "question": "How would your recommendation change if Deloitte had half the timeline or budget?",
+      "question": "How would your recommendation change if Hair Oil Brand had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -3000,7 +3571,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-21-jio-pricing-model",
   "title": "Jio Pricing Model",
-  "company": "HiLabs",
+  "company": "Jio",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 2,
@@ -3010,27 +3581,22 @@ window.CM_DATA.cases.push(
     "Pricing",
     "Consulting"
   ],
-  "prompt": "Jio wants to launch a pricing model for its existing platforms in India.",
+  "prompt": "Jio plans to transition its currently free digital entertainment platform, JioCinema, to a paid pricing model in India. Design a pricing strategy and tier architecture that monetizes the user base while preserving mass-market adoption.",
   "clarifyingQuestions": [
     {
-      "q": "I would like to ask a few clarifying questions before I begin. Would you like me to consider any particular Jio service?",
-      "a": "For now consider Jio Cinema.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Should we focus on a specific Jio digital property, and is the platform completely free today?",
+      "a": "Focus on JioCinema, which is currently 100% free across all users and content libraries.",
+      "why": "Defines the exact product scope and confirms we are designing a zero-to-paid transition rather than repricing existing tiers."
     },
     {
-      "q": "Do all these platforms provide absolute free services as of now?",
-      "a": "Yes, all these platforms are absolutely free uptill now. And from now we are planning to launch a pricing model.",
-      "why": "Scopes the problem boundary before building the issue tree."
-    },
-    {
-      "q": "Is there any particular model you would like me to go ahead with, For ex. Competitor based pricing, Value based pricing, Cost based pricing Which would be the best model according to you for this case?",
-      "a": "According to me, a cost based model will not be useful in this case. So I would like to proceed with the remaining two. Firstly, I would like to go with competitor based analysis, if this sounds good.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the prevailing monthly price points of major OTT competitors in India?",
+      "a": "Disney+ Hotstar offers an entry tier around ₹99/month, Netflix starts at ₹199/month, and Amazon Prime is priced at ₹299/month.",
+      "why": "Sets external competitive price anchors across mass-market sports/regional and premium international OTT offerings."
     }
   ],
   "frameworkUsed": "Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test",
   "coreEquation": "Optimal Price ∈ [Unit Cost Floor, Perceived Value WTP Ceiling] Tuned to Elasticity",
-  "strategyOverview": "Approach Jio Pricing Model (HiLabs) using a Pricing structure: start by confirming the business objective and scope, decompose the problem cleanly along Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Design JioCinema's monetization model using Value-Based and Competitor-Anchored Pricing (ruling out cost-plus for low-marginal-cost streaming), anchoring an aggressive ₹59/month base tier below Disney+ Hotstar (₹99), Netflix (₹199), and Prime (₹299), paired with ad-supported free access and modular Sports/IPL, Blockbuster, and Cultural Events add-ons.",
   "tree": {
     "label": "Jio Pricing Model — 3Cs Pricing Tree",
     "valueText": "Floor · Anchor · Ceiling",
@@ -3052,44 +3618,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Jio wants to launch a pricing model for its existing platforms in India.",
-      "detail": "Jio wants to launch a pricing model for its existing platforms in India.\nYou are hired to build its Pricing Model.\nI would like to ask a few clarifying questions before I begin. Would you like me to consider any particular Jio service?\nFor now consider Jio Cinema."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Jio wants to introduce a paid pricing model for JioCinema, which has been completely free in India until now. How would you build its pricing strategy?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Okay, so looks like we are catering to the entertainment platforms of Jio.",
-      "detail": "Okay, so looks like we are catering to the entertainment platforms of Jio.\nDo all these platforms provide absolute free services as of now?\nYes, all these platforms are absolutely free uptill now. And from now we are planning to launch a pricing model.\nIs there any particular model you would like me to go ahead with, For ex. Competitor based pricing, Value based pricing, Cost based pricing Which would be the best model according to you for this case?"
+      "kind": "question",
+      "detail": "To clarify scope, are we pricing strictly JioCinema, is the platform entirely ad-supported and free today, and what strategic goal matters most—maximizing paid subscriber conversion or near-term ARPU?",
+      "reasoning": "Confirming the trade-off between subscriber scale and ARPU sets the right pricing anchor for a historically free mass-market app."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "According to me, a cost based model will not be useful in this case. So I would like to proceed with the remai",
-      "detail": "According to me, a cost based model will not be useful in this case. So I would like to proceed with the remaining two. Firstly, I would like to go with competitor based analysis, if this sounds good.\nThat sounds reasonable, you may proceed with the Competitor Based model.\nThe major competitors for Jio Cinema are Netflix, Disney+ Hotstar, and Amazon Prime. Each of these platforms has established pricing that reflects their content offerings and target markets.\nSpecifically, Netflix charges ₹199 per month, Disney+ Hotstar has a plan at ₹99 per month, and Amazon Prime is priced at ₹299 per month."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes, focus on JioCinema, which is completely free today, and Jio aims to monetize without sacrificing its mass-market reach. Competitors price at ₹99/month for Disney+ Hotstar, ₹199/month for Netflix, and ₹299/month for Amazon Prime. Which pricing methodology and structure would you use?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Are the pricings considerable?",
-      "detail": "Are the pricings considerable?\nGiven these competitor prices, how would you determine an appropriate base price for Jio Cinema?\nTo set a competitive base price for Jio Cinema, I will consider a few key factors. Firstly, the content library—Jio Cinema has a broad range of content, though it may not match the extensive libraries of Netflix or Amazon Prime.\nHowever, Jio Cinema’s inclusion of regional and potentially exclusive content adds unique value. Next, I will look at the target audience. Jio typically appeals to a price-sensitive segment, which suggests that the price should be lower than that of Netflix and A"
+      "kind": "framework",
+      "detail": "Because OTT streaming has high fixed content costs and near-zero marginal cost per stream, cost-plus pricing isn't useful. Instead, I'll combine competitor-based anchoring with value-based segmentation across JioCinema's content pillars—mass entertainment, live sports like IPL, and regional/cultural content—to design a tiered freemium-to-paid ladder.",
+      "reasoning": "Digital media pricing must reflect willingness to pay across distinct content segments rather than amortizing fixed rights blindly."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good call dropping cost-plus. Given Hotstar at ₹99, Netflix at ₹199, and Prime at ₹299, how does JioCinema's content library and audience shape your base subscription price?",
+      "causes": [
+        "JioCinema attracts a highly price-sensitive mass Indian audience accustomed to free access.",
+        "Its international library is smaller than Netflix or Prime, limiting premium pricing ceiling.",
+        "Live IPL sports and exclusive regional/cultural content create strong event-driven willingness to pay."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Makes sense! Go ahead.",
-      "detail": "Makes sense! Go ahead.\nFinally, I will consider market positioning. Jio often adopts aggressive pricing to capture market share, so we want to set a price that’s competitive but still reflects the platform’s value.\nBased on these considerations, what would you suggest as the base price for Jio Cinema?\nBased on the competitive benchmarks, Jio Cinema's price-sensitive target segment, and for acquiring a large user base, I would recommend testing a base subscription price of ₹59 per month. This would create an affordable entry point while leaving room for premium tiers and content-specific add-ons."
+      "kind": "root-cause",
+      "detail": "A sudden hard paywall would trigger massive churn because users expect free access and Jio's international catalog trails Netflix and Prime. Anchoring below Hotstar's ₹99 entry plan, a ₹59/month base subscription (ad-free or HD) captures price-sensitive converts—while keeping an ad-supported free tier preserves top-of-funnel ad monetization. How should we monetize high-WTP spikes like IPL and blockbusters?",
+      "reasoning": "Separating a low-friction ₹59 base tier from modular event passes avoids overcharging casual viewers while capturing surplus from sports and movie fans.",
+      "causes": [
+        "Single-tier pricing would either under-monetize sports/movie fans or price out budget regional viewers.",
+        "Unbundled modular packs capture event-driven WTP spikes without raising the base barrier."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Modular add-ons fit well with Jio's ecosystem. What exact tier architecture and rollout guardrails would you recommend?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Launch a hybrid freemium-plus-modular model: keep a free ad-supported tier for mass reach, price the ad-free base tier at ₹59/month, and layer three targeted packs—Cultural/Regional Events at ₹79, Blockbuster Cinema at ₹99–₹119, and seasonal Sports/IPL passes—bundled into Jio telecom recharge plans to minimize churn.",
+      "reasoning": "Telecom-plan bundling lowers payment friction across India's mass market while tiered add-ons expand blended ARPU."
     }
   ],
   "recommendations": [
-    "Cultural Events Package: For users interested in cultural",
-    "Sports Package: Given the massive popularity of IPL, we",
-    "Blockbuster Package: This could be priced at ₹99 to ₹119",
-    "Cultural Events Package: This might be offered at ₹79 to"
+    "P0: Retain a free ad-supported entry tier to protect ad inventory, and launch a ₹59/month base subscription (undercutting Hotstar's ₹99 entry tier) for ad-free HD viewing.",
+    "P1: Introduce modular add-on packs—Cultural/Regional Events (₹79/month), Blockbuster Movies (₹99–₹119/month), and seasonal Sports/IPL passes—to capture higher willingness to pay without raising the base hurdle.",
+    "P2: Bundle discounted JioCinema tiers into high-volume Jio prepaid and fiber recharge plans via A/B price-elasticity tests, guarding against free-to-paid churn and ad-revenue cannibalization."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Net Contribution Margin & Paid ARPU Growth (HiLabs)",
+    "northStar": "Net Contribution Margin & Paid ARPU Growth (Jio)",
     "leading": [
       "Pricing page → checkout conversion %",
       "Tier upgrade / annual plan share"
@@ -3099,11 +3695,11 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For HiLabs’s Jio Pricing Model case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Cultural Events Package: For users interested in cultural We will validate success via Net Contribution Margin & Paid ARPU Growth (HiLabs) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "To monetize JioCinema without losing its mass-market Indian user base, Jio should deploy a competitor-anchored, value-segmented freemium model rather than cost-plus pricing. Keep a free ad-supported funnel, introduce an aggressive ₹59/month base tier below Disney+ Hotstar (₹99) and Netflix (₹199), and monetize high-WTP segments via modular Cultural Events (₹79), Blockbuster (₹99–₹119), and Sports/IPL passes—accelerated through Jio telecom bundles while tracking paid conversion, blended ARPU, and churn.",
   "interviewerTrap": "Using only Cost-Plus markup and ignoring Value-Based WTP, elasticity, cannibalization, or two-sided marketplace effects!",
   "variations": [
     {
-      "question": "How would your recommendation change if HiLabs had half the timeline or budget?",
+      "question": "How would your recommendation change if Jio had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -3152,37 +3748,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-22-bank-envelope-pricing",
   "title": "Bank Envelope Pricing",
-  "company": "Bain & Company",
+  "company": "CustomLope",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Bain & Company",
     "Pricing",
     "Consulting"
   ],
-  "prompt": "Bank Envelope Your client, CustomLope, is the leader in the US secure envelope manufacturing industry. Banks buy these envelopes for operations such as money deposits and high value transactions. Next year, a new digital technology will reduce the overall number of units sold in the industry by 25%. In short term, our client wants to maintain his current profit level without investing in new technology. How can you h",
+  "prompt": "Your client, CustomLope, is the US market leader in secure bank envelopes used for cash deposits and high-value transactions. Next year, a new digital technology will shrink total industry unit demand by 25%. CustomLope wants to maintain its current $15 million profit level in the short term without investing in the new technology. How can they achieve this?",
   "clarifyingQuestions": [
     {
-      "q": "So does that mean the client wants to optimize the costs?",
-      "a": "Not necessarily, but you can dive into the cost analysis for now.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What were CustomLope's unit sales, price, and detailed value-chain costs last year?",
+      "a": "CustomLope sold 50 million units of a single envelope SKU at $1.00/unit ($50M revenue). Costs totaled $35M: R&D $1M, Production $18M, Labor $11M, Marketing $2M, and Operations $3M, yielding $15M profit ($0.70/unit blended cost).",
+      "why": "Establishes the exact $15M profit baseline and $0.70/unit cost floor needed to model price-volume trade-offs under a 25% market contraction."
     },
     {
-      "q": "I want to analyze along the value chain. There are going to be R&D costs, Production Costs, Labor Costs, Marketing Cost, and Operational Costs. How are these individual costs for the company?",
-      "a": "The respective costs last year came up to $1 m, $18 m, $11 m, $2 m, and $3 m Great. Just to clarify the revenue, how many products and units of each were sold and at what prices?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is there room to cut costs further or expand production capacity?",
+      "a": "Costs are already fully optimized, but CustomLope has idle capacity to produce at least 100 million units per year at similar or lower unit costs.",
+      "why": "Eliminates cost-cutting as a lever and confirms spare manufacturing capacity can absorb major market-share gains."
     },
     {
-      "q": "The respective costs last year came up to $1 m, $18 m, $11 m, $2 m, and $3 m Great. Just to clarify the revenue, how many products and units of each were sold and at what prices?",
-      "a": "Our client only sells one type of product whose price is $1/unit.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How is the rest of the market structured, and what are competitors' unit costs and prices?",
+      "a": "CustomLope holds 50% share (50M of 100M total units), while five rivals hold 10% each. Competitors also price at $1.00/unit but produce at $0.90/unit, so they cannot cut prices below $0.90 without losing money.",
+      "why": "Reveals CustomLope's $0.20/unit cost advantage ($0.70 vs. $0.90) that unlocks a share-capture pricing strategy."
     }
   ],
   "frameworkUsed": "Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test",
   "coreEquation": "Optimal Price ∈ [Unit Cost Floor, Perceived Value WTP Ceiling] Tuned to Elasticity",
-  "strategyOverview": "Approach Bank Envelope Pricing (Bain & Company) using a Pricing structure: start by confirming the business objective and scope, decompose the problem cleanly along Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Protect CustomLope's $15M short-term profit during a 25% market contraction (100M → 75M units) by leveraging its $0.70/unit cost advantage and 100M spare capacity to price around $0.89–$0.92/unit—undercutting five rivals' $0.90/unit cost floor to capture displaced share via multi-year bank contracts.",
   "tree": {
     "label": "Bank Envelope Pricing — 3Cs Pricing Tree",
     "valueText": "Floor · Anchor · Ceiling",
@@ -3204,41 +3799,71 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Bank Envelope Your client, CustomLope, is the leader in the US secure envelope manufacturing industry. Banks b",
-      "detail": "Bank Envelope Your client, CustomLope, is the leader in the US secure envelope manufacturing industry. Banks buy these envelopes for operations such as money deposits and high value transactions. Next year, a new digital technology will reduce the overall number of units sold in the industry by 25%. In short term, our client wants to maintain his current profit level without investing in new technology. How can you help him?\nIf the number of units sold will decrease, revenue to will decrease.\nSo does that mean the client wants to optimize the costs?\nNot necessarily, but you can dive into the cost analysis for now"
+      "kind": "prompt",
+      "detail": "CustomLope leads the US secure bank envelope market. Next year, new digital banking technology will shrink total industry volume by 25%, and CustomLope wants to maintain current short-term profits without investing in the new tech. How would you help them?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "I want to analyze along the value chain. There are going to be R&D costs, Production Costs, Labor Costs, Marke",
-      "detail": "I want to analyze along the value chain. There are going to be R&D costs, Production Costs, Labor Costs, Marketing Cost, and Operational Costs. How are these individual costs for the company?\nThe respective costs last year came up to $1 m, $18 m, $11 m, $2 m, and $3 m Great. Just to clarify the revenue, how many products and units of each were sold and at what prices?\nOur client only sells one type of product whose price is $1/unit.\nLast year, our client sold 50 million units."
+      "kind": "question",
+      "detail": "To establish our baseline, could you share last year's unit volume, selling price, and value-chain costs, along with whether CustomLope can cut costs further or holds spare capacity?",
+      "reasoning": "Knowing baseline profit, cost flexibility, and spare capacity tells us whether the gap must be closed via cost reduction, price hikes, or share capture."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Alright, so that means the revenue last year was $50 million and costs were 1+18+11+2+3= $35 m which brings ou",
-      "detail": "Alright, so that means the revenue last year was $50 million and costs were 1+18+11+2+3= $35 m which brings our client current profit to $15 m. Is that correct?\nYes that is correct.\nSince our client wants to improve the costs, are there economies of scale that haven't been reached or is there a lack of optimization in the operational/labor costs?\nCosts have already been reduced as much as possible."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Last year CustomLope sold 50 million units of one envelope SKU at $1.00/unit ($50M revenue). Costs totaled $35M—$1M R&D, $18M production, $11M labor, $2M marketing, and $3M operations—leaving $15M profit. Costs are already fully optimized, though CustomLope has idle capacity to produce up to 100 million units at or below $0.70/unit. How do you frame the problem?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Cool, since the costs have already been perfected, we should take a look at the revenue shortcomings. First ar",
-      "detail": "Cool, since the costs have already been perfected, we should take a look at the revenue shortcomings. First are we producing/selling the maximum amount or is there room for improvement?\nBank Envelope CustomLope has excess capacity. It can produce at least double the amount of units per year at similar or lower unit costs Double the amount meaning 100 million units can be produced.\nHowever, since there is a better technology to come, there is no way to convert the entire batch produced.\nThat seems like a valid conclusion. Proceed further So that means increasing the conversion of units sold, means the pricing of t"
+      "kind": "framework",
+      "detail": "With costs already optimized and total market demand shrinking 25%, holding our 50% share at $1.00 would cut volume to 37.5 million units and drop profit to ~$11.25 million—a $3.75 million shortfall. Since we have 100 million units of capacity, the only lever left is capturing market share from competitors. What do rivals' market shares, prices, and unit costs look like?",
+      "reasoning": "Quantifying the $3.75M profit shortfall under status-quo share proves that aggressive share capture is mandatory and guides us straight to competitor cost floors."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Five competitors hold 10% market share each (50 million units combined last year). They match our $1.00/unit price, but their unit cost is $0.90/unit—so they cannot cut price below $0.90 without taking losses.",
+      "causes": [
+        "Industry volume drops from 100M to 75M units, cutting status-quo CustomLope profit from $15M to $11.25M.",
+        "CustomLope's $0.70/unit cost ($0.58/unit variable + $6M fixed) sits $0.20/unit below rivals' $0.90/unit floor.",
+        "Idle capacity of 50M additional units allows CustomLope to serve nearly the entire shrunk market."
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "How are their costs and revenues?",
-      "detail": "How are their costs and revenues?\nThere are 5 competitors with each of them having 10% market share, whereas our client holds a 50% market share. Our economies of scale allows us to produce our product at $0.70/unit, whereas, they produce their products at $0.90/unit.\nTheir selling prices are the same as us and they cannot reduce further as it will lead to loss That gives us a strong advantage. If we reduce our price closer to $0.90 per unit, competitors will not be able to match it profitably.\nOver time, customers should switch to us, which would allow us to capture additional market share."
+      "kind": "root-cause",
+      "detail": "That $0.20/unit scale advantage is decisive. Notice too that $6 million of our $35 million cost (R&D, marketing, operations) is fixed while production and labor run ~$0.58/unit variable. If CustomLope prices just below rivals' $0.90 cost floor—say $0.89/unit—rivals lose money matching us; capturing 68 million of the 75 million industry units at $0.89 yields $60.5M revenue minus ~$45.4M total cost ($6M fixed + 68M × $0.58), preserving the full $15M profit!",
+      "reasoning": "Separating fixed overhead from $0.58/unit variable cost shows CustomLope can hit $15M profit at ~90% share rather than needing 100% of the shrunk market.",
+      "causes": [
+        "Rivals face an unsustainable loss below $0.90/unit, forcing exit or bank contract churn.",
+        "Fixed-cost leverage at 65–70M units keeps blended unit cost below $0.68/unit."
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Excellent fixed-versus-variable math. How should CustomLope execute this price move with large US banks without triggering a messy spot-price war?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "CustomLope should proactively offer multi-year volume-rebate contracts to major US banks priced at $0.89–$0.91/unit—just at or below rivals' $0.90 cost floor—to lock in 65–70+ million units of the shrinking 75 million market. Leveraging spare capacity and fixed-cost scale preserves the $15 million short-term profit target while buying time to plan an eventual digital exit.",
+      "reasoning": "Structured multi-year bank tenders lock in volume share cleanly before rivals can exit or bundle defensively."
     }
   ],
   "recommendations": [
-    "Decreasing costs is not an option because costs are",
-    "The only way to maintain current profit levels (without",
-    "By taking advantage of its lower costs, CustomLope can",
-    "The client should reduce the price of their"
+    "P0: Proactively bid on major US bank RFP renewals with 2-to-3-year exclusive volume contracts priced at $0.89–$0.91/unit, undercutting competitors' $0.90/unit cost floor to capture 65–70M+ units of the 75M shrunk market.",
+    "P1: Activate idle production lines smoothly across existing shifts to capture fixed-cost leverage (~$0.58/unit variable cost + $6M fixed overhead), keeping blended unit cost at or below $0.68/unit.",
+    "P2: Monitor bank switching speed and competitive exit timing quarterly, using the protected $15M cash flow to fund an orderly harvest or future digital transition rather than reactive discounting."
   ],
   "metricsAndGuardrails": {
     "northStar": "Net Contribution Margin & Paid ARPU Growth (Bain & Company)",
@@ -3251,7 +3876,7 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For Bain & Company’s Bank Envelope Pricing case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Decreasing costs is not an option because costs are We will validate success via Net Contribution Margin & Paid ARPU Growth (Bain & Company) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "CustomLope can protect its $15M short-term profit despite a 25% industry contraction (100M to 75M units) by using its $0.20/unit cost advantage ($0.70 blended vs. rivals' $0.90 floor) and 100M-unit spare capacity to win market share. Because costs are already optimized and holding 50% share drops profit to $11.25M, CustomLope should lock in multi-year bank contracts at $0.89–$0.91/unit—capturing 65–70M+ units and preserving $15M profit via fixed-cost scale while monitoring bank contract retention and contribution margin.",
   "interviewerTrap": "Using only Cost-Plus markup and ignoring Value-Based WTP, elasticity, cannibalization, or two-sided marketplace effects!",
   "variations": [
     {
@@ -3304,7 +3929,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-23-ev-pricing-strategy",
   "title": "EV Pricing Strategy",
-  "company": "Mastercard",
+  "company": "EV Manufacturer",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -3314,22 +3939,27 @@ window.CM_DATA.cases.push(
     "Pricing",
     "Consulting"
   ],
-  "prompt": "EV Pricing Your Client is a car manufacturer, and they want to move into the EV segment. For this, they want you to determine the price of the car.",
+  "prompt": "Your client is an established automobile manufacturer in India planning to enter the electric vehicle segment with a new electric SUV next year. They have asked you to determine the optimal launch price for this vehicle.",
   "clarifyingQuestions": [
     {
-      "q": "I see. Can you provide me with their major competitors and what are the prices of their products?",
-      "a": "Sure. Tata, Mahindra, and MG Hector are the main competitors.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which vehicle segment, target customer, and geography are we launching in?",
+      "a": "The client is launching a compact electric SUV nationwide in India aimed at urban and semi-urban middle-income commuters.",
+      "why": "Defines the exact addressable segment and willingness-to-pay ceiling before benchmarking competitors."
     },
     {
-      "q": "EV Pricing Our car client is entering EVs. What should it charge for the new car?",
-      "a": "Before naming a number, I would clarify the car segment and target market, the product's specifications, the launch objective, the company's unit economics and the competitive alternatives.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How do the EV SUV's specifications—range, charging speed, safety, and warranty—compare with existing rivals, and what is our unit cost?",
+      "a": "Specs and warranty are at parity with mainstream rivals, with a fully loaded unit manufacturing and battery cost floor of ₹11.5 lakh and a minimum 15% gross margin requirement.",
+      "why": "Establishes the ₹13.5 lakh cost-plus floor and confirms whether the product commands a differentiation premium or parity pricing."
+    },
+    {
+      "q": "Who are the main EV competitors in India and how are their models priced today?",
+      "a": "Tata prices entry hatchbacks like the Tiago EV at ₹8 lakh, sedans at ₹12–13 lakh, and compact SUVs at ₹14–18 lakh; Mahindra EV SUVs sit at ₹19–20 lakh, and MG's premium EV SUV sits near ₹25 lakh.",
+      "why": "Maps competitive price anchors across Indian EV tiers to identify the sweet-spot white space."
     }
   ],
   "frameworkUsed": "Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test",
   "coreEquation": "Optimal Price ∈ [Unit Cost Floor, Perceived Value WTP Ceiling] Tuned to Elasticity",
-  "strategyOverview": "Approach EV Pricing Strategy (Mastercard) using a Pricing structure: start by confirming the business objective and scope, decompose the problem cleanly along Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach EV Pricing Strategy (EV Manufacturer) using the 3Cs of Pricing: establish the unit cost floor (Cost), benchmark Indian EV SUV competitors from Tata to MG (Competitors), quantify total-cost-of-ownership savings and willingness-to-pay versus ICE SUVs (Customer Value), and design tiered launch pricing with clear margin guardrails.",
   "tree": {
     "label": "EV Pricing Strategy — 3Cs Pricing Tree",
     "valueText": "Floor · Anchor · Ceiling",
@@ -3351,40 +3981,71 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "EV Pricing Your Client is a car manufacturer, and they want to move into the EV segment. For this, they want y",
-      "detail": "EV Pricing Your Client is a car manufacturer, and they want to move into the EV segment. For this, they want you to determine the price of the car.\nBefore moving to the preliminary questions, I want to reconfirm the facts from the problem statement.\nSure go ahead with your facts.\nThank you. So, our client is a car manufacturer, and they want to enter the EV market and wants to price their product."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is an established automobile manufacturer in India planning to enter the electric vehicle segment with a new electric SUV next year. How would you determine the optimal price for this car?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Absolutely correct, go ahead.",
-      "detail": "Absolutely correct, go ahead.\nBefore moving to the overall strategy for pricing the product I want to ask some preliminary questions. Can I know more about the client, i.e., their geographical area of operation, when they want to launch their product and is there any specific type of car which they want to launch?\nOur client is an established car manufacturer in India. They produce a wide range of vehicle types.\nFor this venture, they are specifically interested in the EV segment, focusing on SUVs. They plan to launch their EV next year and are targeting a nationwide market."
+      "kind": "question",
+      "detail": "Before building a pricing model, I would like to clarify the target segment, launch geography, and product specs. Is this a mass-market hatchback or an SUV, and how do range, charging speed, and warranty compare to existing Indian EVs?",
+      "reasoning": "Pricing varies sharply by vehicle tier and feature parity, so scoping segment and differentiation prevents arbitrary price anchoring."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "I see. Can you provide me with their major competitors and what are the prices of their products?",
-      "detail": "I see. Can you provide me with their major competitors and what are the prices of their products?\nSure. Tata, Mahindra, and MG Hector are the main competitors.\nThe current pricing of competitor SUVs is as follows: Tata Hatchback (Tiago) at ₹8 lakh, Sedans at ₹12-13 lakh, Mahindra SUVs at ₹19-20 lakh, and MG Hector at ₹25 lakh Thank you for the content. Give me a couple of minutes to present an overall strategy to approach this problem.\nSure, take your time."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "They are targeting a nationwide launch in India with a compact electric SUV for middle-income commuters. Specs and warranty are reliable and at parity with mainstream rivals, while unit cost including the battery pack is ₹11.5 lakh with a 15% minimum gross margin hurdle."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Okay, I would like to propose an overall strategy where I will first analyse the market attractiveness then I",
-      "detail": "Okay, I would like to propose an overall strategy where I will first analyse the market attractiveness then I will look at the operational feasibility and at last the risks and concerns.\nThat seems reasonable. Go ahead.\nEV Pricing Our car client is entering EVs. What should it charge for the new car?\nBefore naming a number, I would clarify the car segment and target market, the product's specifications, the launch objective, the company's unit economics and the competitive alternatives."
+      "kind": "framework",
+      "detail": "Got it—that sets a hard price floor at roughly ₹13.5 lakh ex-showroom. I will structure the pricing decision around the 3Cs: cost-based floor, competitor price anchors across Indian EV tiers, and customer value-based willingness-to-pay driven by fuel savings over comparable ICE SUVs. Do we have competitor pricing benchmarks?",
+      "reasoning": "Triangulating Cost, Competitors, and Customer Value ensures the price is simultaneously profitable, market-realistic, and aligned with buyer economics."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes. Tata covers the entry end with Tiago hatchbacks at ₹8 lakh, EV sedans at ₹12–13 lakh, and compact SUVs between ₹14 lakh and ₹18 lakh. Mahindra's electric SUVs sit at ₹19–20 lakh, and MG's larger EV SUV is priced around ₹25 lakh."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Otherwise a single price would be arbitrary. Are we discussing a premium SUV, mass-market hatchback or another",
-      "detail": "Otherwise a single price would be arbitrary. Are we discussing a premium SUV, mass-market hatchback or another segment, and in which market?\n[Illustrative assumption] A compact city-oriented passenger EV in India, aimed at middle-income commuters.\nWhat are the range, charging speed, warranty and safety positioning? Are they at parity with current alternatives?\n[Illustrative assumption] It has competitive basic features and a reliable warranty, but no extraordinary technological differentiation."
+      "kind": "hypothesis",
+      "detail": "Looking at the landscape, our parity compact SUV should not compete below ₹14 lakh where hatchbacks and sedans sit, nor can it justify MG's ₹25 lakh premium without breakthrough range or luxury tech. On the value side, an urban commuter driving 1,200 km per month saves roughly ₹1.2 lakh annually on fuel and maintenance versus a ₹13 lakh ICE SUV, implying a 2.5-to-3-year payback at a ₹3–4 lakh EV premium.",
+      "reasoning": "Translating running-cost savings into a concrete payback period quantifies the true willingness-to-pay ceiling above equivalent ICE SUVs.",
+      "causes": [
+        "Lack of proprietary tech premium caps WTP below MG's ₹25L tier",
+        "Strong ₹1.2L/year TCO fuel savings supports a ₹3–4L premium over ₹13L ICE SUVs",
+        "White space exists between ₹16.5L and ₹19L below Mahindra's ₹19–20L anchor"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That payback math makes sense. Given Mahindra sits at ₹19–20 lakh and Tata's top compact SUV variants reach ₹18 lakh, how would you structure our launch variants and protect margins if battery costs fluctuate?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend launching a two-tier architecture: a base variant at ₹16.9 lakh ex-showroom to undercut Mahindra and capture mass-affluent commuters, and a long-range connected variant at ₹18.9 lakh to monetize high-WTP buyers at a 25%+ gross margin. We should pair this with an 8-year battery warranty, bundled home-charger financing, and local battery sourcing contracts to lock in unit costs.",
+      "reasoning": "Tiered pricing captures both price-sensitive upgraders and feature-driven buyers while maintaining a comfortable buffer above the ₹13.5 lakh floor.",
+      "causes": [
+        "Two-tier SKU ladder captures diverse WTP without cannibalizing core margin",
+        "Bundled financing and warranty reduce EV range and resale anxiety"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in EV Pricing Strategy before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Launch a two-tier pricing ladder—₹16.9 lakh ex-showroom for the standard-range SUV (undercutting Mahindra's ₹19–20 lakh tier) and ₹18.9 lakh for the long-range connected trim.",
+    "P1: Bundle an 8-year battery warranty, home wall-box installation, and TCO-calculator marketing highlighting the ~₹1.2 lakh annual fuel savings for urban commuters.",
+    "P2: Lock in multi-year cell supply hedges and track reservation conversion rates alongside gross margin per vehicle as guardrails against battery price volatility."
   ],
   "metricsAndGuardrails": {
     "northStar": "Net Contribution Margin & Paid ARPU Growth (Mastercard)",
@@ -3397,7 +4058,7 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For Mastercard’s EV Pricing Strategy case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in EV Pricing Strategy before secondary optimizations. We will validate success via Net Contribution Margin & Paid ARPU Growth (Mastercard) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "For the EV Manufacturer's Indian compact electric SUV launch, I recommend a two-tier price architecture starting at ₹16.9 lakh for the base variant and ₹18.9 lakh for the long-range trim. Because the vehicle offers feature parity without luxury differentiation, anchoring just below Mahindra's ₹19–20 lakh tier captures strong fuel-savings willingness-to-pay (~₹1.2 lakh/year) while delivering a healthy margin well above the ₹13.5 lakh cost floor.",
   "interviewerTrap": "Using only Cost-Plus markup and ignoring Value-Based WTP, elasticity, cannibalization, or two-sided marketplace effects!",
   "variations": [
     {
@@ -3450,37 +4111,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-24-fast-food-qsr-menu-pricing",
   "title": "Fast Food QSR Menu Pricing",
-  "company": "Accenture",
+  "company": "Global QSR Chain",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Accenture",
     "Pricing",
     "Consulting"
   ],
-  "prompt": "Fast Food Pricing Our client is a global fast-food chain. In the US, guest counts are flat and profitability is declining. They’re known for $1 value products.",
+  "prompt": "Your client is a global fast-food QSR chain facing flat US guest counts and declining store profitability. Famous for its $1 value menu, the company wants you to evaluate whether menu pricing is driving the profit drop and how to restore margins without alienating traffic.",
   "clarifyingQuestions": [
     {
-      "q": "To begin, I need menu-level detail — prices, costs, and margins across value, core, and premium. Do we have that?",
-      "a": "Yes, here’s Exhibit 1.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Do we have SKU-level menu prices, unit costs, and contribution margins across Value, Core, and Premium tiers?",
+      "a": "Yes. Value items ($1.00 cheeseburger and 4-piece nuggets) cost $0.75 ($0.25 margin); Core items ($3.00 bacon cheeseburger, $3.50 10-piece nuggets) cost $1.00–$1.25; Premium items ($5.00 double bacon cheeseburger, $5.50 20-piece nuggets) cost $1.50; medium fries and drinks are $1.00 each ($0.25 cost); and the Core combo meal is $5.00 ($1.50 cost).",
+      "why": "Exposes exact dollar-margin gaps and bundle-pricing anomalies across menu tiers."
     },
     {
-      "q": "Thanks. Let me talk through what I notice. First, value items are priced very low — $1 or less — and margins in dollars are tiny. For example, the cheeseburger margin is only a few cents at current price. Is that accurat",
-      "a": "Yes Second, core items like combo meals are priced higher but don’t seem to deliver proportionally more margin. The combo pricing doesn’t strongly incentivize a trade-up from value. True?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the current unit sales mix across Value, Core, and Premium items?",
+      "a": "Value SKUs sell 2 to 3 times more units than Core items, while Premium represents an even smaller share of volume.",
+      "why": "Tests whether margin erosion stems from cost inflation or an adverse mix shift toward low-dollar-margin value items."
     },
     {
-      "q": "Yes Second, core items like combo meals are priced higher but don’t seem to deliver proportionally more margin. The combo pricing doesn’t strongly incentivize a trade-up from value. True?",
-      "a": "Fast Food Pricing True.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How price-elastic are guests on anchor Value SKUs like the $1.00 cheeseburger?",
+      "a": "Pilot elasticity data shows raising the cheeseburger from $1.00 to $1.25 reduces unit volume by roughly 10%, while doubling unit dollar margin from $0.25 to $0.50.",
+      "why": "Quantifies the exact traffic-versus-margin trade-off before recommending price increases."
     }
   ],
   "frameworkUsed": "Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test",
   "coreEquation": "Optimal Price ∈ [Unit Cost Floor, Perceived Value WTP Ceiling] Tuned to Elasticity",
-  "strategyOverview": "Approach Fast Food QSR Menu Pricing (Accenture) using a Pricing structure: start by confirming the business objective and scope, decompose the problem cleanly along Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Fast Food QSR Menu Pricing (Global QSR Chain) using menu-tier economics: audit SKU prices, unit costs, and bundle discounts across Value, Core, and Premium tiers, diagnose mix cannibalization and elasticity, and deploy targeted price increases plus trade-up combo architecture in pilot markets.",
   "tree": {
     "label": "Fast Food QSR Menu Pricing — 3Cs Pricing Tree",
     "valueText": "Floor · Anchor · Ceiling",
@@ -3502,44 +4162,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Fast Food Pricing Our client is a global fast-food chain. In the US, guest counts are flat and profitability i",
-      "detail": "Fast Food Pricing Our client is a global fast-food chain. In the US, guest counts are flat and profitability is declining. They’re known for $1 value products.\nPlease help them understand if pricing is the issue Understood. So the core question is: how is pricing impacting profitability, and what changes could improve margins without losing too many guests.\nBefore diving in, let me lay out how I’d like to structure the case. First, I’ll check product-level economics: price, cost, margin. Second, I’ll examine product mix and cannibalization. Third, I’ll test elasticity to see optimal price points. Finally, I’ll sy"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a global fast-food chain whose US guest counts are flat and profitability is declining. Known heavily for $1 value products, they want to know if pricing is the root issue and how to fix margins without losing guests."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "To begin, I need menu-level detail — prices, costs, and margins across value, core, and premium. Do we have th",
-      "detail": "To begin, I need menu-level detail — prices, costs, and margins across value, core, and premium. Do we have that?\nYes, here’s Exhibit 1.\nTier Product Current Price Cost/Unit Value Cheeseburger $1.00 $0.75 4-piece chicken nuggets $1.00 $0.75 Core Bacon cheeseburger $3.00 $1.00 10-piece chicken nuggets $3.50 $1.25 Premium Double bacon cheeseburger $5.00 $1.50 20-piece chicken nuggets $5.50 $1.50 Other Medium soft drink $1.00 $0.25 Medium fries $1.00 $0.25 Combo meals Core combo meal¹ $5.00 $1.50 ¹ Includes Core entrée, medium soft drink, and medium fries.\nThanks. Let me talk through what I notice. First, value item"
+      "kind": "question",
+      "detail": "To isolate whether this is a unit-margin problem or a mix problem, I would like to examine SKU-level pricing, food costs, and sales mix across Value, Core, and Premium tiers. Do we have menu economics data available?",
+      "reasoning": "Flat guest counts paired with falling profits strongly point toward check-size compression or unfavorable tier mix rather than pure traffic loss."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Yes Second, core items like combo meals are priced higher but don’t seem to deliver proportionally more margin",
-      "detail": "Yes Second, core items like combo meals are priced higher but don’t seem to deliver proportionally more margin. The combo pricing doesn’t strongly incentivize a trade-up from value. True?\nFast Food Pricing True.\nThird, premium sandwiches and specialty items deliver much higher margins, both in % and absolute $. For example, moving from a value sandwich to a premium one adds more than double the contribution. Do I have that right?\nInteresting. One odd thing: nugget pricing. The unit cost actually increases with larger pack sizes. Is that correct or a data issue?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes. Value cheeseburgers and 4-piece nuggets sell for $1.00 at a $0.75 cost. Core bacon cheeseburgers are $3.00 ($1.00 cost) and 10-piece nuggets are $3.50 ($1.25 cost). Premium double bacon burgers are $5.00 ($1.50 cost), medium fries and soft drinks are $1.00 each ($0.25 cost), and a Core combo meal—Core entrée plus medium fries and drink—is $5.00 ($1.50 cost)."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "It’s correct — due to packaging and prep inefficiencies.",
-      "detail": "It’s correct — due to packaging and prep inefficiencies.\nThat’s counterintuitive. Normally, larger packs should drive economies of scale.\nSo this is a structural problem.\nLet me pause and hypothesize. The pricing architecture encourages customers to stick with value items. The jump from value to core feels too steep, so they don’t trade up. And some menu design flaws, like nuggets, may even erode margins further."
+      "kind": "framework",
+      "detail": "Three structural flaws jump out immediately. First, Value items earn only $0.25 per unit (25% margin) versus $2.00 to $3.50 on Core and Premium entrées. Second, the Core combo at $5.00 equals the exact à la carte sum ($3.00 + $1.00 + $1.00), giving customers zero discount incentive to bundle. Third, the jump from a $1.00 burger to a $3.00 Core burger is 3x, encouraging guests to trade down by ordering two $1.00 items instead. What is our current unit mix?",
+      "reasoning": "Comparing à la carte totals against combo prices reveals whether the menu architecture actively encourages or blocks profitable upsizing."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Value SKUs sell 2 to 3 times more units than Core, and Premium is smaller still. Also, larger nugget packs actually suffer minor prep and packaging inefficiencies, while elasticity testing shows lifting the cheeseburger to $1.25 cuts volume by only ~10%."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "I want to confirm the sales mix. Roughly what share of units comes from value vs core vs premium?",
-      "detail": "I want to confirm the sales mix. Roughly what share of units comes from value vs core vs premium?\nValue sells about 2–3x more than core; premium is smaller still.\nThat’s important. If most sales are concentrated in low-margin value items, overall profitability suffers even if premium margins are high. So the challenge is shifting the mix without scaring off guests.\nAt this point, I’d like to see demand elasticity data. Specifically, how volume responds to price changes for key SKUs like the cheeseburger and bacon cheeseburger. Can you share that?"
+      "kind": "root-cause",
+      "detail": "That confirms the root cause: profitability is being crushed by an over-concentration in $0.25-margin Value SKUs, compounded by a broken price ladder and non-existent combo savings. Even with a 10% volume dip, moving the cheeseburger from $1.00 to $1.25 doubles its unit dollar margin from $0.25 to $0.50, lifting total cheeseburger profit by 80% while narrowing the psychological gap to Core items.",
+      "reasoning": "Evaluating net profit contribution (unit margin × retained volume) proves that modest Value price increases expand dollar profits even with minor volume loss.",
+      "causes": [
+        "Heavy mix concentration (2–3x Core) in $0.25-margin $1 Value SKUs",
+        "Zero bundle discount on the $5.00 Core combo versus à la carte items",
+        "Steep 3x price jump from $1.00 Value to $3.00 Core blocks natural trade-up"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good catch on the cheeseburger elasticity and combo math. How would you redesign the menu pricing and test it without triggering backlash from loyal value shoppers?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a controlled regional pilot that raises anchor Value items from $1.00 to $1.25 while keeping a 'Value Plus' entry bridge intact. Simultaneously, we should introduce a $4.49 Core Combo ($0.51 bundle savings off à la carte) and optimize nugget packaging to protect margins on larger packs. We will monitor guest count, tier mix shift, and restaurant-level EBITDA for 8 weeks before rolling out nationally.",
+      "reasoning": "Pairing a slight Value price lift with a genuine Core combo discount shifts guests upward rather than pushing them out of the store.",
+      "causes": [
+        "Repriced $1.25 Value tier restores +80% contribution dollar profit",
+        "$4.49 Core Combo discount creates a clear value-driven upgrade path"
+      ]
     }
   ],
   "recommendations": [
-    "In those pilots, lift the cheeseburger to $1.25 and the bacon",
-    "Add a couple of straightforward bundles, update POS, and train crews",
-    "Back it with local marketing that highlights “value plus upgrade.”",
-    "Watch the numbers — guest count, mix, and margins — and compare"
+    "P0: Launch an 8-week regional pilot lifting anchor Value SKUs (cheeseburger, 4-piece nuggets) from $1.00 to $1.25, doubling unit margin from $0.25 to $0.50 with minimal ~10% volume attrition.",
+    "P1: Re-architect combo pricing by introducing a $4.49 Core Combo (saving $0.51 versus à la carte) and a mid-tier $2.49 'Value Plus' bridge burger to incentivize trade-ups.",
+    "P2: Standardize large-pack nugget packaging to eliminate prep inefficiencies and track guest counts, mix shift, and store contribution margin against control stores before national rollout."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Net Contribution Margin & Paid ARPU Growth (Accenture)",
+    "northStar": "Net Contribution Margin & Paid ARPU Growth (Global QSR Chain)",
     "leading": [
       "Pricing page → checkout conversion %",
       "Tier upgrade / annual plan share"
@@ -3549,11 +4239,11 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For Accenture’s Fast Food QSR Menu Pricing case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: In those pilots, lift the cheeseburger to $1.25 and the bacon We will validate success via Net Contribution Margin & Paid ARPU Growth (Accenture) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "For the Global QSR Chain's US profitability decline, the core issue is a broken pricing ladder where 2–3x volume sits in $0.25-margin $1 Value items and the $5.00 Core combo offers zero discount over à la carte ordering. By piloting a $1.25 Value anchor alongside a discounted $4.49 Core Combo and 'Value Plus' upgrade messaging, the chain can boost Value contribution profit by ~80% and shift mix toward higher-margin Core and Premium entrées while closely guarding guest traffic.",
   "interviewerTrap": "Using only Cost-Plus markup and ignoring Value-Based WTP, elasticity, cannibalization, or two-sided marketplace effects!",
   "variations": [
     {
-      "question": "How would your recommendation change if Accenture had half the timeline or budget?",
+      "question": "How would your recommendation change if Global QSR Chain had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -3602,37 +4292,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-25-samsung-mobile-pricing-vs-apple",
   "title": "Samsung Mobile Pricing vs Apple",
-  "company": "Tata 1mg",
+  "company": "Samsung",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Tata 1mg",
     "Pricing",
     "Consulting"
   ],
-  "prompt": "Samsung Pricing Model Let’s begin with the case. You are a product manager at Samsung, and seeing the dominance of Apple mobile phones in the market, you are tasked with building a pricing model for Samsung mobile phones to reduce Apple's monopoly.",
+  "prompt": "You are a Product Manager at Samsung tasked with building a pricing model for Samsung's flagship S-series smartphones in India to reduce Apple's premium market dominance.",
   "clarifyingQuestions": [
     {
-      "q": "What market are we catering to, the Indian or the Global market?",
-      "a": "Consider the Indian market.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Should we focus strictly on the Indian market and the Galaxy S-series lineup?",
+      "a": "Yes—focus on the Indian smartphone market across all currently marketed S-series models, including the S24 FE, S24, and S24 Ultra.",
+      "why": "Concentrates the pricing model on India's premium segment where Apple has rapidly gained share."
     },
     {
-      "q": "Any particular mobile phone series that I should consider, or in general?",
-      "a": "Go with the S series.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are Samsung's manufacturing cost baselines and target gross margin expectations per device?",
+      "a": "Assuming efficient scale, unit cost floors sit roughly around ₹24–28K for the S24 FE, ₹30–35K for the S24, and ₹55–60K for the S24 Ultra, with a benchmark 60–70% gross margin target.",
+      "why": "Establishes the cost-based lower bound so competitive price cuts never breach sustainable unit economics."
     },
     {
-      "q": "Should we consider new models or the previous ones as well?",
-      "a": "All models existing in the market can be considered.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which specific iPhone models serve as direct anchors against the S24 FE, S24, and S24 Ultra in India?",
+      "a": "The S24 FE competes with the iPhone 15 (~₹70–79K), the S24 competes with the iPhone 15 Plus (~₹80–89K), and the S24 Ultra competes directly against the iPhone 15 Pro (~₹1.30–1.35 lakh).",
+      "why": "Defines the exact competitor price tiers required to position Samsung's S-series as superior value."
     }
   ],
   "frameworkUsed": "Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test",
   "coreEquation": "Optimal Price ∈ [Unit Cost Floor, Perceived Value WTP Ceiling] Tuned to Elasticity",
-  "strategyOverview": "Approach Samsung Mobile Pricing vs Apple (Tata 1mg) using a Pricing structure: start by confirming the business objective and scope, decompose the problem cleanly along Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Samsung Mobile Pricing vs Apple (Samsung) using the 3Cs of Pricing: validate unit cost floors across S24 FE, S24, and S24 Ultra (Cost), benchmark direct iPhone 15/Pro price points and EMI affordability in India (Competitors), monetize Samsung's differentiated camera/AI/battery features while countering Apple's resale and ecosystem lock-in (Value), and deploy promotional financing tiers.",
   "tree": {
     "label": "Samsung Mobile Pricing vs Apple — 3Cs Pricing Tree",
     "valueText": "Floor · Anchor · Ceiling",
@@ -3654,44 +4343,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Samsung Pricing Model Let’s begin with the case. You are a product manager at Samsung, and seeing the dominanc",
-      "detail": "Samsung Pricing Model Let’s begin with the case. You are a product manager at Samsung, and seeing the dominance of Apple mobile phones in the market, you are tasked with building a pricing model for Samsung mobile phones to reduce Apple's monopoly.\nOkay, sure. I would like to ask a few clarifying questions before I begin.\nWhat market are we catering to, the Indian or the Global market?\nConsider the Indian market."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "As a Product Manager at Samsung, you are tasked with designing a pricing model for Samsung's flagship smartphones to challenge Apple's dominance. How would you scope and structure this?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Any particular mobile phone series that I should consider, or in general?",
-      "detail": "Any particular mobile phone series that I should consider, or in general?\nGo with the S series.\nShould we consider new models or the previous ones as well?\nAll models existing in the market can be considered."
+      "kind": "question",
+      "detail": "Before setting prices, I want to clarify two parameters: are we pricing for India or globally, and should we cover all Samsung lines or specifically the flagship S-series including both new and existing models?",
+      "reasoning": "India's EMI-driven premium smartphone market has vastly different price elasticity and competitor tax dynamics than global markets."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Referring to the information uptill now, we can consider these three paths for pricing.",
-      "detail": "Referring to the information uptill now, we can consider these three paths for pricing.\n● Competitor based pricing ● Value based pricing.\n● Cost based pricing Which path according to you should we go with?\nWe will begin with cost-based pricing. We can set a bottom line for our products, which could be Rs. 24–28K for the S24 FE, Rs."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Focus on the Indian market for all currently sold Galaxy S-series devices—specifically the S24 FE, S24, and S24 Ultra."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "30-35K for the S24, and Rs. 55-60K for the S24 Ultra.",
-      "detail": "30-35K for the S24, and Rs. 55-60K for the S24 Ultra.\nAm I correct with these assumptions?\nWhat are the basis of these assumptions?\nConsidering Samsung as an efficient player in the market, I am assuming a gross profit margin of 60-70% per piece on each model."
+      "kind": "framework",
+      "detail": "Understood. I will evaluate pricing across three lenses: cost-based floors to protect unit margins, competitor-based benchmarking against Apple's iPhone 15 lineup, and value-based willingness-to-pay based on Samsung's unique features and Indian buyer financing behavior. Starting with costs, assuming efficient manufacturing and a 60–70% gross margin target, baseline costs sit near ₹24–28K for S24 FE, ₹30–35K for S24, and ₹55–60K for S24 Ultra. Does that align with your expectations?",
+      "reasoning": "Establishing cost baselines upfront prevents pricing recommendations from eroding hardware profitability."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Those cost assumptions are reasonable. Now factor in Apple's strength in India: the iPhone 15 retails near ₹70–79K, the 15 Plus at ₹80–89K, and the 15 Pro at ₹1.30–1.35 lakh, and buyers prize Apple's brand prestige and resale value. How does Samsung's value proposition stack up?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Samsung Pricing Model So, we can come up with the base price for all the models. Now, will consider value-base",
-      "detail": "Samsung Pricing Model So, we can come up with the base price for all the models. Now, will consider value-based pricing. Can I proceed?\nConsidering the features provided by Samsung which are its USP’s are ● 100x camera zoom ● battery percentage ● Storage capacity which is also expandable ● ecosystem ● integration with AI leading to real time AI assistants Shall I proceed further?\nConsidering the vast Indian market and the growing content creation on social media platforms like Instagram and YouTube, we can see that demand for good camera features is increasing, and customers are willing to pay more for this parti"
+      "kind": "hypothesis",
+      "detail": "Samsung leads on functional specs—100x camera zoom for India's booming creator economy, larger battery endurance, and real-time Galaxy AI translation—but loses to Apple on two psychological barriers: perceived luxury status and higher 2-year resale value, alongside steep upfront sticker prices where 70%+ of premium Indian purchases rely on EMIs.",
+      "reasoning": "Separating functional superiority from status/resale barriers explains why matching Apple's sticker price alone fails to convert iOS intenders.",
+      "causes": [
+        "Apple commands stronger brand prestige and 2-year resale value in India",
+        "High upfront sticker shock slows upgrades despite EMI availability",
+        "Samsung's 100x camera and Galaxy AI USPs are under-monetized in mid-tier S24 FE/S24 positioning"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Exactly. So what concrete price points and commercial levers would you set for the S24 Ultra, S24, and S24 FE to chip away at Apple's monopoly?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend anchoring the S24 Ultra at ₹1.29 lakh—just below the iPhone 15 Pro—while aggressively undercutting Apple in the high-growth ₹50K–80K funnel by pricing the S24 at ₹74,999 (versus iPhone 15 Plus at ₹85K+) and the S24 FE at ₹49,999 (versus iPhone 15 at ₹75K). To neutralize Apple's resale and ecosystem advantage, we should pair these prices with 24-month zero-cost EMIs, a guaranteed 60% 2-year buyback program, and discounted Galaxy Watch/Buds bundles.",
+      "reasoning": "Using the Ultra as a prestige anchor while undercutting Apple at the entry-premium FE/base tiers maximizes volume capture without cheapening the flagship brand.",
+      "causes": [
+        "Price-undercutting at ₹49,999–₹74,999 captures aspirational iPhone switchers",
+        "Guaranteed buyback and 24-month no-cost EMI directly offset Apple's resale edge"
+      ]
     }
   ],
   "recommendations": [
-    "Samsung S24 Ultra: Rs. 1.3 lakh",
-    "Our S24 Ultra model competes with the iPhone 15 Pro",
-    "Our S24 model competes with the iPhone 15 Plus model.",
-    "Our S24 FE model can be compared to the iPhone 15"
+    "P0: Set tiered anchor pricing—S24 Ultra at ₹1.29 lakh (parity/slight undercut vs iPhone 15 Pro), S24 at ₹74,999 (undercutting iPhone 15 Plus by ~₹10–15K), and S24 FE at ₹49,999 as the high-volume switcher gateway.",
+    "P1: Launch a Samsung Guaranteed Buyback (60% value retention at 24 months) paired with 24-month no-cost EMI plans to neutralize Apple's resale advantage and lower monthly outlay.",
+    "P2: Bundle Galaxy Buds/Watch ecosystem discounts and creator-focused camera/Galaxy AI retail demos in Tier-1 metros while tracking S-series share vs iPhone and net ASP."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Net Contribution Margin & Paid ARPU Growth (Tata 1mg)",
+    "northStar": "Net Contribution Margin & Paid ARPU Growth (Samsung)",
     "leading": [
       "Pricing page → checkout conversion %",
       "Tier upgrade / annual plan share"
@@ -3701,11 +4420,11 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For Tata 1mg’s Samsung Mobile Pricing vs Apple case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Samsung S24 Ultra: Rs. 1.3 lakh We will validate success via Net Contribution Margin & Paid ARPU Growth (Tata 1mg) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "To reduce Apple's premium dominance in India, Samsung should deploy a tiered value-undercutting model: anchor the S24 Ultra at ₹1.29 lakh to defend flagship prestige while aggressively pricing the S24 at ₹74,999 and S24 FE at ₹49,999 to intercept aspirational iPhone buyers. Pairing these price points with 24-month no-cost EMIs and a guaranteed 60% buyback program directly neutralizes Apple's resale and status lock-in while preserving strong hardware margins.",
   "interviewerTrap": "Using only Cost-Plus markup and ignoring Value-Based WTP, elasticity, cannibalization, or two-sided marketplace effects!",
   "variations": [
     {
-      "question": "How would your recommendation change if Tata 1mg had half the timeline or budget?",
+      "question": "How would your recommendation change if Samsung had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -3754,39 +4473,38 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-growth-tea-relaunch",
   "title": "Relaunch of Tea Brand",
-  "company": "BCG",
+  "company": "Heritage Tea Brand",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 1,
   "isStarter": true,
   "tags": [
-    "BCG",
     "Growth",
     "FMCG",
     "Ansoff Matrix",
     "Relaunch"
   ],
-  "prompt": "Your client is a tea manufacturer. Lately it is facing series of unsuccessful outcomes.",
+  "prompt": "Your client is a traditional Indian tea manufacturer that has suffered a string of declining sales and failed product outcomes. They want your help diagnosing why the brand stalled and designing a comprehensive relaunch and growth strategy.",
   "clarifyingQuestions": [
     {
-      "q": "Just to confirm the client wants strategies to overcome the loss making outcomes. What was the company’s vision and mission when it started?",
-      "a": "The company wanted to capture the growing tea market of the country.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which geographies and customer demographics has the tea brand historically targeted?",
+      "a": "The brand initially targeted mass consumers across Northern India with the goal of capturing India's growing tea market.",
+      "why": "Defines the core stronghold market so we can separate regional saturation from product-market mismatch."
     },
     {
-      "q": "What were the reasons for the decline?",
-      "a": "Essentially the company was not able to tap into the market. Nor did it get any positive response from the masses.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Have distribution or supply-chain logistics bottlenecks contributed to the recent decline?",
+      "a": "No—distribution and supply-chain logistics across regions are functioning smoothly; the challenge is weak consumer pull and poor mass adoption.",
+      "why": "Rules out supply-side stockouts and focuses investigation on product quality, consumer taste, and brand positioning."
     },
     {
-      "q": "Are there any logistical challenges the company faces in distributing its products to different regions?",
-      "a": "No Has the company conducted any recent market research to understand the changing preferences of customers in Northern India?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Has the company conducted recent consumer research on evolving tea preferences in its target markets?",
+      "a": "No recent market research or consumer taste testing has been conducted to adapt blends, packaging, or regional positioning.",
+      "why": "Identifies whether stagnant R&D and outdated branding explain the declining repeat purchase rate."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix + Consumer Purchase Funnel (Awareness → Trial → Repeat)",
   "coreEquation": "Revenue = Distribution Outlets × Velocity/Outlet × Pack Price × Repeat Rate",
-  "strategyOverview": "Diagnose why the legacy tea brand stalled before relaunching, then scale via Ansoff: Penetration (refresh packaging/sampling in core strongholds + quick commerce), Market Dev (new regions/HoReCa), Product Dev (green/masala/iced ready-to-drink variants).",
+  "strategyOverview": "Diagnose why the Heritage Tea Brand stalled before relaunching, then scale via Ansoff and the Consumer Funnel: conduct blind taste R&D to match evolving regional palates, modernize brand identity and packaging, penetrate core Northern strongholds, expand into high-potential Southern and urban specialty channels, and drive trial through experiential tastings.",
   "tree": {
     "label": "Relaunch of Tea Brand — Growth Tree",
     "valueText": "Organic + Inorganic",
@@ -3808,44 +4526,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Your client is a tea manufacturer. Lately it is facing series of unsuccessful outcomes.",
-      "detail": "Your client is a tea manufacturer. Lately it is facing series of unsuccessful outcomes.\nJust to confirm the client wants strategies to overcome the loss making outcomes. What was the company’s vision and mission when it started?\nThe company wanted to capture the growing tea market of the country.\nWhat were the reasons for the decline?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a legacy tea manufacturer in India facing a series of declining sales and unsuccessful launches. How would you diagnose the downturn and build a relaunch strategy?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Essentially the company was not able to tap into the market. Nor did it get any positive response from the mas",
-      "detail": "Essentially the company was not able to tap into the market. Nor did it get any positive response from the masses.\nBefore moving ahead I would like to ask about the particular demographic the company initially tapped into.\nNorthern India was the initially targeted demographic. So how would you approach this problem and provide a substantial solution.\nAre there any logistical challenges the company faces in distributing its products to different regions?"
+      "kind": "question",
+      "detail": "Before structuring a turnaround, I want to clarify what markets the brand currently serves and whether the slump stems from supply-chain disruptions or weak consumer demand. Have they faced logistics issues or conducted recent customer taste research?",
+      "reasoning": "Distinguishing supply-chain availability from consumer pull determines whether we need an operations fix or a product and brand overhaul."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "No Has the company conducted any recent market research to understand the changing preferences of customers in",
-      "detail": "No Has the company conducted any recent market research to understand the changing preferences of customers in Northern India?\nNone Firstly the company needs to pull in volunteers for tea trials to get the overview about the general population’s taste. That being said the company can develop a new product line that caters to the targeted audience Ok proceed.\nThe company can improve the quality of tea by sourcing better quality tea leaves. Also, can enhance the packaging and branding of tea products. Most essentially the company can explore the South Indian market.\nCan you elaborate further?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Logistics are completely fine. They initially targeted Northern India with a vision to capture the mass market, but consumers simply haven't responded well, and no recent consumer research has been done."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "We can tap into the South Indian market and yield the best out of it. Precisely, the company can attend tea fa",
-      "detail": "We can tap into the South Indian market and yield the best out of it. Precisely, the company can attend tea fairs and exhibitions in South India to showcase its products and network with potential customers.\nWhat is going to be the company’s ‘USP’ then?\nBuilding a strong brand identity is what going to give the business an image, a voice. More likely the company need to develop a brand identity not just a logo. This is what is going separate the brand from competition Ok sounds good. Then how are you going to design marketing strategies?\nThere are many ways. We can go for various forms of marketing including the"
+      "kind": "framework",
+      "detail": "That makes this a consumer pull and product-market-fit problem. I will structure the relaunch in two phases: first, diagnose funnel drop-offs across Awareness, Trial, and Repeat—checking leaf quality, blend profile, and packaging; second, deploy an Ansoff growth roadmap covering core North penetration, regional expansion into South India, and new product variants.",
+      "reasoning": "Fixing product quality and brand appeal first prevents wasting marketing spend on a relaunch that fails to retain trial buyers."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Suppose consumer diagnostics confirm our single traditional blend feels dated, packaging looks generic on shelves, and urban buyers are shifting toward specialized and regional flavor profiles. How should the client rebuild its offering and USP?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Can you brief us about the event marketing?",
-      "detail": "Can you brief us about the event marketing?\nThe company can organize events such as tea tastings and workshops to promote the tea brand and as I mentioned earlier this will increase the engagement with the potential customers.\nHow else the client can grow their total customer base?\nThe client can either target new customer segments, more specifically can develop new products and distribution channels."
+      "kind": "root-cause",
+      "detail": "Three root causes drove the stall: zero R&D feedback loops left blends misaligned with shifting palates, generic packaging failed to stand out against national and boutique tea brands, and over-reliance on a single Northern mass SKU ignored regional taste differences and specialty growth segments.",
+      "reasoning": "Pinpointing R&D, packaging, and single-SKU concentration ensures the relaunch addresses all three conversion barriers simultaneously.",
+      "causes": [
+        "Lack of consumer taste research left blends misaligned with modern preferences",
+        "Commoditized packaging and weak brand identity hurt shelf visibility",
+        "Over-reliance on one Northern mass SKU missed regional and specialty demand"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "How would you execute the relaunch on the ground—especially if we want to expand into South India and build repeat engagement?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a three-step relaunch. First, run structured consumer taste panels to upgrade leaf quality and launch tailored SKUs—strong dust/CTC blends calibrated for South India alongside masala and green/wellness packs for urban consumers. Second, overhaul packaging with an authentic heritage-yet-modern brand story. Third, drive low-cost trial via experiential tea-tasting pop-ups, regional food exhibitions, and quick-commerce sampling packs before scaling mass media.",
+      "reasoning": "Validating regional blends via tastings and exhibitions de-risks expansion into South India while building genuine brand recall.",
+      "causes": [
+        "Regional taste customization unlocks South India and urban specialty tiers",
+        "Experiential tastings and food exhibitions convert awareness directly into trial"
+      ]
     }
   ],
   "recommendations": [
-    "The problem arises due to improper research and development",
-    "Proceed by properly covering the southern part of the country by",
-    "A survey could be conducted or food and taste exhibitions could",
-    "Product should be launched keeping in mind the differences in"
+    "P0: Conduct blind consumer taste trials and upgrade leaf sourcing to launch distinct regional and segment SKUs (strong CTC/dust blends for North and South mass markets, plus masala and green tea lines).",
+    "P1: Refresh brand identity and shelf packaging to replace generic commoditized packs with a clear quality and provenance USP.",
+    "P2: Drive trial and expansion into South India through experiential tea-tasting events, trade exhibitions, and quick-commerce starter packs, tracking repeat purchase rate and regional velocity."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Incremental ARR / Net Revenue Growth (BCG)",
+    "northStar": "Incremental ARR / Net Revenue Growth (Heritage Tea Brand)",
     "leading": [
       "Retention & cross-sell attach rate",
       "New channel / geo revenue share"
@@ -3855,11 +4603,11 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For BCG’s Relaunch of Tea Brand case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: The problem arises due to improper research and development We will validate success via Incremental ARR / Net Revenue Growth (BCG) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "The Heritage Tea Brand's slump stems from stagnant R&D, generic packaging, and reliance on a single Northern blend rather than logistics bottlenecks. By conducting consumer taste trials to launch regionally tailored and specialty SKUs, refreshing packaging around an authentic brand USP, and activating experiential tastings to expand into South India and urban channels, the brand can rebuild trial-to-repeat velocity sustainably.",
   "interviewerTrap": "Relaunching with massive TV ads before fixing shelf availability (distribution) or why existing buyers stopped repurchasing!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Heritage Tea Brand had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -3908,37 +4656,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-growth-social-media",
   "title": "Social Media Company Growth",
-  "company": "Accenture",
+  "company": "Social Media Platform",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 2,
   "isStarter": false,
   "tags": [
-    "Accenture",
     "Growth",
     "Consulting"
   ],
-  "prompt": "Social Media Company Your client is a social media company whose significant chunk of users are Urban/well-to-do people. The client also has a small Tier 2 and 3 Rural user base. But a new competitor is taking away this share of the client's user base. You have to advise them on how to keep the urban user base intact or even increase it, but alongside counter the competitor and expand in Tier 2/3 rural areas.",
+  "prompt": "Your client is a social media platform whose core user base consists of affluent urban users, alongside a smaller Tier 2 and Tier 3 base. A fast-growing competitor is pulling away Tier 2 and Tier 3 users; advise the client on defending and growing its urban base while countering the rival and expanding in Tier 2 and Tier 3 markets.",
   "clarifyingQuestions": [
     {
-      "q": "Okay, How does the client operate?",
-      "a": "The platform aims to remain classic and sophisticated and does not want to push a lot of user generated content to public feed viewers. We want to keep the vibe in the public feed domain.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How does our client's platform position itself today, and how do urban vs. Tier 2/3 users contribute to metrics?",
+      "a": "The client keeps its public feed curated, classic, and sophisticated without flooding it with unfiltered UGC. Urban users drive most ad revenue, while Tier 2/3 DAU/MAU is critical for future reach.",
+      "why": "Highlights the core strategic tension: monetizing urban sophistication cannot be sacrificed to win mass Tier 2/3 growth."
     },
     {
-      "q": "What is different about the competitor ?",
-      "a": "The competitor has a lot of user-generated content coming up, which hooked the tier ⅔ users on it, and there seems to be a lack of belongingness to the tier 2 and 3 users in the client's product.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What specific product or content advantages are enabling the competitor to capture Tier 2 and Tier 3 users?",
+      "a": "The competitor offers a lightweight app built for low-cost phones and weak networks, paired with abundant regional-language short-form UGC that creates strong local belonging.",
+      "why": "Separates technical accessibility barriers from content-supply and cultural-relevance gaps."
     },
     {
-      "q": "How do you propose to address these challenges and retain or increase the urban user base while countering the competitor and expanding in Tier 2 and Tier 3 rural areas?",
-      "a": "I have a multi-faceted approach to tackle these challenges.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are we losing urban users to this competitor as well, and how constrained is our investment budget?",
+      "a": "Urban engagement is largely stable so far, though exposed if the rival scales; our budget is moderate, requiring tightly prioritized investments.",
+      "why": "Confirms we can ring-fence urban defense efficiently while concentrating product spend on targeted Tier 2/3 fixes."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
   "coreEquation": "Revenue Growth = (Existing Customers × Frequency × AOV) + New Markets + New Products + Inorganic",
-  "strategyOverview": "Approach Social Media Company Growth (Accenture) using a Growth structure: start by confirming the business objective and scope, decompose the problem cleanly along Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Social Media Platform Growth using segmented product strategy: decouple Urban defense (protect curated public feed and premium ad yields) from Tier 2/3 expansion (launch a lightweight app/mode, localized regional-language creator circles, and follower-only UGC spaces) so both segments thrive without brand dilution.",
   "tree": {
     "label": "Social Media Company Growth — Growth Tree",
     "valueText": "Organic + Inorganic",
@@ -3960,43 +4707,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Social Media Company Your client is a social media company whose significant chunk of users are Urban/well-to-",
-      "detail": "Social Media Company Your client is a social media company whose significant chunk of users are Urban/well-to-do people. The client also has a small Tier 2 and 3 Rural user base. But a new competitor is taking away this share of the client's user base. You have to advise them on how to keep the urban user base intact or even increase it, but alongside counter the competitor and expand in Tier 2/3 rural areas.\nOkay, How does the client operate?\nThe platform aims to remain classic and sophisticated and does not want to push a lot of user generated content to public feed viewers. We want to keep the vibe in the publ"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a social media platform dominated by affluent urban users, with a smaller Tier 2 and Tier 3 user base that a new rival is rapidly capturing. How should the client protect or grow its urban base while countering the competitor in Tier 2 and Tier 3?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The competitor has a lot of user-generated content coming up, which hooked the tier ⅔ users on it, and there s",
-      "detail": "The competitor has a lot of user-generated content coming up, which hooked the tier ⅔ users on it, and there seems to be a lack of belongingness to the tier 2 and 3 users in the client's product.\nOne of the challenges is the absence of user-generated content on the client's platform, which has led to users seeking that engagement elsewhere. Additionally, there is a need to enhance the sense of belongingness for the Tier 2 and Tier 3 users. They currently don't feel connected to the platform in the same way as the urban users.\nHow do you propose to address these challenges and r"
+      "kind": "question",
+      "detail": "To separate defense from expansion, I want to clarify two points: is the rival eroding urban DAU/MAU yet, and what product constraints define our client's positioning—particularly around user-generated content and app architecture?",
+      "reasoning": "Urban ad-monetizing users and Tier 2/3 growth users often have conflicting UX preferences, so understanding product boundaries prevents brand cannibalization."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Firstly, I suggest introducing user-generated content in a way that aligns with the client's desired classic a",
-      "detail": "Firstly, I suggest introducing user-generated content in a way that aligns with the client's desired classic and sophisticated vibe.\nThis could involve creating private spaces where users can share their content, which would be visible to their followers only.\nWhat other strategies do you recommend?\nSocial Media Company The competitor is gaining users in Tier 2/3 markets. What is your approach?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Urban usage is stable and generates most ad revenue, though it faces long-term risk if the rival scales. Our client wants to keep its public feed classic and sophisticated without pushing heavy unfiltered UGC, whereas the rival hooks Tier 2/3 users with short vernacular video, local community belonging, and a lightweight app for cheap phones."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "I'd start by separating defense and expansion, because the urban and Tier 2/3 segments may value different thi",
-      "detail": "I'd start by separating defense and expansion, because the urban and Tier 2/3 segments may value different things. Is the competitor also taking urban users?\nNot substantially yet. The loss is concentrated in Tier 2/3. Urban usage is broadly stable, although there is a risk if the competitor scales.\nWhat advantages does the rival have—content relevance, app performance, pricing, distribution or community effects?\nIt has a light app for inexpensive phones and weak connectivity, strong regional-language content and popular short vernacular video."
+      "kind": "framework",
+      "detail": "That clarifies this is a segmented product-market-fit and technical-access challenge rather than an ad-spend issue. I will split the strategy into two ring-fenced tracks: first, Urban Defense—deepening curated discovery and premium creator tools without cluttering the public feed; second, Tier 2/3 Expansion—solving bandwidth/device friction, local-language content supply, and community belonging without diluting the urban feed.",
+      "reasoning": "Ring-fencing the two tracks allows tailored UX and content feeds per cohort without alienating high-ARPU urban advertisers."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Given a moderate budget and the strict rule against flooding the main public feed with raw UGC, how would you solve Tier 2/3 content belonging and technical friction?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "So this looks like a product-market-fit and content-supply problem, not merely weak advertising. How are we me",
-      "detail": "So this looks like a product-market-fit and content-supply problem, not merely weak advertising. How are we measuring the problem—DAU, MAU, engagement or revenue?\nUse DAU/MAU. Urban users generate most ad revenue; Tier 2/3 is critical for future reach and growth.\nIs the client's current feed locally relevant, and do we have resources to serve both audiences?\nThe feed is mostly English and metro-culture-oriented; regional content is not prioritized well. The budget is moderate, so we cannot invest in every initiative simultaneously."
+      "kind": "root-cause",
+      "detail": "The churn stems from three gaps: an English/metro-skewed recommendation feed leaves Tier 2/3 users feeling like outsiders, a heavy app crashes or stalls on low-RAM phones and 3G/spotty networks, and restricting all UGC removes the peer-to-peer viral loop that drives rural retention.",
+      "reasoning": "Addressing all three root causes ensures that acquiring Tier 2/3 installs actually translates into 30-day DAU retention.",
+      "causes": [
+        "Metro-centric English feed creates low cultural belonging for Tier 2/3 users",
+        "Heavy app footprint degrades performance on low-end phones and weak data networks",
+        "Absence of accessible UGC spaces prevents local creator virality"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That diagnosis is spot on. What exact product features and rollout sequence would you prioritize with a moderate budget?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "First, launch a lightweight 'Lite' app build (<15MB with adaptive low-data video caching) aimed at top-churn Tier 2/3 states. Second, introduce segmented 'Private Circles' and opt-in regional-language community channels where UGC stays within follower/local cohorts—preserving the classic public feed for urban users while igniting vernacular engagement. Third, onboard micro-creators in priority languages and track Tier 2/3 DAU/MAU retention alongside urban session depth and ad RPM as guardrails.",
+      "reasoning": "Scoped UGC spaces plus a Lite app directly match the competitor's advantages at low cost while keeping the core urban experience intact.",
+      "causes": [
+        "Lite app removes device/network friction in Tier 2/3 markets",
+        "Opt-in local circles unlock vernacular UGC without polluting the urban feed"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Social Media Company Growth before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Ship a lightweight 'Lite' app (<15MB with offline/low-bandwidth caching) and localize onboarding into the top 5 Tier 2/3 regional languages to stop device-driven churn.",
+    "P1: Introduce opt-in 'Local Circles' and follower-only UGC spaces so Tier 2/3 users and regional creators can build community without altering the curated public feed for urban users.",
+    "P2: Seed vernacular micro-creator partnerships in two pilot states and deepen urban engagement via curated cultural/interest hubs, monitoring Tier 2/3 DAU/MAU alongside urban ad RPM."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Incremental ARR / Net Revenue Growth (Accenture)",
+    "northStar": "Incremental ARR / Net Revenue Growth (Social Media Platform)",
     "leading": [
       "Retention & cross-sell attach rate",
       "New channel / geo revenue share"
@@ -4006,11 +4784,11 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For Accenture’s Social Media Company Growth case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Social Media Company Growth before secondary optimizations. We will validate success via Incremental ARR / Net Revenue Growth (Accenture) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "The Social Media Platform is losing Tier 2 and Tier 3 users not from weak marketing, but because a metro-centric feed, heavy app footprint, and lack of local UGC alienate regional audiences. By deploying a lightweight Lite app alongside opt-in vernacular 'Local Circles' that leave the curated urban public feed untouched, the platform can defend its high-ARPU urban core while reclaiming Tier 2/3 DAU/MAU growth on a moderate budget.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
-      "question": "How would your recommendation change if Accenture had half the timeline or budget?",
+      "question": "How would your recommendation change if Social Media Platform had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -4059,37 +4837,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-28-eyes-inc-growth-strategy",
   "title": "Eyes Inc. Growth Strategy",
-  "company": "PrepLounge",
+  "company": "Eyes Inc. (Apparel/Consumer Goods)",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "PrepLounge",
     "Growth",
     "Consulting"
   ],
-  "prompt": "Your client is Eyes Inc., a contact lens manufacturer in the US.",
+  "prompt": "Your client is Eyes Inc., a contact lens manufacturer in the United States. They want to grow their US market share significantly over the next two years; how would you approach this and what growth plan would you recommend?",
   "clarifyingQuestions": [
     {
-      "q": "They want to increase their market share over the next two years. How would you approach this problem?",
-      "a": "Thanks. I’ll take a clear, layered approach: (1) quickly understand the company and products, (2) identify the most attractive customer segments and regions, (3) analyze channels and competitor dynamics, and (4) recommend a prioritized grow",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is Eyes Inc.'s current product portfolio, regional footprint, and competitive position in the US?",
+      "a": "Eyes Inc. sells Regular (saturated), Cosmetic (stagnating), and Traditional (moderately growing) contact lenses. Two large competitors dominate nationally, and Eyes Inc. has weak presence in the US South.",
+      "why": "Pinpoints the highest-headroom product line (Traditional) and underpenetrated region (US South) before designing go-to-market tactics."
     },
     {
-      "q": "Before I dive into solutions, two quick commercial questions: who are their primary customers (new adopters vs repeat users) and how do they typically choose brands?",
-      "a": "There are two customer types: new adopters who are often guided by doctors and retail recommendations and existing users, who are more likely to stick with a brand. Young women are a high-potential demogr",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Who are the primary customer segments and what drives their brand selection?",
+      "a": "Repeat users are brand-loyal, whereas new adopters rely heavily on optometrist and retail recommendations. Women under 30 account for roughly 70% of growth potential.",
+      "why": "Identifies the decisive acquisition lever—clinical optometrist advocacy among young female first-time wearers."
     },
     {
-      "q": "That’s reasonable. How would you phase investments between these elements over two years?",
-      "a": "● Phase 1 : run pilots in 3–5 southern cities (doctor kits + a few retail partners + trial SKUs).",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are there manufacturing capacity limits or aggressive price competition we should plan around?",
+      "a": "Production can scale for phased regional rollouts, though the two dominant incumbents can respond aggressively with retail price promotions.",
+      "why": "Shapes a phased pilot strategy and non-price differentiation so Eyes Inc. avoids a margin-eroding price war."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
   "coreEquation": "Revenue Growth = (Existing Customers × Frequency × AOV) + New Markets + New Products + Inorganic",
-  "strategyOverview": "Approach Eyes Inc. Growth Strategy (PrepLounge) using a Growth structure: start by confirming the business objective and scope, decompose the problem cleanly along Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Eyes Inc. Growth Strategy using Ansoff Market Development and Channel Penetration: focus on the underpenetrated US South and moderately growing Traditional lens category, target first-time female adopters under 30 via optometrist sample kits and mall retail partnerships, launch trial-friendly disposable SKUs plus digital refill subscriptions, and phase investment across 3 pilot-to-national waves.",
   "tree": {
     "label": "Eyes Inc. Growth Strategy — Growth Tree",
     "valueText": "Organic + Inorganic",
@@ -4111,43 +4888,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Your client is Eyes Inc., a contact lens manufacturer in the US.",
-      "detail": "Your client is Eyes Inc., a contact lens manufacturer in the US.\nThey want to increase their market share over the next two years. How would you approach this problem?\nThanks. I’ll take a clear, layered approach: (1) quickly understand the company and products, (2) identify the most attractive customer segments and regions, (3) analyze channels and competitor dynamics, and (4) recommend a prioritized growth plan with a short pilot and KPIs. I’ll start by confirming the company facts can you share the product mix and any regional patterns?\nEyes Inc. sells Regular, Cosmetic, and Traditional lenses."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is Eyes Inc., a contact lens manufacturer in the US looking to grow market share over the next two years. How would you structure your approach?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Regular is saturated, Cosmetic is stagnating, and Traditional shows moderate growth. The company’s U.S. sales",
-      "detail": "Regular is saturated, Cosmetic is stagnating, and Traditional shows moderate growth. The company’s U.S. sales are weaker in the South due to low presence. Two big competitors dominate the market.\nUnderstood. Given that, I’d focus on where the client can win quickly: underserved regions and growing product segments.\nBefore I dive into solutions, two quick commercial questions: who are their primary customers (new adopters vs repeat users) and how do they typically choose brands?\nThere are two customer types: new adopters who are often guided by doctors and retail recommendations"
+      "kind": "question",
+      "detail": "I would like to break this into four steps: product and regional baseline, customer acquisition drivers, competitive/channel dynamics, and a phased growth plan. To start, can you share Eyes Inc.'s product mix, regional strengths, and who drives brand choice?",
+      "reasoning": "In optical care, growth depends on matching growing SKU formats to underpenetrated regions and understanding whether consumers or doctors control brand choice."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Good that clarifies customer behavior. Since doctors strongly influence new adopters and the South is underpen",
-      "detail": "Good that clarifies customer behavior. Since doctors strongly influence new adopters and the South is underpenetrated, a strategy centered on doctor and retail partnerships.\nExactly. Women under 30 represent the largest potential. They account for roughly 70% of the growth potential.\nTarget & Positioning: Focus on young female new adopters in suburban/mall retail pockets in the South; position Eyes Inc. as both clinically trusted (doctor-backed) and style-forward.\nProduct: Introduce disposable traditional SKUs and low-friction trial bundles for first-timers."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Eyes Inc. sells Regular lenses (saturated), Cosmetic (stagnating), and Traditional lenses (moderate growth), and trails badly in the US South where two large rivals dominate. Repeat users stay loyal to their brand, while new adopters rely on doctor and retail recommendations—with women under 30 representing ~70% of growth potential."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Channels: Prioritize doctor engagement (samples + co-marketing), targeted mall/strip retail partnerships, and",
-      "detail": "Channels: Prioritize doctor engagement (samples + co-marketing), targeted mall/strip retail partnerships, and a complementary digital subscription for refills.\nMarketing: Run localized grassroots campaigns in pilot metros.\nThat’s reasonable. How would you phase investments between these elements over two years?\n● Phase 1 : run pilots in 3–5 southern cities (doctor kits + a few retail partners + trial SKUs)."
+      "kind": "framework",
+      "detail": "That gives us a sharp strategic wedge. Rather than fighting entrenched brand loyalty in saturated Regular lenses, we should target new-adopter women under 30 in the underserved US South using the growing Traditional segment—anchored on optometrist advocacy and optical retail partnerships.",
+      "reasoning": "Acquiring first-time wearers via trusted doctors creates multi-year repeat LTV without paying to pry loyal users away from rivals."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "What specific product, channel, and marketing levers would you deploy to win doctors and young female first-timers in the South?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "● Phase 2 : scale what works—expand retail and doctor networks, launch subscriptions.",
-      "detail": "● Phase 2 : scale what works—expand retail and doctor networks, launch subscriptions.\n● Phase 3 : optimize nationally and expand selectively if ROI is strong.\nSuppose the competitor responds aggressively in the pilot cities with price promotions. What would you do?\nAvoid a full price war; emphasize doctor endorsements and value-added offers (trial bundles, free fittings, subscription perks). Use pilot data to target price-sensitive segments and only cut price if LTV economics justify it."
+      "kind": "root-cause",
+      "detail": "Eyes Inc.'s weak Southern share stems from low optometrist engagement, lack of low-friction trial packs for nervous first-time wearers, and absence of a convenient refill loop once a patient tries the brand. Launching disposable Traditional trial bundles alongside doctor sample kits, mall/strip-center retail displays, and an automated digital refill subscription solves both trial friction and retention.",
+      "reasoning": "Connecting clinical trial in the doctor's chair directly to subscription refills prevents post-trial leakage to big-two competitors.",
+      "causes": [
+        "Low optometrist and retail footprint in the high-growth US South",
+        "Lack of low-friction trial SKUs for first-time female wearers under 30",
+        "Missing direct digital subscription channel to lock in post-trial refills"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "How would you phase investments over the two-year horizon, and what if the two big competitors launch aggressive price discounts in response?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a 3-phase rollout: Phase 1 (Months 1–6) pilots doctor sample kits, mall optical partnerships, and trial SKUs in 3–5 Southern metros; Phase 2 (Months 7–15) scales winning doctor networks and rolls out the refill subscription; Phase 3 (Months 16–24) expands nationally where pilot ROI holds. If rivals slash prices, we should avoid a price war and defend share through free professional fittings, clinical endorsement, and subscription perks, cutting price only where LTV math justifies it.",
+      "reasoning": "Phased city pilots prove CAC-to-LTV economics before committing national capital, while clinical trust insulates margins against discounting.",
+      "causes": [
+        "3-phase Southern pilot-to-scale roadmap limits upfront capital risk",
+        "Doctor endorsements and free fittings defend margin against competitor price cuts"
+      ]
     }
   ],
   "recommendations": [
-    "Phase 1 : run pilots in 3–5 southern cities (doctor kits + a",
-    "Phase 2 : scale what works—expand retail and doctor",
-    "Phase 3 : optimize nationally and expand selectively if"
+    "P0: Pilot in 3–5 Southern US metros targeting women under 30 via optometrist starter kits, mall optical retail co-marketing, and disposable Traditional trial bundles.",
+    "P1: Launch a direct-to-consumer digital refill subscription bundled with free fittings to convert first-time clinic adopters into high-LTV repeat subscribers.",
+    "P2: Scale across the broader South and select national markets only in Phase 2–3 after verifying pilot CAC payback and defending against rival price promos via value-added perks rather than broad discounting."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Incremental ARR / Net Revenue Growth (PrepLounge)",
+    "northStar": "Incremental ARR / Net Revenue Growth (Eyes Inc. (Apparel/Consumer Goods))",
     "leading": [
       "Retention & cross-sell attach rate",
       "New channel / geo revenue share"
@@ -4157,11 +4965,11 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For PrepLounge’s Eyes Inc. Growth Strategy case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Phase 1 : run pilots in 3–5 southern cities (doctor kits + a We will validate success via Incremental ARR / Net Revenue Growth (PrepLounge) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "To grow Eyes Inc.'s US market share over two years, I recommend concentrating investment on first-time female adopters under 30 in the underserved US South through the growing Traditional lens category. By executing a 3-phase rollout anchored on optometrist trial kits, mall retail partnerships, and a digital refill subscription—while countering competitor discounting with clinical trust and fitting perks—Eyes Inc. can capture durable repeat share without eroding margins.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
-      "question": "How would your recommendation change if PrepLounge had half the timeline or budget?",
+      "question": "How would your recommendation change if Eyes Inc. (Apparel/Consumer Goods) had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -4210,37 +5018,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-29-fire-extinguisher-growth",
   "title": "Fire Extinguisher Growth",
-  "company": "Indus Insights",
+  "company": "Fire Safety Equipment Co.",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Indus Insights",
     "Growth",
     "Consulting"
   ],
-  "prompt": "Fire Extinguisher Your client is a fire extinguisher company, who wants to triple their revenue in the next two years. Evaluate how this can be done and suggest recommendations When we say fire extinguishers, what range of products are we referring to?",
+  "prompt": "Your client is a pan-India fire extinguisher manufacturer with ₹100 crore in annual revenue that wants to triple revenue to ₹300 crore within two years. Assess whether this goal is realistic as scoped and recommend how the company can maximize growth.",
   "clarifyingQuestions": [
     {
-      "q": "Since we are looking to triple the revenue in the next two years, what is the current revenue of the company?",
-      "a": "At present the company has a revenue of 100 Crore Rupees.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What products does the client currently sell, and what is the geographic and customer mix of its ₹100 crore revenue?",
+      "a": "They sell a single product line of conventional red-can fire extinguishers pan-India with even geographic spread across commercial properties, offices, industrial buyers, and residential complexes (residential is the largest single slice at 20%).",
+      "why": "Clarifies product concentration and customer diversification before sizing growth headroom."
     },
     {
-      "q": "In what geographies does the company operate? Do we have any specific geography contributing to maximum sales?",
-      "a": "The company operates pan-India and the revenue is evenly distributed.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How large is the total Indian fire extinguisher market today, what is our market share, and how fast is the market growing?",
+      "a": "The Indian market is ₹200 crore total, growing at 10% annually. Our client already holds 50% share (₹100 crore), while the next two competitors hold 25% and 20%.",
+      "why": "Tests the mathematical feasibility of a ₹300 crore target against total addressable market size in year two."
     },
     {
-      "q": "Who are our customers and how much do they contribute to the revenue?",
-      "a": "The customers are primarily of three types - Commercial Properties (Malls, Hotels, Restaurants) , Residential Complexes, Offices, with the Residential Complexes contributing the maximum - 20% of the total revenue.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Where in the value chain does the client operate, and are they open to new products or services?",
+      "a": "They run an end-to-end value chain from procurement through after-sales support, and while historically single-product, they need strategic options beyond conventional cans.",
+      "why": "Confirms existing capabilities (manufacturing + after-sales service) that can support product diversification and recurring maintenance revenue."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
   "coreEquation": "Revenue Growth = (Existing Customers × Frequency × AOV) + New Markets + New Products + Inorganic",
-  "strategyOverview": "Approach Fire Extinguisher Growth (Indus Insights) using a Growth structure: start by confirming the business objective and scope, decompose the problem cleanly along Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Fire Extinguisher Growth by first stress-testing market math (50% share of a ₹200 Cr market growing 10% yields only a ₹242 Cr total market in 2 years—making ₹300 Cr impossible in red cans alone), then expanding TAM via regulatory compliance enforcement, recurring AMC/refilling services, adjacent fire-safety hardware, and bolt-on M&A.",
   "tree": {
     "label": "Fire Extinguisher Growth — Growth Tree",
     "valueText": "Organic + Inorganic",
@@ -4262,44 +5069,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Fire Extinguisher Your client is a fire extinguisher company, who wants to triple their revenue in the next tw",
-      "detail": "Fire Extinguisher Your client is a fire extinguisher company, who wants to triple their revenue in the next two years. Evaluate how this can be done and suggest recommendations When we say fire extinguishers, what range of products are we referring to?\nThe company has a single product line of conventional red can fire extinguishers.\nSince we are looking to triple the revenue in the next two years, what is the current revenue of the company?\nAt present the company has a revenue of 100 Crore Rupees."
+      "kind": "prompt",
+      "detail": "Your client is a fire extinguisher manufacturer looking to triple revenue from ₹100 crore to ₹300 crore in two years. Evaluate how feasible this is and what growth strategy you would recommend."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "In what geographies does the company operate? Do we have any specific geography contributing to maximum sales?",
-      "detail": "In what geographies does the company operate? Do we have any specific geography contributing to maximum sales?\nThe company operates pan-India and the revenue is evenly distributed.\nWho are our customers and how much do they contribute to the revenue?\nThe customers are primarily of three types - Commercial Properties (Malls, Hotels, Restaurants) , Residential Complexes, Offices, with the Residential Complexes contributing the maximum - 20% of the total revenue."
+      "kind": "question",
+      "detail": "To pressure-test this 3x target, I need to understand our product range, customer mix, total market size, and current market share. What products do we make and how big is the Indian market?",
+      "reasoning": "Validating whether the addressable market can even absorb ₹300 crore in revenue is essential before brainstorming sales tactics."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "What part of the value chain does our client operate in?",
-      "detail": "What part of the value chain does our client operate in?\nThe client has a robust end to end value chain starting from the procurement of materials to the after sales support.\nFire Extinguisher Since we now know the major contributors to the revenue, we can have a look at the market and our competitors. How large is the market for fire extinguishers in India?\nThe market size is about 200 Crore INR and the market shares of our two major competitors are 25% and 20% respectively. The rest of the market is fragmented In that case, I believe that the problem could lie with either the occupation or the residence part. S"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The client sells a single line of conventional red-can extinguishers pan-India across commercial properties, offices, and residential complexes (where residential is the biggest segment at 20%). The entire Indian market is ₹200 crore growing at 10% per year; our client already holds 50% share, with two rivals holding 25% and 20%."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Yes that is a good assumption.",
-      "detail": "Yes that is a good assumption.\nWhat is our client’s current market share?\nOur client holds 50% of the market currently.\nInteresting, so we have 50% of the market share and we want our revenue to be 300 Crore rupees in two years, despite the market size being 200 Crore Rupees at the present. At what rate is the market growing?"
+      "kind": "framework",
+      "detail": "That market math reveals a critical constraint immediately. At 10% annual growth, a ₹200 crore market reaches only ₹242 crore in two years. Even with 100% monopoly share of conventional extinguishers, the client could not hit ₹300 crore. So my structure will examine: first, expanding core market demand via compliance enforcement; second, increasing revenue per customer through recurring maintenance; and third, diversifying into adjacent fire-safety systems and exports/M&A.",
+      "reasoning": "Proving the core TAM ceiling early reframes the entire case from 'sell more cans' to 'expand the addressable category'."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Excellent catch—tripling within the existing ₹200 crore niche is indeed unattainable. Setting the ₹300 crore stretch aside, how can we realistically grow core demand for a commoditized safety product where advertising alone rarely creates urgency?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "You can consider the market growth rate as 10%.",
-      "detail": "You can consider the market growth rate as 10%.\nThis implies that the market size after two years is 242 Crore Rupees, and we are aiming at a revenue of 300 Crore Rupees.\nThus the target set seems to be something which is unattainable, given the market size and its growth trends.\nThat is a very good observation. Keeping aside the aforementioned target, what do you think could be possibly done to increase revenue?"
+      "kind": "root-cause",
+      "detail": "Because fire extinguishers are a low-involvement compliance commodity, demand lags due to weak safety enforcement in mid-tier residential complexes and SMEs, zero recurring monetization of our after-sales service network, and reliance on one hardware SKU.",
+      "reasoning": "Recognizing that compliance and lifecycle servicing—not consumer branding—drive B2B safety purchases unlocks practical revenue levers.",
+      "causes": [
+        "Core TAM ceiling (₹242 Cr in 2 years) blocks 3x growth in red cans alone",
+        "Weak fire-code enforcement limits adoption in residential and SME buildings",
+        "One-time hardware sales under-monetize existing end-to-end after-sales service capabilities"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Given their end-to-end value chain including after-sales support, what concrete growth initiatives would you prioritize over the next 24 months?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "First, partner with municipal fire authorities, building associations, and property insurers to drive compliance mandates and bundled safety discounts for residential societies and SMEs. Second, monetize the after-sales network via Annual Maintenance Contracts (AMCs), certified pressure testing, and scheduled chemical refilling. Third, expand the portfolio into smart smoke/gas detectors, modular kitchen/EV-charging suppression units, and adjacent industrial fire systems via targeted bolt-on acquisitions or licensing.",
+      "reasoning": "Combining compliance-led TAM expansion with recurring AMC revenue and adjacent safety hardware builds a realistic path beyond the ₹242 crore ceiling.",
+      "causes": [
+        "Insurer/regulator partnerships accelerate residential and SME compliance adoption",
+        "Recurring AMC contracts and smart detection SKUs lift customer LTV beyond red cans"
+      ]
     }
   ],
   "recommendations": [
-    "Increasing customer need for a public commodity is difficult so",
-    "The need can’t be just increased by increased promotions. There",
-    "Increasing need actually lies in the enforcement of the",
-    "Although clients are not considering a dive into a newer product"
+    "P0: Reset the 2-year target around TAM reality (₹242 Cr max in red cans) and launch recurring Annual Maintenance & Refilling Contracts (AMCs) across the existing 50%-share installed base.",
+    "P1: Partner with property insurers and residential/SME associations to offer compliance-audit bundles that lower fire-insurance premiums when buildings install certified equipment.",
+    "P2: Diversify beyond conventional cans into smart smoke/gas sensors, automatic kitchen/EV-bay suppression kits, and B2B industrial systems through partnerships or bolt-on M&A."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Incremental ARR / Net Revenue Growth (Indus Insights)",
+    "northStar": "Incremental ARR / Net Revenue Growth (Fire Safety Equipment Co.)",
     "leading": [
       "Retention & cross-sell attach rate",
       "New channel / geo revenue share"
@@ -4309,11 +5146,11 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For Indus Insights’s Fire Extinguisher Growth case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Increasing customer need for a public commodity is difficult so We will validate success via Incremental ARR / Net Revenue Growth (Indus Insights) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "The Fire Safety Equipment Co. cannot triple revenue to ₹300 crore in two years within conventional red-can extinguishers alone, because even at 10% annual growth the entire Indian market will reach only ₹242 crore. To unlock substantial growth beyond its existing 50% share, the company must expand the addressable market through insurer-backed compliance programs, monetize its after-sales footprint via recurring AMC/refill contracts, and diversify into adjacent fire-detection and suppression systems.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
-      "question": "How would your recommendation change if Indus Insights had half the timeline or budget?",
+      "question": "How would your recommendation change if Fire Safety Equipment Co. had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -4362,37 +5199,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-growth-shaving-company",
   "title": "Shaving Company Growth",
-  "company": "Bain & Company",
+  "company": "Shaving Brand",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Bain & Company",
     "Growth",
     "Consulting"
   ],
-  "prompt": "Shaving Company Our client is an international CPG (consumer packaged goods) firm called Bryan, with multiple business units (toothpaste, batteries, skin & body care, among others). They are the global market leader in every market they play in except for the hair removal market. They came to us asking how they can also become number one in this market. How can you help them out?",
+  "prompt": "Your client is Bryan, an international CPG firm with leading positions across toothpaste, batteries, and skin care, except in hair removal where it trails. They have asked how they can become the #1 global market leader in the hair removal market.",
   "clarifyingQuestions": [
     {
-      "q": "Before diving into the case, I have a few questions. What type of products do our client offer in hair removal and how many SKU of each do they offer?",
-      "a": "Our client provides Wet-Shaving, Dry-Shaving, and Waxing products. They provide 2 wet-shaving for women and 6 for men, 0 dry-shaving for women and 3 for men, and 1 waxing in common.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What hair removal segments and SKU counts does Bryan currently offer for men versus women, and what are its market shares?",
+      "a": "In men's, Bryan offers 6 wet-shaving SKUs (33% share, high price), 3 dry-shaving SKUs (20% share, medium-high price), and 1 unisex waxing SKU (5% share). In women's, it offers only 2 wet-shaving SKUs (10% share, medium-low price), 0 dry-shaving SKUs (0% share), and the same 1 unisex waxing SKU (1% share).",
+      "why": "Exposes massive SKU and market-share under-penetration in the women's hair removal segment."
     },
     {
-      "q": "How are the volume sold and pricing for these products?",
-      "a": "In terms of Market Share, the respective shares for Wet-shaving, Dry-shaving, and waxing are 10%, 0%, and 1% for women and 33%, 20%, and 5% for men.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How concentrated is competition in the men's versus women's hair removal markets?",
+      "a": "The men's market is tightly consolidated—the top 3 players hold 75% share, where Bryan is already #2 in wet and dry shaving. The women's market is highly fragmented, with the top 8 brands holding just 60%, and Bryan ranks 8th in waxing.",
+      "why": "Shows that capturing #1 share is far faster and cheaper in the fragmented women's market than fighting entrenched leaders in men's."
     },
     {
-      "q": "How are the market share statistics for competitors in each of these markets and how does our client reign amongst them?",
-      "a": "The men’s market has strong players (the 3 biggest players hold 75% of the market), which are not strong in the women’s market.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Why do female consumers hold lower share with Bryan despite similar gross margins across products?",
+      "a": "Women perceive Bryan as a 'cheap' brand compared to its premium image among men, and there have been minor product side-effect/irritation complaints.",
+      "why": "Diagnoses whether the women's gap is driven by distribution, brand perception, or product formulation."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
   "coreEquation": "Revenue Growth = (Existing Customers × Frequency × AOV) + New Markets + New Products + Inorganic",
-  "strategyOverview": "Approach Shaving Company Growth (Bain & Company) using a Growth structure: start by confirming the business objective and scope, decompose the problem cleanly along Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Shaving Company Growth (Shaving Brand) by comparing men's versus women's competitive landscapes: recognize the men's market is consolidated (top 3 hold 75%) while women's is fragmented (top 8 hold 60%) and severely under-served by Bryan (0 dry-shave SKUs, 1 unisex wax, 'cheap' brand image), then win #1 leadership via female-specific R&D, premium repositioning, and targeted niche M&A.",
   "tree": {
     "label": "Shaving Company Growth — Growth Tree",
     "valueText": "Organic + Inorganic",
@@ -4414,41 +5250,71 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Shaving Company Our client is an international CPG (consumer packaged goods) firm called Bryan, with multiple",
-      "detail": "Shaving Company Our client is an international CPG (consumer packaged goods) firm called Bryan, with multiple business units (toothpaste, batteries, skin & body care, among others). They are the global market leader in every market they play in except for the hair removal market. They came to us asking how they can also become number one in this market. How can you help them out?\nBefore diving into the case, I have a few questions. What type of products do our client offer in hair removal and how many SKU of each do they offer?\nOur client provides Wet-Shaving, Dry-Shaving, and Waxing products. They provide 2 wet-"
+      "kind": "prompt",
+      "detail": "Our client, Bryan, is an international CPG leader in every category it plays except hair removal. They want your plan to become #1 in the hair removal market. Where would you start?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "In terms of Market Share, the respective shares for Wet-shaving, Dry-shaving, and waxing are 10%, 0%, and 1% f",
-      "detail": "In terms of Market Share, the respective shares for Wet-shaving, Dry-shaving, and waxing are 10%, 0%, and 1% for women and 33%, 20%, and 5% for men.\nAs for pricing, the respective ranges are medium-low, none, medium for women and high, medium-high, and medium for men.\nHow are the market share statistics for competitors in each of these markets and how does our client reign amongst them?\nThe men’s market has strong players (the 3 biggest players hold 75% of the market), which are not strong in the women’s market."
+      "kind": "question",
+      "detail": "To locate where Bryan is losing share, I need to examine its product portfolio, market shares, pricing, and competitor concentration across customer segments. What hair removal products and SKUs does Bryan currently sell?",
+      "reasoning": "Segmenting SKU coverage and competitive concentration by gender and format reveals whether the shortfall is concentrated in a specific sub-market."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Bryan is the second company in terms of market share for wet and dry shaving. It is however the 8th for waxing",
-      "detail": "Bryan is the second company in terms of market share for wet and dry shaving. It is however the 8th for waxing. The women’s market is very fragmented, with 8 companies possessing only 60% of the total market share.\nAs far as I can see the women’s market share is much lower than the men. Is there any reason for that?\nBryan is seen as a cheap brand by its female customers. Men see it as a high-end brand. All products have similar profit margins.\nIs there a specific reason for women seeing Bryan as a “cheap” brand?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Bryan plays in wet-shaving, dry-shaving, and waxing. For men, they have 6 wet SKUs (33% share, high price), 3 dry SKUs (20% share, medium-high price), and 1 unisex wax SKU (5% share)—where the top 3 rivals hold 75% of the market. For women, Bryan has just 2 wet SKUs (10% share, medium-low price), 0 dry SKUs (0% share), and the same unisex wax SKU (1% share), in a fragmented market where the top 8 brands hold only 60%."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Shaving Company We had received a few complaints from customers facing side effects after using our products b",
-      "detail": "Shaving Company We had received a few complaints from customers facing side effects after using our products but they are very low in number.\nSo the trend is that women find the brand less appealing and also they are facing some issues with the product, so there should be a brand survey conducted to find out what are their exact perceptions and preferences and focus on R&D of the product to increase product quality. Also, since the data points to pricing as a likely driver, we can increase the pricing of the products in the women segment. Moreover, to increase the brand image, we can use marketing strategies that"
+      "kind": "framework",
+      "detail": "The contrast is striking: Bryan is already #2 in a consolidated men's market, but trails badly in a wide-open, fragmented women's market—with zero dry-shaving presence, minimal wet SKUs, and a single unisex waxing product. I want to investigate why Bryan's women's share is so weak despite competitive margins—is it brand positioning, product quality, or distribution?",
+      "reasoning": "Targeting a fragmented segment where Bryan has 1–10% share offers far higher incremental market-share upside than battling entrenched men's rivals."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "All products carry similar profit margins, yet female consumers perceive Bryan as a 'cheap' budget brand while men view it as high-end. We have also logged a small number of customer complaints regarding skin irritation after use."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "There is a low demand for waxing for men as they generally don’t prefer it",
-      "detail": "There is a low demand for waxing for men as they generally don’t prefer it, whereas there is a very high demand for waxing for women.\nSince, there is a single common product for both men and women, they won’t find it as appealing. Releasing a separate product line for the individual segments would prove more effective and focusing the development on women segment primarily as there is a much higher demand.\nOthers forms of inorganic growth can also be considered like a merger with a top competitor or an acquisition of a smaller, yet niche brand to achieve greater market dominanc"
+      "kind": "root-cause",
+      "detail": "That explains the gap clearly. First, medium-low pricing and limited female SKUs created a low-tier brand perception among women. Second, sharing a single unisex waxing product fails to serve high female waxing demand with tailored skin-care ergonomics. Third, minor skin-irritation complaints compound quality skepticism.",
+      "reasoning": "Fixing product formulation and brand prestige before raising prices ensures women accept Bryan as a credible premium grooming brand.",
+      "causes": [
+        "Severe SKU gap in women's (0 dry-shaving SKUs, no female-specific waxing line)",
+        "Medium-low pricing anchors 'cheap' brand perception among female buyers",
+        "Skin-irritation complaints and unisex waxing format erode category trust"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Given Bryan's strength in adjacent skin-care business units and ambition to reach #1 overall, what organic and inorganic growth moves would you recommend?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To capture #1 overall share, Bryan should pivot aggressively into the fragmented women's hair-removal market via three moves: first, conduct female consumer R&D to eliminate irritation and launch dedicated female wet, dry, and sensitive-skin waxing lines leveraging Bryan's skin-care unit; second, reposition to premium pricing tiers backed by skin-care-led branding; and third, acquire a fast-growing niche women's waxing or grooming brand to jump straight from 8th place to leadership.",
+      "reasoning": "Combining organic skin-care-infused SKU expansion with targeted M&A compresses the timeline to #1 share in a fragmented market.",
+      "causes": [
+        "Skin-care-backed R&D and female-only SKUs fix quality and brand image",
+        "Acquiring a niche women's waxing brand accelerates share consolidation"
+      ]
     }
   ],
   "recommendations": [
-    "Consider a merger or acquisition for a greater market dominance.",
-    "It’s important to dive into the different segment and understand",
-    "Could’ve gone deeper into the segments for a more finished",
-    "The case could’ve led to a pricing strategy framework model"
+    "P0: Prioritize the fragmented women's hair-removal market by funding R&D with Bryan's skin-care unit to eliminate irritation and launch dedicated female dry-shaving and sensitive-skin waxing SKUs.",
+    "P1: Reposition Bryan's women's line out of the 'cheap' tier via ergonomic packaging, dermatological branding, and upward price-tiering aligned with men's premium perception.",
+    "P2: Pursue targeted M&A of a niche women's waxing or grooming brand to rapidly consolidate fragmented share and surpass the #1 global competitor."
   ],
   "metricsAndGuardrails": {
     "northStar": "Incremental ARR / Net Revenue Growth (Bain & Company)",
@@ -4461,7 +5327,7 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For Bain & Company’s Shaving Company Growth case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Consider a merger or acquisition for a greater market dominance. We will validate success via Incremental ARR / Net Revenue Growth (Bain & Company) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "To make the Shaving Brand #1 in global hair removal, Bryan should stop fighting solely in the consolidated men's market and focus on the fragmented women's segment, where it holds just 1–10% share due to missing SKUs, minor irritation complaints, and a 'cheap' brand image. By launching skin-care-formulated female wet, dry, and waxing lines at premium price tiers—and executing a bolt-on acquisition in women's waxing—Bryan can rapidly capture #1 overall leadership.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
@@ -4514,37 +5380,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-31-overseas-market-growth",
   "title": "Overseas Market Growth",
-  "company": "PrepLounge",
+  "company": "Paperboard Exporter",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "PrepLounge",
     "Growth",
     "Consulting"
   ],
-  "prompt": "Our client is an Indonesian paperboard producer. They sell domestically and in the US. Last year revenue was $5B, with 80% from Indonesia and 20% from the US. Growth has been about 3% annually. The client now wants to reach 5% in the next 1–2 years, but due to limited resources, they can only focus on one market. Which one would you recommend, and how should they approach it?",
+  "prompt": "Your client is an Indonesian paperboard producer generating $5B in annual revenue—80% from Indonesia and 20% from the US. Overall growth is 3% per year, and the client wants to reach 5% growth within 1–2 years, but limited resources allow focusing on only one market. Which market should they choose, and how should they execute?",
   "clarifyingQuestions": [
     {
-      "q": "Could you share how the client has been growing in each market?",
-      "a": "In Indonesia, the client has been growing at 1%, which is also the overall market growth. For the US, I’d like you to calculate it.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How fast has the client been growing in Indonesia, and what is the competitive landscape in both markets?",
+      "a": "In Indonesia, the client grows at 1%, matching overall market growth in a consolidated market they already lead. In the US, the market is fragmented and competitors grow at 15–25% annually.",
+      "why": "Allows us to back-calculate the client's current US growth rate and assess headroom to accelerate overall growth from 3% to 5%."
     },
     {
-      "q": "And how are competitors doing in these two markets?",
-      "a": "In Indonesia, growth is generally low and the client is already the market leader. In the US, competitors are growing faster, between 15% and 25%. The market is also more fragmented.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How are US operations, lead times, product quality, and pricing structured compared to local rivals?",
+      "a": "The client produces in Indonesia, holds ample safety stock in US warehouses with competitive lead times, offers parity commodity quality, and prices against a public market index.",
+      "why": "Rules out manufacturing, logistics, quality, and pricing disadvantages so we can isolate commercial execution."
     },
     {
-      "q": "Understood. With growth at just 1% and the client already leading, do they have much room left to capture additional share?",
-      "a": "Not significantly. The market is fairly consolidated, and given the low overall growth, it would be difficult to expand meaningfully.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How does the client sell in the US and how is its sales force compensated?",
+      "a": "They sell via distributors and direct reps on short-term (<12 month) spot contracts with small buyers, using a local sales team paid mostly fixed salary with low commission—whereas competitors lock in large enterprise multi-year contracts using commission-heavy pay.",
+      "why": "Uncovers the exact commercial bottleneck explaining why our US growth (11%) lags competitors (15–25%)."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
   "coreEquation": "Revenue Growth = (Existing Customers × Frequency × AOV) + New Markets + New Products + Inorganic",
-  "strategyOverview": "Approach Overseas Market Growth (PrepLounge) using a Growth structure: start by confirming the business objective and scope, decompose the problem cleanly along Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Overseas Market Growth (Paperboard Exporter) by decomposing growth math ($4B Indonesia at 1% + $1B US at 11% = 3% total) to prove only the US can lift company growth to 5%, ruling out logistics/product/price constraints, diagnosing the US sales-incentive and spot-contract bottleneck, and overhauling US enterprise sales execution.",
   "tree": {
     "label": "Overseas Market Growth — Growth Tree",
     "valueText": "Organic + Inorganic",
@@ -4566,44 +5431,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Our client is an Indonesian paperboard producer. They sell domestically and in the US. Last year revenue was $",
-      "detail": "Our client is an Indonesian paperboard producer. They sell domestically and in the US. Last year revenue was $5B, with 80% from Indonesia and 20% from the US. Growth has been about 3% annually. The client now wants to reach 5% in the next 1–2 years, but due to limited resources, they can only focus on one market. Which one would you recommend, and how should they approach it?\nCould you share how the client has been growing in each market?\nIn Indonesia, the client has been growing at 1%, which is also the overall market growth. For the US, I’d like you to calculate it.\nOkay. If the company overall is at 3%, with 8"
+      "kind": "prompt",
+      "detail": "Our client is a $5B Indonesian paperboard producer earning 80% of revenue in Indonesia and 20% in the US, growing 3% overall. They want to hit 5% growth in 1–2 years, but can invest in only one market. Which market should they focus on, and how?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "And how are competitors doing in these two markets?",
-      "detail": "And how are competitors doing in these two markets?\nIn Indonesia, growth is generally low and the client is already the market leader. In the US, competitors are growing faster, between 15% and 25%. The market is also more fragmented.\nUnderstood. With growth at just 1% and the client already leading, do they have much room left to capture additional share?\nNot significantly. The market is fairly consolidated, and given the low overall growth, it would be difficult to expand meaningfully."
+      "kind": "question",
+      "detail": "To compare upside, I need to know the client's growth rate and competitive headroom in each market. How fast is Indonesia growing, and how are competitors performing in the US?",
+      "reasoning": "Calculating each region's current growth contribution determines mathematically whether Indonesia or the US can bridge the 2-percentage-point ($100M) gap."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "What about operations in Indonesia, are there any cost advantages or efficiency levers they could push further",
-      "detail": "What about operations in Indonesia, are there any cost advantages or efficiency levers they could push further to gain growth?\nOperations are stable and already optimized. It’s not an operational constraint; it’s the lack of market expansion.\nSo even if we invest more resources there, the market ceiling is low and upside is minimal. That makes it hard for Indonesia to drive overall growth from 3% to 5%.\nThen let me explore the US more carefully. How is the client currently serving this market?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "In Indonesia, the client is the leader in a consolidated market growing at 1%, matching overall market growth. In the US, the market is fragmented and competitors are growing at 15–25% annually."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "The client manufactures in Indonesia, ships to the US, and stores inventory in US warehouses before supplying",
-      "detail": "The client manufactures in Indonesia, ships to the US, and stores inventory in US warehouses before supplying customers. Lead time is not an issue, since they maintain adequate stock.\nOkay, so logistics is not a barrier. And what about the product and pricing?\nThe product is a commodity. Quality is similar to competitors, and pricing is pegged to a public market index.\nSo no differentiation there either. That points me toward sales and customer management. How does the client sell in the US?"
+      "kind": "framework",
+      "detail": "Let's check the math: 3% growth on $5B equals $150M. Indonesia ($4B at 1%) adds $40M, meaning the $1B US business is already generating $110M, or 11% growth. Since Indonesia is consolidated at 1% growth with little room left to gain share, it cannot reach 5% company growth. In contrast, lifting our $1B US business from 11% to 21%—squarely in line with rivals' 15–25% pace—adds $100M and achieves the 5% target. Let me investigate why we lag US rivals: is it supply-chain lead times, product/pricing, or sales execution?",
+      "reasoning": "Decomposing the weighted-average growth equation provides an indisputable quantitative case for prioritizing the US."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Operations in Indonesia are optimized, and for the US they maintain local warehouse stock so lead times are competitive. The paperboard is a commodity at parity quality, priced off a public index. However, the client relies on <12-month spot contracts with small buyers via distributors and a local sales team paid mostly fixed salaries, whereas rivals win long-term contracts with large buyers using commission-heavy sales teams."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "They sell through distributors and some direct sales. But they’ve only managed to secure spot contracts with s",
-      "detail": "They sell through distributors and some direct sales. But they’ve only managed to secure spot contracts with smaller customers, typically under 12 months. Competitors, by contrast, have locked in long-term contracts with larger customers.\nThat creates revenue instability. And how are salespeople incentivized?\nThe US sales team is local, but their compensation is mostly fixed salary with a small commission. Competitors’ teams are largely commission-based.\nThat could explain why they aren’t aggressively pursuing larger, long-term deals. And after-sales service — how do we compare"
+      "kind": "root-cause",
+      "detail": "That nails the bottleneck: logistics, product quality, and index pricing are all at parity, so our 10-percentage-point growth lag versus US competitors is purely a commercial execution failure. Because reps earn fixed salaries, they take the path of least resistance—closing small spot deals under 12 months rather than hunting multi-year enterprise accounts.",
+      "reasoning": "Isolating sales incentives and account mix explains how a commodity exporter with good logistics can still underperform market growth by half.",
+      "causes": [
+        "Indonesia is saturated at 1% market growth with dominant share",
+        "US sales compensation is mostly fixed salary, discouraging enterprise hunting",
+        "Over-reliance on <12-month spot contracts with small buyers creates churn and misses large accounts"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Clear diagnosis. How should the client restructure its US commercial engine over the next 12–18 months to accelerate from 11% to 21%+ growth?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "They should allocate 100% of incremental growth investment to the US market. First, overhaul US sales compensation to a performance-weighted mix—higher variable commissions and multi-year contract bonuses—while splitting hunters (new enterprise logos) from account farmers. Second, leverage existing US warehouse inventory to offer guaranteed JIT delivery SLAs and volume rebates on 2–3 year enterprise contracts. Tracking enterprise pipeline velocity and contract tenure will ensure we lift US growth above 20% and overall revenue growth to 5%.",
+      "reasoning": "Aligning rep pay with multi-year enterprise deals directly mirrors competitor incentives while turning existing US warehouse stock into a commercial differentiator.",
+      "causes": [
+        "Commission-heavy pay tied to multi-year contracts unlocks large-buyer hunting",
+        "Warehouse-backed JIT SLAs win enterprise share without cutting index price"
+      ]
     }
   ],
   "recommendations": [
-    "Indonesia: Saturated, 1% growth, limited upside.",
-    "US: Faster growth (11% vs 15–25%), fragmented, share",
-    "Constraints: Commercial execution (incentives,",
-    "Impact: Fixing execution can lift overall growth"
+    "P0: Dedicate all incremental growth resources to the US market (accelerating US growth from 11% to ~21% adds the +$100M needed to lift total $5B growth from 3% to 5%).",
+    "P1: Restructure US sales compensation from fixed-heavy salaries to variable commission tiers with accelerators for locking in 2–3 year enterprise contracts rather than <12-month spot deals.",
+    "P2: Form a dedicated enterprise key-account team offering warehouse-backed JIT delivery SLAs and volume tiers, monitoring multi-year contract share and gross margin per ton."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Incremental ARR / Net Revenue Growth (PrepLounge)",
+    "northStar": "Incremental ARR / Net Revenue Growth (Paperboard Exporter)",
     "leading": [
       "Retention & cross-sell attach rate",
       "New channel / geo revenue share"
@@ -4613,11 +5508,11 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For PrepLounge’s Overseas Market Growth case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Indonesia: Saturated, 1% growth, limited upside. We will validate success via Incremental ARR / Net Revenue Growth (PrepLounge) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "The Paperboard Exporter should focus 100% of its growth resources on the US market rather than saturated Indonesia (1% growth), because accelerating the $1B US business from 11% to 21%—within competitors' 15–25% range—delivers the exact +$100M needed to lift total company growth to 5%. Since product quality, index pricing, and US warehouse lead times are already at parity, success requires fixing commercial execution by shifting sales incentives toward commission-heavy pay tied to multi-year enterprise contracts.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
-      "question": "How would your recommendation change if PrepLounge had half the timeline or budget?",
+      "question": "How would your recommendation change if Paperboard Exporter had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -4666,37 +5561,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-growth-psb",
   "title": "Public Sector Bank Growth",
-  "company": "BCG",
+  "company": "Public Sector Bank",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "BCG",
     "Growth",
     "Consulting"
   ],
-  "prompt": "Public Sector Bank Your client is a public sector bank. From past few years, they are losing a lot of money on payout fees. You are hired to help them figure out the reasons.",
+  "prompt": "Your client is one of India's top four public sector banks and has been losing over ₹100 crore annually on inter-bank ATM payout fees over the past few years. They have hired you to diagnose the root causes of these losses and recommend practical fixes.",
   "clarifyingQuestions": [
     {
-      "q": "Can I know about the bank's size and quantum of loss?",
-      "a": "The bank is one of the top four with pan-India operations, with losses are in excess of Rs 100 crore.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the bank's retail market share, and how often do its customers use other banks' ATMs?",
+      "a": "The bank holds a 6% retail customer share pan-India. Its customers use rival banks' ATMs 40% of the time, averaging 4 ATM transactions per month.",
+      "why": "Quantifies the off-us transaction rate (40%) in our payout equation before checking our ATM network footprint."
     },
     {
-      "q": "What is the market share of our client and whether the other competitors are facing similar issues?",
-      "a": "This is an example of a zero-sum game, and the client has 6% market share in retail.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How many ATMs does our client operate compared to the Indian total and top competitors?",
+      "a": "India has roughly 3 lakh (300,000) ATMs. Our client has only 10,000 ATMs (3.3% share), whereas the top three peers operate 30,000 (10%), 22,500 (7.5%), and 21,000 (7%) ATMs.",
+      "why": "Tests whether an undersized ATM network forces customers onto competitor machines."
     },
     {
-      "q": "I see. If I am not wrong then Payout fee = No. of customers * % of customers using another bank's ATM * frequency of transaction * Flat rate of payment. Can I know whether we have been facing issues in any of these?",
-      "a": "Customers are using other banks' ATMs 40% of the time and on average each customer does 4 transactions per month. Why don't you focus on the number of ATMs first?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Have new ATM deployments reduced off-us fees, or are operational glitches keeping machines offline?",
+      "a": "The bank placed many new ATMs in rural areas, but a large share fail to stay operational because they were installed without testing network connectivity.",
+      "why": "Pinpoints whether the bottleneck is raw machine count or effective uptime and site selection."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
   "coreEquation": "Revenue Growth = (Existing Customers × Frequency × AOV) + New Markets + New Products + Inorganic",
-  "strategyOverview": "Approach Public Sector Bank Growth (BCG) using a Growth structure: start by confirming the business objective and scope, decompose the problem cleanly along Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Diagnose the Public Sector Bank's ₹100+ Cr ATM payout losses by decomposing Payout Fee = Customers × Off-Us Share (40%) × Frequency × Flat Fee: uncover both a footprint deficit (3.3% ATM share vs 6% customer share) and severe rural ATM downtime caused by untested telecom connectivity, then restore uptime via dual-SIM/load balancing, optimize placement, and migrate low-value cash transactions to digital/UPI rails.",
   "tree": {
     "label": "Public Sector Bank Growth — Growth Tree",
     "valueText": "Organic + Inorganic",
@@ -4718,44 +5612,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Public Sector Bank Your client is a public sector bank. From past few years, they are losing a lot of money on",
-      "detail": "Public Sector Bank Your client is a public sector bank. From past few years, they are losing a lot of money on payout fees. You are hired to help them figure out the reasons.\nCan I know about the bank's size and quantum of loss?\nThe bank is one of the top four with pan-India operations, with losses are in excess of Rs 100 crore.\nWhat is the market share of our client and whether the other competitors are facing similar issues?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a leading public sector bank in India losing over ₹100 crore a year on inter-bank ATM payout fees. How would you identify why this is happening and cut the losses?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "This is an example of a zero-sum game, and the client has 6% market share in retail.",
-      "detail": "This is an example of a zero-sum game, and the client has 6% market share in retail.\nI see. If I am not wrong then Payout fee = No. of customers * % of customers using another bank's ATM * frequency of transaction * Flat rate of payment. Can I know whether we have been facing issues in any of these?\nCustomers are using other banks' ATMs 40% of the time and on average each customer does 4 transactions per month. Why don't you focus on the number of ATMs first?\nSure. Do we have any data about the number of ATMs that our competitors are having? Especially the market leaders, and w"
+      "kind": "question",
+      "detail": "To understand the scale and drivers, I can decompose total payout fees into: Number of Customers × % of Transactions on Rival ATMs × Monthly Transaction Frequency × Net Interchange Fee. Can you share our retail market share, off-us usage rate, and whether peers face similar net outflows?",
+      "reasoning": "Decomposing payout fees into volume, off-us ratio, and fee rate isolates whether the bank suffers from excess usage or missing ATM access."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Currently, India has a total of 3 lakh ATMs. We have 10,000 ATMs. The market leader has 30,000 ATMs, accountin",
-      "detail": "Currently, India has a total of 3 lakh ATMs. We have 10,000 ATMs. The market leader has 30,000 ATMs, accounting for 10% of the market, the second player has 22,500 ATMs, accounting for 7.5% of the market, and the third player has 21,000 ATMs, accounting for 7% of the market.\nBased on the data, we can see that all banks are lagging behind in terms of the number of adequate ATMs, but we are lagging far behind them.\nPublic Sector Bank Yes, the number of ATMs has been a problem for our client, but let's say they have strategically placed new ATMs in locations, although there have been a few hiccups which they faced d"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "ATM interchange is a zero-sum game across banks. Our client holds 6% retail share pan-India, and its customers use other banks' ATMs 40% of the time across an average of 4 transactions per month. Why don't you examine our ATM footprint versus peers?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Good observation. Let's proceed with the different factors that can create the first problem.",
-      "detail": "Good observation. Let's proceed with the different factors that can create the first problem.\nFew factors that I can think of for the first problem is, 1. Electricity issue, 2. Maintenance Issue, 3. Unavailability of guards Sounds reasonable. Can you list the reasons why the ATMs aren't working even after they've been turned on?\nSure. The factors can be broken down into the following heads, 1. Software issues 2. Hardware issues 3. Cash Refill/Availability issue 4. Network Issue Do we have any information on out of these four, what has changed over time?\nWe don't have any issues"
+      "kind": "framework",
+      "detail": "Sure—if we have 6% of retail customers but far fewer than 6% of ATMs, our customers naturally default to competitors' machines while rival customers rarely use ours. How many ATMs does India have, and how many do we and the top three players operate?",
+      "reasoning": "Comparing ATM share directly against customer share tests the structural supply-demand imbalance in physical touchpoints."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "India has 3 lakh ATMs. We operate 10,000 ATMs (3.3% share), while the top three competitors have 30,000 (10%), 22,500 (7.5%), and 21,000 (7%). Moreover, even after our client deployed new ATMs, many fail to operate reliably—either failing to power on or failing mid-transaction once powered on."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "As per my understanding, ATMs require you to connect to the server to fetch and verify user information and up",
-      "detail": "As per my understanding, ATMs require you to connect to the server to fetch and verify user information and update the bank balances in the bank server. So, if there is a network connectivity issue due to location or some other factor, ATMs may not work properly.\nPublic Sector Bank Yes, you are correct. The client did place a lot of new ATMs in rural areas without even testing the network connectivity, which is why the ATMs were not operational properly. Proceed to the solution So some possible solutions to consider are:\n● Switching to a different network provider whose service"
+      "kind": "root-cause",
+      "detail": "That points to two distinct layers of failure. First, our 3.3% ATM share is nearly half our 6% customer share, creating a structural off-us imbalance. Second, uptime failure breaks into site-readiness issues (power backup, security, maintenance) and transaction-execution issues (software, hardware, cash-outs, and bank-server network connectivity). Because ATMs must authenticate balances with the core server in real time, poor network links render newly deployed machines useless.",
+      "reasoning": "Separating power/maintenance readiness from server-connectivity execution lets us diagnose why even brand-new ATMs generate zero on-us transactions.",
+      "causes": [
+        "Footprint deficit: 3.3% ATM share vs. 6% retail customer share drives 40% off-us usage",
+        "Rural ATMs deployed without prior telecom/network testing fail server authentication",
+        "Power, cash-refill, and maintenance gaps compound effective ATM downtime"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Spot on—the bank deployed many new ATMs in rural areas without testing telecom connectivity, causing chronic outages. What prioritized solutions would you propose?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "We should tackle this in three waves. Immediately (P0), audit rural ATM downtime and switch failing sites to stronger dual-SIM/VSAT network providers with automated load balancing to restore uptime above 98%. Next (P1), redeploy low-traffic urban machines to high off-us customer clusters using transaction heatmaps, and enforce pre-launch connectivity and cash-SLA audits. Finally (P2), reduce total ATM dependency by nudging small-ticket cash withdrawals toward UPI merchant payments and Aadhaar-enabled Business Correspondents.",
+      "reasoning": "Fixing uptime on already-installed rural ATMs yields immediate on-us transaction recovery at far lower capex than buying new machines.",
+      "causes": [
+        "Redundant network providers and load balancing unlock stranded rural ATM capacity",
+        "UPI and micro-ATM migration structurally lowers recurring cash-withdrawal demand"
+      ]
     }
   ],
   "recommendations": [
-    "Client has placed many ATM machines in the rural areas",
-    "Switching to a different network provider who’s services are much",
-    "Performing Load Balancing operations to enhance the network",
-    "Alternative technologies that could reduce the need for ATMs."
+    "P0: Audit all offline rural ATMs and migrate failing sites to reliable dual-carrier/VSAT telecom links with automated server load balancing to raise fleet uptime above 98%.",
+    "P1: Use off-us transaction heatmaps to relocate underperforming ATMs to high-density customer zones and mandate pre-installation connectivity, power, and cash-replenishment SLAs.",
+    "P2: Deflect low-value ATM withdrawals toward UPI Lite, QR merchant payments, and Aadhaar-enabled Business Correspondent touchpoints while tracking off-us % and net payout fee savings."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Incremental ARR / Net Revenue Growth (BCG)",
+    "northStar": "Incremental ARR / Net Revenue Growth (Public Sector Bank)",
     "leading": [
       "Retention & cross-sell attach rate",
       "New channel / geo revenue share"
@@ -4765,11 +5689,11 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For BCG’s Public Sector Bank Growth case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Client has placed many ATM machines in the rural areas We will validate success via Incremental ARR / Net Revenue Growth (BCG) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "The Public Sector Bank's ₹100+ crore ATM payout loss stems from a 3.3% ATM share trailing its 6% retail customer base, compounded by severe rural ATM downtime from deploying machines without testing telecom connectivity. By immediately upgrading failing rural sites to redundant network providers with load balancing, reallocating fleet placement via off-us heatmaps, and migrating small cash transactions to UPI and micro-ATMs, the bank can sharply reduce its 40% off-us rate.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Public Sector Bank had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -4818,38 +5742,37 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-ma-disney-star-wars",
   "title": "Disney Buying Star Wars (Lucasfilm)",
-  "company": "BCG",
+  "company": "Disney",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 2,
   "isStarter": true,
   "tags": [
-    "BCG",
     "M&A",
     "Media & IP",
     "Synergies"
   ],
-  "prompt": "Disney purchased Star Wars 6 years ago for USD 6 Billion, was it a good decision or a bad decision?",
+  "prompt": "Disney acquired Lucasfilm (Star Wars) six years ago for $6 billion. Evaluate whether this was a good or bad strategic and financial decision, including sizing the theatrical and merchandise potential in India as a deep-dive illustration.",
   "clarifyingQuestions": [
     {
-      "q": "Sure, would you like me to focus on revenues from any specific location or shall I consider it globally throughout?",
-      "a": "You can restrict yourselves to the Indian region.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Should we assess the acquisition globally on full strategic and synergy value, or focus our quantitative revenue sizing on a specific geography first?",
+      "a": "Confirm that strategic targets were met, and focus your quantitative box-office and merchandise sizing exercise on the Indian market to test local monetization.",
+      "why": "Allows us to pair a complete global M&A evaluation framework with a crisp, bounded quantitative deep-dive on India."
     },
     {
-      "q": "Sure, can you tell me how many movies have been released within this time frame?",
-      "a": "There were 2 movies released during this time, you need not go into the details of theatres at that point in time, consider the current status of theatres itself.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How many Star Wars films were released during this six-year window, and what theatre baseline should we use for India?",
+      "a": "Assume 2 major Star Wars theatrical releases in the window and roughly 1,000 multiplex-capable theatres across Tier 1–3 Indian cities.",
+      "why": "Fixes the release cadence and cinema footprint inputs needed for an exact theatrical revenue calculation."
     },
     {
-      "q": "Yes, this approach looks good. Can you quickly explain how you'd estimate the total number of theatres in India?",
-      "a": "To estimate the total number of theatres in India, I'd divide the cities into tiers:",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Beyond movie tickets and merchandise, which other monetization engines sit inside Disney's Star Wars ecosystem?",
+      "a": "Licensing/streaming rights (including Disney+), theme park attractions, and live fan events alongside consumer merchandise.",
+      "why": "Ensures our overall $6B verdict accounts for multi-engine synergies rather than judging the deal solely on box office."
     }
   ],
   "frameworkUsed": "M&A Evaluation (Strategic Fit + Standalone Value + Revenue/Cost Synergies − Deal Price & Risks)",
   "coreEquation": "Deal NPV = PV(Lucasfilm Standalone + Parks/Merch/Streaming Synergies) − Acquisition Price − Integration Risk",
-  "strategyOverview": "Assess Disney’s acquisition of Lucasfilm across 4 pillars: Strategic Fit (fills 8–16 male/sci-fi gap alongside Pixar & Marvel), Standalone Box Office value, Multi-Engine Synergies (Disney theme park lands, consumer toys/merchandise, Disney+ streaming retention), and Risks (overpayment + fan backlash/franchise fatigue).",
+  "strategyOverview": "Evaluate Disney's $6B acquisition of Star Wars (Lucasfilm) across Strategic Fit (capturing the 8–16 male/sci-fi demographic alongside Pixar and Marvel), Standalone Box Office & India Revenue Sizing (2 releases across ~1,000 Indian theatres plus urban affluent merchandise funnel), Multi-Engine Synergies (Parks, Consumer Products, Disney+), and Risks (fan fatigue and overpayment).",
   "tree": {
     "label": "Disney Buying Star Wars (Lucasfilm) — M&A Evaluation",
     "valueText": "Go / No-Go Deal",
@@ -4871,44 +5794,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Disney purchased Star Wars 6 years ago for USD 6 Billion, was it a good decision or a bad decision?",
-      "detail": "Disney purchased Star Wars 6 years ago for USD 6 Billion, was it a good decision or a bad decision?\nAlright, so our aim is to evaluate the decision of Disney buying Star Wars. I would like to approach this question by evaluating the revenues that Disney has generated from Star wars since its acquisition and looking into whether the break-even point has been reached yet. Was there any target we had set back then during the acquisition and what was the specific purpose we were looking to achieve from this acquisition?\nYes, you can assume the target has been achieved and now we want to estimate the revenues that Sta"
+      "kind": "prompt",
+      "detail": "Disney bought Lucasfilm and the Star Wars franchise six years ago for $6 billion. Was it a good decision or a bad decision?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "You can restrict yourselves to the Indian region.",
-      "detail": "You can restrict yourselves to the Indian region.\nSure, I would like to consider that the sources of revenues are majorly of 3 types - the revenue generated from movie tickets sales, merchandise of Star Wars, licensing or broadcasting rights of the movies and Star Wars related events.Do you feel is there any other revenue stream that I’m missing out on?\nYes these seem to be fine, you can focus on the movie ticket sales as of now.\nSure, can you tell me how many movies have been released within this time frame?"
+      "kind": "question",
+      "detail": "To evaluate an M&A deal, I would check four pillars: strategic fit, standalone franchise cash flows, multi-engine synergies across parks, merchandising, and streaming, and integration/franchise-fatigue risks. Before sizing revenues, were strategic targets met, and should I size global revenues or focus on a specific region first?",
+      "reasoning": "Clarifying geographic scope and strategic goals keeps a broad $6B M&A evaluation structured and quantitatively grounded."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "There were 2 movies released during this time, you need not go into the details of theatres at that point in t",
-      "detail": "There were 2 movies released during this time, you need not go into the details of theatres at that point in time, consider the current status of theatres itself.\nAlright, to estimate the revenue from ticket sales per movie, we would use this formula:(Number of theatres) * (% of theatres showing Star Wars) * (Number of screens) * (Number of shows per screen) * (Total seating capacity) * (% occupancy) * (Ticket price) * (Number of days the movie is screened).Have I missed any factors? And do we have the total number of theatres in the country?\nYes, this approach looks good. Can you quickly explain how you'd estima"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Assume strategic fit targets were achieved—Star Wars filled Disney's gap in boys and sci-fi fans alongside Pixar and Marvel. For the quantitative exercise, restrict your revenue sizing to India, where 2 Star Wars films released over the period. Focus first on theatrical ticket sales."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "● Tier 1 cities with around 50 theatres each ● Tier 2 cities with about 15 theatres each ● Tier 3 cities with",
-      "detail": "● Tier 1 cities with around 50 theatres each ● Tier 2 cities with about 15 theatres each ● Tier 3 cities with around 5 theatres each.Then, I'd look at how many cities fall into each of these categories.\nGreat, for now, you can proceed with this question and assume the number of theatres to be around 1000.\nAlright, let's assume each theatre has an average of 3 screens, and about 40% of the theatres would screen a Star Wars movie. If each screen shows 4 shows a day with 300 seats per screen, and we consider an average occupancy rate of 65% (factoring in weekends and weekdays) at a ticket price of ₹250. Assuming the"
+      "kind": "framework",
+      "detail": "In India, Star Wars earns across three main buckets: theatrical tickets, consumer merchandise, and licensing/streaming plus events. For theatrical ticket revenue across 2 films, I'll compute: Theatres × % Screening Star Wars × Screens/Theatre × Shows/Day × Seats/Screen × Occupancy × Ticket Price × Screening Days. Estimating roughly 50 theatres per Tier-1 city, 15 per Tier-2, and 5 per Tier-3 gives a base footprint—do we have a benchmark theatre count to use?",
+      "reasoning": "Building a supply-side cinema capacity equation avoids wild top-down guesses on Hollywood niche penetration in India."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good structure—use 1,000 relevant theatres in India. Run your assumptions on screens, shows, occupancy, and ticket price, and then explain how you would size Indian Star Wars merchandise demand."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Sure, for estimating merchandising revenue, I’d split the population into",
-      "detail": "Sure, for estimating merchandising revenue, I’d split the population into 30% urban and 70% rural, but we’ll focus on the urban segment. Then, I’d consider income levels. People below the poverty line and lower middle class likely can't afford merchandise, so we’re left with the wealthy (around 20%) and the upper middle class (about 40%). Next, I’d factor in age, focusing on people between 5-30 years. Finally, I’d calculate the number of people willing to buy merchandise—assuming 60% of people watch Star Wars, and typically 50% of them would be interested in buying merch.\nThat"
+      "kind": "hypothesis",
+      "detail": "With 1,000 theatres, assuming 40% screen Star Wars (400 theatres) × 3 screens × 4 shows/day = 4,800 shows/day. At 300 seats, 65% average occupancy, and ₹250 ticket price, daily gross is ₹23.4 crore—roughly ₹325–350 crore (~$40–45M) over an effective 2-week run per film, or ~$85M across two movies. For merchandise, I filter India's population to the 30% urban base, isolate upper-middle and affluent tiers (~60% of urban), focus on ages 5–30, apply a 60% Star Wars viewership rate and 50% merch propensity—yielding modest emerging-market revenue compared to mature Western markets.",
+      "reasoning": "Testing India's unit math demonstrates that emerging theatrical and merch markets alone cannot justify a $6B deal without global flywheel synergies.",
+      "causes": [
+        "India theatrical gross (~$85M across 2 films) is a minor contributor to $6B payback",
+        "Urban income and age filters narrow Indian merchandise buyers to an affluent niche",
+        "Global box office plus Disney Parks, Toys, and Disney+ synergies carry the $6B ROI"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That India math is clear. Stepping back to the global $6 billion price tag, what is your final verdict on whether the acquisition was a good decision, and what risks must Disney manage?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Overall, it was a strong strategic and financial acquisition—provided Disney manages franchise fatigue. While individual emerging markets like India contribute modestly today (~$85M box office plus niche urban merch), global theatrical releases easily generate multi-billion-dollar gross, while Star Wars Galaxy's Edge theme park lands, global consumer merchandising, and Disney+ streaming series (like The Mandalorian) create durable, high-margin annuity cash flows that surpass the $6B outlay. Going forward, Disney should pace theatrical releases carefully and lean into high-engagement Disney+ series and localized India digital merch licensing.",
+      "reasoning": "Connecting local market sizing back to Disney's global flywheel explains why high-multiple IP deals pay off when monetized across parks, retail, and streaming.",
+      "causes": [
+        "Multi-engine Disney flywheel (Parks, Merch, Disney+) multiplies standalone film ROI",
+        "Over-saturation of theatrical releases risks fan fatigue and brand dilution"
+      ]
     }
   ],
   "recommendations": [
-    "Factors considered for merchandise: aﬀordability, interest, and",
-    "The calculation method used to estimate movie ticket revenue",
-    "For merchandise, the pricing strategy accounts for brand value,",
-    "No immediate concerns raised about Disney failing to break"
+    "P0: Continue monetizing Star Wars as a multi-engine flywheel—pairing tentpole films with high-retention Disney+ series, Galaxy's Edge park experiences, and high-margin global toy/apparel licensing.",
+    "P1: Pace theatrical releases (every 2–3 years) and enforce cohesive creative roadmaps to prevent franchise fatigue and protect global box-office multiples.",
+    "P2: In growth markets like India, prioritize asset-light e-commerce merchandise partnerships and Disney+ regional dubbing over heavy physical retail capex, tracking global franchise ROIC and Disney+ subscriber churn."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (BCG)",
+    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (Disney)",
     "leading": [
       "Cost synergy realization (overhead/procurement)",
       "Cross-sell retention at Month 6/12"
@@ -4918,11 +5871,11 @@ window.CM_DATA.cases.push(
       "Debt leverage / integration cost overrun"
     ]
   },
-  "synthesisScript": "For BCG’s Disney Buying Star Wars (Lucasfilm) case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Factors considered for merchandise: aﬀordability, interest, and We will validate success via Risk-Adjusted Post-Merger NPV / ROIC (BCG) while guarding against Key talent & customer attrition.",
+  "synthesisScript": "Disney's $6 billion acquisition of Lucasfilm (Star Wars) was a good decision because it filled a critical 8–16 male/sci-fi portfolio gap and unlocked multi-engine cash flows across global box office, theme parks, toys, and Disney+. While emerging markets like India contribute modestly on standalone tickets (~$85M across two films) and affluent urban merchandise, global franchise synergies comfortably clear the $6B hurdle—provided Disney paces theatrical output to avoid fan fatigue.",
   "interviewerTrap": "Evaluating the deal ONLY on movie box-office ticket sales—when Disney makes the bulk of its high-margin ROI on theme parks, licensing, and merchandise!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Disney had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -4971,37 +5924,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-34-acquisition-of-a-clothing-firm",
   "title": "Acquisition of a Clothing Firm",
-  "company": "McKinsey & Company",
+  "company": "Apparel Acquirer",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "McKinsey & Company",
     "M&A",
     "Consulting"
   ],
-  "prompt": "Your client is a large multinational clothing brand seeking to increase its market share and achieve economies of scale by acquiring a smaller, locally popular clothing firm. Your task is to identify the key factors that should be considered to ensure a smooth acquisition.",
+  "prompt": "Your client is a large multinational clothing brand seeking to expand its luxury portfolio and achieve economies of scale by acquiring a smaller, locally popular apparel firm. What key factors should the client evaluate to determine whether to pursue this acquisition and ensure smooth integration?",
   "clarifyingQuestions": [
     {
-      "q": "To better understand the context, could you please provide more details about the client's current market focus and operational model?",
-      "a": "The client is a diversified multinational corporation that caters to various market segments within the clothing industry. They operate both through traditional brick-and-mortar stores (It refers to a traditional company that operates throu",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the client's current business model and channel mix, and what specific strategic objective drives this acquisition?",
+      "a": "The client operates across multiple apparel segments through both brick-and-mortar stores and an e-commerce platform that contributes 30% of total sales. Their primary goal is to expand their luxury line, targeting an ROI of around 15%.",
+      "why": "Establishes the acquirer's omnichannel capabilities and minimum financial hurdle rate before evaluating target fit."
     },
     {
-      "q": "Okay. What is the primary strategic goal behind this acquisition?",
-      "a": "Additionally, what is the expected ROI for this venture?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the target company's market positioning, store footprint, and current valuation?",
+      "a": "The target is a well-regarded luxury brand operating 50 brick-and-mortar stores primarily in northern India, valued at INR 500 crore, with strong personalized service but limited geographic reach.",
+      "why": "Quantifies the INR 500 crore deal size and reveals the target's core value drivers—store-level luxury experience and untapped geographic or digital scale."
     },
     {
-      "q": "Additionally, what is the expected ROI for this venture?",
-      "a": "The primary objective is to expand the client's luxury product line by acquiring a well-known brand that resonates with high-end consumers. The anticipated ROI for this investment is around 15%.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Does the client intend to absorb the target into its existing mass-market label or preserve it as a standalone luxury brand?",
+      "a": "The client aims to keep the target's distinct luxury brand identity and personalized in-store service while leveraging its own supply chain and e-commerce engine.",
+      "why": "Clarifies the post-merger operating model so synergy estimates do not erode high-end brand equity."
     }
   ],
   "frameworkUsed": "Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks",
   "coreEquation": "Deal Value = Standalone Value + PV(Cost + Revenue Synergies) − Purchase Price − Integration Risk",
-  "strategyOverview": "Approach Acquisition of a Clothing Firm (McKinsey & Company) using a M&A structure: start by confirming the business objective and scope, decompose the problem cleanly along Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Acquisition of a Clothing Firm (Apparel Acquirer) using an M&A structure: start by confirming the 15% ROI hurdle and brand preservation scope, decompose the problem along Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks, and conclude with prioritized P0–P2 actions and luxury guardrails.",
   "tree": {
     "label": "Acquisition of a Clothing Firm — M&A Evaluation",
     "valueText": "Go / No-Go Deal",
@@ -5023,43 +5975,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Your client is a large multinational clothing brand seeking to increase its market share and achieve economies",
-      "detail": "Your client is a large multinational clothing brand seeking to increase its market share and achieve economies of scale by acquiring a smaller, locally popular clothing firm. Your task is to identify the key factors that should be considered to ensure a smooth acquisition.\nTo better understand the context, could you please provide more details about the client's current market focus and operational model?\nThe client is a diversified multinational corporation that caters to various market segments within the clothing industry. They operate both through traditional brick-and-mortar stores (It refers to a traditiona"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a large multinational clothing brand seeking to expand its luxury portfolio and achieve economies of scale by acquiring a smaller, locally popular apparel firm. What key factors should the client evaluate to ensure a sound acquisition and smooth integration?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Additionally, what is the expected ROI for this venture?",
-      "detail": "Additionally, what is the expected ROI for this venture?\nThe primary objective is to expand the client's luxury product line by acquiring a well-known brand that resonates with high-end consumers. The anticipated ROI for this investment is around 15%.\nUnderstood. Could you provide some insights into the performance of the client’s e-commerce platform? Specifically, what portion of their sales is generated online?\nThe e-commerce platform is a crucial component of the client’s business, contributing 30% of total sales."
+      "kind": "question",
+      "detail": "Before structuring my analysis, I would like to clarify the deal context. What is the client's current channel mix and target ROI, and what are the target's footprint, niche, and valuation?",
+      "reasoning": "Grounding the evaluation in channel capabilities, hurdle rates, and target scale prevents generic M&A checklists and anchors synergy sizing."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Thank you. With that in mind, I would like to learn more about the target company. What is its niche within th",
-      "detail": "Thank you. With that in mind, I would like to learn more about the target company. What is its niche within the market, and what business model does it follow?\nThe company the client is looking to acquire is a luxury brand with a strong reputation among its customers. However, it has experienced limited growth and remains primarily local due to its traditional brick-and-mortar model, which emphasizes personalized customer service.\nIt seems the client’s strategy is to leverage the smaller firm’s well-established brand name while utilizing economies of scale to boost production.\nIs this the core approach they inten"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The client operates brick-and-mortar stores alongside an e-commerce platform driving 30% of total sales, and expects roughly a 15% ROI. The target is a luxury apparel brand with 50 stores mainly in northern India, valued at INR 500 crore, with strong personalized service but constrained regional growth. How would you structure your evaluation?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Yes, the client aims to integrate the smaller firm’s luxury brand into their portfolio while maintaining its r",
-      "detail": "Yes, the client aims to integrate the smaller firm’s luxury brand into their portfolio while maintaining its reputation for exceptional personalized service.\nCould you provide details regarding the smaller firm’s scale of operations, particularly the number of stores, its geographical presence, and its current valuation?\nThe smaller firm operates 50 stores, primarily in northern India, and is valued at INR 500 crore.\nBased on our discussion, it sounds like the key factors to consider for this acquisition span across financial, legal, and social dimensions. Financially, the acquisition costs and pricing strategy a"
+      "kind": "framework",
+      "detail": "I will evaluate the deal across four pillars: Strategic Fit and Brand Alignment, Standalone Economics at the INR 500 crore valuation, Revenue and Cost Synergies—specifically e-commerce expansion and manufacturing scale—and Pre-Deal and Integration Risks spanning legal, operational, and pricing dimensions. Let's start with synergies and operational risks.",
+      "reasoning": "Separating brand-sensitive revenue synergies from back-end cost synergies lets us test whether scale economies can be captured without diluting luxury positioning."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That structure makes sense. On the surface, the client wants to scale production using its larger supply chain while keeping the target's personalized store service intact. Where could friction or value leakage arise as they execute that plan?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "That makes sense. Could we now discuss the risks associated with this acqu",
-      "detail": "That makes sense. Could we now discuss the risks associated with this acquisition?\nThe risks associated with this acquisition can be grouped into several categories. Pre-acquisition risks include the potential overvaluation of the acquisition target and insufficient legal due diligence. Operational risks involve potential inefficiencies in production processes and the risk of failing to maintain product quality. On the economic side, there could be a misalignment between business models, pricing discrepancies that might impact market positioning, and potential overruns in produ"
+      "kind": "root-cause",
+      "detail": "Three major risks threaten the 15% ROI target. First, pre-deal overvaluation or incomplete legal due diligence on store leases and IP at INR 500 crore could lock in an excessive multiple. Second, pushing mass-production efficiencies onto luxury SKUs risks quality drift and alienates high-end buyers. Third, pricing discrepancies or forced cross-branding with mass-market lines could erode the target's luxury perception.",
+      "reasoning": "Tracing risks across valuation, manufacturing, and commercial positioning isolates the exact failure modes that break luxury apparel acquisitions.",
+      "causes": [
+        "Pre-acquisition overvaluation and lease/IP diligence gaps at INR 500 crore",
+        "Quality dilution from forcing mass-market production processes onto luxury SKUs",
+        "Brand and pricing misalignment eroding personalized brick-and-mortar positioning"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Those are sharp diagnostic points. Given those trade-offs, how should the client structure the integration to capture scale and digital upside while protecting the luxury brand?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend proceeding only after ring-fencing luxury brand autonomy and validating legal/lease diligence on the INR 500 crore valuation. First, integrate back-end logistics, fabric procurement, and IT while keeping design, tailoring, and store staffing standalone to prevent quality drift. Second, selectively launch the luxury collection on the client's e-commerce channel (30% of sales) to unlock national demand outside northern India, tracking gross margin, flagship store NPS, and 15% ROI payback as strict guardrails.",
+      "reasoning": "Sequencing back-office and digital integration ahead of physical store changes captures measurable synergies without jeopardizing core customer loyalty.",
+      "causes": [
+        "Back-end procurement scale without altering front-end luxury craftsmanship",
+        "Omnichannel expansion via existing 30% e-commerce platform beyond northern India"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Acquisition of a Clothing Firm before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0 — Ring-fence brand equity and complete thorough pre-deal diligence: Audit store leases, IP, and supplier contracts before finalizing the INR 500 crore price, and preserve the target's standalone luxury branding and personalized store service.",
+    "P1 — Unlock supply chain and omnichannel revenue synergies: Consolidate back-end logistics and raw-material procurement while launching curated luxury SKUs on the client's e-commerce platform (30% of sales) to reach buyers beyond northern India.",
+    "P2 — Protect unit economics with quality and retention guardrails: Tie management earn-outs to flagship store NPS and gross margin stability while retaining master artisans and store managers to prevent quality drift."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (McKinsey & Company)",
+    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (Apparel Acquirer)",
     "leading": [
       "Cost synergy realization (overhead/procurement)",
       "Cross-sell retention at Month 6/12"
@@ -5069,11 +6052,11 @@ window.CM_DATA.cases.push(
       "Debt leverage / integration cost overrun"
     ]
   },
-  "synthesisScript": "For McKinsey & Company’s Acquisition of a Clothing Firm case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Acquisition of a Clothing Firm before secondary optimizations. We will validate success via Risk-Adjusted Post-Merger NPV / ROIC (McKinsey & Company) while guarding against Key talent & customer attrition.",
+  "synthesisScript": "For Apparel Acquirer's acquisition of the INR 500 crore northern India luxury brand, I recommend proceeding with ring-fenced brand autonomy so back-end supply chain scale and the client's 30% e-commerce channel unlock national growth without diluting store-level luxury quality. Success should be tracked against the 15% ROI hurdle while enforcing strict guardrails on product quality, pricing integrity, and flagship store NPS.",
   "interviewerTrap": "Assuming optimistic cross-sell Revenue Synergies justify any price while ignoring Integration, Culture, and Overpayment risks!",
   "variations": [
     {
-      "question": "How would your recommendation change if McKinsey & Company had half the timeline or budget?",
+      "question": "How would your recommendation change if Apparel Acquirer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -5122,37 +6105,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-ma-edtech-merger",
   "title": "Merger of Two Ed-Tech Firms",
-  "company": "LEK Consulting",
+  "company": "Ed-Tech Platforms",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "LEK Consulting",
     "M&A",
     "Consulting"
   ],
-  "prompt": "Your client is an online education platform A, and is looking to acquire its competing platform B. How should they proceed?",
+  "prompt": "Your client is an online education platform (Platform A) considering the acquisition of a competing platform (Platform B). How should Platform A evaluate this acquisition and decide how to proceed?",
   "clarifyingQuestions": [
     {
-      "q": "That’s interesting. Before we delve into further details, could you clarify why \"A\" is interested in acquiring \"B\"? Are there specific financial goals or is this more about a strategic expansion?",
-      "a": "The primary goal for the client is to boost their revenue through this acquisition. They are also looking to expand their product portfolio through this acquisition.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is Platform A's primary strategic objective for acquiring Platform B—cost consolidation, user acquisition, or course portfolio expansion?",
+      "a": "The primary goals are to accelerate top-line revenue growth and expand Platform A's course portfolio into complementary learning verticals.",
+      "why": "Determines whether revenue synergies from cross-selling or cost synergies from platform consolidation should anchor the valuation."
     },
     {
-      "q": "Great, so we may deal with this by dividing the problem into Financial and Non-Financial aspects. Which should I first look into?",
-      "a": "You may start with Non-Financial aspects.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are there regulatory thresholds or overlapping user segments that could trigger antitrust scrutiny?",
+      "a": "Both platforms hold strong positions in overlapping test-prep and online learning segments, so combined market share could attract competition regulator review.",
+      "why": "Flags deal-closing timeline risk and potential regulatory hurdles early in the M&A screen."
     },
     {
-      "q": "Great. Can you think of any other benefits through this deal?",
-      "a": "Merger of Two Ed-tech Firms Yes, additionally we should consider synergies that can arise from the acquisition. This acquisition could lower overhead costs for “A” and expand its customer base and cross-s",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the current financial baseline of both platforms, and what revenue or cost synergies are projected post-merger?",
+      "a": "Standalone EBITDA is ₹50 crore on ₹200 crore revenue for Platform A, and ₹30 crore on ₹150 crore revenue for Platform B; post-merger projections show ₹420 crore revenue and ₹140 crore EBITDA.",
+      "why": "Provides the exact P&L inputs needed to validate whether synergy math justifies acquisition price and integration risk."
     }
   ],
   "frameworkUsed": "Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks",
   "coreEquation": "Deal Value = Standalone Value + PV(Cost + Revenue Synergies) − Purchase Price − Integration Risk",
-  "strategyOverview": "Approach Merger of Two Ed-Tech Firms (LEK Consulting) using a M&A structure: start by confirming the business objective and scope, decompose the problem cleanly along Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Merger of Two Ed-Tech Firms (Ed-Tech Platforms) using an M&A structure: evaluate Non-Financial Fit (culture, talent, regulatory/antitrust risk) alongside Financial Synergies (₹80 Cr combined EBITDA scaling to ₹140 Cr post-merger), and mitigate tech-stack integration and overvaluation risks.",
   "tree": {
     "label": "Merger of Two Ed-Tech Firms — M&A Evaluation",
     "valueText": "Go / No-Go Deal",
@@ -5174,43 +6156,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Your client is an online education platform A, and is looking to acquire its competing platform B. How should",
-      "detail": "Your client is an online education platform A, and is looking to acquire its competing platform B. How should they proceed?\nThat’s interesting. Before we delve into further details, could you clarify why \"A\" is interested in acquiring \"B\"? Are there specific financial goals or is this more about a strategic expansion?\nThe primary goal for the client is to boost their revenue through this acquisition. They are also looking to expand their product portfolio through this acquisition."
+      "kind": "prompt",
+      "detail": "Your client is an online education platform, Platform A, considering acquiring competing Platform B. How should they evaluate this deal and decide how to proceed?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Great, so we may deal with this by dividing the problem into Financial and Non-Financial aspects. Which should",
-      "detail": "Great, so we may deal with this by dividing the problem into Financial and Non-Financial aspects. Which should I first look into?\nYou may start with Non-Financial aspects.\nCertainly. The fit between the two companies is crucial. \"A\" should assess how well they align culturally, strategically, and organizationally. This involves evaluating the compatibility of employee skill sets, shared long-term goals, and company policies. External factors like a PESTEL analysis are important too."
+      "kind": "question",
+      "detail": "To frame the evaluation accurately, could you clarify Platform A's primary strategic goal for buying Platform B, and whether we should examine both financial and non-financial dimensions?",
+      "reasoning": "Confirming strategic intent and evaluation scope ensures we weigh qualitative integration and regulatory hurdles alongside synergy math."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "For instance, if there are any regulations against monopolies in the market, the acquisition might face challe",
-      "detail": "For instance, if there are any regulations against monopolies in the market, the acquisition might face challenges in regulatory approvals as their combined market share may pose a threat like a monopoly.\nPerfect. Now, let's move on to the financial considerations.\nFinancial feasibility is important. \"A\" needs to factor in the costs of the acquisition itself and the integration process,such as combining technical interfaces. On the revenue side, they should anticipate an increase due to the expanded course portfolio. Can you provide revenue and cost numbers to continue with the calculations?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The primary goals are boosting revenue and expanding Platform A's course portfolio. Please begin by structuring the non-financial considerations before we dive into the P&L numbers."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Certainly, the revenue, fixed costs, variable costs, and overhead costs for both \"A\" and \"B,\" as well as their",
-      "detail": "Certainly, the revenue, fixed costs, variable costs, and overhead costs for both \"A\" and \"B,\" as well as their combined entity after the merger are here.\nMetrics (₹ Cr) Firm A Firm B Combined (A+B) Revenue 200 150 350 Fixed Costs 40 35 75 Variable Costs (40%) 80 60 140 Overheads 30 25 55 Total Costs 150 120 270 Profit (EBITDA) 50 30 80 Metrics (₹ Cr) Post-Merger Revenue 420 Fixed Costs 68 Variable Costs (40%) 168 Overheads 44 Total Costs 280 Profit (EBITDA) 140 Right. So, the calculated profit after the acquisition is 1.75 times the combined profit (75% higher) of individual fi"
+      "kind": "framework",
+      "detail": "I will split the analysis into Non-Financial Fit and Financial Feasibility. On the non-financial side, we must assess cultural and organizational alignment, overlapping educator skill sets, and external PESTEL factors—especially antitrust scrutiny if combined market share looks monopolistic. On the financial side, we need to quantify cross-selling revenue uplift, overhead consolidation, and tech-integration costs.",
+      "reasoning": "Addressing regulatory and cultural viability first avoids spending diligence effort on deals that cannot clear competition review or integrate cleanly."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good breakdown. Here are the financials in ₹ crore: Platform A earns ₹200 revenue with ₹40 fixed costs, ₹80 variable costs (40%), and ₹30 overheads, yielding ₹50 EBITDA. Platform B earns ₹150 revenue with ₹35 fixed costs, ₹60 variable costs (40%), and ₹25 overheads, yielding ₹30 EBITDA. Post-merger projections show ₹420 revenue, ₹68 fixed costs, ₹168 variable costs (40%), and ₹44 overheads. What does this tell us?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Merger of Two Ed-tech Firms Yes, additionally we should consider synergies",
-      "detail": "Merger of Two Ed-tech Firms Yes, additionally we should consider synergies that can arise from the acquisition. This acquisition could lower overhead costs for “A” and expand its customer base and cross-selling opportunities.\nGreat, are there any risks involved with this deal?\nYes, I could see overvaluation and delays in regulatory approvals as major risks. Also, there could be Integration challenges like technological mismatch which could be an issue."
+      "kind": "root-cause",
+      "detail": "Standalone combined revenue is ₹350 crore and combined EBITDA is ₹80 crore. Post-merger, revenue expands by ₹70 crore (+20%) to ₹420 crore via cross-selling, while fixed costs drop by ₹7 crore and overheads drop by ₹11 crore. That lifts post-merger EBITDA to ₹140 crore—1.75x or 75% higher than standalone combined EBITDA—driven primarily by cross-sell operating leverage and ₹18 crore in fixed-overhead savings.",
+      "reasoning": "Decomposing the EBITDA bridge from ₹80 crore to ₹140 crore reveals whether profit growth relies on realistic cost cuts or aggressive revenue assumptions.",
+      "causes": [
+        "₹70 crore (+20%) cross-sell revenue synergy across expanded course catalog",
+        "₹18 crore fixed and overhead cost elimination (fixed costs ₹75 Cr to ₹68 Cr; overheads ₹55 Cr to ₹44 Cr)",
+        "Key downside risks from overvaluation, antitrust delays, and LMS tech mismatch"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "The 75% EBITDA uplift is compelling on paper. What major execution risks could erode those synergies, and how should Platform A proceed?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend proceeding with the acquisition only if diligence confirms low student overlap for the ₹70 crore cross-sell target and clears antitrust risk. Platform A should cap purchase price to avoid overpaying for unverified synergies, stage LMS tech migration behind a unified single sign-on layer to prevent churn, and lock in key Platform B educators with retention incentives while tracking CAC payback and course completion rates.",
+      "reasoning": "Decoupling near-term commercial cross-selling from risky back-end tech migration protects student experience while capturing immediate EBITDA upside.",
+      "causes": [
+        "Antitrust clearance and price discipline against projected ₹140 crore EBITDA",
+        "Staged LMS integration to avoid technical disruption and student churn"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Merger of Two Ed-Tech Firms before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0 — Stress-test the ₹70 crore cross-sell uplift and pre-clear antitrust risk: Validate unique student overlap before signing binding terms and initiate competition-regulator pre-consultation to prevent closing delays.",
+    "P1 — Sequence overhead consolidation ahead of back-end tech migration: Capture the ₹18 crore in duplicate fixed and overhead savings over two quarters while connecting both platforms via single sign-on before merging core LMS codebases.",
+    "P2 — Protect educator and learner retention: Deploy retention bonuses for Platform B's top instructors and monitor CAC payback, cross-sell conversion, and course completion rates as post-merger guardrails."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (LEK Consulting)",
+    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (Ed-Tech Platforms)",
     "leading": [
       "Cost synergy realization (overhead/procurement)",
       "Cross-sell retention at Month 6/12"
@@ -5220,11 +6233,11 @@ window.CM_DATA.cases.push(
       "Debt leverage / integration cost overrun"
     ]
   },
-  "synthesisScript": "For LEK Consulting’s Merger of Two Ed-Tech Firms case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Merger of Two Ed-Tech Firms before secondary optimizations. We will validate success via Risk-Adjusted Post-Merger NPV / ROIC (LEK Consulting) while guarding against Key talent & customer attrition.",
+  "synthesisScript": "For Ed-Tech Platforms, acquiring Platform B lifts combined EBITDA by 75% from ₹80 crore to ₹140 crore through ₹70 crore in cross-sell revenue and ₹18 crore in fixed-overhead synergies. I recommend proceeding with disciplined valuation caps, early antitrust pre-clearance, and a phased LMS integration that protects student retention and educator continuity.",
   "interviewerTrap": "Assuming optimistic cross-sell Revenue Synergies justify any price while ignoring Integration, Culture, and Overpayment risks!",
   "variations": [
     {
-      "question": "How would your recommendation change if LEK Consulting had half the timeline or budget?",
+      "question": "How would your recommendation change if Ed-Tech Platforms had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -5273,37 +6286,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-36-demerger-of-two-business-units",
   "title": "Demerger of Two Business Units",
-  "company": "McKinsey & Company",
+  "company": "Industrial Conglomerate",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "McKinsey & Company",
     "M&A",
     "Consulting"
   ],
-  "prompt": "Demerger of Units We’re debating whether separating our traditional services unit from our digital division is the right move for future growth. How would you approach this?",
+  "prompt": "Your client is a diversified conglomerate debating whether to separate its mature traditional services unit from its fast-growing digital division to unlock future growth. How would you evaluate this demerger decision?",
   "clarifyingQuestions": [
     {
-      "q": "Thank you. Before suggesting a direction, I’d like to understand a bit more. Could you describe the two businesses in terms of their role in the company?",
-      "a": "Our services unit is the backbone of the company, it’s profitable, stable, and provides consistent cash flow. But growth is limited; the market is mature. The digital division, on the other hand, is new and fast-growing, but it’s investment",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How do the two business units currently perform financially, and what role does each play in the overall portfolio?",
+      "a": "The traditional services unit is mature, profitable, and generates stable cash flow, whereas the digital division is growing rapidly but remains investment-heavy with thin margins.",
+      "why": "Clarifies the capital-allocation dynamic—specifically whether the cash-cow unit is subsidizing the growth engine."
     },
     {
-      "q": "Understood. And how are these two units linked? Do they share customers, resources, or strategy?",
-      "a": "There are overlaps in customers and the company brand, but the operating models are quite different. The services unit works on efficiency and reliability, while the digital unit thrives on agility and innovation.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What operational or commercial linkages exist between the two units today?",
+      "a": "They share the corporate brand and have overlapping enterprise customers, though services prioritizes efficiency and reliability while digital relies on rapid experimentation.",
+      "why": "Helps quantify potential revenue dis-synergies and brand dilution if the two entities separate completely."
     },
     {
-      "q": "What kind of tension?",
-      "a": "I see three main issues:",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is management's primary objective behind considering a demerger—valuation re-rating, capital raising, or operational agility?",
+      "a": "Leadership wants to unlock long-term growth and ensure both units attract the right capital and talent without holding each other back.",
+      "why": "Aligns evaluation criteria with investor valuation multiples, governance autonomy, and standalone funding viability."
     }
   ],
   "frameworkUsed": "Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks",
   "coreEquation": "Deal Value = Standalone Value + PV(Cost + Revenue Synergies) − Purchase Price − Integration Risk",
-  "strategyOverview": "Approach Demerger of Two Business Units (McKinsey & Company) using a M&A structure: start by confirming the business objective and scope, decompose the problem cleanly along Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Demerger of Two Business Units (Industrial Conglomerate) using an M&A / portfolio separation structure: weigh strategic conflict, conglomerate valuation discount, and leadership bandwidth against lost brand synergies and digital funding risk, culminating in a phased carve-out before full spin-off.",
   "tree": {
     "label": "Demerger of Two Business Units — M&A Evaluation",
     "valueText": "Go / No-Go Deal",
@@ -5325,44 +6337,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Demerger of Units We’re debating whether separating our traditional services unit from our digital division is",
-      "detail": "Demerger of Units We’re debating whether separating our traditional services unit from our digital division is the right move for future growth. How would you approach this?\nThank you. Before suggesting a direction, I’d like to understand a bit more. Could you describe the two businesses in terms of their role in the company?\nOur services unit is the backbone of the company, it’s profitable, stable, and provides consistent cash flow. But growth is limited; the market is mature. The digital division, on the other hand, is new and fast-growing, but it’s investment-heavy and margins are thin.\nUnderstood. And how are"
+      "kind": "prompt",
+      "detail": "We are debating whether separating our traditional services unit from our digital division is the right move for future growth. How would you approach this decision?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "There are overlaps in customers and the company brand, but the operating models are quite different. The servi",
-      "detail": "There are overlaps in customers and the company brand, but the operating models are quite different. The services unit works on efficiency and reliability, while the digital unit thrives on agility and innovation.\nGot it. So, effectively, we’re looking at two businesses with very different profiles:\n● Traditional services : Stable, Dependable, Low growth.\n● Digital division : High potential, Dynamic, But riskier."
+      "kind": "question",
+      "detail": "Before recommending a structural move, could you describe the financial profile of each unit and how tightly they share customers, brand, or operating resources today?",
+      "reasoning": "Understanding cash-flow dependency and commercial overlap determines whether separation creates net value or destroys shared synergies."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "That creates some tension when managed together.",
-      "detail": "That creates some tension when managed together.\nWhat kind of tension?\nI see three main issues:\n1. Strategic conflict: One unit prioritizes efficiency and steady margins; the other needs experimentation and bold investments."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The services unit is our profitable, cash-generative backbone in a mature market, whereas the digital division is fast-growing, investment-heavy, and thin-margin. They share customers and the corporate brand, but services runs on efficiency while digital needs agility. How do you evaluate separating them?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "2. Investor perception: The fast-growing digital story may be overshadowed by the slower services unit, leadin",
-      "detail": "2. Investor perception: The fast-growing digital story may be overshadowed by the slower services unit, leading to undervaluation.\n3. Leadership bandwidth: Management has to juggle two very different priorities, which can dilute focus.\nThat’s fair. So what could be the upside of separating them?\nDemerger of Units Separation would give each unit its own identity. The digital division could stand out as a growth story attracting investors and talent drawn to innovation, while the services unit would appeal to those seeking stability and steady returns. This allows both to pursue strategies aligned with their agile"
+      "kind": "framework",
+      "detail": "I will weigh the value unlocked by separation—Strategic Autonomy, Investor Valuation Re-rating, and Talent/Leadership Focus—against the separation costs, specifically Loss of Shared Commercial Synergies and Standalone Funding Risk for the digital division.",
+      "reasoning": "A balanced value-creation vs. dis-synergy tree directly tests whether structural separation solves real friction or creates funding vulnerability."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Walk me through the core tensions of keeping them together versus the biggest risks if we spin off the digital unit outright."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "And what about the risks?",
-      "detail": "And what about the risks?\nThere are important risks:\n1. Loss of synergies : Both businesses currently benefit from shared brand strength and some customer overlaps.\n2. Funding pressure : Today, the services unit helps fund the digital division; post-separation, digital may have to rely solely on external capital."
+      "kind": "root-cause",
+      "detail": "Keeping them combined creates three structural frictions: strategic conflict between efficiency and bold capex, a conglomerate valuation discount where slow services growth masks digital's upside, and diluted leadership bandwidth. However, an abrupt full spin-off poses two major risks: losing cross-sell synergies across shared enterprise accounts and exposing the thin-margin digital unit to external capital markets before it can self-fund.",
+      "reasoning": "Contrasting internal governance friction against external financing risk explains why neither status quo nor an overnight spin-off is optimal.",
+      "causes": [
+        "Strategic and capital-allocation conflict between mature efficiency and digital experimentation",
+        "Conglomerate discount and diluted executive bandwidth under one roof",
+        "Funding gap and enterprise cross-sell loss if digital is spun off prematurely"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Given those competing risks, how would you resolve the dilemma in practice?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a two-phase separation rather than an immediate spin-off. In Phase 1, execute a partial equity carve-out—listing a minority stake in the digital division—to establish a standalone growth valuation, attract specialized tech talent, and raise external capital while preserving commercial cross-sell SLAs with the parent. In Phase 2, proceed to a full spin-off once digital hits cash-flow stability, using customer retention and standalone SG&A as guardrails.",
+      "reasoning": "A staged carve-out captures valuation visibility and governance autonomy immediately while cushioning digital's cash burn until scale.",
+      "causes": [
+        "Phase 1 minority carve-out unlocks valuation multiple and growth capital",
+        "Phase 2 full spin-off deferred until digital achieves operating cash-flow stability"
+      ]
     }
   ],
   "recommendations": [
-    "I’d suggest a phased separation strategy rather than an",
-    "Phase 1: List a minority stake of the digital division or",
-    "Start with a carve-out to give the digital unit visibility and",
-    "Move to a spin-off once it is mature and stable."
+    "P0 — Execute a Phase 1 minority carve-out of the digital division: List a 15–20% stake to establish a distinct growth valuation, fund digital capex externally, and align executive equity incentives without severing parent ties.",
+    "P1 — Lock in arm's-length commercial and brand SLAs: Formalize multi-year customer referral and shared-brand agreements so neither unit loses enterprise cross-sell momentum during partial separation.",
+    "P2 — Trigger a Phase 2 full spin-off on cash-flow milestones: Complete full legal separation only once the digital division reaches positive operating cash flow, monitoring enterprise account retention and duplicate SG&A overhead."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (McKinsey & Company)",
+    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (Industrial Conglomerate)",
     "leading": [
       "Cost synergy realization (overhead/procurement)",
       "Cross-sell retention at Month 6/12"
@@ -5372,11 +6414,11 @@ window.CM_DATA.cases.push(
       "Debt leverage / integration cost overrun"
     ]
   },
-  "synthesisScript": "For McKinsey & Company’s Demerger of Two Business Units case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: I’d suggest a phased separation strategy rather than an We will validate success via Risk-Adjusted Post-Merger NPV / ROIC (McKinsey & Company) while guarding against Key talent & customer attrition.",
+  "synthesisScript": "For Industrial Conglomerate, keeping both units combined creates strategic conflict, leadership dilution, and a conglomerate valuation discount, yet an immediate spin-off risks stranding the thin-margin digital unit without internal cash funding or shared customer access. I recommend a phased separation starting with a minority digital carve-out paired with commercial SLAs, followed by a full spin-off once digital achieves standalone cash-flow stability.",
   "interviewerTrap": "Assuming optimistic cross-sell Revenue Synergies justify any price while ignoring Integration, Culture, and Overpayment risks!",
   "variations": [
     {
-      "question": "How would your recommendation change if McKinsey & Company had half the timeline or budget?",
+      "question": "How would your recommendation change if Industrial Conglomerate had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -5425,37 +6467,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-37-superburger-m-a-evaluation",
   "title": "SuperBurger M&A Evaluation",
-  "company": "PrepLounge",
+  "company": "SuperBurger",
   "track": "Consulting",
   "category": "M&A",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "PrepLounge",
     "M&A",
     "Consulting"
   ],
-  "prompt": "SuperBurger SuperBurger is the world’s fourth-largest fast-food chain (85% franchised stores) and it is considering acquiring Tasty Donuts, a growing U.S. and international doughnut producer, and seeks your recommendation.",
+  "prompt": "SuperBurger, the world’s fourth-largest fast-food chain with 85% franchised stores, is considering acquiring Tasty Donuts, a growing U.S. and international doughnut producer. Should SuperBurger proceed with the acquisition, and what key synergies and risks should guide the decision?",
   "clarifyingQuestions": [
     {
-      "q": "To begin, I'd like to understand the market context. Could you tell about the growth potential in the market for doughnuts? For instance, how large is market, and what is projected growth rate?",
-      "a": "The current doughnut consumption is $10 per person annually for US population of 300 million. The market is projected to experience significant growth, doubling in size within the next 5 years, with per-person consumption also expected to r",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the current size and projected growth rate of the U.S. doughnut market, and how do both companies compare on organic growth?",
+      "a": "U.S. doughnut consumption is $10 per person across 300 million people ($3 billion total) and is projected to double to $6 billion in five years; SuperBurger grows 10% annually while Tasty Donuts grows 15%.",
+      "why": "Establishes category tailwinds and confirms whether Tasty Donuts brings genuine above-market growth momentum."
     },
     {
-      "q": "Understood. My next question would be about the specific performance of the two companies. What can you tell me about the historic and projected sales growth for both SuperBurger and Tasty Donuts?",
-      "a": "SuperBurger has grown at 10% annually, while Tasty Donuts has expanded at 15%.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is SuperBurger's strategic rationale—are competitors already diversifying into adjacent dayparts like breakfast and snacks?",
+      "a": "Yes, major fast-food peers have expanded into coffee, bakery, and snacks through partnerships, whereas SuperBurger has only executed small acquisitions to date.",
+      "why": "Highlights both the competitive urgency to capture breakfast and snack occasions and SuperBurger's limited large-M&A integration capability."
     },
     {
-      "q": "Now, digging deeper into the first two buckets regarding value and strategic fit, what is the competitive landscape like? Are SuperBurger's major competitors also diversifying?",
-      "a": "The client has only handled small acquisitions, while competitors have expanded into coffee, bakery, breakfast, and snacks through partnerships.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What post-acquisition expansion targets is management assuming for Tasty Donuts in the U.S.?",
+      "a": "Management aims to double Tasty Donuts' U.S. market share in five years and expand its U.S. footprint 2.5x from 1,000 to 2,500 stores.",
+      "why": "Provides the exact store-count and market-share benchmark required to stress-test unit-level feasibility."
     }
   ],
   "frameworkUsed": "Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks",
   "coreEquation": "Deal Value = Standalone Value + PV(Cost + Revenue Synergies) − Purchase Price − Integration Risk",
-  "strategyOverview": "Approach SuperBurger M&A Evaluation (PrepLounge) using a M&A structure: start by confirming the business objective and scope, decompose the problem cleanly along Strategic Fit + Standalone Valuation + Synergies (Revenue & Cost) − Price & Integration Risks, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach SuperBurger M&A Evaluation (SuperBurger) using an M&A framework: validate U.S. category growth ($3B to $6B in 5 years), quantify G&A (16% to 9%) and store cross-selling synergies ($15,750 net profit per store across 5,000 stores), stress-test the 2,500-store $1.2M/store target, and manage the 85% franchisee network.",
   "tree": {
     "label": "SuperBurger M&A Evaluation — M&A Evaluation",
     "valueText": "Go / No-Go Deal",
@@ -5477,44 +6518,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "SuperBurger SuperBurger is the world’s fourth-largest fast-food chain (85% franchised stores) and it is consid",
-      "detail": "SuperBurger SuperBurger is the world’s fourth-largest fast-food chain (85% franchised stores) and it is considering acquiring Tasty Donuts, a growing U.S. and international doughnut producer, and seeks your recommendation.\nTo begin, I'd like to understand the market context. Could you tell about the growth potential in the market for doughnuts? For instance, how large is market, and what is projected growth rate?\nThe current doughnut consumption is $10 per person annually for US population of 300 million. The market is projected to experience significant growth, doubling in size within the next 5 years, with per-"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "SuperBurger, the world's fourth-largest fast-food chain with 85% franchised stores, is considering acquiring Tasty Donuts, a growing U.S. and international doughnut producer. Should SuperBurger pursue this deal?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "SuperBurger has grown at 10% annually, while Tasty Donuts has expanded at 15%.",
-      "detail": "SuperBurger has grown at 10% annually, while Tasty Donuts has expanded at 15%.\nPost-acquisition, Tasty Donuts aims to double its U.S. market share within five years.\nNow, digging deeper into the first two buckets regarding value and strategic fit, what is the competitive landscape like? Are SuperBurger's major competitors also diversifying?\nThe client has only handled small acquisitions, while competitors have expanded into coffee, bakery, breakfast, and snacks through partnerships."
+      "kind": "question",
+      "detail": "To ground the M&A case, could you share the U.S. doughnut market's size and growth outlook, both companies' growth rates, and how competitors are positioning in adjacent categories?",
+      "reasoning": "Checking market tailwinds and competitive diversification tells us whether acquiring Tasty Donuts is defensive necessity or opportunistic growth."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "What is the current workforce profile of the two companies?",
-      "detail": "What is the current workforce profile of the two companies?\nTasty Donuts has 3,000–5,000 employees, mostly young store staff, with 200–300 in corporate roles, which aligns with SuperBurger’s workforce.\nSo, there appears to be cultural alignment at the store level.\nTo assess strategic fit and synergies, I would need data on store distribution and key financials."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "U.S. doughnut consumption is $10 per person across 300 million people ($3B) and is projected to double to $20 per person ($6B) in five years. SuperBurger grows at 10% annually versus 15% for Tasty Donuts, and peers have diversified into coffee, bakery, and breakfast, though SuperBurger has only handled small deals so far. How would you structure your evaluation?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "SuperBurger Sure, here is the data.",
-      "detail": "SuperBurger Sure, here is the data.\nSo, based on the data, I can identify some synergies.\n1. We can cut significant overhead by merging corporate functions. Tasty Donuts' G&A is 16% of sales; SuperBurger's is 9%. Combined purchasing power will also reduce goods costs.\n2. Doughnut sales in 5,000 stores, fast global growth via SuperBurger, and quicker Tasty Donuts expansion using SuperBurger’s skills."
+      "kind": "framework",
+      "detail": "I will assess four pillars: Market Attractiveness and Strategic Fit, Cost and Revenue Synergies across corporate and store footprints, Feasibility of the 5-year expansion targets, and Integration Risks—especially given our 85% franchised model and limited large-M&A experience.",
+      "reasoning": "Linking financial synergies directly to franchisee execution risk addresses the critical operational constraint in fast-food rollups."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Here are key operational details: Tasty Donuts' corporate G&A is 16% of sales versus SuperBurger's 9%, and store staff culture aligns well. Cross-selling doughnuts across 5,000 SuperBurger outlets could add $15,750 in net profit per store. Management also assumes Tasty Donuts doubles its U.S. market share and grows U.S. stores 2.5x from 1,000 to 2,500 in five years. Is that target achievable?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Okay with these synergies, client assumes the market share of Tasty Donuts in the US to double and their US st",
-      "detail": "Okay with these synergies, client assumes the market share of Tasty Donuts in the US to double and their US stores to increase by 2.5 times in 5 years. Do you find this target achievable ?\nThe targets are ambitious yet feasible. Projected Market Size = $20/person×300M people=$6B Current market size = $10/person×300M people=$3 B Target Number of Stores = 1,000 ×2.5=2,500 stores. Required Sales Per Store =Target Sales / Stores = $3 billion / 2,500 stores =$1.2 million per store, Success will hinge on execution, competitive positioning, and realizing synergies; with strong integra"
+      "kind": "root-cause",
+      "detail": "The math shows the targets are ambitious yet feasible. With the U.S. market doubling from $3B to $6B, doubling Tasty Donuts' share implies $3B in sales across 2,500 stores—requiring $1.2M in annual sales per store. Meanwhile, combining corporate G&A toward 9% and pooling ingredient procurement creates immediate cost synergies alongside the $15,750/store cross-sell lift. However, two risks dominate: SuperBurger's lack of large-M&A integration muscle and potential resistance from the 85% franchisee base.",
+      "reasoning": "Dividing the $3B revenue target by 2,500 stores translates macro ambition into a concrete $1.2M unit-level benchmark we can test.",
+      "causes": [
+        "Substantial G&A compression potential (16% vs. 9%) and procurement scale",
+        "$15,750 incremental net profit per store from cross-selling across 5,000 outlets",
+        "Execution risk across 85% franchised stores and limited large-deal integration track record"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "How should SuperBurger mitigate franchisee pushback and execution risk if it moves forward with the acquisition?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend proceeding with the acquisition, anchored by disciplined integration governance. First, run a 200-store franchisee pilot to prove the $15,750 per-store profit uplift and equipment payback before mandating system-wide rollout. Second, consolidate corporate G&A and purchasing early to fund expansion, and stand up a dedicated integration PMO to pace the 1,500-store expansion against $1.2M per-store revenue and breakfast-margin cannibalization guardrails.",
+      "reasoning": "Proving unit-level franchisee profitability in a pilot transforms 85% franchisee ownership from a bottleneck into a capital-light growth engine.",
+      "causes": [
+        "Franchisee pilot validates $15,750/store profit and morning-daypart economics",
+        "Dedicated PMO and G&A consolidation derisk SuperBurger's first major acquisition"
+      ]
     }
   ],
   "recommendations": [
-    "The US doughnut market is expected to grow significantly, with",
-    "Tasty Donuts has a higher annual store growth rate (15%) compared",
-    "Cross-selling doughnuts is projected to add $15,750 in net profit per",
-    "Successfully managing the franchisee network, which makes up 85%"
+    "P0 — Proceed with the acquisition under a franchisee-first pilot: Validate the $15,750 incremental net profit per store across 200 franchised outlets to secure buy-in from SuperBurger's 85% franchisee base before national rollout.",
+    "P1 — Capture G&A and procurement synergies immediately: Compress Tasty Donuts' 16% G&A ratio toward SuperBurger's 9% benchmark and pool baking and packaging procurement to boost store margins.",
+    "P2 — Establish an integration PMO with unit-economics guardrails: Pace the 2.5x U.S. store expansion and international rollout while tracking $1.2M average unit volume and morning-daypart cannibalization."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (PrepLounge)",
+    "northStar": "Risk-Adjusted Post-Merger NPV / ROIC (SuperBurger)",
     "leading": [
       "Cost synergy realization (overhead/procurement)",
       "Cross-sell retention at Month 6/12"
@@ -5524,11 +6595,11 @@ window.CM_DATA.cases.push(
       "Debt leverage / integration cost overrun"
     ]
   },
-  "synthesisScript": "For PrepLounge’s SuperBurger M&A Evaluation case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: The US doughnut market is expected to grow significantly, with We will validate success via Risk-Adjusted Post-Merger NPV / ROIC (PrepLounge) while guarding against Key talent & customer attrition.",
+  "synthesisScript": "For SuperBurger, acquiring Tasty Donuts is strategically compelling given the $6 billion five-year U.S. doughnut outlook, G&A reduction potential from 16% to 9%, and $15,750 per-store cross-sell profit upside. I recommend proceeding while mitigating franchisee resistance and limited M&A experience through a dedicated integration PMO and a 200-store franchisee pilot before scaling toward 2,500 stores.",
   "interviewerTrap": "Assuming optimistic cross-sell Revenue Synergies justify any price while ignoring Integration, Culture, and Overpayment risks!",
   "variations": [
     {
-      "question": "How would your recommendation change if PrepLounge had half the timeline or budget?",
+      "question": "How would your recommendation change if SuperBurger had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -5577,39 +6648,38 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-unc-land-usage",
   "title": "Land Usage Optimization",
-  "company": "BCG",
+  "company": "Regional Land Authority",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 2,
   "isStarter": true,
   "tags": [
-    "BCG",
     "Unconventional",
     "First Principles",
     "Real Estate",
     "ROI"
   ],
-  "prompt": "Land Usage Your client is the Delhi State Government. The client has a piece of land available, and it wants to make good use of this land in a way that it can use the land for some social good and break even on whatever activity we pursue using the land.",
+  "prompt": "Your client is a state government authority that owns an unused 60,000-square-foot plot of land in an affluent urban neighborhood. The client wants to deploy this land for high-impact social good while ensuring the project at least breaks even financially. How would you recommend utilizing the land?",
   "clarifyingQuestions": [
     {
-      "q": "I would like to begin with a few clarifying questions first to understand the situation better. What do you exactly mean by social good of land?",
-      "a": "Using the land in a way that would solve any problem faced by the maximum number of people in the area. It is just one of the things that can be done, and not necessarily the only use.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How does the authority define 'social good' for this project, and what financial constraint must be met?",
+      "a": "Social good means solving a tangible everyday problem for the largest number of local residents and commuters, while generating enough revenue to at least break even on operating and capital costs.",
+      "why": "Aligns our option evaluation with both social reach (footfall served) and financial self-sustainability."
     },
     {
-      "q": "I see. Where is this piece of land located and what is the area of this land we have?",
-      "a": "The area of the land is roughly 60,000 square feet and it is located in an affluent area, containing both residential buildings and office spaces.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Where is the 60,000-square-foot plot located, and what is the surrounding neighborhood profile?",
+      "a": "It sits in a newly developed, affluent mixed-use district containing both high-rise residential complexes and large corporate office buildings.",
+      "why": "Identifies the two primary user cohorts—residents and office commuters—and signals high land value and density."
     },
     {
-      "q": "Do we have any information about the lifestyle amenities present in the locality?",
-      "a": "Land Usage The area has convenience stores, salons, schools and other amenities needed for a daily basis at a very convenient distance, with high reachability.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are existing neighborhood amenities—such as schools, clinics, retail stores, or transit—adequate for current demand?",
+      "a": "Yes, convenience stores, schools, salons, and daily-need amenities are already abundant and well-equipped to serve the local population.",
+      "why": "Eliminates oversupplied lifestyle retail categories so we can focus on unmet infrastructure or commuter bottlenecks."
     }
   ],
   "frameworkUsed": "First Principles Options Evaluation (Objective × Financial NPV × Non-Financial Constraints)",
   "coreEquation": "Optimal Land Use = Max(Risk-Adjusted NPV + Strategic Value) Subject to Zoning, Capex & Timeline",
-  "strategyOverview": "Never freeze on open-ended land-use cases! Clarify land location, size, zoning laws, and owner’s capital/horizon; generate MECE usage buckets (Sell, Lease, Commercial/Retail, Residential, Warehouse/Solar/Agri); compare Capex, Payback, and Risk across options.",
+  "strategyOverview": "Approach Land Usage Optimization (Regional Land Authority) using a first-principles needs audit: clarify the dual mandate (maximum community impact + financial break-even), map unmet local needs across Occupation, Lifestyle, and Residence, isolate acute corporate-commuter parking scarcity, and structure a multi-level parking hub via PPP.",
   "tree": {
     "label": "Land Usage Optimization — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -5631,44 +6701,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Land Usage Your client is the Delhi State Government. The client has a piece of land available, and it wants t",
-      "detail": "Land Usage Your client is the Delhi State Government. The client has a piece of land available, and it wants to make good use of this land in a way that it can use the land for some social good and break even on whatever activity we pursue using the land.\nTo confirm that I have understood the question, the Delhi government has a piece of land available. We have to put the land to good use and justify the use of the land.\nYes, that’s correct.\nI would like to begin with a few clarifying questions first to understand the situation better. What do you exactly mean by social good of land?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a state government authority with an available 60,000-square-foot plot of land. They want to use it for social good while ensuring whatever activity is pursued breaks even financially. How would you approach this?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Using the land in a way that would solve any problem faced by the maximum number of people in the area. It is",
-      "detail": "Using the land in a way that would solve any problem faced by the maximum number of people in the area. It is just one of the things that can be done, and not necessarily the only use.\nI see. Where is this piece of land located and what is the area of this land we have?\nThe area of the land is roughly 60,000 square feet and it is located in an affluent area, containing both residential buildings and office spaces.\nSince the area is in the proximity of both office spaces and residential areas which have been built in the past decade, we could aim at looking at the major problems"
+      "kind": "question",
+      "detail": "To clarify the mandate, what does social good mean for the authority, where is the 60,000-square-foot plot located, and what commercial or residential facilities surround it?",
+      "reasoning": "Pinning down the definition of social good and neighborhood demographics ensures our proposed land use addresses real local demand rather than generic ideas."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "That sounds like a good start to begin with, please go ahead.",
-      "detail": "That sounds like a good start to begin with, please go ahead.\nThe basic needs of any individual can be categorized into:\noccupation, lifestyle, residence. Since the area is in the office proximity and has residential buildings, we can assume that the land is getting high footfall.\nSounds good, let's begin by analyzing them one by one."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Social good means solving a pressing problem for the maximum number of people in the locality while breaking even. The 60,000-square-foot plot is in an affluent area built over the past decade with both residential complexes and corporate office towers. How would you identify the best use?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Do we have any information about the lifestyle amenities present in the locality?",
-      "detail": "Do we have any information about the lifestyle amenities present in the locality?\nLand Usage The area has convenience stores, salons, schools and other amenities needed for a daily basis at a very convenient distance, with high reachability.\nIs there demand for any particular type of amenity in the locality and are the current amenities able to cater to everyone?\nYes, the current facilities are pretty robust and are able to cater everyone in the locality."
+      "kind": "framework",
+      "detail": "Given high footfall from both residents and office workers, I will systematically test unmet needs across three daily buckets—Lifestyle amenities, Residential infrastructure, and Occupation/Commuter infrastructure—and evaluate candidates on social reach, capex, and break-even payback.",
+      "reasoning": "Segmenting daily needs across Lifestyle, Residence, and Occupation creates a MECE demand filter before jumping to real-estate concepts."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good structure. In this locality, convenience stores, salons, schools, and daily lifestyle amenities are already robust and easily accessible. On the residential side, affluent housing complexes include private parking spaces purchased by homeowners. Where does that leave the biggest gap?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "In that case, I believe that the problem could lie with either the occupation or the residence part. Since our",
-      "detail": "In that case, I believe that the problem could lie with either the occupation or the residence part. Since our client is the government dealing with a piece of land in an affluent area, we can assume that due to immense development, there would be a general constraint of space.\nGood point! There is indeed a lack of parking space for the people of the area Most residential complexes have their own parking facilities that people buy at the time of purchasing their homes, especially in affluent areas.\nAs for corporate offices, they usually have a lot of employees and generally not"
+      "kind": "root-cause",
+      "detail": "Since lifestyle retail and residential amenities are well served, the acute bottleneck lies in the Occupation and Commuter bucket. Dense corporate offices house thousands of daily employees and visitors without adequate on-site parking, forcing spillover onto surrounding streets, causing traffic congestion, and creating daily friction for commuters and residents alike.",
+      "reasoning": "Process-of-elimination across the three demand buckets isolates corporate commuter parking scarcity as the high-frequency, high-reach pain point.",
+      "causes": [
+        "Lifestyle amenities and private residential parking already meet local demand",
+        "High corporate office density without sufficient on-site commuter parking",
+        "Street-parking spillover driving severe neighborhood traffic congestion"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Exactly right—parking scarcity is severe around the office towers. How should the authority develop the 60,000-square-foot plot to solve this while ensuring financial break-even?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend developing a multi-level public parking hub on the 60,000-square-foot plot via a Public-Private Partnership. Consistent weekday corporate demand and weekend visitor traffic support predictable hourly fees and corporate monthly passes for timely break-even. Adding EV charging bays and compact ground-floor commuter kiosks will boost yield while tracking street congestion reduction and bay utilization as key KPIs.",
+      "reasoning": "Vertical parking maximizes bay capacity on scarce affluent land while PPP delivery limits upfront public capex and ensures commercial discipline.",
+      "causes": [
+        "Consistent corporate commuter demand supports predictable break-even cash flow",
+        "Multi-level design and EV/kiosk add-ons maximize yield per square foot"
+      ]
     }
   ],
   "recommendations": [
-    "A particular issue in such areas can be parking, which is scarce and",
-    "The land's location and proximity to oﬃces and other essential",
-    "The consistent demand for parking in corporate areas.",
-    "Revenue generation potential, with an expected break-even in"
+    "P0 — Build a multi-level public parking hub on the 60,000 sq. ft. plot: Prioritize structured vertical parking with digital bay management and corporate commuter passes to directly relieve office-hour congestion.",
+    "P1 — Layer ancillary commuter monetization to accelerate break-even: Integrate EV fast-charging stations and compact ground-floor convenience kiosks to diversify revenue without crowding out parking bays.",
+    "P2 — Structure delivery under a PPP Build-Operate-Transfer model: Cap upfront public capital outlay and monitor daily bay utilization, payback timeline, and surrounding street traffic speeds as core success metrics."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (BCG)",
+    "northStar": "Primary Policy / Operational Objective Metric (Regional Land Authority)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -5678,11 +6778,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For BCG’s Land Usage Optimization case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: A particular issue in such areas can be parking, which is scarce and We will validate success via Primary Policy / Operational Objective Metric (BCG) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "For Regional Land Authority, because existing lifestyle amenities and residential parking are well-supplied in the affluent mixed-use district, the highest-impact unmet need is acute commuter parking scarcity around corporate offices. I recommend developing a multi-level public parking hub with EV charging under a PPP model, delivering measurable congestion relief for thousands of daily commuters while breaking even on predictable weekday parking fees.",
   "interviewerTrap": "Picking 'build a luxury mall' blindly without checking location zoning, capital availability, or nearby demand!",
   "variations": [
     {
-      "question": "How would your recommendation change if BCG had half the timeline or budget?",
+      "question": "How would your recommendation change if Regional Land Authority had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -5731,37 +6831,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-39-shipping-company-strategy",
   "title": "Shipping Company Strategy",
-  "company": "KPMG",
+  "company": "Maritime Shipping Co.",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 2,
   "isStarter": false,
   "tags": [
-    "KPMG",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Shipping Company Your client is a local shipping firm in Spain where they handle local shipping of packages delivered by international shipping firms like FedEx, UPS & DHL. These firms deliver packages to the key city hubs and then our client takes it from there. They want to know how many trucks they should lease to support their operations. And also they are aiming to be profitable.",
+  "prompt": "Your client is a regional logistics operator in Spain that handles last-mile delivery of packages handed off at city hubs by international carriers. They want to determine how many trucks—and which model—they should lease to fulfill daily demand while maximizing profitability. How would you advise them?",
   "clarifyingQuestions": [
     {
-      "q": "So, May I know how many packages need to be delivered per day?",
-      "a": "1000 packages.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the daily package volume, package size, and operating schedule for deliveries?",
+      "a": "The firm must deliver 1,000 packages per day, each measuring 1 × 1 × 1 cubic meter, operating 5 days a week from 9:00 AM to 6:00 PM (9 hours) at an average of 10 minutes per delivery.",
+      "why": "Defines both total cubic volume and the maximum deliveries a single driver can complete within a 9-hour shift."
     },
     {
-      "q": "Well, what is the delivery service duration, i.e number of working days in a week and working hours?",
-      "a": "Our delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What truck models are available for lease, and what are their daily costs and cargo dimensions?",
+      "a": "Three models are available: Model A at $160/day (3×4×6m = 72 m³), Model B at $50/day (9×2×2m = 36 m³), and Model C at $140/day (6×8×11m = 528 m³).",
+      "why": "Allows us to test both volume capacity and driver-time utilization across each fleet option to find the lowest total daily lease cost."
     },
     {
-      "q": "Our delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?",
-      "a": "It takes on average 10 minutes to deliver each package.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Can trucks return to the city hub mid-shift to reload, or must they carry a full shift's load at dispatch?",
+      "a": "Assume single-dispatch loads from the morning hub handoff first, though mid-day reloads can be explored as an optimization lever.",
+      "why": "Separates baseline fleet sizing under strict single-trip constraints from potential hub-reloading efficiency gains."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Shipping Company Strategy (KPMG) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Shipping Company Strategy (Maritime Shipping Co.) by evaluating binding fleet constraints—both Driver Time (9 hrs / 10 min = 54 deliveries/truck, implying a 19-truck minimum) and Cargo Volume (72 m³, 36 m³, 528 m³)—to select 28 Model B trucks at $1,400/day while testing mid-day reloads.",
   "tree": {
     "label": "Shipping Company Strategy — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -5783,43 +6882,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Shipping Company Your client is a local shipping firm in Spain where they handle local shipping of packages de",
-      "detail": "Shipping Company Your client is a local shipping firm in Spain where they handle local shipping of packages delivered by international shipping firms like FedEx, UPS & DHL. These firms deliver packages to the key city hubs and then our client takes it from there. They want to know how many trucks they should lease to support their operations. And also they are aiming to be profitable.\nBefore moving to solve the case I would like to ask some preliminary questions to the client.\nSo, May I know how many packages need to be delivered per day?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a regional logistics firm in Spain handling local last-mile delivery of packages dropped at city hubs by international carriers. They want to know how many trucks to lease—and which model—to maximize profitability. How would you solve this?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "We deliver packages in envelope format with dimensions of 1*1*1 cubic meters.",
-      "detail": "We deliver packages in envelope format with dimensions of 1*1*1 cubic meters.\nWell, what is the delivery service duration, i.e number of working days in a week and working hours?\nOur delivery service runs 5 days a week from 09.00 AM to 06.00 PM i.e. 9 hours Oh, so what is the average duration of delivering the parcel?"
+      "kind": "question",
+      "detail": "To size the fleet, could you share the daily package volume, package dimensions, working hours, average delivery time per package, and the available truck models with their lease costs and cargo sizes?",
+      "reasoning": "Fleet sizing requires testing both physical cubic capacity and shift-time throughput, since whichever constraint is tighter dictates the required truck count."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "It takes on average 10 minutes to deliver each package.",
-      "detail": "It takes on average 10 minutes to deliver each package.\nSo, Now I got ample amount of knowledge on parcel, so let’s delve into the truck's side. How many models of trucks are available for us and their lease costs and their dimensions?\nSure, So the available models are MODEL COST PER DAY($) DIMENSIONS A 160 3*4*6 B 50 9*2*2 C 140 6*8*11 As I have got my questions clarified, let’s move into volume calculation."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "We deliver 1,000 packages per day, each 1×1×1 cubic meter, 5 days a week from 9:00 AM to 6:00 PM (9 hours), averaging 10 minutes per delivery. Three truck models are available: Model A ($160/day, 3×4×6m), Model B ($50/day, 9×2×2m), and Model C ($140/day, 6×8×11m). How do you structure the calculation?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Shipping Company Great, you can proceed with your calculation.",
-      "detail": "Shipping Company Great, you can proceed with your calculation.\nFirst let’s calculate optimum no. of any type lorries required based on time of delivery and no. of deliveries There are 1000 packages to be delivered per day, the working hours are 9 hrs and the duration of delivery is 10 min. So no.\nof deliveries would be made per day = 9*60/10 = 54 deliveries Hence 1 truck can deliver 54 packages per day, no.of lorries required to deliver 1000 packages = 1000/54 = 18.51 = 19 required wholly."
+      "kind": "framework",
+      "detail": "I will calculate the required fleet size under two constraints—Driver Time Capacity and Cargo Volume Capacity—take the binding maximum for each model, and multiply by the daily lease rate to find the minimum total daily fleet cost.",
+      "reasoning": "Comparing time-constrained and volume-constrained minimums prevents the common trap of under-sizing trucks by cubic capacity alone."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Clean approach. Go ahead and run the numbers across Models A, B, and C."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "That’s a good approach, now could you do a similar type of approach in models?",
-      "detail": "That’s a good approach, now could you do a similar type of approach in models?\nSure Calculating optimised option, we need to calculate the total daily costs for each model with 19 trucks.\n● Model A (1,000*(1x1x1))/(3x4x6)=14 rounded trucks or a minimum of 19 trucks costing us 19*$160=$3,040 per day."
+      "kind": "root-cause",
+      "detail": "On time capacity, a 9-hour shift (540 minutes) at 10 minutes per delivery allows 54 deliveries per truck, setting a hard time floor of 1,000 / 54 = 18.52, or 19 trucks. Checking volume: Model A holds 72 m³, so time binds at 19 trucks costing 19 × $160 = $3,040/day. Model C holds 528 m³ (only 2 trucks by volume), yet time still forces 19 trucks costing 19 × $140 = $2,660/day. Model B holds 36 m³, so volume binds at 1,000 / 36 = 27.78, or 28 trucks—costing just 28 × $50 = $1,400/day.",
+      "reasoning": "Evaluating both constraints reveals that Model C's massive cargo bay is stranded by driver hours, whereas Model B slashes daily lease cost by over 50%.",
+      "causes": [
+        "Driver shift limit (54 drops/day) forces a 19-truck floor regardless of truck size",
+        "Model A ($3,040/day) and Model C ($2,660/day) carry unused cargo capacity due to time limits",
+        "Model B's $50/day rate makes 28 volume-bound trucks the lowest-cost option at $1,400/day"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "$1,400/day with 28 Model B trucks is a huge savings. Do you see any operational levers to optimize profitability even further?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Yes—I recommend leasing 28 Model B trucks immediately at $1,400/day, saving $1,260–$1,640/day versus Models C and A. Additionally, because 36 deliveries take only 6 hours of a 9-hour shift, drivers have 3 hours of slack; piloting mid-day hub reloads on dense urban routes could push utilization toward 54 packages per truck and reduce the fleet toward 19 Model B trucks ($950/day), while monitoring fuel per drop and carrier SLA compliance.",
+      "reasoning": "Identifying the 3-hour shift slack on Model B turns a static fleet-sizing exercise into an actionable multi-trip network optimization.",
+      "causes": [
+        "3 hours of daily shift slack per Model B driver enables afternoon hub reloads",
+        "Route-clustering can reduce drop time below 10 minutes to protect SLA compliance"
+      ]
     }
   ],
   "recommendations": [
-    "Model A (1,000*(1x1x1))/(3x4x6)=14 rounded trucks or",
-    "Model B (1,000*(1x1x1))/(9x2x2)=28 rounded trucks or",
-    "Model C (1,000*(1x1x1))/(6x8x11)=2 rounded trucks"
+    "P0 — Lease 28 Model B trucks as the baseline fleet: At $50/day each, 28 Model B trucks fulfill all 1,000 cubic-meter deliveries for $1,400/day, saving $1,260/day over Model C and $1,640/day over Model A.",
+    "P1 — Pilot mid-day hub reloads to unlock shift slack: Leverage the 3 hours of unused shift time per Model B driver on dense city routes to test second-wave afternoon dispatches toward the 19-truck time floor ($950/day).",
+    "P2 — Monitor unit delivery and SLA guardrails: Track fuel cost per package, minutes per drop, and international carrier on-time delivery SLAs before trimming fleet buffer capacity."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (KPMG)",
+    "northStar": "Primary Policy / Operational Objective Metric (Maritime Shipping Co.)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -5829,11 +6959,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For KPMG’s Shipping Company Strategy case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Model A (1,000*(1x1x1))/(3x4x6)=14 rounded trucks or We will validate success via Primary Policy / Operational Objective Metric (KPMG) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "For Maritime Shipping Co., balancing the 19-truck shift-time floor against cargo dimensions shows that leasing 28 Model B trucks minimizes daily lease spend at $1,400/day—saving over $1,260/day compared to Models A and C. Pairing this fleet with a pilot for mid-day hub reloads can capture drivers' 3-hour daily slack while protecting carrier on-time SLAs.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if KPMG had half the timeline or budget?",
+      "question": "How would your recommendation change if Maritime Shipping Co. had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -5882,7 +7012,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-40-ceo-of-bcg-strategy-dilemma",
   "title": "CEO of BCG Strategy Dilemma",
-  "company": "BCG",
+  "company": "Advisory Practice",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -5892,27 +7022,27 @@ window.CM_DATA.cases.push(
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Our client is the CEO of BCG. He wants to know what he has to do.",
+  "prompt": "Our client is the CEO of a global management advisory practice who wants a structured view of his core executive responsibilities and strategic priorities. How should he define and organize his mandate across the firm?",
   "clarifyingQuestions": [
     {
-      "q": "Is this going to be how his day should look or an overall outlook on his responsibilities?",
-      "a": "The overall outlook on his responsibilities.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are we structuring a typical daily schedule for the CEO, or an overarching framework of his strategic responsibilities across the firm?",
+      "a": "We are looking for an overarching framework of his core executive responsibilities rather than a day-in-the-life calendar.",
+      "why": "Sets the abstraction level at enterprise governance and long-term value creation rather than tactical time management."
     },
     {
-      "q": "A CEO’s general responsibilities are Stakeholder Management, Financial Decision-Making, Organizational Strategy. Is there a specific one you want me to dive into?",
-      "a": "For now, we will proceed with Stakeholder Management.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the firm's ownership and governance structure—is it publicly listed or a partner-owned advisory firm?",
+      "a": "It is a global partnership-driven advisory firm where local Managing Directors and Partners lead regional offices and client relationships.",
+      "why": "Highlights that decision-making relies on partner consensus, distributed office leadership, and talent leverage rather than top-down command."
     },
     {
-      "q": "Stakeholders consist of Investors, Customers, Employees, Suppliers, Government bodies, Media, and Communities. Do you want me to focus on any specific one?",
-      "a": "Dive into Investors, Employees, and Customers.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are there specific priority pillars—such as stakeholder management, organizational strategy, or financial allocation—we should examine first?",
+      "a": "Start with stakeholder management across partners, clients, and capital providers, then connect that to organizational strategy and capital allocation.",
+      "why": "Sequences the issue tree logically from stakeholder alignment to strategic execution and resource deployment."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach CEO of BCG Strategy Dilemma (BCG) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach CEO Strategy Dilemma (Advisory Practice) using a three-pillar executive governance framework: Stakeholder Management (partners/employees, clients, investors/board), Organizational Strategy (scaling capabilities and delegation across global offices), and Financial Capital Allocation (investing in high-ROI practices while protecting partner margins).",
   "tree": {
     "label": "CEO of BCG Strategy Dilemma — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -5934,41 +7064,71 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "CEO OF BCG Our client is the CEO of BCG. He wants to know what he has to do.",
-      "detail": "CEO OF BCG Our client is the CEO of BCG. He wants to know what he has to do.\nSo to clarify, the CEO of BCG wants to know how to proceed about his work.\nYes that is correct.\nIs this going to be how his day should look or an overall outlook on his responsibilities?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Our client is the CEO of a global advisory practice and wants clarity on what his core executive responsibilities should be. How would you structure his mandate?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The overall outlook on his responsibilities.",
-      "detail": "The overall outlook on his responsibilities.\nA CEO’s general responsibilities are Stakeholder Management, Financial Decision-Making, Organizational Strategy. Is there a specific one you want me to dive into?\nFor now, we will proceed with Stakeholder Management.\nStakeholders consist of Investors, Customers, Employees, Suppliers, Government bodies, Media, and Communities. Do you want me to focus on any specific one?"
+      "kind": "question",
+      "detail": "First, should we design a tactical daily schedule or an enterprise-level view of his responsibilities—and is the practice structured as a global partnership where local Managing Directors own regional offices?",
+      "reasoning": "Clarifying governance structure and time horizon ensures the CEO framework reflects partnership realities rather than a traditional corporate hierarchy."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Dive into Investors, Employees, and Customers.",
-      "detail": "Dive into Investors, Employees, and Customers.\nInvestors primarily require the company (BCG’s) performance statistics and profit margins, along with plans for the upcoming future. A CEO’s job is to ensure that the investors are satisfied and are going to back the company. As for Employees, since BCG is a partnership driven firm he also has to update all the partners regularly about the company’s proceedings.\nLooking good so far, go ahead with Customers.\nRight. For customers, each of the offices have their respective Managing Directors and partners who handle the offices’ indivi"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Focus on an overall executive outlook. It is a global partnership-driven firm where office heads and partners manage local accounts. How would you break down his responsibilities?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Alright. Now dive into the Organizational Strategy aspect of a CEO’s job.",
-      "detail": "Alright. Now dive into the Organizational Strategy aspect of a CEO’s job.\nOrganizational Strategy begins with the CEO meeting with respective CXO’s and Heads of subdivisions of the company such as Marketing, Sales, Finance, Operations, Strategy, IT, etc. and listening to problems and proposing solutions.\nCEO OF BCG Other than just solving problems, what else should a CEO do in Organizational Strategy?\nMore than strategically proposing solutions to these problems, the CEO should also make the organization’s performance more effective, both financially and temporally. Effective distribution of work down the hierarc"
+      "kind": "framework",
+      "detail": "I would organize the CEO's mandate into three pillars: Stakeholder Management across capital backers, partners/employees, and flagship clients; Organizational Strategy with functional and practice leaders; and Financial Decision-Making to allocate capital efficiently. Shall we start with Stakeholder Management?",
+      "reasoning": "Grouping executive duties into Stakeholders, Strategy, and Capital Allocation keeps the mandate MECE and avoids overlapping tactical tasks."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Yes—walk through how he should manage key stakeholders, and then tell me what distinguishes great Organizational Strategy beyond simply solving weekly functional problems."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Other than just solving problems, what else should a CEO do in Organizational Strategy?",
-      "detail": "Other than just solving problems, what else should a CEO do in Organizational Strategy?\nThe chain of financial transactions begin from the Investors, and as mentioned in Stakeholder Management, it is important that they have your back and support you when required. It proceeds into the CFO and CEO, who make business decisions on where to allocate these funds based on requirement and usage. From there it moves into the team of focus that require these funds and leads to excellent performance of the company overall.\nYes, so besides these, the CEO should also oversee the profitabi"
+      "kind": "root-cause",
+      "detail": "In a partnership, stakeholder alignment requires keeping capital providers informed on margins and growth plans while maintaining continuous alignment with Managing Directors and Partners who co-own the firm—whereas day-to-day client delivery stays delegated to local office heads. In Organizational Strategy, a CEO fails if they act solely as a reactive escalation point for Sales, Finance, IT, or HR; instead, they must build institutional effectiveness, delegate execution down the hierarchy, and align cross-office capability building.",
+      "reasoning": "Distinguishing reactive firefighting from scalable delegation pinpoints the biggest executive trap for CEOs in decentralized advisory firms.",
+      "causes": [
+        "Partnership governance requires consensus-building across Managing Directors and Partners",
+        "Micromanaging local client delivery bottlenecks regional autonomy and executive time",
+        "Reactive problem-solving must be replaced by scalable delegation and cross-functional alignment"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "How should the third pillar—Financial Decision-Making—tie into global expansion and firm profitability?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "The CEO sits at the center of capital stewardship—working with the CFO to channel partner capital and investor backing into the highest-ROI practices, such as digital, AI, and priority geographies, rather than spreading budgets thinly. Overall, I recommend establishing clear practice-level OKRs, delegating regional delivery to Managing Directors, and tracking consultant utilization, fee realization, and global office EBITDA margins quarterly.",
+      "reasoning": "Connecting capital allocation directly to emerging practice ROI and utilization metrics makes an abstract leadership role measurable.",
+      "causes": [
+        "Targeted capital deployment into high-ROI practices (e.g., AI, digital, emerging hubs)",
+        "Quarterly utilization, realization, and margin guardrails across global offices"
+      ]
     }
   ],
   "recommendations": [
-    "Establish a perfect Organizational Strategy specific to different",
-    "Prepare plans for improving the global footprint and profitability of",
-    "CEO’s job is very vast so diving into niche and specific approach",
-    "It is also important to know that BCG is a partner based firm and"
+    "P0 — Institutionalize partner alignment and decentralized delegation: Set clear firm-wide strategic OKRs with Managing Directors while empowering regional office heads to own local client delivery and account growth.",
+    "P1 — Concentrate capital allocation in high-growth practices: Partner with the CFO to direct investment toward AI, digital transformation, and priority international markets rather than funding legacy practices uniformly.",
+    "P2 — Govern institutional effectiveness through utilization and margin KPIs: Review consultant utilization, realization rates, partner retention, and practice-level EBITDA quarterly to ensure global growth sustains profitability."
   ],
   "metricsAndGuardrails": {
     "northStar": "Primary Policy / Operational Objective Metric (BCG)",
@@ -5981,7 +7141,7 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For BCG’s CEO of BCG Strategy Dilemma case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Establish a perfect Organizational Strategy specific to different We will validate success via Primary Policy / Operational Objective Metric (BCG) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "For Advisory Practice, the CEO's highest leverage comes from aligning partners around shared enterprise priorities rather than micromanaging local client engagements. By pairing disciplined Stakeholder Governance with proactive Organizational Delegation and targeted Capital Allocation into high-ROI practices, the CEO can expand the firm's global footprint while protecting utilization and partner profitability.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
@@ -6034,37 +7194,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-41-chip-equity-strategy",
   "title": "Chip Equity Strategy",
-  "company": "McKinsey & Company",
+  "company": "Electronics Retailer / Tech Equity",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "McKinsey & Company",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Chip Equity Our client is an electronics holding called Chip’n’Chip. They want to invest in a Printed Circuit Board (PCB) manufacturer called OnBoard and asked you whether it’s going to be a good investment. How would you help them?",
+  "prompt": "Your client, an electronics holding company called Chip'n'Chip, is evaluating an $80 million equity investment for a 20% stake in OnBoard, a Printed Circuit Board (PCB) manufacturer. How would you assess whether this is an attractive investment?",
   "clarifyingQuestions": [
     {
-      "q": "I want to start with a few clarifying questions. How much is our client willing to invest and how much is OnBoard looking to be paid?",
-      "a": "Chip’n’Chip has more than $80 m for investments. It requires a 10% ROI in the first year to invest. OnBoard has a valuation of $320 m. They are looking for a private equity investor to inject $80 m and are looking to give 20% of the shares",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the exact deal terms, valuation, and return hurdle for Chip'n'Chip?",
+      "a": "OnBoard carries a $320 million pre-money valuation and seeks $80 million for a 20% stake ($400 million post-money); Chip'n'Chip requires a 10% ROI in Year 1.",
+      "why": "Quantifies the financial hurdle ($8 million first-year return on the 20% stake, implying $40 million firm-level profit) to test feasibility."
     },
     {
-      "q": "That's very helpful! Where does OnBoard operate and what is the market growth rate for PCBs?",
-      "a": "OnBoard is looking to invest the funds into the factories in Vietnam. Also, the market for the 2-layer PCB technology has been declining globally by 4% per year in the last few years and tends to keep falling.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How is OnBoard planning to deploy the $80 million, and what are the growth trends across its PCB product segments?",
+      "a": "OnBoard plans to build 6 million units of 3-layer PCB capacity in Vietnam; 3-layer demand is growing 10% annually due to smartphones, whereas legacy 2-layer PCBs are declining 4% per year.",
+      "why": "Tests whether the capital funds a high-growth technology shift rather than propping up a structurally declining legacy business."
     },
     {
-      "q": "So I’m assuming our client is planning to use these investments to expand in the 3-layer PCB technology, is that correct?",
-      "a": "Yes that is correct.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is OnBoard's current manufacturing footprint, capacity utilization, and unit cost across geographies?",
+      "a": "OnBoard produces only 2-layer PCBs today: Germany (5M capacity, 60% utilized, $4.00/unit), China (10M capacity, 80% utilized, $3.50/unit), and Vietnam (5M capacity, 100% utilized, $3.50/unit).",
+      "why": "Reveals operational bottlenecks, idle high-cost capacity in Germany, and lack of existing 3-layer production experience."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Chip Equity Strategy (McKinsey & Company) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Chip Equity Strategy (Electronics Retailer / Tech Equity) using a private-equity investment framework: benchmark the 10% Year-1 ROI hurdle ($8M on $80M) against OnBoard's shift from declining 2-layer PCBs (-4%/yr) to growing 3-layer PCBs (+10%/yr) in Vietnam, while flagging zero 3-layer track record and idle German capacity.",
   "tree": {
     "label": "Chip Equity Strategy — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -6086,43 +7245,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Chip Equity Our client is an electronics holding called Chip’n’Chip. They want to invest in a Printed Circuit",
-      "detail": "Chip Equity Our client is an electronics holding called Chip’n’Chip. They want to invest in a Printed Circuit Board (PCB) manufacturer called OnBoard and asked you whether it’s going to be a good investment. How would you help them?\nI want to start with a few clarifying questions. How much is our client willing to invest and how much is OnBoard looking to be paid?\nChip’n’Chip has more than $80 m for investments. It requires a 10% ROI in the first year to invest. OnBoard has a valuation of $320 m. They are looking for a private equity investor to inject $80 m and are looking to give 20% of the shares for investmen"
+      "kind": "prompt",
+      "detail": "Our client, an electronics holding company called Chip'n'Chip, wants to know whether investing $80 million in OnBoard, a PCB manufacturer, is a good investment. How would you evaluate this?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "OnBoard is looking to invest the funds into the factories in Vietnam. Also, the market for the 2-layer PCB tec",
-      "detail": "OnBoard is looking to invest the funds into the factories in Vietnam. Also, the market for the 2-layer PCB technology has been declining globally by 4% per year in the last few years and tends to keep falling.\nThe market for the new 3-layer technology had an increase of 10% per year in the last few years (smartphone boom).\nSo I’m assuming our client is planning to use these investments to expand in the 3-layer PCB technology, is that correct?\nYes that is correct."
+      "kind": "question",
+      "detail": "I'd like to clarify the deal terms and investment thesis: what equity stake and valuation are on the table, what is Chip'n'Chip's return hurdle, and where will OnBoard deploy the $80 million?",
+      "reasoning": "Establishing valuation, hurdle rate, and use of proceeds immediately tests whether the deal math and growth thesis are realistic."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "What is their target production capacity?",
-      "detail": "What is their target production capacity?\n6 m units of the 3-layer PCB technology.\nHow is the competitive environment in the Asian market?\nJapanese manufacturers control more than 50% of the market, but have stagnated as new manufacturers in Asia (specifically China and Southeast Asia) improve their technology with less labor costs.OnBoard has factories in Germany, China, and Vietnam."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Chip'n'Chip requires a 10% ROI in Year 1. OnBoard has a $320M valuation and is offering 20% equity for $80M to build 6 million units of 3-layer PCB capacity in Vietnam. While 2-layer PCBs are declining 4% annually, 3-layer PCBs are growing 10% annually driven by smartphones. How would you structure your diligence?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "How is the current production of these factories and what capacity utilization does each of these factories ha",
-      "detail": "How is the current production of these factories and what capacity utilization does each of these factories have?\nChip Equity The capacity of the factories in Germany/Vietnam is 5m boards per year, whereas the capacity in China is 10m boards per year.\nThe factories are working with the following capacity utilization:\nGermany at 60%, China at 80%, and Vietnam at 100%."
+      "kind": "framework",
+      "detail": "I will assess four areas: Market & Competitive Dynamics in Asia, OnBoard's Operational Footprint and Execution Capability in 3-layer PCBs, Unit Economics & Year-1 ROI Feasibility, and Risk Mitigation.",
+      "reasoning": "Testing market demand alongside factory utilization and technical readiness prevents overvaluing an unproven expansion."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "In Asia, Japanese players hold over 50% share but are losing ground to Chinese and Southeast Asian manufacturers with lower labor costs. OnBoard currently runs three 2-layer plants with zero active 3-layer production: Germany (5M capacity, 60% utilized, $4.00/unit), China (10M capacity, 80% utilized, $3.50/unit), and Vietnam (5M capacity, 100% utilized, $3.50/unit). What do you conclude?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Just to clarify, these values are only for 2-layer PCBs right?",
-      "detail": "Just to clarify, these values are only for 2-layer PCBs right?\nThat is correct. There is no active production of 3-layer PCBs from any of OnBoard’s factories.\nGreat. So what are the costs of each of these factories?\nChina and Vietnam consume $3.5 per unit and Germany consumes $4 per unit produced."
+      "kind": "root-cause",
+      "detail": "Three major red flags undermine the Year-1 return case. First, a 10% Year-1 ROI on $80M requires $8M for Chip'n'Chip's 20% stake—implying $40M in incremental firm profit, or ~$6.67 profit per unit on 6M new boards, which is unrealistic during Year-1 construction and qualification. Second, OnBoard has zero 3-layer manufacturing track record and Vietnam is already at 100% utilization. Third, its legacy 2-layer plants in Germany (40% idle at $4.00/unit) and China (20% idle) face a -4% market decline.",
+      "reasoning": "Translating the 10% Year-1 ROI into per-unit profit and checking plant utilization exposes severe mismatch between financial expectations and operational reality.",
+      "causes": [
+        "Implied $40M Year-1 profit (~$6.67/unit) is unattainable during greenfield 3-layer ramp",
+        "Zero prior 3-layer PCB production experience and 100% maxed-out Vietnam plant",
+        "Legacy 2-layer headwinds (-4%/yr) with 40% idle high-cost capacity in Germany ($4.00/unit)"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "So the 10% Year-1 hurdle is a non-starter as structured. Could Chip'n'Chip still participate under different terms, and what operational fixes would you require?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend declining the straight equity deal at a 10% Year-1 ROI requirement, or restructuring into a milestone-based convertible note with a 3-to-5-year return horizon. Release capital in tranches tied to 3-layer yield certification and smartphone OEM offtake contracts in Vietnam, while consolidating price-sensitive 2-layer volume from Germany ($4.00/unit) into China's idle 2M capacity ($3.50/unit) to protect cash flow.",
+      "reasoning": "Replacing a rigid Year-1 equity hurdle with milestone tranches aligns capital deployment with technical de-risking and fixes legacy cost drag.",
+      "causes": [
+        "Tranched financing tied to 3-layer OEM qualification and production yield",
+        "Consolidating German 2-layer volume into lower-cost China capacity ($3.50/unit)"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Chip Equity Strategy before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0 — Decline the straight equity deal under the 10% Year-1 ROI mandate: A greenfield 6M-unit 3-layer expansion in Vietnam cannot generate $40 million in Year-1 firm profit ($8 million for a 20% stake) given capex lead times and zero prior 3-layer production.",
+    "P1 — Restructure into milestone-tranched convertible financing if Chip'n'Chip extends its horizon: Tie capital release to verified 3-layer board yields and binding smartphone OEM supply contracts.",
+    "P2 — Optimize legacy 2-layer operations before scaling: Reallocate flexible 2-layer orders from OnBoard's 60%-utilized German plant ($4.00/unit) to China's idle 2M capacity ($3.50/unit) while tracking plant utilization and consolidated EBITDA margin."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (McKinsey & Company)",
+    "northStar": "Primary Policy / Operational Objective Metric (Electronics Retailer / Tech Equity)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -6132,11 +7322,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For McKinsey & Company’s Chip Equity Strategy case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Chip Equity Strategy before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (McKinsey & Company) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "For Electronics Retailer / Tech Equity, investing $80 million for 20% of OnBoard is unattractive under a strict 10% Year-1 ROI hurdle because OnBoard has zero 3-layer PCB production experience, a maxed-out Vietnam plant, and declining legacy 2-layer utilization in Germany. I recommend either passing on the deal or restructuring into a milestone-tranched convertible investment tied to 3-layer OEM qualification and 2-layer cost consolidation in China.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if McKinsey & Company had half the timeline or budget?",
+      "question": "How would your recommendation change if Electronics Retailer / Tech Equity had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -6185,37 +7375,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-42-credit-card-unconventional-case",
   "title": "Credit Card Unconventional Case",
-  "company": "PwC",
+  "company": "Credit Card Issuer",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "PwC",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Credit Card Your client is a big bank that issues credit cards with a €100 annual fee. Recently, a supermarket entered the credit card business. The supermarket’s credit cards do NOT have an annual fee. Your client wants to know how they should react to this new competitor.",
+  "prompt": "Your client is a major retail bank whose flagship credit card carries a €100 annual fee. Recently, a large supermarket chain launched a competing credit card with no annual fee and identical core features. How should the bank assess the threat and respond?",
   "clarifyingQuestions": [
     {
-      "q": "Interesting situation. Before diving into recommendations, I’d like to investigate the similarities and differences between the two credit cards, particularly the features and benefits aside from the fee. Is there any ad",
-      "a": "The only difference between the two cards is the annual fee. All other aspects of the cards are the same.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Aside from the €100 annual fee, are there any differences in rewards, credit limits, or card features between the bank's card and the supermarket's card?",
+      "a": "No—all other card features, interchange mechanics, and interest terms are identical; the only product difference is the €100 annual fee.",
+      "why": "Confirms that competition is purely on fee pricing and customer relationship stickiness rather than product differentiation."
     },
     {
-      "q": "€13,500 * 1% = €135 in interchange fees per customer. Now for the interest revenue estimation, do we have any information on the average outstanding balance or loan amount per customer?",
-      "a": "Negative credit card balances are 20% of the average amount paid via credit card.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the bank's unit revenue drivers per cardholder—specifically annual spend, interchange rate, revolving balance, and interest rate?",
+      "a": "Assuming €30,000 average income with 45% card spend (€13,500), the bank earns 1% interchange (€135) plus 10% interest on revolving balances equal to 20% of spend (€2,700 × 10% = €270), alongside the €100 annual fee.",
+      "why": "Lets us quantify exact per-customer revenue (€505 vs. €405) and evaluate how much spend lift is needed to offset a fee cut."
     },
     {
-      "q": "Credit Card Correct. Can you suggest some recommendations based on your analysis?",
-      "a": "I can suggest three potential recommendations:",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the supermarket's strategic motivation for offering a zero-fee card, and how price-sensitive is our current cardholder base?",
+      "a": "The supermarket uses the card to drive grocery loyalty and basket size, while the bank serves mixed segments with varying sensitivity to the €100 fee.",
+      "why": "Clarifies whether the bank must defend its entire base or target fee waivers specifically to at-risk, high-spend segments."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Credit Card Unconventional Case (PwC) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Credit Card Unconventional Case (Credit Card Issuer) by modeling per-cardholder unit economics (€100 fee + €135 interchange + €270 interest = €505/yr vs. €405/yr for the supermarket), evaluating three strategic responses (Hold, Cut Fee, Conditional Bundling/Waivers), and defending ARPU without taking excess credit risk.",
   "tree": {
     "label": "Credit Card Unconventional Case — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -6237,43 +7426,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Credit Card Your client is a big bank that issues credit cards with a €100 annual fee. Recently, a supermarket",
-      "detail": "Credit Card Your client is a big bank that issues credit cards with a €100 annual fee. Recently, a supermarket entered the credit card business. The supermarket’s credit cards do NOT have an annual fee. Your client wants to know how they should react to this new competitor.\nInteresting situation. Before diving into recommendations, I’d like to investigate the similarities and differences between the two credit cards, particularly the features and benefits aside from the fee. Is there any additional information on that?\nThe only difference between the two cards is the annual fee. All other aspects of the cards are"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a major bank issuing credit cards with a €100 annual fee. A supermarket recently entered the market with a zero-annual-fee card. How should the bank react?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Certainly. Our client charges an interchange fee of 1% of the total amount paid using the credit card. The ave",
-      "detail": "Certainly. Our client charges an interchange fee of 1% of the total amount paid using the credit card. The average interest on credit card balances is 10%.\nOkay so based on this, we can estimate the revenue from each stream. Assuming a customer spends 45% of their €30,000 annual income via credit card, they would spend €30,000 * 45% = €13,500 annually. With a 1% interchange fee, this generates:\n€13,500 * 1% = €135 in interchange fees per customer. Now for the interest revenue estimation, do we have any information on the average outstanding balance or loan amount per customer?"
+      "kind": "question",
+      "detail": "Before evaluating strategic options, are there any differences in card benefits, rewards, or credit terms aside from the €100 annual fee, and what are the bank's interchange and interest-rate economics?",
+      "reasoning": "Isolating non-fee differences and unit revenue streams reveals how much margin the bank stands to lose if it matches the €0 fee."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "So, for the interest on balances, 20% of the amount spent on the card remains as an outstanding balance, which",
-      "detail": "So, for the interest on balances, 20% of the amount spent on the card remains as an outstanding balance, which would be €2,700.\nWith a 10% interest rate on this balance, the interest revenue is:\n€2,700 * 10% = €270 per customer. So, adding the €100 annual fee, the total revenue per customer would be:\n€100 (Annual Fee), €135 (Interchange Fees), €270 (Interest). That brings us to a total of €505 in annual revenue per customer for VISO. Since the only difference is the annual fee, Supermarket would generate the same revenue from interchange fees and interest. The average yearly revenue per credit card is €405 for th"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "All other card features are identical. The bank earns a 1% interchange fee on card spend and 10% interest on outstanding balances, which average 20% of annual card spend. Assume an average customer earns €30,000 and puts 45% on the card. How does the revenue math compare?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Credit Card Correct. Can you suggest some recommendations based on your analysis?",
-      "detail": "Credit Card Correct. Can you suggest some recommendations based on your analysis?\nI can suggest three potential recommendations:\n1. Do Nothing: If VISO’s customers are not price-sensitive, they may continue using the card despite the fee. The new competitor may also be targeting a different customer segment, so VISO can retain its existing clients without any major changes.\n2. Remove the Annual Fee: This would help match the competitor’s offer. However, VISO would need to compensate by increasing other revenue streams such as interchange fees or interest."
+      "kind": "framework",
+      "detail": "I will calculate annual revenue per customer across all three streams—Annual Fee, Interchange, and Interest—for both issuers, and then evaluate three strategic options: holding the fee, eliminating the fee, or introducing conditional waivers and product bundling.",
+      "reasoning": "Quantifying exact ARPU before weighing strategic responses ensures we understand the €100 gap we would need to replace if fees are cut."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Walk me through the per-customer numbers first."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "3. Introduce Bundling or Incentives: VISO could bundle the credit card with other banking products, such as sa",
-      "detail": "3. Introduce Bundling or Incentives: VISO could bundle the credit card with other banking products, such as savings accounts, or offer to waive the fee for customers who meet certain spending thresholds.\nGood enough. Let’s delve into this further. If VISO chooses to eliminate the annual fee, what strategies could they implement to recover the lost revenue? Additionally, what potential downsides might each approach bring?\nVISO could consider several approaches: First approach could be to enhance customer spending and increase revenue. For this, I would recommend that VISO consid"
+      "kind": "root-cause",
+      "detail": "At €30,000 income and 45% card usage, annual spend is €13,500. That generates €135 in 1% interchange fees. With 20% kept as an outstanding balance (€2,700) at 10% interest, interest revenue is €270. Adding the €100 fee gives the bank €505 per customer annually, versus €405 for the supermarket—meaning eliminating the fee outright cuts unit revenue by 20%. The supermarket can absorb €405 because grocery basket lift subsidizes its card, whereas the bank cannot easily offset €100 without driving higher card spend or taking riskier revolving balances.",
+      "reasoning": "Comparing €505 vs. €405 exposes the asymmetric economics: the supermarket monetizes grocery spend, while the bank relies directly on card ARPU.",
+      "causes": [
+        "Bank earns €505/year per card (€100 fee + €135 interchange + €270 interest) vs. €405 for the supermarket",
+        "Blanket fee elimination immediately destroys 20% of per-cardholder revenue",
+        "Compensating via higher interest rates risks adverse selection and credit defaults"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Right—an immediate 20% ARPU hit is tough. What concrete response should the bank execute, and what guardrails matter if they waive fees for certain customers?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a targeted conditional waiver and bundling strategy rather than a blanket fee cut. First, retain the €100 fee as the default to protect €505 ARPU among price-insensitive customers, but waive it for cardholders who spend above an annual threshold (e.g., €18,000+) or bundle savings/mortgage products. Second, add merchant-funded non-grocery rewards to differentiate from the supermarket card while monitoring attrition, spend per card, and 90-day delinquency rates.",
+      "reasoning": "Spend-tiered fee waivers defend at-risk volume and incentivize higher interchange without subsidizing inactive or low-spend accounts.",
+      "causes": [
+        "Spend-threshold and relationship-bundled waivers protect high-LTV retention",
+        "Merchant-funded rewards lift card share-of-wallet without compressing bank margin"
+      ]
     }
   ],
   "recommendations": [
-    "Do Nothing: If VISO’s customers are not price-sensitive,",
-    "Remove the Annual Fee: This would help match the",
-    "Introduce Bundling or Incentives: VISO could bundle"
+    "P0 — Replace blanket fee cuts with a spend-tiered and bundled fee waiver: Keep the €100 base fee to preserve €505 ARPU on sticky segments, but waive it for customers hitting an annual spend threshold (e.g., €18,000+) or holding bundled checking/savings accounts.",
+    "P1 — Launch merchant-funded lifestyle rewards: Partner with dining, fuel, and travel merchants to fund targeted cashback that differentiates the bank's card beyond grocery discounts.",
+    "P2 — Enforce credit-risk and churn guardrails: Track monthly card attrition, average annual spend, and 90-day delinquency rates so efforts to offset fee pressure never rely on loosening underwriting."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (PwC)",
+    "northStar": "Primary Policy / Operational Objective Metric (Credit Card Issuer)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -6283,11 +7503,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For PwC’s Credit Card Unconventional Case case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Do Nothing: If VISO’s customers are not price-sensitive, We will validate success via Primary Policy / Operational Objective Metric (PwC) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "For Credit Card Issuer, unit economics show the bank earns €505 per cardholder annually (€100 fee, €135 interchange, €270 interest) versus €405 for the zero-fee supermarket card, making a blanket fee cut a 20% ARPU hit. I recommend keeping the €100 default fee while introducing spend-threshold waivers, banking product bundles, and merchant-funded rewards to defend high-value cardholders without eroding credit quality.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if PwC had half the timeline or budget?",
+      "question": "How would your recommendation change if Credit Card Issuer had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -6336,37 +7556,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-43-fysikum-strategy-case",
   "title": "Fysikum Strategy Case",
-  "company": "PrepLounge",
+  "company": "Fysikum Fitness & Squash",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "PrepLounge",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Fysikum Your client, Fysikum, is an operator of squash centres in Sweden. The squash centres include sauna, spa, pool, gym and of course the squash courts. Due to the extreme success in Sweden the company is considering expanding to other countries of Europe, in particular Germany. Therefore they asked us to evaluate this possible expansion. To start, we have the cost structure of the company What kind of information",
+  "prompt": "Your client, Fysikum, operates highly successful squash centers in Sweden featuring courts alongside a sauna, spa, pool, and gym. Encouraged by its domestic success, Fysikum is considering expanding into Germany. How should the company evaluate this market entry, and what minimum membership pricing would it need to break even?",
   "clarifyingQuestions": [
     {
-      "q": "How would you gather the needed information you just mentioned?",
-      "a": "It will be a feasible option to purchase marketing analyses / research reports.Contacting someone in the consulting company who has experience in the market or industry also seems a feasible option.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is Fysikum's operating schedule, court utilization profile, and player mix (singles vs. doubles)?",
+      "a": "Courts run at 100% utilization during operating hours, split evenly at 50% singles (2 players) and 50% doubles (4 players).",
+      "why": "Determines effective player throughput per court-hour and total member capacity over which fixed facility costs are spread."
     },
     {
-      "q": "Fysikum Now we can start with the more quantitative part of the case. Can you determine the minimum annual membership fee Fysikum has to charge in order to cover the running cost?",
-      "a": "Given the cost table, I would like to ask you about the revenues and what is the operational time of the courts, is there some particular time when the court is used in greater frequency?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the financial objective for the initial German expansion—profit maximization or break-even scale?",
+      "a": "At minimum, Fysikum must determine the lowest annual membership fee required to cover annual running costs without operating at a loss.",
+      "why": "Sets the break-even pricing floor needed to benchmark Fysikum's cost structure against German incumbents."
     },
     {
-      "q": "Given the cost table, I would like to ask you about the revenues and what is the operational time of the courts, is there some particular time when the court is used in greater frequency?",
-      "a": "The profits are equal to the annual costs, and the courts are always used in the operating hours. Also, the usage is 50% single and 50% double matches.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What does the competitive landscape in Germany look like in terms of market concentration and pricing?",
+      "a": "A dominant incumbent holds 60% market share in Germany and charges €50 per annual membership on a lower operating cost base.",
+      "why": "Tests whether Fysikum's break-even membership fee can compete head-on or requires a differentiated premium tier."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Fysikum Strategy Case (PrepLounge) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Fysikum Strategy Case (Fysikum Fitness & Squash) using a market-entry and unit-economics structure: evaluate German industry attractiveness and incumbent strength (60% share at €50/yr), calculate Fysikum's break-even annual membership (>€90/member based on annual running costs and 50% singles/50% doubles court capacity), and recommend entering only with a differentiated premium wellness positioning.",
   "tree": {
     "label": "Fysikum Strategy Case — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -6388,43 +7607,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Fysikum Your client, Fysikum, is an operator of squash centres in Sweden. The squash centres include sauna, sp",
-      "detail": "Fysikum Your client, Fysikum, is an operator of squash centres in Sweden. The squash centres include sauna, spa, pool, gym and of course the squash courts. Due to the extreme success in Sweden the company is considering expanding to other countries of Europe, in particular Germany. Therefore they asked us to evaluate this possible expansion. To start, we have the cost structure of the company What kind of information would you need in order to estimate the outcomes of this expansion?\nThe best way to solve this is by using a “3C’s” or “Porter’s Five Forces” analysis. I will use"
+      "kind": "prompt",
+      "detail": "Fysikum operates successful squash centers in Sweden combining courts with a sauna, spa, pool, and gym, and is evaluating expanding into Germany. How would you assess this expansion?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "It will be a feasible option to purchase marketing analyses / research reports.Contacting someone in the consu",
-      "detail": "It will be a feasible option to purchase marketing analyses / research reports.Contacting someone in the consulting company who has experience in the market or industry also seems a feasible option.\nFysikum Now we can start with the more quantitative part of the case. Can you determine the minimum annual membership fee Fysikum has to charge in order to cover the running cost?\nGiven the cost table, I would like to ask you about the revenues and what is the operational time of the courts, is there some particular time when the court is used in greater frequency?"
+      "kind": "question",
+      "detail": "To frame the market-entry evaluation, what external data should we gather on Germany, and what are Fysikum's operating hours, court usage mix (singles vs. doubles), and cost structure?",
+      "reasoning": "Combining external competitive intelligence with internal capacity and cost drivers prevents recommending entry into an unprofitable price environment."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "The profits are equal to the annual costs, and the courts are always used in the operating hours. Also, the us",
-      "detail": "The profits are equal to the annual costs, and the courts are always used in the operating hours. Also, the usage is 50% single and 50% double matches.\nFysikum Are you sure that this is an annual membership fee and not a weekly charge?\nAs the annual costs are divided by the total number of members this is indeed an annual fee."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "We can pull market research reports and tap internal fitness-industry benchmarks. For the quantitative check, assume courts operate at 100% capacity during open hours with 50% singles and 50% doubles play, and profits must at least cover annual running costs. How do you compute the minimum annual membership fee?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "The dominant market player for squash centres (60% market share in Germany) offers memberships for €50. Would",
-      "detail": "The dominant market player for squash centres (60% market share in Germany) offers memberships for €50. Would you recommend entering the market?\nThere could be other outcomes of the investigation. If the competitor operates across all segments, from low-end to high quality, and has a lower cost base, Fysikum should not enter the market. An entrance would only lead to a price competition that our client cannot win.\nIn order to make no loss, Fysikum would need to charge more than €90 per member."
+      "kind": "framework",
+      "detail": "I will structure the decision in two steps: first, calculate total annual player capacity from court operating hours and the 3-player average (50% 2-player singles, 50% 4-player doubles) to divide annual running costs by member count for the break-even annual fee; second, benchmark that fee against German competition via a 3Cs lens.",
+      "reasoning": "Converting court-hours into active member capacity gives an exact cost-per-member floor before testing market willingness to pay."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good—dividing annual running costs by total active members shows Fysikum must charge more than €90 per member annually just to break even. Meanwhile, the dominant player in Germany holds 60% market share and charges €50 per year on a lower cost base. Would you recommend entering Germany?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "The client should only enter the market if there is a possibility to differentiate from the dominant competito",
-      "detail": "The client should only enter the market if there is a possibility to differentiate from the dominant competitor. Other issues, mentioned while doing the 3C analysis should also be considered.\nIf you have to report to the CEO right now, what would you tell him/her?\nIn order to make no loss, Fysikum would need to charge more than €90 per member. The client should only enter the market if there is a possibility to differentiate from the dominant competitor."
+      "kind": "root-cause",
+      "detail": "No—not on a head-to-head mass-market model. Fysikum's €90+ annual break-even floor is 80% higher than the €50 membership charged by an incumbent controlling 60% of the market with a structurally lower cost base. Entering without differentiation would trap Fysikum in a losing price war where every incremental member loses money.",
+      "reasoning": "Comparing Fysikum's >€90 break-even fee against the incumbent's €50 price proves that cost-based competition is structurally unviable.",
+      "causes": [
+        "Fysikum requires >€90/year per member to cover annual facility running costs",
+        "Dominant German incumbent holds 60% market share at €50/year on a lower cost base",
+        "Full-service amenities (spa, sauna, pool, gym) inflate fixed costs versus basic court operators"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Fair point. Under what conditions, if any, could Fysikum still make Germany work?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Fysikum should only enter Germany if it can differentiate decisively into a premium urban wellness tier—monetizing its sauna, spa, pool, and gym bundle in affluent Tier-1 cities where members will pay €120+ annually. Otherwise, it should stay out of Germany and explore less saturated Nordic or European markets. If piloted in one city, track court utilization, spa/gym attach rates, and net member retention as strict expansion gates.",
+      "reasoning": "Turning Fysikum's higher-cost wellness amenities into a premium pricing moat is the only viable path above the >€90 break-even floor.",
+      "causes": [
+        "Premium wellness positioning (€120+/year) leverages spa, sauna, pool, and gym bundle",
+        "Single-city Tier-1 pilot limits capex exposure before multi-site commitment"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Fysikum Strategy Case before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0 — Reject a mass-market German entry strategy: With a >€90 annual break-even fee against a 60%-share incumbent charging €50/year, competing on standard squash pricing guarantees structural losses.",
+    "P1 — Pursue Germany only via a differentiated premium wellness club format: Target affluent Tier-1 neighborhoods where bundling courts with spa, sauna, pool, and fitness coaching supports €120+ annual memberships.",
+    "P2 — Validate economics through a single flagship pilot: Test demand and willingness-to-pay at one leased site—tracking court utilization, ancillary wellness revenue, and churn—before committing regional rollout capital."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (PrepLounge)",
+    "northStar": "Primary Policy / Operational Objective Metric (Fysikum Fitness & Squash)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -6434,11 +7684,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For PrepLounge’s Fysikum Strategy Case case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Fysikum Strategy Case before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (PrepLounge) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "For Fysikum Fitness & Squash, dividing annual running costs by member capacity shows a break-even floor above €90 per year—uncompetitive against Germany's 60%-share incumbent charging €50 per year. Fysikum should avoid mass-market entry and enter Germany only if a single-city pilot proves customers in affluent hubs will pay €120+ annually for its differentiated spa, pool, gym, and squash bundle.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if PrepLounge had half the timeline or budget?",
+      "question": "How would your recommendation change if Fysikum Fitness & Squash had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -6487,32 +7737,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-44-reducing-road-accidents-in-india",
   "title": "Reducing Road Accidents in India",
-  "company": "Nation with NaMo",
+  "company": "Road Safety Authority",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
   "isStarter": false,
   "tags": [
-    "Nation with NaMo",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Road Accidents Recently, a highway in Bihar was expanded from 4 lanes to 6 lanes reduce congestion. However, within a few months, we’ve noticed a spike in accidents in the area where the new road section was constructed. Can you help us identify the causes behind this?",
+  "prompt": "Recently, a highway corridor in Bihar was expanded from 4 lanes to 6 lanes to reduce congestion, but within a few months, accidents spiked sharply along the newly widened section. How would you diagnose the root cause of this spike and recommend corrective measures?",
   "clarifyingQuestions": [
     {
-      "q": "Okay, Is there a particular time when these accidents are more frequent, such as during the day or night?",
-      "a": "No, There's no specific time pattern that we've identified in the said period.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What types of accidents are occurring, and is there any concentration by time of day?",
+      "a": "They are predominantly vehicle-to-vehicle collisions, with no significant difference between daytime and nighttime frequency.",
+      "why": "Rules out pedestrian crossings and night-only streetlighting defects as the primary driver."
     },
     {
-      "q": "Understood. Are the accidents concentrated in a specific part of the expanded road, or are they spread evenly across the entire section?",
-      "a": "to Good question, the spike in accidents are mostly concentrated in the center lanes of the road.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are the collisions spread evenly across the highway, or concentrated in specific lanes or road segments?",
+      "a": "The spike is heavily concentrated in the center and innermost lanes of the newly expanded 6-lane section.",
+      "why": "Points toward high-speed lane-changing or visibility issues specific to inner lanes rather than roadside shoulder hazards."
+    },
+    {
+      "q": "During the expansion from 4 to 6 lanes, were highway signage, lane markings, and overhead gantries upgraded alongside the asphalt widening?",
+      "a": "No—existing roadside signs designed for the original 4-lane width were kept in place without adding overhead or median signage.",
+      "why": "Isolates whether lateral sightline blockage from outer-lane traffic prevents inner-lane drivers from seeing critical instructions."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Reducing Road Accidents in India (Nation with NaMo) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Approach Reducing Road Accidents in India (Road Safety Authority) using a MECE diagnostic tree across Human Error, Road Design Flaws (signage/markings, geometry, lane structure), and External Factors: isolate center-lane vehicle-to-vehicle collisions caused by unadjusted 4-lane roadside signage, and deploy overhead gantries and median signs.",
   "tree": {
     "label": "Reducing Road Accidents in India — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -6534,43 +7788,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Road Accidents Recently, a highway in Bihar was expanded from 4 lanes to 6 lanes reduce congestion. However, w",
-      "detail": "Road Accidents Recently, a highway in Bihar was expanded from 4 lanes to 6 lanes reduce congestion. However, within a few months, we’ve noticed a spike in accidents in the area where the new road section was constructed. Can you help us identify the causes behind this?\nThank you for the context. Before jumping into the analysis, I’d like to ask a few clarifying questions to better understand the situation. What types of accidents are we seeing? Are they primarily collisions between vehicles, pedestrian-related, or something else?\nThe accidents are mostly vehicle to vehicle collisions."
+      "kind": "prompt",
+      "detail": "A highway in Bihar was recently expanded from 4 lanes to 6 lanes to ease congestion, yet accidents spiked sharply within months on the new section. How would you identify the cause?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Okay, Is there a particular time when these accidents are more frequent, such as during the day or night?",
-      "detail": "Okay, Is there a particular time when these accidents are more frequent, such as during the day or night?\nNo, There's no specific time pattern that we've identified in the said period.\nUnderstood. Are the accidents concentrated in a specific part of the expanded road, or are they spread evenly across the entire section?"
+      "kind": "question",
+      "detail": "To narrow down the accident pattern, are these mostly vehicle-to-vehicle or pedestrian collisions, do they spike during daytime or nighttime, and are they concentrated in particular lanes?",
+      "reasoning": "Segmenting by collision type, time of day, and lane position quickly separates visibility, pedestrian, and high-speed lane dynamics."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "to Good question, the spike in accidents are mostly concentrated in the ce",
-      "detail": "to Good question, the spike in accidents are mostly concentrated in the center lanes of the road.\nOkay so based on this I’d like to break down the possible causes of these accidents into three broad categories: human error, design flaws, and external factors. Human error would cover issues like speeding, distracted driving, or a lack of familiarity with the new road. Design flaws would involve issues in road layout, signage, and markings. External factors could include weather conditions, poor lighting, or other unforeseen circumstances. Could you let me know which of these are"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "They are mostly vehicle-to-vehicle collisions with no day-versus-night skew, and they are heavily concentrated in the center and innermost lanes of the widened road. How would you structure your root-cause diagnosis?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Thank you for narrowing it down. Now, when we talk about design flaws, we can further break it down into speci",
-      "detail": "Thank you for narrowing it down. Now, when we talk about design flaws, we can further break it down into specific areas such as Signage and markings whether the traffic signs and road markings are clear, visible, and properly placed, Road geometry how the road curves, merges, or diverges and Lane structure i.e. whether the lane width, positioning, or number of lanes creates confusion. Could you clarify where the design flaw lies?\nRoad Accidents The design flaw is specifically in the signage. The issue seems to be with how the traffic signs are positioned and their visibility.\nGot it. So, focusing on the signage,"
+      "kind": "framework",
+      "detail": "I will break potential causes into three MECE categories: Human Error (speeding or unfamiliarity), Road Design Flaws (signage and markings, road geometry/merges, or lane structure), and External Factors (weather or lighting). Since there is no night skew, external lighting looks unlikely—can we inspect Design Flaws and Human Error?",
+      "reasoning": "Eliminating time-dependent lighting issues lets us focus directly on physical road design changes introduced by the 4-to-6-lane widening."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Good call—the core issue sits under Design Flaws, specifically Signage. When the corridor was widened from 4 lanes to 6 lanes, roadside traffic signs were neither repositioned nor supplemented. Why does that drive center-lane collisions?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "The main problem is inadequate placement. When the road was expanded, we didn’t properly reposition or add new",
-      "detail": "The main problem is inadequate placement. When the road was expanded, we didn’t properly reposition or add new signs to accommodate the new lanes.\nThat’s helpful to know. Just to summarize: The issue arises from inadequate signage placement after the road expansion. The signs that were originally positioned for a 4-lane highway were not adjusted or supplemented to accommodate the additional lanes. As a result, drivers, especially those in the innermost lanes, are not able to see important traffic signs, which is leading to accidents.\nFor a recommendation, I suggest the followin"
+      "kind": "root-cause",
+      "detail": "Roadside signs calibrated for a 4-lane width sit too far laterally from the new center and innermost lanes and are routinely blocked by trucks and buses in the outer lanes. As a result, high-speed drivers in inner lanes miss upcoming exit, merge, and speed advisories until the last second, triggering abrupt cross-lane swerves and vehicle-to-vehicle collisions.",
+      "reasoning": "Connecting lateral distance and outer-lane sightline obstruction to inner-lane driving behavior explains the exact spatial concentration of crashes.",
+      "causes": [
+        "Original 4-lane roadside signs were not relocated or supplemented after widening to 6 lanes",
+        "Outer-lane heavy vehicles block roadside sign sightlines for center and inner-lane drivers",
+        "Late sign recognition triggers sudden high-speed lane changes and collisions"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That explains the spike cleanly. What corrective measures should the authority implement immediately and for future highway expansions?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend an immediate three-part fix. First, install overhead gantry signs and central-median signage along the 6-lane corridor so inner-lane drivers have unobstructed visibility 500 meters ahead of exits and merges. Second, add high-contrast lane markings, rumble strips, and strict outer-lane heavy-vehicle enforcement. Third, mandate signage-repositioning sign-offs on all highway widening projects while tracking weekly center-lane collision rates.",
+      "reasoning": "Combining overhead visibility with heavy-vehicle lane discipline and pre-opening safety audits resolves both the immediate corridor hazard and systemic planning gaps.",
+      "causes": [
+        "Overhead gantries and median signs eliminate lateral sightline blockage",
+        "Mandatory safety-signage audits prevent repeat failures on future 6-lane expansions"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Reducing Road Accidents in India before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0 — Install overhead gantry and central-median signage along the 6-lane section: Guarantee unobstructed visibility of speed limits, exits, and merge warnings for center and innermost-lane drivers.",
+    "P1 — Reinforce lane discipline and advance pavement warnings: Repaint high-contrast reflective lane dividers, deploy rumble strips 500 meters before junctions, and enforce outer-lane rules for slow heavy vehicles.",
+    "P2 — Mandate corridor safety audits and KPI tracking: Monitor weekly center-lane collision counts and abrupt lane-change events via CCTV, and require signage-relocation sign-offs before opening future widened highways."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (Nation with NaMo)",
+    "northStar": "Primary Policy / Operational Objective Metric (Road Safety Authority)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -6580,11 +7865,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For Nation with NaMo’s Reducing Road Accidents in India case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Reducing Road Accidents in India before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (Nation with NaMo) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "For Road Safety Authority, the post-expansion collision spike in the center lanes stems from retaining legacy 4-lane roadside signage after widening the highway to 6 lanes, leaving inner-lane drivers' sightlines blocked by outer-lane traffic. Installing overhead gantry and median signage, enforcing heavy-vehicle lane discipline, and mandating signage audits on future expansions will eliminate sudden lane-change collisions.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if Nation with NaMo had half the timeline or budget?",
+      "question": "How would your recommendation change if Road Safety Authority had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -6633,37 +7918,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-45-door-to-door-newspaper-campaign",
   "title": "Door-to-Door Newspaper Campaign",
-  "company": "Nation with NaMo",
+  "company": "Media & Print Org",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "Nation with NaMo",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Door-to-Door Newspaper We are thinking of establishing a door-to-door distribution of an existing online newspaper in Kolkata, India. We haven't spent much time on how the process would work in practice yet. Can you help us evaluate the feasibility of the plan?",
+  "prompt": "Our client operates a growing online newspaper and is considering launching a door-to-door print distribution network in Kolkata, India. They have not mapped out the operational details yet and want us to evaluate whether this offline expansion is feasible. How would you approach this evaluation?",
   "clarifyingQuestions": [
     {
-      "q": "What is the age group they currently attract?",
-      "a": "Most of their online readership is young—18 to 35 years old. They are tech-savvy and prefer consuming news digitally.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the demographic profile of the client's current online readership?",
+      "a": "Most current readers are 18 to 35 years old, tech-savvy, and strongly prefer consuming news digitally.",
+      "why": "Establishes whether the existing reader base would even adopt a physical print edition."
     },
     {
-      "q": "Wouldn’t targeting these readers with a physical newspaper be a mismatch? These consumers are unlikely to switch to a print format when they’re already accustomed to the convenience of digital news.",
-      "a": "What if we target a broader audience, potentially untapped?.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "If younger readers prefer digital, how large is the untapped older demographic in Kolkata?",
+      "a": "Kolkata has roughly 15 million residents with an 80% literacy rate, or 12 million literate people, and about 25 to 30%—around 3.5 to 4 million people—are aged 40 and above.",
+      "why": "Sizes the maximum addressable market for physical print before accounting for incumbent share."
     },
     {
-      "q": "What if we target a broader audience, potentially untapped?.",
-      "a": "Kolkata’s population is around 15 million, assuming the literacy rate to be 80%, around 12 million literate people. If we estimate that around 25-30% of Kolkata's population falls into the older demograph",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How is the core online newspaper performing financially today?",
+      "a": "Online revenues are growing steadily through digital subscriptions and ad sales, supported by consistent traffic and high engagement.",
+      "why": "Clarifies the opportunity cost of diverting capital and management focus away from digital growth."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Door-to-Door Newspaper Campaign (Nation with NaMo) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Evaluate the Kolkata door-to-door print expansion for Media & Print Org across four pillars: Audience Fit & Market Size, Competitive Moat of Legacy Dailies, Printing & Distribution Economics, and Capital Allocation Trade-offs against the high-growth digital core.",
   "tree": {
     "label": "Door-to-Door Newspaper Campaign — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -6685,43 +7969,74 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Door-to-Door Newspaper We are thinking of establishing a door-to-door distribution of an existing online newsp",
-      "detail": "Door-to-Door Newspaper We are thinking of establishing a door-to-door distribution of an existing online newspaper in Kolkata, India. We haven't spent much time on how the process would work in practice yet. Can you help us evaluate the feasibility of the plan?\nWhat is the age group they currently attract?\nMost of their online readership is young—18 to 35 years old. They are tech-savvy and prefer consuming news digitally."
+      "kind": "prompt",
+      "detail": "Our client operates a growing online newspaper and is considering launching a door-to-door print distribution network in Kolkata, India. They have not mapped out the operational details yet and want us to evaluate whether this offline expansion is feasible. How would you approach this evaluation?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Wouldn’t targeting these readers with a physical newspaper be a mismatch? These consumers are unlikely to swit",
-      "detail": "Wouldn’t targeting these readers with a physical newspaper be a mismatch? These consumers are unlikely to switch to a print format when they’re already accustomed to the convenience of digital news.\nWhat if we target a broader audience, potentially untapped?.\nKolkata’s population is around 15 million, assuming the literacy rate to be 80%, around 12 million literate people. If we estimate that around 25-30% of Kolkata's population falls into the older demographic—those 40 and above—then we’re looking at a target market of about 3.5 to 4 million people. Even if a small percentage"
+      "kind": "question",
+      "detail": "Before structuring the feasibility assessment, I want to understand who reads the online paper today and how the digital business is performing. Are we trying to cross-sell print to existing subscribers, or acquire an entirely new older readership in Kolkata?",
+      "reasoning": "Testing whether the goal is cross-selling existing users or acquiring a new segment determines the target market size and retention risk."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Yes, Kolkata has a number of well-established newspapers with long-standing, loyal readerships. Some have been",
-      "detail": "Yes, Kolkata has a number of well-established newspapers with long-standing, loyal readerships. Some have been around for decades and have built strong trust among readers.\nDoor-to-Door Newspaper Entering a market with entrenched competitors who have loyal customers is very difficult. With their established distribution networks and brand loyalty, convincing people to switch to a new, unknown newspaper would be a tough sell.\nThe loyalty factor is something we’re concerned about."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Our current online readers are mostly 18 to 35 years old and prefer digital news, while online subscription and ad revenues are growing steadily. However, management wonders if Kolkata's 15 million population—roughly 12 million literate residents, with 3.5 to 4 million aged 40 and above—represents an untapped print opportunity."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Considering the large upfront investment for door-to-door delivery infrastructure, do we have an estimate of t",
-      "detail": "Considering the large upfront investment for door-to-door delivery infrastructure, do we have an estimate of the cost for launching this operation?\nWe’d need to invest in local distribution networks, printing facilities, and marketing campaigns to raise awareness.\nThis, combined with potentially lower subscription revenues initially, makes the break-even point a few years away, at best."
+      "kind": "framework",
+      "detail": "That immediately flags an audience mismatch with our 18 to 35 core, so the case hinges on winning the 3.5 to 4 million older cohort. I will evaluate feasibility across four pillars: addressable print demand and switching willingness, incumbent print competition, end-to-end printing and hawker unit economics, and opportunity cost versus reinvesting in digital.",
+      "reasoning": "A four-pillar feasibility tree separates demand viability from supply-chain economics and strategic capital allocation."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Let's test competition and cost structure. Kolkata already has several legacy newspapers with decades of reader trust and deeply entrenched hawker delivery networks, while launching print requires major upfront outlays in local printing capacity, last-mile delivery partnerships, and brand-awareness marketing.",
+      "causes": [
+        "Entrenched legacy print incumbents with multi-decade reader loyalty",
+        "High upfront capex for printing, hawker networks, and offline marketing"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "How does the client currently perform in the online space in terms of revenue?",
-      "detail": "How does the client currently perform in the online space in terms of revenue?\nThe client’s online revenues are growing steadily, mainly through digital subscriptions and ad revenue. They’ve built a strong brand online with consistent traffic and reader engagement.\nGiven the growth in digital, I would question whether it makes sense to divert resources to an offline venture, especially when the younger, more future-proof audience is engaged online. Wouldn’t it be more strategic to invest further in digital expansion, improving content, and increasing online advertising, rather"
+      "kind": "root-cause",
+      "detail": "This looks structurally unattractive on both demand and unit economics. Targeting the 40-plus cohort pits an unknown brand against habit-driven incumbents, while low initial subscription prices and heavy printing and delivery fixed costs push break-even several years out—all while starving a steadily growing digital business of capital.",
+      "reasoning": "Connecting incumbent switching friction with fixed-cost leverage exposes why payback timelines fail hurdle rates.",
+      "causes": [
+        "Core 18–35 audience will not switch from digital to print",
+        "Multi-year break-even from fixed printing/delivery costs and low initial ARPU",
+        "Capital diversion risk away from profitable digital subscription growth"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Agreed that a full door-to-door rollout is risky. What concrete recommendation would you give leadership if they still want to reach older Kolkata readers without burning cash?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend rejecting the door-to-door print rollout in Kolkata and doubling down on digital expansion, regional content, and targeted online monetization. If the client still wants exposure to the 40-plus demographic, they should test an asset-light digital-first vernacular edition or curated weekend print inserts with B2B partners rather than building a standalone hawker network.",
+      "reasoning": "Offering a low-capex alternative preserves upside with older readers while protecting the profitable digital growth engine."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Door-to-Door Newspaper Campaign before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Halt plans for a standalone door-to-door print and printing-plant rollout in Kolkata to avoid multi-year negative cash flows against entrenched legacy incumbents.",
+    "P1: Reallocate the proposed print capex into high-ROI digital initiatives—expanding Bengali/regional digital editions, audio/video news formats, and subscriber retention funnels.",
+    "P2: If offline brand visibility among 40+ readers remains a strategic goal, pilot an asset-light weekend digest via third-party transit/cafe partnerships with strict 90-day CAC payback guardrails."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (Nation with NaMo)",
+    "northStar": "Primary Policy / Operational Objective Metric (Media & Print Org)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -6731,11 +8046,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For Nation with NaMo’s Door-to-Door Newspaper Campaign case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Door-to-Door Newspaper Campaign before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (Nation with NaMo) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "I recommend against launching a door-to-door print newspaper in Kolkata because our 18–35 core readership prefers digital, entrenched legacy dailies lock up the 3.5–4M older segment, and heavy printing and hawker setup costs push break-even years out. Instead, the client should reinvest that capital into high-margin digital subscriptions and ad growth, using only asset-light digital vernacular outreach to tap older readers.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if Nation with NaMo had half the timeline or budget?",
+      "question": "How would your recommendation change if Media & Print Org had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -6784,32 +8099,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-unc-women-voters",
   "title": "Increasing Women Voter Turnout",
-  "company": "Nation with NaMo",
+  "company": "Civic Outreach Initiative",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "Nation with NaMo",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Increasing Women Voters Your client is Nation with Namo with a campaign requirement. You are expected to design a campaign to increase participation from women voters.",
+  "prompt": "Our client is a civic outreach initiative planning a nationwide voter mobilization campaign ahead of the upcoming General Lok Sabha elections. They want to significantly increase voter turnout among women across India. How would you design this campaign?",
   "clarifyingQuestions": [
     {
-      "q": "To clarify, are we focusing on a specific election; like the national elections, or are we aiming at a regional election?",
-      "a": "We are targeting the General Lok Sabha election, aiming to increase voter turnout specifically for this election.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are we designing this campaign for a specific state election or the national General Lok Sabha election?",
+      "a": "We are targeting the General Lok Sabha election to lift women's voter participation nationwide.",
+      "why": "Determines the scale, messaging diversity, and multi-tier media mix required."
     },
     {
-      "q": "Understood. Are we concentrating on any particular regions within India?",
-      "a": "No, this campaign should have a pan-India reach, targeting women across all states and union territories, as well as across all age groups, socioeconomic backgrounds, and communities.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Should we concentrate on specific states or socioeconomic segments?",
+      "a": "No, the campaign needs a pan-India footprint reaching women across all states, union territories, age groups, and socioeconomic backgrounds.",
+      "why": "Requires balancing mass-reach broadcast channels with hyper-local rural and urban grassroots mobilization."
+    },
+    {
+      "q": "Is the primary bottleneck voter registration or actual polling-day turnout?",
+      "a": "Focus primarily on motivating registered and eligible women voters to turn out on election day.",
+      "why": "Aligns the creative message and community touchpoints around overcoming behavioral and logistical turnout barriers."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Increasing Women Voter Turnout (Nation with NaMo) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Design a pan-India women's voter mobilization campaign for Civic Outreach Initiative by anchoring on a resonant core issue (personal safety and empowerment), deploying a 3-channel mass media mix (Print, TV, Digital), and driving last-mile trust through Naari Sangathans, urban residential plays, and women leader forums.",
   "tree": {
     "label": "Increasing Women Voter Turnout — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -6831,43 +8150,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Increasing Women Voters Your client is Nation with Namo with a campaign requirement. You are expected to desig",
-      "detail": "Increasing Women Voters Your client is Nation with Namo with a campaign requirement. You are expected to design a campaign to increase participation from women voters.\nBefore starting, I have some clarifying questions.\nTo clarify, are we focusing on a specific election; like the national elections, or are we aiming at a regional election?\nWe are targeting the General Lok Sabha election, aiming to increase voter turnout specifically for this election."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Our client is a civic outreach initiative planning a nationwide voter mobilization campaign ahead of the upcoming General Lok Sabha elections. They want to significantly increase voter turnout among women across India. How would you design this campaign?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Understood. Are we concentrating on any particular regions within India?",
-      "detail": "Understood. Are we concentrating on any particular regions within India?\nNo, this campaign should have a pan-India reach, targeting women across all states and union territories, as well as across all age groups, socioeconomic backgrounds, and communities.\nAlright. I will start with analyzing the root causes that shall resonate with majority of women across India.\nSome of the pressing issues women face today include dowry, personal safety, equal rights, access to education, and fair representation in influential positions. Among these, I believe a strong focus on safety as the"
+      "kind": "question",
+      "detail": "To scope the campaign effectively, are we targeting the national Lok Sabha elections or a regional assembly cycle, and should we focus on specific states or a pan-India demographic?",
+      "reasoning": "Confirming election scope and geographic breadth dictates whether the channel mix should be hyper-regional or nationwide."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Very well. Safety is indeed a critical issue. Please proceed with outlining the campaign’s mediums and approac",
-      "detail": "Very well. Safety is indeed a critical issue. Please proceed with outlining the campaign’s mediums and approach.\nI propose we focus on three major channels for our campaign.\nFirst, we will use Print Media, placing posters and banners in areas with high female footfall such as marketplaces, shopping areas, and community centers. These visual cues will serve as reminders of the importance of their vote and empower women to actively participate. Secondly, we will focus on Television Media Increasing Women Voters whew we can run targeted advertisements on popular TV channels, especially during daily soap operas and o"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "This is a pan-India campaign for the General Lok Sabha elections, targeting women across all states, union territories, age brackets, and socioeconomic tiers."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Here, we could use relatable influencers and women leaders to share messages on why voting is vital for women’",
-      "detail": "Here, we could use relatable influencers and women leaders to share messages on why voting is vital for women’s empowerment and societal change.\nThat seems a well-rounded media plan for advertising. Please elaborate on additional activities that will deepen and enhance the engagement of the campaign.\nYes, to build grassroots engagement, we could include several community-driven activities:\n● For rural outreach, we could partner with Naari Sangathans, women’s collectives or self-help groups, to reach villages and engage women directly. These groups have established trust within their communities, making them ideal"
+      "kind": "framework",
+      "detail": "Given that breadth, I will structure the campaign in three layers: first, identifying core unifying themes that resonate across demographics; second, selecting a multi-channel media mix across urban and rural India; and third, designing grassroots community activations to convert awareness into booth-level turnout.",
+      "reasoning": "Separating message resonance, mass media reach, and hyper-local trust-building ensures no demographic tier is left behind."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Let's start with the core message. Among issues like safety, education, equal rights, healthcare, and representation, which anchor should lead the creative strategy, and how would you adapt your media channels around it?",
+      "causes": [
+        "Women's personal safety and empowerment serve as the strongest cross-demographic motivator",
+        "Media consumption splits sharply between regional TV/print and youth-skewed digital platforms"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "● In urban areas, we could organize campaigns within residential societies",
-      "detail": "● In urban areas, we could organize campaigns within residential societies and conduct street plays that highlight the role of women in shaping the country’s future through voting. Street plays can be an effective way to connect with people and leave a lasting impression.\n● Additionally, we could collaborate with women leaders from various fields—such as education, healthcare, business, and activism—to conduct seminars and talk shows. These events can emphasize the importance of voting as a means to safeguard their rights, ensure better safety measures..\nThat seems good. To mea"
+      "kind": "hypothesis",
+      "detail": "Personal safety and agency should anchor the campaign because they resonate universally across rural and urban households. To distribute this message, I recommend a three-pronged media mix: print banners in high-footfall markets and community centers, targeted regional TV spots during prime-time daily soap operas, and digital storytelling by relatable women influencers and leaders.",
+      "reasoning": "Matching each demographic's primary media touchpoint prevents urban-digital skew and maximizes reach among homemakers.",
+      "causes": [
+        "Lack of localized trust in purely top-down advertising",
+        "Rural vs. urban divergence in media access and community gathering points"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That covers broad awareness well. What grassroots activities would you deploy to deepen engagement and actually get women to the polling booth?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To bridge awareness to action, we should partner with Naari Sangathans and women's self-help groups in rural areas where peer trust is highest, stage street plays and voter-pledge drives inside urban residential societies, and host seminars with women leaders from healthcare, business, and education. We will track booth-level female turnout lift against historical baselines while ensuring strictly non-partisan messaging.",
+      "reasoning": "Combining peer-trusted rural collectives with urban civic activations converts passive awareness into election-day turnout."
     }
   ],
   "recommendations": [
-    "For rural outreach, we could partner with Naari Sangathans,",
-    "In urban areas, we could organize campaigns within",
-    "Additionally, we could collaborate with women leaders from"
+    "P0: Anchor pan-India campaign messaging on women's personal safety and agency, deploying regional TV spots during prime-time daily soaps alongside market-center print banners.",
+    "P1: Partner with rural Naari Sangathans and self-help groups to run door-to-door polling-day mobilization and buddy-voting groups in low-turnout districts.",
+    "P2: Execute urban residential-society street plays, influencer video series, and cross-sector women-leader town halls while tracking booth-level turnout lift and non-partisan compliance."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (Nation with NaMo)",
+    "northStar": "Primary Policy / Operational Objective Metric (Civic Outreach Initiative)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -6877,11 +8226,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For Nation with NaMo’s Increasing Women Voter Turnout case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: For rural outreach, we could partner with Naari Sangathans, We will validate success via Primary Policy / Operational Objective Metric (Nation with NaMo) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "To maximize women's turnout for the General Lok Sabha elections, I recommend anchoring the campaign on personal safety and agency across a three-tier funnel: regional TV soaps and market print for broad reach, digital women-leader storytelling for younger voters, and grassroots partnerships with rural Naari Sangathans plus urban society street plays. Success will be tracked via district-level female turnout lift against prior-cycle baselines under strict non-partisan guardrails.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if Nation with NaMo had half the timeline or budget?",
+      "question": "How would your recommendation change if Civic Outreach Initiative had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -6930,37 +8279,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-47-old-winery-valuation-strategy",
   "title": "Old Winery Valuation & Strategy",
-  "company": "Bain & Company",
+  "company": "Winery Estate",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "Bain & Company",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Old Winery You’ve inherited the \"Old Winery,\" a family-owned vineyard that’s been passed down for five generations since the 16th century.",
+  "prompt": "You have inherited the Old Winery, a 16th-century family-owned vineyard passed down for five generations. A young winemaker currently manages operations, but low brand visibility has kept wine demand weak, and you do not plan to run the business directly. How would you size its production potential and design a strategy to revitalize the estate while preserving its heritage?",
   "clarifyingQuestions": [
     {
-      "q": "Are we selling the whole produce as wine or some produce as grapes as well?",
-      "a": "Only 1⁄4 of the harvest is made into wine by the winery; the rest is sold as grapes.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the current condition of the vineyard, and is the entire grape harvest turned into wine?",
+      "a": "The vine stocks across the 11-hectare estate are in good condition, but only one-quarter of the harvest is currently vinified into wine while three-quarters is sold as raw grapes.",
+      "why": "Reveals immediate under-utilized value-add capacity without needing new land acquisition."
     },
     {
-      "q": "What is the target size of the wine bottles we will use?",
-      "a": "We are targeting the wine bottles at 0.75 l. Why don't you come up with some strategy regarding the core problem?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the grape-to-wine yield metrics and standard bottle size?",
+      "a": "Vines occupy 4 square meters (2m by 2m) with roughly 2 meters of vine yielding 3 kg of grapes per meter, wine yield is ~0.5 liters per kg of grapes, and bottles are 0.75 liters.",
+      "why": "Provides the exact physical inputs required to calculate maximum annual bottle output and revenue upside."
     },
     {
-      "q": "We are targeting the wine bottles at 0.75 l. Why don't you come up with some strategy regarding the core problem?",
-      "a": "Sure. Give me a couple of minutes, and I will be back with the overall strategy.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the owner's objective regarding operational involvement and brand positioning?",
+      "a": "The owner wants to remain hands-off operationally while boosting profitability and preserving the five-generation heritage.",
+      "why": "Steers the operating model toward empowering the young winemaker and outsourcing non-core commercial functions."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Old Winery Valuation & Strategy (Bain & Company) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Revitalize Winery Estate by first sizing maximum bottle capacity (110,000 bottles/year vs. ~27,500 currently produced), auditing value-chain feasibility from cultivation to sales, and shifting mix from raw grapes toward high-margin heritage wine via boutique distribution and hands-off estate governance.",
   "tree": {
     "label": "Old Winery Valuation & Strategy — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -6982,40 +8330,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Old Winery You’ve inherited the \"Old Winery,\" a family-owned vineyard that’s been passed down for five generat",
-      "detail": "Old Winery You’ve inherited the \"Old Winery,\" a family-owned vineyard that’s been passed down for five generations since the 16th century.\nYour grandfather, who resisted change, left the management to a young winemaker. Due to its low profile, demand for the winery’s wine is currently low. With little experience in winemaking, you don’t plan to manage the business directly but are excited about owning it. How would you give the winery a fresh boost while preserving its heritage?\nThank you for the case. Before moving ahead with the overall strategy, I would like to understand the winery, the area of land used for"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "You have inherited the Old Winery, a 16th-century family-owned vineyard passed down for five generations. A young winemaker currently manages operations, but low brand visibility has kept wine demand weak, and you do not plan to run the business directly. How would you size its production potential and design a strategy to revitalize the estate while preserving its heritage?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The vine stocks are in good condition in terms of age and care.",
-      "detail": "The vine stocks are in good condition in terms of age and care.\nAre we selling the whole produce as wine or some produce as grapes as well?\nOnly 1⁄4 of the harvest is made into wine by the winery; the rest is sold as grapes.\nGood question. 1 kg of grapes yields usually between 0.4 and 0.8 l of wine. For a small and semi-professional winery like yours, yields are below average. 1-meter of Vine provides about 3 kg of grapes for wine production."
+      "kind": "question",
+      "detail": "Thank you for the scenario. Before structuring the strategy, I'd like to check the condition and size of the vineyard, whether all harvested grapes are made into wine today, and what our bottle size and wine yield look like.",
+      "reasoning": "Establishing physical land yield and current vinification mix reveals whether growth is constrained by supply or commercial demand."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "That sounds like a good start to begin with, please go ahead.",
-      "detail": "That sounds like a good start to begin with, please go ahead.\nWhat is the target size of the wine bottles we will use?\nWe are targeting the wine bottles at 0.75 l. Why don't you come up with some strategy regarding the core problem?\nSure. Give me a couple of minutes, and I will be back with the overall strategy."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The 11-hectare estate has healthy vine stocks, but only one-fourth of the harvest is turned into wine while three-fourths is sold as raw grapes. Each 2m by 2m plot holds about 2m of vine yielding 3 kg per meter, 1 kg of grapes yields 0.5 liters of wine, and we bottle in 0.75-liter bottles."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Sure. Take your time.",
-      "detail": "Sure. Take your time.\nOld Winery Thank you. Here is my overall strategy. First, I will look at the potential number of wine bottles that can be made using Vine.\nThen, I will cover the qualitative factor as the feasibility of establishing the value chain, which includes cultivation, harvesting, vinification, bottling, and sales, and the Quantitative factors, such as pricing, revenue, and cost.\nYour structure seems good. Why don't you go ahead?"
+      "kind": "framework",
+      "detail": "Great, I will structure my analysis in three parts: first, calculating our theoretical annual bottle capacity; second, assessing qualitative feasibility across the value chain from cultivation and vinification to bottling and sales; and third, evaluating quantitative revenue, pricing, and cost levers that fit a hands-off owner.",
+      "reasoning": "Quantifying capacity headroom first anchors the commercial and operational recommendations in realistic volume targets."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That structure makes sense. Walk me through your production math and tell me where the biggest bottleneck sits today.",
+      "causes": [
+        "75% of grape harvest is sold raw at low commodity margins instead of being bottled",
+        "Low brand visibility keeps wine demand far below the 110,000-bottle estate capacity"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "So, for calculating the total bottles, I will use the formula (Total grapes produced (kg) per hectare×Number o",
-      "detail": "So, for calculating the total bottles, I will use the formula (Total grapes produced (kg) per hectare×Number of hectares×Wine produced per kg of grapes)/(Volume of each bottle).\nSeems fine. Go ahead with your assumptions and calculations.\nFor that, I would assume Vines per area: approx. 2 m vines per 2 x 2 m2 = 4 m2.\nThe quantity of grapes per area is 2/4 m/m2 x 3 kg/m = 1.5 kg/m2. 1 hectare = 10,000 m2. So, the quantity of grapes per hectare will be 15,000 kg/hectare. Total bottles = (15,000 * 11 * 0.5 L)/0.75 = 1,10,000 / year Each vine occupies 4 square meters (2 m × 2 m), y"
+      "kind": "root-cause",
+      "detail": "At 2 meters of vine per 4 square meters yielding 3 kg per meter, we produce 1.5 kg per square meter—or 15,000 kg per hectare. Across 11 hectares that is 165,000 kg of grapes, which at 0.5 liters per kg equals 82,500 liters, or 110,000 bottles of 0.75 liters annually. Because we only vinify 25% today, we are producing around 27,500 bottles and leaving 82,500 bottles of value-added capacity on the table due to weak brand awareness and underdeveloped sales channels.",
+      "reasoning": "Deriving the 110,000-bottle ceiling proves that commercial demand—not vineyard supply—is the primary constraint on profitability.",
+      "causes": [
+        "Under-utilized vinification capacity (~27,500 vs. 110,000 bottle potential)",
+        "Lack of modern brand storytelling and direct/hospitality sales channels"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "The math is spot on. Given you don't want to manage day-to-day operations, how would you unlock that demand while preserving the 16th-century heritage?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend shifting the harvest mix progressively from 25% to 75%+ bottled wine by pairing the young winemaker's craft with an outsourced commercial distributor and boutique hospitality partners. We should rebrand around the 16th-century five-generation story for premium pricing, launch high-margin estate tastings and direct-to-consumer wine clubs, and retain a professional general manager with margin-linked incentives so the owner stays strategic rather than operational.",
+      "reasoning": "Empowering a commercial partner and monetizing heritage through D2C and tourism scales margins without requiring daily owner oversight."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Old Winery Valuation & Strategy before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Gradually shift harvest allocation from 25% to 75%+ wine production to capture the ~82,500-bottle value-added gap rather than selling commodity raw grapes.",
+    "P1: Rebrand around the 16th-century five-generation provenance and launch D2C wine clubs plus weekend vineyard tastings with boutique hospitality partners.",
+    "P2: Appoint a commercial sales lead or distributor and tie the winemaker's compensation to quality ratings and gross margin so the owner remains hands-off."
   ],
   "metricsAndGuardrails": {
     "northStar": "Primary Policy / Operational Objective Metric (Bain & Company)",
@@ -7028,7 +8406,7 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For Bain & Company’s Old Winery Valuation & Strategy case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Old Winery Valuation & Strategy before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (Bain & Company) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "The Old Winery can produce up to 110,000 bottles (0.75L) annually across its 11 hectares, yet currently vinifies only 25% (~27,500 bottles) and sells 75% as low-margin raw grapes due to weak visibility. By shifting harvest mix toward bottled wine, packaging the 16th-century heritage into D2C clubs and estate tourism, and delegating sales to a commercial partner, the owner can unlock high-margin growth without day-to-day involvement.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
@@ -7081,37 +8459,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-48-relationship-dilemma-framework",
   "title": "Relationship Dilemma Framework",
-  "company": "PwC",
+  "company": "Corporate Intern",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "PwC",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Relationship Dilemma Suppose you get an internship at XYZ firm for 6 months.",
+  "prompt": "Suppose you land a demanding 6-month corporate internship with long working hours while in a committed relationship. How would you structure a strategy to prevent the workload from creating conflict and keep the relationship healthy?",
   "clarifyingQuestions": [
     {
-      "q": "During this time, you also have a boyfriend/girlfriend, and this duration could possibly create conflicts in your relationship. How would you think about strategies to avoid this?",
-      "a": "Thank you for the case. Before I structure my response, could I ask a few clarifying questions?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Should I treat this as a part-time student internship alongside classes or a full-time corporate role with long hours?",
+      "a": "Assume it is a full-time professional corporate internship with demanding hours.",
+      "why": "Sets the severity of the weekly time constraint and fatigue factor."
     },
     {
-      "q": "Thank you for the case. Before I structure my response, could I ask a few clarifying questions?",
-      "a": "Sure, go ahead.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is my partner's schedule—are they also working full-time or do they have more flexible availability?",
+      "a": "Your partner is also working full-time, so both of you have busy schedules.",
+      "why": "Indicates that coordination windows are narrow on both sides, making spontaneous meetups difficult."
     },
     {
-      "q": "First, should I assume this is a college internship where I’m still a student balancing classes, or more of a professional corporate internship where it’s treated like a full-time job?",
-      "a": "Good question. Assume it’s a professional corporate internship, more like a full-time role, with long hours.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Will we be in the same city during the 6 months, or will this be long-distance?",
+      "a": "You are in the same city, so time availability rather than physical distance is the primary constraint.",
+      "why": "Focuses the solution on calendar discipline, energy management, and high-quality micro-touchpoints."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Relationship Dilemma Framework (PwC) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Structure the 6-month relationship strategy for Corporate Intern chronologically across three phases—Pre-Internship Alignment, During-Internship Cadence & Boundaries, and Post-Internship Reconnection & Retrospective—to manage mutual busy schedules in the same city.",
   "tree": {
     "label": "Relationship Dilemma Framework — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -7133,43 +8510,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Relationship Dilemma Suppose you get an internship at XYZ firm for 6 months.",
-      "detail": "Relationship Dilemma Suppose you get an internship at XYZ firm for 6 months.\nDuring this time, you also have a boyfriend/girlfriend, and this duration could possibly create conflicts in your relationship. How would you think about strategies to avoid this?\nThank you for the case. Before I structure my response, could I ask a few clarifying questions?\nFirst, should I assume this is a college internship where I’m still a student balancing classes, or more of a professional corporate internship where it’s treated like a full-time job?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Suppose you land a demanding 6-month corporate internship with long working hours while in a committed relationship. How would you structure a strategy to prevent the workload from creating conflict and keep the relationship healthy?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Good question. Assume it’s a professional corporate internship, more like a full-time role, with long hours.",
-      "detail": "Good question. Assume it’s a professional corporate internship, more like a full-time role, with long hours.\nUnderstood. Second, are we assuming my partner is also in college/early career, or are they working full-time? This could affect availability and expectations.\nAssume your partner is also working, so both have busy schedules.\nGot it. And finally, is this relationship long-distance during the internship, or are both partners in the same city?"
+      "kind": "question",
+      "detail": "Before laying out a framework, I'd like to clarify three parameters: is this a full-time corporate role with long hours, is my partner also working full-time, and are we in the same city during these six months?",
+      "reasoning": "Identifying whether the bottleneck is geographic distance or mutual calendar scarcity shapes the communication plan."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Let’s assume same city, but time availability is the main constraint.",
-      "detail": "Let’s assume same city, but time availability is the main constraint.\nPerfect, thank you. In that case, I’d like to divide my strategy into three stages before the project, during the project, and after the project.\nRelationship Dilemma Before the internship begins, I’d focus on setting the right foundation. That means having an open conversation with my partner about the demands of the next six months acknowledging that time may be limited, but also reinforcing that the relationship remains important. I’d also make sure we spend quality time together before the internship kicks off whether that’s a short trip, c"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Assume it is a demanding full-time corporate internship in the same city, and your partner is also working full-time with busy hours."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "During the internship is where challenges are most likely. My approach would be to maintain consistent, realis",
-      "detail": "During the internship is where challenges are most likely. My approach would be to maintain consistent, realistic communication despite the heavy workload.\nThat could be small gestures like a quick text in the morning, a five-minute call at night, or sharing an interesting moment from my day. I’d also consciously involve my partner by sharing what I’m learning or asking their perspective on challenges, so they feel included in my journey instead of left out. At the same time, I’d make sure to block some personal time — maybe a weekend evening that’s reserved exclusively for the"
+      "kind": "framework",
+      "detail": "Understood—our core constraint is overlapping time scarcity rather than physical distance. I will divide the strategy chronologically into three phases: Before the internship to align expectations, During the internship to sustain low-friction connection and protected time, and After the internship to reconnect and build long-term resilience.",
+      "reasoning": "A lifecycle approach prevents surprises upfront, sustains rituals under peak stress, and captures learnings afterward."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Let's unpack the first two phases. What usually breaks down when both partners work long hours, and how do you proactively prevent that before and during the 6 months?",
+      "causes": [
+        "Unspoken expectations around weekday availability cause avoidable resentment",
+        "Mental fatigue erodes emotional presence even when living in the same city"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Relationship Dilemma Nice. And once the internship is complete?",
-      "detail": "Relationship Dilemma Nice. And once the internship is complete?\nOnce the internship ends, I’d focus on reconnecting fully. That could mean planning a trip, dedicating more time to shared activities, or simply being more present and engaged. Just as importantly, I’d reflect with my partner on how we handled the six months: where we did well, and where we struggled. This reflection makes the relationship stronger and builds resilience, so that if similar demanding situations arise in the future like longer projects or relocations, we’ll already have strategies in place to deal with them.\nNicely put. Can you summari"
+      "kind": "hypothesis",
+      "detail": "Conflicts usually stem from misaligned expectations and feeling excluded from each other's daily lives. Before starting, I would hold a candid conversation outlining the six-month workload while reaffirming commitment, and front-load quality time like a short weekend getaway. During the internship, I would replace long unstructured hangouts with reliable micro-touchpoints—a morning check-in text, a five-minute evening call, sharing work learnings so my partner feels included—and strictly block one sacred weekend evening on both calendars.",
+      "reasoning": "Combining predictable daily micro-rituals with one protected weekly block balances career intensity with emotional security.",
+      "causes": [
+        "Ad-hoc scheduling fails when both calendars are tight",
+        "Partners feel sidelined when career stress crowds out shared context"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That handles the active crunch well. How do you close the loop once the six months wrap up?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Post-internship, I would schedule an intentional reset—such as a dedicated trip or shared hobby—to shift back into full presence, followed by a joint retrospective on what worked and where friction appeared. Overall, setting transparent expectations beforehand, protecting consistent micro-rituals and one weekly anchor date during the crunch, and debriefing afterward turns a temporary 6-month strain into lasting relationship resilience.",
+      "reasoning": "A structured debrief converts short-term coping habits into a repeatable playbook for future demanding career sprints."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Relationship Dilemma Framework before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Hold a pre-internship alignment conversation to set realistic weekday expectations, reaffirm commitment, and bank quality time via a pre-start getaway.",
+    "P1: Institutionalize daily 5-minute check-ins and one non-negotiable protected weekend evening on both calendars to prevent ad-hoc cancellations.",
+    "P2: Conclude the 6 months with a dedicated reconnection trip and a candid retrospective on communication wins and friction points for future career sprints."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (PwC)",
+    "northStar": "Primary Policy / Operational Objective Metric (Corporate Intern)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -7179,11 +8586,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For PwC’s Relationship Dilemma Framework case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Relationship Dilemma Framework before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (PwC) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "To prevent a 6-month corporate internship from straining a dual-career relationship in the same city, manage the timeline across three stages: align expectations and front-load quality time beforehand, maintain predictable daily 5-minute check-ins plus one protected weekly date during peak hours, and run a post-internship reset and retrospective. This prevents unspoken resentment while building resilience for future demanding projects.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if PwC had half the timeline or budget?",
+      "question": "How would your recommendation change if Corporate Intern had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -7242,27 +8649,27 @@ window.CM_DATA.cases.push(
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "User Analysis You’re analyzing user behavior on the Zomato app. Can you plot a graph of Conversion Rate vs. Time Spent and walk me through what you see?",
+  "prompt": "You are analyzing user behavior on the Zomato app. If you plot Conversion Rate against Time Spent in a session, you observe a curve with two peaks and two dips. How would you interpret these user segments and design product strategies to improve conversion?",
   "clarifyingQuestions": [
     {
-      "q": "What do you infer about the users from the two maximas?",
-      "a": "First Peak–Users who already know what they want or decide quickly.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What does Conversion Rate represent on this plot—completed food orders per app session?",
+      "a": "Yes, it tracks the percentage of active browsing sessions that end in a completed order against total session duration.",
+      "why": "Clarifies that we are optimizing checkout completion rather than merely maximizing time on app."
     },
     {
-      "q": "What do you infer about the users from the two dips?",
-      "a": "First Dip – Delayed deciders and light explorers.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the exact shape of the Conversion Rate vs. Time Spent curve?",
+      "a": "The curve shows two local maxima (First Peak and Second Peak) separated by a First Dip, followed by a Second Dip at very long session times.",
+      "why": "Allows segmenting users into four distinct behavioral cohorts based on intent clarity and price sensitivity."
     },
     {
-      "q": "User Analysis When would a user switch to a competitor?",
-      "a": "They’re most likely to switch if:",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Should our interventions prioritize lifting order volume while guarding contribution margin?",
+      "a": "Yes, reduce drop-offs and competitor switching without relying on blanket margin-eroding discounts.",
+      "why": "Ensures targeted rescue offers go only to price-sensitive or fatigued cohorts rather than loyal quick deciders."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach User Analysis Deep-Dive (Zomato) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Segment Zomato's bimodal Conversion vs. Time Spent curve into four distinct cohorts—First Peak (loyal quick deciders), First Dip (light explorers), Second Peak (price-sensitive comparers), and Second Dip (decision-fatigued switchers)—and deploy targeted UX, SLA, and dynamic offer interventions per cohort.",
   "tree": {
     "label": "User Analysis Deep-Dive — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -7284,41 +8691,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "User Analysis You’re analyzing user behavior on the Zomato app. Can you pl",
-      "detail": "User Analysis You’re analyzing user behavior on the Zomato app. Can you plot a graph of Conversion Rate vs. Time Spent and walk me through what you see?\nWe notice two local maxima with a dip in between.\nWhat do you infer about the users from the two maximas?\nFirst Peak–Users who already know what they want or decide quickly."
+      "kind": "prompt",
+      "detail": "You are analyzing user behavior on the Zomato app. If you plot Conversion Rate against Time Spent in a session, you observe a curve with two peaks and two dips. How would you interpret these user segments and design product strategies to improve conversion?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Characteristics: Higher loyalty, low offer sensitivity, short decision cycles.",
-      "detail": "Characteristics: Higher loyalty, low offer sensitivity, short decision cycles.\nSecond Peak – High exploration deciders and price-sensitive users Characteristics: Menu explorers, value maximizers, time-insensitive.\nWhat do you infer about the users from the two dips?\nFirst Dip – Delayed deciders and light explorers."
+      "kind": "question",
+      "detail": "To confirm the metric setup, does Conversion Rate measure completed orders per session, and are we aiming to lift total orders without giving blanket discounts to users who would convert anyway?",
+      "reasoning": "Confirming the conversion definition and margin guardrail prevents recommending unnecessary subsidies for high-intent users."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Second Dip – Decision fatigue, overwhelmed explorers, or switch-outs.",
-      "detail": "Second Dip – Decision fatigue, overwhelmed explorers, or switch-outs.\nUser Analysis When would a user switch to a competitor?\nThey’re most likely to switch if:\n● Competitor offers better deals/discounts."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes, it is session-to-order conversion, and protecting unit economics is critical. Walk me through what the First Peak, First Dip, Second Peak, and Second Dip tell us about user intent and price sensitivity."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "● Delivery is significantly faster.",
-      "detail": "● Delivery is significantly faster.\n● More variety in restaurants/cuisines.\n● Higher service ratings or smoother app experience.\nThat’s why our strategy needs personalized offers, competitive delivery SLAs, and UX optimization to reduce churn at decision points."
+      "kind": "framework",
+      "detail": "I see four distinct behavioral cohorts along the time axis. The First Peak reflects high-loyalty quick deciders with low offer sensitivity who know what they want. The First Dip captures light explorers and delayed deciders dropping off early. The Second Peak represents menu explorers and price-sensitive value maximizers comparing options, while the Second Dip reflects overwhelmed users hitting decision fatigue or switching to a competitor.",
+      "reasoning": "Mapping each inflection point to intent clarity and price sensitivity lets us tailor UX friction removal versus targeted incentives."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That segmentation is spot on. When users in those dips switch to a competing delivery app, what factors typically trigger the switch, and how does ETA sensitivity differ across cohorts?",
+      "causes": [
+        "Better competitor discounts and combo offers pull away Second Peak comparers",
+        "Slow delivery ETAs and clunky UX push First Peak quick deciders to switch"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "What Strategies will you recommend according to the user behaviour?",
-      "detail": "What Strategies will you recommend according to the user behaviour?\n● First Peak : One-click reordering, “Order Again” section, and push notifications for favorites.\n● First Dip : Mid-session nudges, abandoned-cart reminders, and “recently viewed” quick links.\n● Second Peak : Dynamic personalized offers, bundle deals, deal-comparison widgets."
+      "kind": "root-cause",
+      "detail": "Switching stems from four drivers: superior competitor discounts, significantly faster delivery ETAs, broader cuisine variety, or smoother app ratings and UX. Crucially, sensitivity varies by segment: quick deciders at the First Peak are hyper-sensitive to ETA delays and checkout friction, price-sensitive comparers at the Second Peak respond mainly to deal competitiveness, and fatigued users at the Second Dip churn from choice overload combined with long ETAs.",
+      "reasoning": "Differentiating ETA sensitivity from discount sensitivity avoids wasting promo spend on loyal repeat users.",
+      "causes": [
+        "Checkout friction and ETA spikes alienate high-intent First Peak users",
+        "Choice overload and missing deal comparisons stall Second Peak/Dip browsers"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Given those distinct drivers, what targeted product and pricing plays would you roll out for each of the four segments?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "For the First Peak, I'd prioritize one-click 'Order Again' shelves, favorite-item notifications, and strict ETA reliability rather than discounts. For the First Dip, use mid-session nudges, 'Recently Viewed' shortcuts, and abandoned-cart reminders. For the Second Peak, surface dynamic personalized offers, meal bundles, and deal-comparison widgets, and for the Second Dip, trigger rescue prompts with curated top-3 picks and time-limited flash deals to break decision fatigue.",
+      "reasoning": "Matching intervention cost to segment elasticity lifts overall session conversion while preserving contribution margin."
     }
   ],
   "recommendations": [
-    "Second Dip : Rescue prompts, time-limited flash deals,",
-    "Quick deciders are highly sensitive — even a small delay",
-    "Price-sensitive comparers are moderately sensitive —",
-    "Decision-fatigue users are less sensitive but long ETAs"
+    "P0: Protect First Peak conversion without promo burn by launching a one-click 'Order Again' carousel on the home screen and enforcing strict delivery-ETA reliability.",
+    "P1: Capture First Dip and Second Peak explorers via 'Recently Viewed' quick links, abandoned-cart nudges, and dynamic personalized bundle/deal-comparison widgets.",
+    "P2: Rescue Second Dip fatigued sessions with curated top-3 AI recommendations and time-boxed flash offers, tracking incremental conversion lift against promo-cost-per-order guardrails."
   ],
   "metricsAndGuardrails": {
     "northStar": "Primary Policy / Operational Objective Metric (Zomato)",
@@ -7331,7 +8767,7 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For Zomato’s User Analysis Deep-Dive case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Second Dip : Rescue prompts, time-limited flash deals, We will validate success via Primary Policy / Operational Objective Metric (Zomato) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "Zomato's bimodal Conversion vs. Time Spent curve separates loyal quick deciders (First Peak) and value-hunting comparers (Second Peak) from light browsers (First Dip) and fatigued switchers (Second Dip). We should protect First Peak users via one-click reordering and fast ETAs without discounts, re-engage First Dip users with cart/view nudges, and convert Second Peak/Dip users using curated top-3 picks, bundles, and targeted time-limited rescue deals.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
@@ -7384,37 +8820,36 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-cons-50-well-being-healthcare-strategy",
   "title": "Well Being Healthcare Strategy",
-  "company": "McKinsey & Company",
+  "company": "Healthcare Platform",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 4,
   "isStarter": false,
   "tags": [
-    "McKinsey & Company",
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Well Being Health Care Your client is Well Being (WB), a private healthcare company in Germany. They operate 10 hospitals in Germany (in comparison to 1,000 public hospitals). They are considering a proposal from the Governmental National Healthcare (NHC) to outsource some of their patients to WB. Do you have any questions before we dive into this?",
+  "prompt": "Our client, Well Being (WB), is a private healthcare provider operating 10 hospitals in Germany alongside roughly 1,000 public hospitals. The Governmental National Healthcare system (NHC) has proposed outsourcing a portion of its overflow patients to WB. How would you evaluate this opportunity and advise WB on whether to accept?",
   "clarifyingQuestions": [
     {
-      "q": "Yes, just to clarify, what is WB’s current position in the market? Are they looking to grow, or is this more about maintaining their position?",
-      "a": "WB is looking to grow its market presence and improve profitability.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is WB's current market position and primary strategic objective?",
+      "a": "WB holds under 1% market share and aims to grow its market presence while improving profitability.",
+      "why": "Establishes that incremental patient volume must be margin-accretive rather than purely top-line dilutive."
     },
     {
-      "q": "Understood. What size are WB’s hospitals compared to public ones, and what kind of services do they offer?",
-      "a": "WB’s hospitals are about half the size of public ones, and they don’t offer Accident and Emergency (ER) services. Their revenue comes from patients paying through private insurance or by cash.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How do WB's hospitals compare to public hospitals in size, services, and payer mix?",
+      "a": "WB's hospitals are about half the size of public ones, do not offer Accident & Emergency (ER) services, and earn revenue from private-insurance and cash-paying patients.",
+      "why": "Highlights that WB is best suited for planned elective care and faces payer-mix cannibalization risk if public contracts crowd out private beds."
     },
     {
-      "q": "Got it. So, with NHC wanting to outsource patients to WB, are there any specific patient types or services involved in this offer?",
-      "a": "No specific patient types mentioned yet, but the idea is for WB to take on some overflow patients from NHC, which could potentially increase WB’s patient base and revenue.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What specific procedures or patient volumes is NHC proposing to outsource?",
+      "a": "NHC wants to issue bulk contracts to outsource elective hip-replacement operations due to long public waiting lists.",
+      "why": "Focuses operational and unit-economic evaluation on orthopedic OR capacity, standardization, and bulk pricing."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Well Being Healthcare Strategy (McKinsey & Company) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Evaluate NHC's bulk hip-replacement outsourcing offer for Well Being (Healthcare Platform) by assessing German hospital industry structure (Five Forces), operational fit with WB's non-ER elective hospitals, unit economics vs. private-patient cannibalization, and long-term public-payer dependency risk.",
   "tree": {
     "label": "Well Being Healthcare Strategy — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -7436,43 +8871,73 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Well Being Health Care Your client is Well Being (WB), a private healthcare company in Germany. They operate 1",
-      "detail": "Well Being Health Care Your client is Well Being (WB), a private healthcare company in Germany. They operate 10 hospitals in Germany (in comparison to 1,000 public hospitals). They are considering a proposal from the Governmental National Healthcare (NHC) to outsource some of their patients to WB. Do you have any questions before we dive into this?\nYes, just to clarify, what is WB’s current position in the market? Are they looking to grow, or is this more about maintaining their position?\nWB is looking to grow its market presence and improve profitability.\nCurrently, they hold less than 1% of the market, with rev"
+      "kind": "prompt",
+      "detail": "Our client, Well Being (WB), is a private healthcare provider operating 10 hospitals in Germany alongside roughly 1,000 public hospitals. The Governmental National Healthcare system (NHC) has proposed outsourcing a portion of its overflow patients to WB. How would you evaluate this opportunity and advise WB on whether to accept?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Understood. What size are WB’s hospitals compared to public ones, and what kind of services do they offer?",
-      "detail": "Understood. What size are WB’s hospitals compared to public ones, and what kind of services do they offer?\nWB’s hospitals are about half the size of public ones, and they don’t offer Accident and Emergency (ER) services. Their revenue comes from patients paying through private insurance or by cash.\nGot it. So, with NHC wanting to outsource patients to WB, are there any specific patient types or services involved in this offer?\nNo specific patient types mentioned yet, but the idea is for WB to take on some overflow patients from NHC, which could potentially increase WB’s patient"
+      "kind": "question",
+      "detail": "Before structuring my analysis, I'd like to clarify WB's strategic goal—is it market share growth or profitability? Also, how do WB's 10 hospitals differ from public hospitals in scale, service mix, and current payer profile?",
+      "reasoning": "Understanding existing hospital capabilities and payer margins clarifies whether public overflow complements or cannibalizes core revenue."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "That helps. Now, what can you tell me about the overall characteristics of the healthcare market in Germany? H",
-      "detail": "That helps. Now, what can you tell me about the overall characteristics of the healthcare market in Germany? How competitive is it?\nThe degree of rivalry in the market is high. NHC is the dominant player, and other private hospital groups also add to the competition. This results in low profit margins for smaller players like WB.\nI see. So, WB would need to find a way to stand out and differentiate themselves from competitors. They could do it by focusing on their brand, improving quality of service, reducing price, reducing waiting times, and possibly expanding to new locations or targeting new demographics. Wha"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "WB holds less than 1% share and wants to grow both presence and profitability. Their hospitals are half the size of public facilities, lack Accident and Emergency (ER) departments, and rely on private-insurance and cash patients. Specifically, NHC is offering bulk contracts to outsource hip-replacement surgeries due to long public waitlists."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Understood. What about the patients? How much power do they have in this market?",
-      "detail": "Understood. What about the patients? How much power do they have in this market?\nPatients have high buyer power because they can easily choose other hospitals, including public ones. So, WB must differentiate itself to attract and retain these patients.\nMakes sense. Are there any substitutes to healthcare services that WB should be concerned about? And in terms of new entrants, are there significant barriers to entry?\nThe entry barriers are medium. Entering the healthcare market requires significant time, investment, and expertise. However, it’s not difficult for international healthcare systems to enter the mark"
+      "kind": "framework",
+      "detail": "That makes this a clear strategic and financial trade-off. I will evaluate the offer across four lenses: German hospital competitive dynamics, operational fit of bulk hip replacements with WB's non-ER footprint, financial unit economics including capacity and private-patient cannibalization, and strategic risks around public-payer bargaining power.",
+      "reasoning": "Combining industry attractiveness with unit economics and cannibalization tests both short-term margin and long-term positioning."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Let's look at the German market structure. Rivalry is intense between NHC's 1,000 public hospitals and competing private chains, compressing margins for small players. Patients hold strong buyer power since they can easily choose public options, while entry barriers are moderate—requiring capital and clinical expertise, though international groups can enter.",
+      "causes": [
+        "High rivalry and strong patient buyer power compress margins for <1% private players",
+        "Absence of ER suits planned elective surgeries like hip replacements if OR utilization has slack"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Considering these factors, I think WB could raise these barriers by building hospitals in attractive locations",
-      "detail": "Considering these factors, I think WB could raise these barriers by building hospitals in attractive locations and offering competitive prices for its services.\nNow coming back to the offer, NHC has decided to contract out operations for hip replacements due to long waiting times. What factors should WB consider when deciding whether to accept these new contracts?\nThat’s an interesting opportunity. Could you clarify the scope of these contracts? Are they bulk contracts, and how would they affect WB’s existing operations?\nYes, they are bulk contracts. NHC would send a significan"
+      "kind": "root-cause",
+      "detail": "Given intense rivalry and low scale, WB cannot win on price alone and must differentiate on wait times, clinical quality, and specialized care. Bulk hip replacements fit WB's non-ER model operationally because elective orthopedics allow predictable scheduling and scale economies in implants and surgical teams. However, the core risk is margin dilution and capacity lock-in: bulk NHC tariffs will likely sit below private-insurance rates, and over-committing beds could displace high-margin cash/private patients or leave WB exposed if NHC later pulls the contract.",
+      "reasoning": "Balancing orthopedic specialization economies against private-payer displacement identifies the exact threshold for accepting the contract.",
+      "causes": [
+        "Lower NHC bulk reimbursement rates vs. private-insurance and cash pricing",
+        "Risk of crowding out high-margin private beds and creating single-buyer dependency"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Well framed. Under what conditions should WB accept the NHC hip-replacement contract, and how should they structure the deal?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend accepting the NHC hip-replacement contract conditionally—only if NHC rates exceed WB's marginal surgical cost plus a target contribution margin, and strictly capped at currently idle operating-room capacity so private patients are never displaced. WB should negotiate multi-year minimum volume guarantees, standardize orthopedic care pathways to drive down per-case costs, and use the predictable public cash flow to fund brand differentiation and selective facility expansion.",
+      "reasoning": "Capping public volume at idle capacity captures fixed-cost leverage while safeguarding WB's premium private positioning."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Well Being Healthcare Strategy before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Conduct a hospital-by-hospital OR and bed-utilization audit and accept NHC hip-replacement volume only up to idle capacity so private-insurance and cash patients are not crowded out.",
+    "P1: Negotiate multi-year volume floors and transparent DRG/bulk reimbursement tariffs with NHC that cover variable implant/staff costs and contribute to fixed hospital overhead.",
+    "P2: Establish specialized orthopedic centers of excellence across select WB hospitals to standardize hip-replacement protocols, lower unit costs, and raise quality differentiation."
   ],
   "metricsAndGuardrails": {
-    "northStar": "Primary Policy / Operational Objective Metric (McKinsey & Company)",
+    "northStar": "Primary Policy / Operational Objective Metric (Healthcare Platform)",
     "leading": [
       "Target cohort participation / throughput",
       "Bottleneck conversion %"
@@ -7482,11 +8947,11 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For McKinsey & Company’s Well Being Healthcare Strategy case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Well Being Healthcare Strategy before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (McKinsey & Company) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "Well Being should conditionally accept NHC's bulk hip-replacement contract because elective orthopedics align well with WB's non-ER hospital model and can absorb fixed overhead in a margin-compressed market. However, WB must cap NHC volume strictly at idle capacity, secure multi-year minimum volume guarantees above marginal cost, and protect private-insurance bed availability to avoid margin dilution.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
-      "question": "How would your recommendation change if McKinsey & Company had half the timeline or budget?",
+      "question": "How would your recommendation change if Healthcare Platform had half the timeline or budget?",
       "hint": "Cut P1/P2 initiatives and execute only the fastest high-impact P0 lever via a lean pilot."
     }
   ],
@@ -7546,17 +9011,27 @@ window.CM_DATA.cases.push(
     "Revenue Decline",
     "NPS"
   ],
-  "prompt": "Diagnosing Revenue Decline for a Leading Quick Service Restaurant (QSR) Chain The business is a large QSR chain with a nationwide footprint and a fairly standard fast-food menu?",
+  "prompt": "Our client is a leading Quick Service Restaurant (QSR) chain with a nationwide footprint and a standard fast-food menu. Over the last quarter, the business experienced a roughly 15% decline in revenue. How would you diagnose the root cause of this drop and turn performance around?",
   "clarifyingQuestions": [
     {
-      "q": "How steep is the decline, and is it across all stores or specific regions?",
-      "a": "Revenue dropped ~15% last quarter broad-based across markets, with stable prices and flat competitor activity.",
-      "why": "Points to an internal traffic/customer-experience drop rather than local price wars."
+      "q": "Is the 15% revenue drop concentrated in specific cities or store formats, or is it broad-based?",
+      "a": "The decline is broad-based across markets and stores nationwide, with no major changes in menu pricing or competitor activity.",
+      "why": "Rules out localized macroeconomic shocks or price wars, pointing toward a system-wide internal change."
+    },
+    {
+      "q": "Which component of store revenue fell—customer transaction volume or average spend per visit?",
+      "a": "Monthly customer transactions per store dropped by ~12%, while average ticket size stayed relatively stable.",
+      "why": "Narrows the investigation to footfall and repeat-visit frequency rather than upselling or menu price elasticity."
+    },
+    {
+      "q": "Has the brand tracked customer feedback or Net Promoter Score (NPS) during this quarter?",
+      "a": "Yes, NPS dipped noticeably, with multiple customers citing frustration over recent changes to the loyalty program.",
+      "why": "Provides a direct behavioral link between repeat traffic loss and loyalty-program friction."
     }
   ],
   "frameworkUsed": "Revenue Tree (Customers × Average Spend) → Internal Loyalty/NPS & Store Operations Audit",
   "coreEquation": "Store Revenue = Footfall/Transactions × Average Ticket Size",
-  "strategyOverview": "Break Revenue = Number of Customers × Average Spend. Since prices are flat and customer transactions fell ~12% alongside a dip in NPS, investigate internal store/loyalty changes rather than macro shocks. Inspect loyalty program changes, queue wait times, order accuracy, and menu freshness.",
+  "strategyOverview": "Break QSR Chain revenue into Transactions × Average Spend. Since pricing and competitor activity are stable while monthly transactions fell ~12% alongside an NPS dip, audit internal customer retention levers—pinpointing an uncommunicated loyalty-program devaluation—and deploy win-back credits, omnichannel alerts, and A/B pilot guardrails.",
   "tree": {
     "label": "Fast Food QSR Chain Revenue Decline — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -7575,41 +9050,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick Service Restaurant (QSR) Chain The business is",
-      "detail": "FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick Service Restaurant (QSR) Chain The business is a large QSR chain with a nationwide footprint and a fairly standard fast-food menu?\nBefore we dive in, I’d like to clarify a few points:\n1 . How much has revenue declined, and over what time frame? 2 . Is the drop consistent across locations or concentrated in specific regions? 3 . Have there been any changes in product offerings, pricing, or competitor activity during this period?\n1 . Revenue has dropped ~15% in the last quarter."
+      "kind": "prompt",
+      "detail": "Our client is a leading Quick Service Restaurant (QSR) chain with a nationwide footprint and a standard fast-food menu. Over the last quarter, the business experienced a roughly 15% decline in revenue. How would you diagnose the root cause of this drop and turn performance around?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "2 . The decline is broad-based across most markets and stores. 3 . No major changes in offerings or pricing; c",
-      "detail": "2 . The decline is broad-based across most markets and stores. 3 . No major changes in offerings or pricing; competitor activity is mostly stable.\nGreat. I’d like to break the problem down using a simple formula:\nRevenue = Number of Customers × Average Spend per Customer.\nSounds good, what will be the topics you will focus on?"
+      "kind": "question",
+      "detail": "Before building my issue tree, I'd like to confirm three things: is this 15% drop localized or nationwide, have menu prices or offerings changed, and has there been any aggressive competitor launch this quarter?",
+      "reasoning": "Isolating geography, pricing, and competitive shifts determines whether the cause is external market pressure or an internal policy change."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "I’ll explore key drivers which are as follows and divided into 5 parts :",
-      "detail": "I’ll explore key drivers which are as follows and divided into 5 parts :\n1.Customer Experience 2.Loyalty 3.Marketing effectiveness 4.Operational issues 5.External factors Does that sound good?\n1. Customer Traffic – Has footfall or transaction count dropped?\n2. Spend – Are customers spending less per visit?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The 15% decline is broad-based across almost all markets and stores nationwide. Menu offerings and prices haven't changed, and competitor activity has been largely stable."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Yes, customer traffic has gone down significantly, about 12% fewer transactions per store per month compared t",
-      "detail": "Yes, customer traffic has gone down significantly, about 12% fewer transactions per store per month compared to last quarter.\nUnderstood. Has the brand run any customer feedback surveys or NPS tracking recently? (had a brief discussion about what NPS is and how it is relevant here; interviewer was impressed by the mention of it) Yes, and interestingly, NPS has dipped slightly. Several customers mentioned frustration with the loyalty program.\nThat’s worth exploring. Can you tell me more about the loyalty program? Has there been a recent change?\n100 33 FAST FOOD CHAIN Diagnosing Revenue Decline for a Leading Quick"
+      "kind": "framework",
+      "detail": "That points strongly to an internal nationwide driver. I'll decompose Revenue into Number of Customer Transactions times Average Spend per Customer, and across those levers examine five areas: store operations and wait times, loyalty and retention programs, customer experience and NPS, marketing effectiveness, and any macro shifts. Let's check first whether transactions or ticket size drove the 15% drop.",
+      "reasoning": "Splitting transactions from average spend immediately narrows whether customers are visiting less often or ordering smaller baskets."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Average spend held steady, but monthly transactions per store dropped about 12%. At the same time, our NPS tracking showed a noticeable dip, with several customers complaining about the loyalty program—specifically that old points were voided, monthly redemptions were capped, and new points now expire after 30 days.",
+      "causes": [
+        "Major loyalty devaluation: voided legacy points, monthly redemption caps, and 30-day expiry",
+        "Email-only rollout meant customers only discovered lost points at checkout"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Old points were voided, Customers can redeem only a limited number of points per month, And points expire afte",
-      "detail": "Old points were voided, Customers can redeem only a limited number of points per month, And points expire after 30 days.\nI see. That sounds like a major devaluation of the rewards system. Has the company communicated this change to customers clearly?\nCommunication was sent, but mostly via email but many customers didn’t notice or fully understand the implications until they tried to redeem points (had pointed out how the use of a singular medium is not as effective and had recommended using app notifications in place of emails).\nBased on what I’ve heard so far, my hypothesis is that the change in the loyalty prog"
+      "kind": "root-cause",
+      "detail": "That explains the nationwide 12% traffic loss. Voiding accrued points, capping redemptions, and imposing a 30-day expiry sharply reduced the perceived value of repeat visits, while relying solely on email communication meant loyal customers felt ambushed at the register. That checkout friction hurt NPS and broke their habitual visit frequency.",
+      "reasoning": "Connecting the email-only communication gap to checkout surprise explains why even loyal repeat customers churned simultaneously nationwide.",
+      "causes": [
+        "Abrupt loyalty value erosion driving repeat-visit churn",
+        "Single-channel email notice caused point-of-sale trust breakdown"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good diagnosis. How should the QSR chain recover lost traffic quickly and prevent this kind of misstep in future policy updates?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend an immediate win-back campaign reinstating a portion of voided points or issuing bonus apology credits, coupled with extending expiry from 30 days to at least 90–180 days. Second, replace email-only notices with multi-channel alerts across push notifications, SMS, and in-store signage well ahead of policy shifts. Finally, mandate controlled regional pilot testing for all future loyalty or pricing changes before a nationwide launch.",
+      "reasoning": "Combining immediate trust restoration with pre-launch A/B testing recovers churned regulars and prevents repeat policy shocks."
     }
   ],
   "recommendations": [
-    "Pilot Testing: Before rolling out major changes, test them with a small segment",
-    "Re-engage custo mers with bonus/reinstated points.",
-    "Communicate changes better (app, in-store, email).",
-    "Pilot test before full rollout."
+    "P0: Launch a targeted win-back campaign for churned loyalty members by reinstating partial voided points or issuing bonus credits, and extend point expiration from 30 days to 90–180 days.",
+    "P1: Mandate omnichannel customer communication—combining app push notifications, SMS, in-store counter signage, and email—at least 30 days before any rewards policy change.",
+    "P2: Institute a gated A/B pilot framework in 5–10% of stores to measure repeat-visit frequency and NPS impact before rolling out future loyalty or menu-economics changes nationwide."
   ],
   "metricsAndGuardrails": {
     "northStar": "Gross & EBITDA Margin Recovery (QSR Chain)",
@@ -7622,7 +9126,7 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For QSR Chain’s Fast Food QSR Chain Revenue Decline case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Pilot Testing: Before rolling out major changes, test them with a small segment We will validate success via Gross & EBITDA Margin Recovery (QSR Chain) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The QSR chain's 15% revenue decline was driven by a ~12% nationwide drop in store transactions after an abrupt loyalty-program overhaul voided legacy points, capped monthly redemptions, and added a 30-day expiry—communicated only via email. To restore repeat footfall and NPS, we should reinstate goodwill bonus points, relax expiry terms, mandate omnichannel pre-launch notices, and pilot future policy shifts in a small store cohort before scaling.",
   "interviewerTrap": "Blaming competitors or slashing menu prices immediately before noticing that customer transactions and NPS both fell due to internal experience/loyalty friction!",
   "variations": [
     {
@@ -7675,7 +9179,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-medical-implants",
   "title": "Suggestion to Enter Medical Implants Sector",
-  "company": "Healthcare / MedTech",
+  "company": "MedTech Co.",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 3,
@@ -7685,22 +9189,27 @@ window.CM_DATA.cases.push(
     "Market Entry",
     "Consulting"
   ],
-  "prompt": "SUGGESTION TO ENTER THE MEDICAL IMPLANTS AND ELECTRONICS SECTOR Enter into the medical equipment sector Your client is in the pharmaceuticals business, and in order to accelerate growth, they want to enter the medicals implants and electronics sectors, such as BP monitors. What would you suggest?",
+  "prompt": "Our client is an established pharmaceuticals company seeking to accelerate growth by entering the medical implants and medical electronics sectors, such as blood-pressure monitors. How would you evaluate this market entry decision and recommend an entry strategy?",
   "clarifyingQuestions": [
     {
-      "q": "Let’s focus on the value chain now. Can you break it down quickly?",
-      "a": "It can be as follows; demand forecasting, R&D, inbound logistics, processing and manufacturing, market testing, outbound logistics, marketing, post-sale services, and reverse logistics. Under processing & manufacturing, we can have manpower",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Who are the client's current customers, and what product portfolio do they sell today?",
+      "a": "Their current products are prescription medicines, and their primary sales channel targets doctors directly.",
+      "why": "Reveals strong commercial synergy with physician-prescribed implants but a capability gap for consumer electronics."
     },
     {
-      "q": "Great, and what would this decision be based upon?",
-      "a": "It’d be based on dilution of control expected, costs involved, revenue potential, brand value & synergies, and lastly considering any regulations that might hinder the process.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the client's overarching objective and decision criterion for entering these new categories?",
+      "a": "The objective is to achieve scalable, sustainable growth while maximizing long-term profitability.",
+      "why": "Ensures entry-mode choices balance margin, capital risk, and speed to scale rather than chasing vanity revenue."
+    },
+    {
+      "q": "Is the client open to partnerships or acquisitions, or must they build manufacturing in-house?",
+      "a": "They are open to evaluating build, joint venture, or acquisition options based on control, cost, brand synergy, and regulation.",
+      "why": "Allows tailoring different entry modes for implants versus electronics based on capability overlap."
     }
   ],
   "frameworkUsed": "Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode",
   "coreEquation": "Go / No-Go = Attractive SOM × Client Right-to-Win × (Breakeven Volume ≤ Achievable Share)",
-  "strategyOverview": "Approach Suggestion to Enter Medical Implants Sector (Healthcare / MedTech) using a Market Entry structure: start by confirming the business objective and scope, decompose the problem cleanly along Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Evaluate MedTech Co.'s expansion from prescription pharmaceuticals into medical implants and electronics across Industry Attractiveness, Financial Viability, Operational Value-Chain Synergies (R&D, manufacturing, regulatory, post-sale service), and Entry Mode—prioritizing implants via existing doctor relationships while partnering for electronics.",
   "tree": {
     "label": "Suggestion to Enter Medical Implants Sector — Market Entry Tree",
     "valueText": "Should & How?",
@@ -7723,40 +9232,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "SUGGESTION TO ENTER THE MEDICAL IMPLANTS AND ELECTRONICS SECTOR Enter into the medical equipment sector Your c",
-      "detail": "SUGGESTION TO ENTER THE MEDICAL IMPLANTS AND ELECTRONICS SECTOR Enter into the medical equipment sector Your client is in the pharmaceuticals business, and in order to accelerate growth, they want to enter the medicals implants and electronics sectors, such as BP monitors. What would you suggest?\nI’d like to know about our client’s current customers, products they have now and wish to enter into soon."
+      "kind": "prompt",
+      "detail": "Our client is an established pharmaceuticals company seeking to accelerate growth by entering the medical implants and medical electronics sectors, such as blood-pressure monitors. How would you evaluate this market entry decision and recommend an entry strategy?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Sure, so customers are doctors only, and the current medicines are prescriptive.",
-      "detail": "Sure, so customers are doctors only, and the current medicines are prescriptive.\nThey plan to launch monitors and implants."
+      "kind": "question",
+      "detail": "Before structuring the case, I'd like to understand the client's current product mix, who their core customers are today, and how leadership defines success—whether top-line scale, profitability, or both.",
+      "reasoning": "Mapping existing customer relationships and profit objectives determines which adjacent medtech category offers real right-to-win."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Got it, lastly, I’d like to know the objective, and the metric basis which we can judge our final decision.",
-      "detail": "Got it, lastly, I’d like to know the objective, and the metric basis which we can judge our final decision.\nGood question, our objective is to attain scalability and sustainability for the new products, with motive being profits."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Today the client sells prescription pharmaceuticals exclusively through doctors. Their goal is to build scalable, sustainable, and profitable new revenue streams across implants and devices like BP monitors."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Understood, so I have all the facts now. The structure which I propose would help us gauge this situation can",
-      "detail": "Understood, so I have all the facts now. The structure which I propose would help us gauge this situation can be broken down as checking for industry, financial viability, operational feasibility, how to enter, and risks associated. Under financial, we can look at ability to enter and attractiveness, while under operational, we can look at value chain setup, barriers to entry and diversification possibilities.\nLet’s focus on the value chain now. Can you break it down quickly?"
+      "kind": "framework",
+      "detail": "I will structure this evaluation across four pillars: market attractiveness and regulatory barriers, financial viability and breakeven timeline, operational feasibility across the value chain, and optimal entry mode weighing control, cost, and brand synergies. Notice right away that medical implants and consumer electronics like BP monitors have very different buyers and capabilities.",
+      "reasoning": "Separating implants from consumer medical electronics prevents applying a single flawed go-to-market model to two distinct industries."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good catch. Let's zoom in on operational feasibility—walk me through the value chain for these products and where our pharma capabilities create genuine synergies versus gaps.",
+      "causes": [
+        "Strong B2B doctor-detailing and regulatory compliance synergy for medical implants",
+        "Major capability gaps in hardware R&D, retail/OTC distribution, and device after-sales servicing"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "It can be as follows; demand forecasting, R&D, inbound logistics, processing and manufacturing, market testing",
-      "detail": "It can be as follows; demand forecasting, R&D, inbound logistics, processing and manufacturing, market testing, outbound logistics, marketing, post-sale services, and reverse logistics. Under processing & manufacturing, we can have manpower, plant + property + equipment, and lastly utilities. Overall, under the value chain, we should look for synergies, in terms of costs’ reduction, attaining economies of scale, and technological synergies.\nGreat, and what would this decision be based upon?"
+      "kind": "hypothesis",
+      "detail": "Across the value chain—demand forecasting, R&D, inbound logistics, manufacturing and utilities, clinical testing, outbound distribution, marketing, and post-sale or reverse logistics—a pharma player has strong synergies in clinical governance and doctor-facing marketing, which transfer directly to medical implants. Conversely, medical electronics like BP monitors require hardware engineering, high-volume electronics assembly, pharmacy/e-commerce retail distribution, and warranty repair networks where we have zero economies of scale.",
+      "reasoning": "Auditing every value-chain stage exposes why implants leverage existing commercial moats while electronics require external partners.",
+      "causes": [
+        "Pharma doctor-channel access lowers customer acquisition cost for implants",
+        "Lack of hardware manufacturing and reverse-logistics servicing increases risk in electronics"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Given those synergies and gaps, what criteria should finalize the entry mode, and how would you sequence the launch?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "We should evaluate entry options on five criteria: control dilution, upfront capital cost, revenue potential, brand synergy, and regulatory speed. I recommend entering medical implants first—via a joint venture or targeted acquisition of a certified manufacturer—so we immediately monetize our doctor relationships without multi-year R&D delays. For BP monitors and medical electronics, either defer entry or use an asset-light white-label OEM partnership sold through pharmacy chains rather than building greenfield plants.",
+      "reasoning": "Sequencing implants first via JV/M&A and keeping electronics asset-light maximizes NPV while protecting working capital."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Suggestion to Enter Medical Implants Sector before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Prioritize entering medical implants first by forming a JV or acquiring a niche certified implant maker, leveraging the existing prescription-pharma doctor sales force for rapid adoption.",
+    "P1: Avoid greenfield hardware manufacturing for BP monitors; instead test medical electronics via an asset-light OEM/white-label licensing model distributed through pharmacy and clinic networks.",
+    "P2: Build a dedicated medtech regulatory, clinical-testing, and post-sale/reverse-logistics team before scaling SKUs to protect brand trust and prevent working-capital lockup."
   ],
   "metricsAndGuardrails": {
     "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Healthcare / MedTech)",
@@ -7769,7 +9308,7 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For Healthcare / MedTech’s Suggestion to Enter Medical Implants Sector case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Suggestion to Enter Medical Implants Sector before secondary optimizations. We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (Healthcare / MedTech) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "Our pharmaceutical client should pursue a phased, capability-led entry: enter medical implants first via a JV or tuck-in acquisition to leverage existing physician relationships and clinical credibility, while keeping medical electronics like BP monitors asset-light through OEM partnerships rather than building hardware plants. Final go/no-go gates should balance control dilution, regulatory speed, and capex payback.",
   "interviewerTrap": "Saying 'YES enter!' purely because TAM is huge—forgetting competition, regulatory hurdles, breakeven math, and Build vs Buy vs Partner!",
   "variations": [
     {
@@ -7832,27 +9371,27 @@ window.CM_DATA.cases.push(
     "Pricing",
     "Consulting"
   ],
-  "prompt": "Pricing a newly launched 1-Hour Delhi–New York Business Aircraft Fleet Objective of the client and the target customer segments that they are looking at?",
+  "prompt": "Our client is an airline company launching a revolutionary business aircraft fleet capable of flying from Delhi to New York in 1 hour. Their primary objective is profit maximization. How would you identify the right target segment and price this new offering?",
   "clarifyingQuestions": [
     {
-      "q": "Objective is profit maximisation and as for customers, why don’t you tell me a few segments which the client should look at?",
-      "a": "The possible customers that I can think of are Business CXOs, occupations requiring travel such as consulting, fashion, journalism etc, government embassies and officials and in general the High-income group.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are there any competing 1-hour ultra-supersonic routes between Delhi and New York today?",
+      "a": "No, this is a completely new category with no direct 1-hour competitor, though traditional ~15-hour business-class flights exist as substitutes.",
+      "why": "Eliminates direct competitor-based pricing and shifts the ceiling anchor to value-based time savings over business class."
     },
     {
-      "q": "For pricing, we can take three approaches: cost based, value based and competitor based. Since it is a new offering, I don’t think competitor-based pricing would work. Which other approach would you want me to go with fi",
-      "a": "Let’s start value based.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which target customer segments should we prioritize for initial pricing?",
+      "a": "Key segments include corporate CXOs, management consultants, fashion and media professionals, government officials, and ultra-high-net-worth individuals—let's focus specifically on management consultants.",
+      "why": "Narrows the willingness-to-pay calculation to a quantifiable corporate travel use case."
     },
     {
-      "q": "H owever usually flight expense in consulting is not borne at an individual level rather at the company level. Knowing this, would you like to change something in your approach?",
-      "a": "Got it, since it is a company expense, I would like to consider a consultant’s billable hours and charge per hour for the company instead of their salary as a measure of savings. Additionally, the number of consultants that are sent for tra",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Who pays for a management consultant's airfare, and what are the baseline economics?",
+      "a": "The consulting firm—not the individual—pays for the ticket. Assume a project sends 2 consultants leaving Monday and returning Friday, with an hourly billing contribution of INR 1,000 per consultant.",
+      "why": "Anchors WTP on firm billable hours recovered rather than personal salary."
     }
   ],
   "frameworkUsed": "Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test",
   "coreEquation": "Optimal Price ∈ [Unit Cost Floor, Perceived Value WTP Ceiling] Tuned to Elasticity",
-  "strategyOverview": "Approach Pricing a 1-Hour Delhi–NY Business Aircraft Fleet (Airline Company) using a Pricing structure: start by confirming the business objective and scope, decompose the problem cleanly along Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Price Airline Company's 1-hour Delhi–New York fleet by ruling out direct competitor pricing, setting a cost-plus floor, and sizing a value-based ceiling for corporate management consultants using firm-level billable hours saved across round-trip travel plus avoided commercial business-class fares.",
   "tree": {
     "label": "Pricing a 1-Hour Delhi–NY Business Aircraft Fleet — 3Cs Pricing Tree",
     "valueText": "Floor · Anchor · Ceiling",
@@ -7874,40 +9413,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "AIRLINE COMPANY Pricing a newly launched 1-Hour Delhi–New York Business Aircraft Fleet Objective of the client",
-      "detail": "AIRLINE COMPANY Pricing a newly launched 1-Hour Delhi–New York Business Aircraft Fleet Objective of the client and the target customer segments that they are looking at?\nObjective is profit maximisation and as for customers, why don’t you tell me a few segments which the client should look at?"
+      "kind": "prompt",
+      "detail": "Our client is an airline company launching a revolutionary business aircraft fleet capable of flying from Delhi to New York in 1 hour. Their primary objective is profit maximization. How would you identify the right target segment and price this new offering?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The possible customers that I can think of are Business CXOs, occupations requiring travel such as consulting,",
-      "detail": "The possible customers that I can think of are Business CXOs, occupations requiring travel such as consulting, fashion, journalism etc, government embassies and officials and in general the High-income group.\nSounds good. Let us assume management consultants to be the only customers."
+      "kind": "question",
+      "detail": "To confirm our objective and market context: is the airline strictly maximizing profit, and do any comparable ultra-fast transcontinental flights exist today? On customer segments, high-value time-sensitive travelers like corporate CXOs, management consultants, diplomats, media/fashion executives, and UHNWIs stand out—is there a primary segment you want us to focus on?",
+      "reasoning": "Identifying the highest time-value segment establishes the true economic ceiling for value-based pricing."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "For pricing, we can take three approaches: cost based, value based and competitor based. Since it is a new off",
-      "detail": "For pricing, we can take three approaches: cost based, value based and competitor based. Since it is a new offering, I don’t think competitor-based pricing would work. Which other approach would you want me to go with first?\nLet’s start value based."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes, profit maximization is the goal, and there is no direct 1-hour competitor. Let's focus on management consultants as our core customer segment."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "I would like to take time as a measure of value here since that is the main USP of this fleet. We can take a c",
-      "detail": "I would like to take time as a measure of value here since that is the main USP of this fleet. We can take a consultant’s average salary at an hourly basis to see how much income saving equals the time saved in travel and that would give us the upper limit.\nH owever usually flight expense in consulting is not borne at an individual level rather at the company level. Knowing this, would you like to change something in your approach?"
+      "kind": "framework",
+      "detail": "We have three classic pricing lenses: cost-based, competitor-based, and value-based. Because this is a category-creating 1-hour product, direct competitor pricing won't capture our differentiation—though commercial business class is our reference substitute. I recommend starting with value-based pricing anchored on time saved, then cross-checking against our per-seat operating cost floor to ensure healthy margins.",
+      "reasoning": "Pairing a value-based WTP ceiling with a unit-cost floor defines the viable pricing corridor for a first-of-its-kind service."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Let's go with value-based pricing. Initially, you might look at a consultant's hourly salary to value the time saved—however, flight expenses in consulting are borne by the firm, not the individual. How does that change your valuation, and what price ceiling do you get if a 2-consultant team flies out Monday and back Friday at an hourly contribution of INR 1,000 per consultant?",
+      "causes": [
+        "Corporate buyer (firm) values recovered client-billable hours rather than personal salary",
+        "14+ hours saved per leg unlocks two extra billable workdays per round-trip"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Got it, since it is a company expense, I would like to consider a consultant’s billable hours and charge per h",
-      "detail": "Got it, since it is a company expense, I would like to consider a consultant’s billable hours and charge per hour for the company instead of their salary as a measure of savings. Additionally, the number of consultants that are sent for travel purposes in a project will also be factored in.\nCorrect. So let us assume that a project has 2 consultants. They leave on Monday and travel back on Friday. The hourly contribution is INR 1000 per consultant."
+      "kind": "root-cause",
+      "detail": "Because the firm pays, willingness-to-pay is driven by incremental billable revenue plus avoided commercial airfare and jet-lag productivity loss. A standard Delhi–New York flight takes roughly 15 hours, so a 1-hour flight saves 14 hours each way—28 hours round-trip per consultant, or 56 hours across the 2-consultant team. At INR 1,000 per hour, that is INR 56,000 in recovered billing contribution (INR 28,000 per consultant round-trip) on top of the baseline business-class ticket price they would already pay.",
+      "reasoning": "Quantifying both recovered billable hours and avoided substitute airfare captures the full economic surplus delivered to the corporate buyer.",
+      "causes": [
+        "Time-saving USP equals 28 billable hours recovered per consultant per round-trip",
+        "Corporate expense structure raises price elasticity ceiling above individual WTP"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Great calculation. Beyond pure ticket price, how should the airline structure tiers and verify that this value-based price actually clears operating costs?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "The airline should price tickets inside the corridor between per-seat operating cost (fuel, depreciation, crew, airport slots) and the economic ceiling—commercial business-class fare plus the INR 28,000 round-trip productivity premium (or higher for CXO/billing tiers). To maximize profit across heterogeneous segments, offer B2B corporate block subscriptions for consulting firms and flexible last-minute full-fare tiers for diplomats and UHNWIs, while tracking load factor and net contribution margin per flight.",
+      "reasoning": "Tiered B2B subscriptions plus dynamic spot pricing capture consumer surplus across segments while guaranteeing capacity utilization."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Pricing a 1-Hour Delhi–NY Business Aircraft Fleet before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Anchor pricing using a value-based premium over commercial business class—quantified via firm-level billable hours saved (e.g., 28 round-trip hours × hourly contribution)—verified above per-seat operating cost.",
+    "P1: Launch annual B2B corporate flight-pass contracts for consulting firms and investment banks to lock in baseline Monday/Friday load factors.",
+    "P2: Introduce dynamic surge pricing for last-minute UHNW and diplomatic bookings while monitoring seat load factor and price-sensitivity churn."
   ],
   "metricsAndGuardrails": {
     "northStar": "Net Contribution Margin & Paid ARPU Growth (Airline Company)",
@@ -7920,7 +9489,7 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For Airline Company’s Pricing a 1-Hour Delhi–NY Business Aircraft Fleet case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Pricing a 1-Hour Delhi–NY Business Aircraft Fleet before secondary optimizations. We will validate success via Net Contribution Margin & Paid ARPU Growth (Airline Company) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "For Airline Company's 1-hour Delhi–New York fleet, competitor-based pricing is inadequate because the time-saving USP creates a new category. By anchoring on corporate-borne billable value—28 round-trip hours saved per consultant on top of baseline business-class fares—and verifying against per-seat operating cost, the airline can maximize margins through B2B corporate block passes and dynamic spot tiers.",
   "interviewerTrap": "Using only Cost-Plus markup and ignoring Value-Based WTP, elasticity, cannibalization, or two-sided marketplace effects!",
   "variations": [
     {
@@ -7983,27 +9552,27 @@ window.CM_DATA.cases.push(
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Enhancing Road Logistics for Industrial Transport in India I would like to understand what exactly do we mean by logistical efficiency?",
+  "prompt": "The Ministry of Road Transport and Highways (MoRTH) wants to improve road logistical efficiency for industrial transport across India. How would you diagnose the bottlenecks in road efficiency and estimate intra-city commercial vehicle demand?",
   "clarifyingQuestions": [
     {
-      "q": "Whe n y o u wan t to g o some whe r e , wh a t wi ll e f fic i e ncy b e f o r y o u ?",
-      "a": "Okay, so it would be the travel time then. I would also like to understand if we want to improve it in a specific region and why are we suddenly looking at the efficiency- has something changed?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How is logistical efficiency defined here—cost per ton-km, safety, or travel time?",
+      "a": "Primarily travel time—getting industrial goods from point A to point B faster.",
+      "why": "Focuses the diagnostic tree on speed and congestion friction rather than toll pricing or fuel taxes."
     },
     {
-      "q": "Okay, so it would be the travel time then. I would also like to understand if we want to improve it in a specific region and why are we suddenly looking at the efficiency- has something changed?",
-      "a": "We are looking at improving for overall country and for the second question- I can give you lots of reasons but that is not relevant to the case.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the Ministry focusing on a specific freight corridor or nationwide across India?",
+      "a": "We are looking to improve road efficiency nationwide across the country.",
+      "why": "Requires a systemic framework applicable across highways and urban industrial hubs rather than one local project."
     },
     {
-      "q": "Sure! Under the same, I would like to consider factors that would affect the speed of the vehicles such as width and quality of road, and presence of potholes and speed brakers. Is there something that I am missing out h",
-      "a": "N o , i t s ou nd s fin e . Now m ajo r l y the prob le m with r oad s i sn’t s u pp ly but est i mati ng t h e c orrec t demand. H o w wou l d you l ik e t o e s t imate the nu m ber of in t ra-c i ty v e hic le d e mand ?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "When estimating intra-city vehicle demand, should we include residential passenger vehicles or only commercial traffic?",
+      "a": "Exclude residential and passenger travel segments; focus strictly on commercial industrial supply vehicles.",
+      "why": "Scopes the demand guesstimate specifically to freight trucks, vans, and industrial supply fleets."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Improving Highway Logistical Efficiency (MoRTH) (Ministry of Road Transport) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Diagnose industrial road travel-time bottlenecks for Ministry of Road Transport across five pillars (Main Road Infra, Peripheral Infra, Traffic Regulation, Legal/Speed Setup, and Vehicle Fleet), then build a bottom-up guesstimate for intra-city commercial industrial supply vehicle demand to solve capacity planning.",
   "tree": {
     "label": "Improving Highway Logistical Efficiency (MoRTH) — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -8025,40 +9594,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "MINISTRY OF ROAD TRANSPORT AND HIGHWAYS Enhancing Road Logistics for Industrial Transport in India I would lik",
-      "detail": "MINISTRY OF ROAD TRANSPORT AND HIGHWAYS Enhancing Road Logistics for Industrial Transport in India I would like to understand what exactly do we mean by logistical efficiency?\nWhe n y o u wan t to g o some whe r e , wh a t wi ll e f fic i e ncy b e f o r y o u ?"
+      "kind": "prompt",
+      "detail": "The Ministry of Road Transport and Highways (MoRTH) wants to improve road logistical efficiency for industrial transport across India. How would you diagnose the bottlenecks in road efficiency and estimate intra-city commercial vehicle demand?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Okay, so it would be the travel time then. I would also like to understand if we want to improve it in a speci",
-      "detail": "Okay, so it would be the travel time then. I would also like to understand if we want to improve it in a specific region and why are we suddenly looking at the efficiency- has something changed?\nWe are looking at improving for overall country and for the second question- I can give you lots of reasons but that is not relevant to the case."
+      "kind": "question",
+      "detail": "To align on scope, when we say logistical efficiency, are we measuring end-to-end travel time, cost per kilometer, or cargo safety? Also, is this initiative focused on a single state corridor or pan-India?",
+      "reasoning": "Pinning down travel time as the primary KPI and pan-India as the scope sets the right diagnostic variables."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "I would like to focus at five things for the same. They would be the main road infrastructure – material, pres",
-      "detail": "I would like to focus at five things for the same. They would be the main road infrastructure – material, presence of potholes etc., peripheral infrastructure such as traffic lights, assistance from traffic regulators, legal setup such as speed regulations and automobile setup such as number of vehicles, their type, models of vehicles and their maintenance.\nLet us focus on main road infrastructure."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Efficiency here means minimizing travel time, and we are looking at improving it across India as a whole. Walk me through the factors you would examine."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Sure! Under the same, I would like to consider factors that would affect the speed of the vehicles such as wid",
-      "detail": "Sure! Under the same, I would like to consider factors that would affect the speed of the vehicles such as width and quality of road, and presence of potholes and speed brakers. Is there something that I am missing out here?\nN o , i t s ou nd s fin e . Now m ajo r l y the prob le m with r oad s i sn’t s u pp ly but est i mati ng t h e c orrec t demand. H o w wou l d you l ik e t o e s t imate the nu m ber of in t ra-c i ty v e hic le d e mand ?"
+      "kind": "framework",
+      "detail": "I would diagnose road travel-time bottlenecks across five pillars: first, main road infrastructure like surface material, lane width, potholes, and speed breakers; second, peripheral infrastructure such as traffic signals and toll bottlenecks; third, active assistance from traffic regulators; fourth, the legal setup including speed and load regulations; and fifth, the automobile ecosystem covering vehicle counts, types, and maintenance.",
+      "reasoning": "Separating physical road geometry from signaling, enforcement, and fleet health covers every source of transit delay."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Focusing on main road infrastructure—width, road quality, potholes, and speed breakers—is sound. However, our biggest issue isn't just road supply; it's failing to estimate true demand. How would you estimate intra-city commercial vehicle demand for industrial supply, ignoring residential and passenger travel?",
+      "causes": [
+        "Physical road delays stem from narrow widths, potholes, and unstandardized speed breakers",
+        "Capacity planning fails because agencies lack accurate intra-city industrial freight demand models"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Sure! Since the percentage of residential vehicles in intra-city travel is quite less, I would like to estimat",
-      "detail": "Sure! Since the percentage of residential vehicles in intra-city travel is quite less, I would like to estimate the demand majorly for commercial vehicles both for travel purpose as well as industrial supply purpose.\nIgnore residential and travel segments."
+      "kind": "hypothesis",
+      "detail": "To estimate intra-city industrial supply vehicle demand, I would use a bottom-up supply-chain approach: segment the city's commercial consumption and manufacturing hubs—factories, warehouses, wholesale mandis, and retail clusters. For each hub tier, estimate average daily tonnage moved, divide by average payload per commercial vehicle and trips completed per day, and apply a peak-hour concurrency factor to find required road capacity.",
+      "reasoning": "Deriving vehicle counts from daily freight tonnage and truck turnaround cycles avoids under-sizing peak industrial corridors.",
+      "causes": [
+        "Mismatch between peak commercial freight trips and unbuffered road lane capacity",
+        "Lack of segmented freight-tonnage forecasting across industrial and wholesale clusters"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That's a clean estimation model. Based on both the infrastructure bottlenecks and that demand framework, what concrete actions should MoRTH prioritize?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "MoRTH should pair targeted physical upgrades with data-driven capacity planning. First, eliminate main-road speed bottlenecks by auditing industrial feeders for potholes, improper speed breakers, and lane pinch points. Second, deploy a standardized intra-city freight demand model using e-way bill and FASTag data to forecast commercial vehicle peaks, and third, enforce time-of-day freight corridors and dedicated bypass lanes so heavy industrial traffic avoids peak passenger congestion.",
+      "reasoning": "Combining physical bottleneck repair with real-time e-way bill demand forecasting attacks both supply quality and congestion timing."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Improving Highway Logistical Efficiency (MoRTH) before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Audit high-density industrial feeder roads nationwide to standardize surface quality, widen pinch-point lanes, and replace unscientific speed breakers that slow freight transit.",
+    "P1: Build a city-level commercial freight demand model anchored on GST e-way bills, warehouse tonnage, and FASTag flows to right-size road capacity investments.",
+    "P2: Pilot dedicated freight time-windows and urban bypass spurs in top industrial cities to separate heavy supply trucks from peak passenger traffic."
   ],
   "metricsAndGuardrails": {
     "northStar": "Primary Policy / Operational Objective Metric (Ministry of Road Transport)",
@@ -8071,7 +9670,7 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For Ministry of Road Transport’s Improving Highway Logistical Efficiency (MoRTH) case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Improving Highway Logistical Efficiency (MoRTH) before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (Ministry of Road Transport) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "Improving industrial road logistics nationwide requires tackling both physical road delays (potholes, narrow widths, speed breakers) and systemic under-estimation of intra-city commercial freight demand. By modeling industrial vehicle volume bottom-up from hub freight tonnage and e-way bill flows—and pairing that forecast with feeder-road upgrades and dedicated freight windows—MoRTH can cut transit times across India.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
@@ -8124,7 +9723,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-nta-cheating",
   "title": "Tackling Cheating in Medical Entrance Exams (UP)",
-  "company": "National Testing Authority",
+  "company": "Testing Authority",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -8134,27 +9733,27 @@ window.CM_DATA.cases.push(
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Tackling Cheating in Medical Entrance Exams in Uttar Pradesh Is the issue localized to UP or present in other states too?",
+  "prompt": "A national testing authority has observed abnormally high rates of cheating in medical entrance examinations across Uttar Pradesh compared to other states. How would you diagnose the root causes enabling this malpractice and design practical interventions to eliminate it?",
   "clarifyingQuestions": [
     {
-      "q": "Got it. So to recap, the key objective is to understand why the cheating rate is abnormally high in UP and suggest practical, implementable solutions, correct?",
-      "a": "Exact l y.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this cheating wave unique to Uttar Pradesh, or is it happening at similar scale across other states?",
+      "a": "Isolated incidents occur in other states, but the severity and frequency are disproportionately concentrated in Uttar Pradesh.",
+      "why": "Indicates local state-level execution or center-governance failures rather than a flaw in the national exam paper itself."
     },
     {
-      "q": "1. Diagnosis – What are the factors enabling cheating? 2. Intervention Design – How can we stop or deter it? For diagnosis, I’ll look at:",
-      "a": "People: Students, Invigilators, School staff.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How are test centers and invigilators currently assigned for these exams in Uttar Pradesh?",
+      "a": "Students and invigilators frequently belong to the same local schools, and teachers have been found actively helping students during the exam.",
+      "why": "Exposes an immediate conflict of interest and local collusion loop."
     },
     {
-      "q": "Do we have any information on how the exam is conducted? (e.g. in CBSE students are required to go to test centers while ICSE students have invigilators from different schools) Studen ts and in vigilat o rs are from th e",
-      "a": "Teachers have been found helping students during the exam.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What surveillance or monitoring infrastructure is currently in place on exam day?",
+      "a": "Most affected test centers lack working CCTV cameras and have no surprise flying-squad inspections.",
+      "why": "Confirms weak detection probability, which lowers the deterrent cost of collusion."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
   "coreEquation": "Target Outcome = ∑ (MECE Stakeholder / Funnel / Operational Drivers) Subject to Constraints",
-  "strategyOverview": "Approach Tackling Cheating in Medical Entrance Exams (UP) (National Testing Authority) using a Unconventional structure: start by confirming the business objective and scope, decompose the problem cleanly along First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization, and end with prioritized P0 actions plus metrics/guardrails.",
+  "strategyOverview": "Diagnose severe medical-exam cheating in Uttar Pradesh for Testing Authority across People, Process, and Infrastructure—uncovering local school-invigilator collusion plus absent CCTV/flying squads—and deploy randomized center-staffing, live surveillance, and strict institutional penalties.",
   "tree": {
     "label": "Tackling Cheating in Medical Entrance Exams (UP) — First-Principles Tree",
     "valueText": "Custom MECE",
@@ -8176,40 +9775,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "NATIONAL TESTING AUTHORITY Tackling Cheating in Medical Entrance Exams in Uttar Pradesh Is the issue localized",
-      "detail": "NATIONAL TESTING AUTHORITY Tackling Cheating in Medical Entrance Exams in Uttar Pradesh Is the issue localized to UP or present in other states too?\nIt is most sev e r e in UP. Other st a tes have inc id e nts, but not on this scale.\nGot it. So to recap, the key objective is to understand why the cheating rate is abnormally high in UP and suggest practical, implementable solutions, correct?\nTo s t r u c t ur e this , I’d lik e t o b r e ak the proble m in to tw o p a rts:"
+      "kind": "prompt",
+      "detail": "A national testing authority has observed abnormally high rates of cheating in medical entrance examinations across Uttar Pradesh compared to other states. How would you diagnose the root causes enabling this malpractice and design practical interventions to eliminate it?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "1. Diagnosis – What are the factors enabling cheating? 2. Intervention Design – How can we stop or deter it? F",
-      "detail": "1. Diagnosis – What are the factors enabling cheating? 2. Intervention Design – How can we stop or deter it? For diagnosis, I’ll look at:\nPeople: Students, Invigilators, School staff.\nProcess: Exam day procedures, ID verification, Supervision.\nInfrastructure: CCTV, invigilation, Surprise checks."
+      "kind": "question",
+      "detail": "Before structuring my diagnosis, is this cheating surge localized to Uttar Pradesh or seen at the same scale nationwide? Confirming that will tell us whether the vulnerability sits in central exam design or state-level center execution.",
+      "reasoning": "Isolating geographic concentration distinguishes central paper leaks from local test-center governance breakdowns."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Yes, let’s move forward.",
-      "detail": "Yes, let’s move forward.\nDo we have any information on how the exam is conducted? (e.g. in CBSE students are required to go to test centers while ICSE students have invigilators from different schools) Studen ts and in vigilat o rs are from th e same local schools .\nTeachers have been found helping students during the exam.\nThere are no CCTV came ras, and no flyi ng squad prese nc e in most test cen ters."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Other states see occasional incidents, but the problem is uniquely severe in Uttar Pradesh. How would you structure your investigation and solution design?"
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "F rom what I see, the core issue seems to be:",
-      "detail": "F rom what I see, the core issue seems to be:\nConflict of interest – since school staff supervise their own students.\nNo surveillance or surprise checks.\nSo I’d conclude that internal collusion combined with weak monitoring infrastructure is the root cause."
+      "kind": "framework",
+      "detail": "I'll split the case into Diagnosis and Intervention Design. For Diagnosis, I'll examine three MECE pillars: People (students, invigilators, and school management), Process (center allocation, ID verification, and exam-day supervision), and Infrastructure (CCTV coverage, jammers, and surprise flying squads). Let's start with how centers and invigilators are currently assigned.",
+      "reasoning": "Auditing People, Process, and Infrastructure isolates both human incentives and physical monitoring gaps."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Looking into local operations, we found that students and invigilators often come from the same local schools, and some teachers have actively helped students during exams. Additionally, most test centers lack CCTV surveillance and receive zero flying-squad inspections.",
+      "causes": [
+        "Conflict of interest: local teachers invigilate their own school's students",
+        "Zero deterrence: no CCTV cameras and no surprise flying squads"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "That makes sense. Let us end the case here.",
-      "detail": "That makes sense. Let us end the case here.\nNATIONAL TESTING AUTHORITY Tackling Cheating in Medical Entrance Exams in Uttar Pradesh Objectives What enables cheating?\nLack of CCTV cameras and Process Gaps Infr astru c tur e Gaps Absence of surprise Teachers have been found Poor exam-day checks procedures Ineffective ID Lack of CCTV verification surveillance Students and invigilators are from same local schools.\nInadequate supervision Weak or compromised during exams invigilation Key Findings Root Cause Internal collusion + Weak monitoring infrastructure."
+      "kind": "root-cause",
+      "detail": "The root cause is a dual failure of internal collusion and blind monitoring infrastructure. Because local staff supervise their own students, schools have both the incentive and opportunity to boost pass rates, while the absence of CCTV, strict ID checks, and surprise inspections eliminates the risk of getting caught.",
+      "reasoning": "Linking aligned local collusion incentives with zero oversight explains why malpractice scaled systematically across UP.",
+      "causes": [
+        "Same-school student and invigilator pairing creates active collusion",
+        "Missing CCTV, weak ID verification, and absent flying squads remove deterrence"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Clear diagnosis. What practical, enforceable interventions would you implement before the next exam cycle?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "We must break local collusion and raise detection certainty simultaneously. First, mandate randomized external center allocation and rotate independent invigilators from outside districts. Second, require live-streamed CCTV in every exam hall paired with randomized flying-squad raids at high-risk centers. Third, enforce biometric ID verification at entry and impose automatic center blacklisting plus criminal liability on complicit staff.",
+      "reasoning": "Removing same-school supervision while adding real-time surveillance and harsh institutional penalties eliminates both motive and opportunity."
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Tackling Cheating in Medical Entrance Exams (UP) before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Eliminate same-school invigilation immediately by randomizing student center assignments and deploying rotated external invigilators from independent institutions.",
+    "P1: Mandate operational CCTV with centralized live monitoring across all exam rooms and deploy surprise district flying squads weighted toward historically anomalous centers.",
+    "P2: Enforce biometric/government-ID check-in at exam gates and introduce automatic multi-year de-affiliation and blacklisting for schools caught facilitating malpractice."
   ],
   "metricsAndGuardrails": {
     "northStar": "Primary Policy / Operational Objective Metric (National Testing Authority)",
@@ -8222,7 +9851,7 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For National Testing Authority’s Tackling Cheating in Medical Entrance Exams (UP) case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Tackling Cheating in Medical Entrance Exams (UP) before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (National Testing Authority) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "Abnormally high medical-exam cheating in Uttar Pradesh is driven by local collusion—where students and invigilators come from the same schools and teachers assist candidates—compounded by missing CCTV and zero flying-squad checks. By breaking same-school supervision via external invigilator rotation, mandating live CCTV and surprise raids, and enforcing biometric IDs with strict center blacklisting, the Testing Authority can rapidly restore exam integrity.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
@@ -8286,22 +9915,27 @@ window.CM_DATA.cases.push(
     "Rural UP",
     "Digital Shift"
   ],
-  "prompt": "Diagnosing the Decline in Bank Visits in Uttar Pradesh Just to clarify a few things before I begin: 1. Is this trend more prevalent in rural or urban areas, or is it statewide? 2. Is the decline specific to one bank or being observed across all banks? 3. Are there any recent changes such as branch consolidation, staff shortages, or tech upgrades? 1. The decline is more pronounced in rural areas, though some urban bra",
+  "prompt": "A leading public sector bank has observed a steady decline in physical branch visits across Uttar Pradesh. How would you diagnose the root causes behind falling branch footfall and assess physical banking accessibility across the state?",
   "clarifyingQuestions": [
     {
-      "q": "What is our primary business objective and timeframe for this decision?",
-      "a": "Optimize long-term value and core KPIs for Public Sector Bank.",
-      "why": "Aligns prioritization and trade-offs with leadership goals."
+      "q": "Is the decline in branch visits uniform across Uttar Pradesh, or more pronounced in rural versus urban areas?",
+      "a": "The decline is steeper in rural areas, though urban branches are also experiencing noticeable drops.",
+      "why": "Signals that rural access barriers and urban digital migration may both be contributing."
     },
     {
-      "q": "Are there specific customer segments, geographies, or constraints we should prioritize?",
-      "a": "Focus on the highest-impact core segment first before expanding.",
-      "why": "Prevents boiling the ocean in a 25-minute case."
+      "q": "Is this trend unique to our client bank or observed across the entire banking sector?",
+      "a": "It is an industry-wide trend across public and private banks in Uttar Pradesh.",
+      "why": "Rules out bank-specific brand damage and points to structural infrastructure or behavioral shifts."
+    },
+    {
+      "q": "Have there been any large-scale branch closures, staff reductions, or core system changes recently?",
+      "a": "No major structural changes have occurred at scale across the branch network.",
+      "why": "Confirms that lower footfall is not simply a mechanical effect of fewer open branches."
     }
   ],
   "frameworkUsed": "Branch Footfall Decline Tree (Access/Infra × Service Quality × Digital Substitution × Incentives)",
   "coreEquation": "Profit = ∑(Units × Price × Margin Mix) − (Fixed Overhead + Variable Value-Chain Costs)",
-  "strategyOverview": "Diagnose declining branch visits in Uttar Pradesh across 4 MECE pillars: Access & Infrastructure (village transport, heat/floods), Service Quality (long queues, outages), Customer Digital Shift (UPI/mobile banking adoption by youth), and Product Awareness (low awareness of newer branch services).",
+  "strategyOverview": "Diagnose falling UP branch footfall for Public Sector Bank across four MECE pillars—Customer Digital Shift, Physical Access & Infrastructure, In-Branch Service Quality, and Product Awareness—paired with an ATM/branch accessibility guesstimate showing heavy urban skew and rural service gaps.",
   "tree": {
     "label": "Diagnosing Decline in Bank Visits in Uttar Pradesh — Profitability Tree",
     "valueText": "Rev vs Cost",
@@ -8320,41 +9954,71 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "PUBLIC SECTOR BANKING Diagnosing the Decline in Bank Visits in Uttar Pradesh Just to clarify a few things befo",
-      "detail": "PUBLIC SECTOR BANKING Diagnosing the Decline in Bank Visits in Uttar Pradesh Just to clarify a few things before I begin: 1. Is this trend more prevalent in rural or urban areas, or is it statewide? 2. Is the decline specific to one bank or being observed across all banks? 3. Are there any recent changes such as branch consolidation, staff shortages, or tech upgrades? 1. The decline is more pronounced in rural areas, though some urban branches are also affected.\n2. This is a general trend, not specic to one bank. 3. No major structural changes have taken place recently, at least not at scale."
+      "kind": "prompt",
+      "detail": "A leading public sector bank has observed a steady decline in physical branch visits across Uttar Pradesh. How would you diagnose the root causes behind falling branch footfall and assess physical banking accessibility across the state?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "I’ll structure my approach in two phases:",
-      "detail": "I’ll structure my approach in two phases:\nFirst, I’ll try to hypothesize possible causes under four broad buckets:"
+      "kind": "question",
+      "detail": "Before structuring my approach, I'd like to clarify three points: is this decline steeper in rural or urban Uttar Pradesh, is it happening across all banks or just ours, and have there been recent branch consolidations or staffing cuts?",
+      "reasoning": "Distinguishing bank-specific operational cuts from statewide rural/urban trends prevents misdiagnosing structural shifts."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Customer-side, Access/Infrastructure, Service-side, and Technology-driven substitution.",
-      "detail": "Customer-side, Access/Infrastructure, Service-side, and Technology-driven substitution.\nThen I’ll do a guestimate to understand how widespread physical access to banking infrastructure (especially ATMs) is in the state."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The decline is steeper in rural areas though urban branches are affected too, it is an industry-wide trend across all banks, and no major branch closures or structural changes have taken place at scale."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Sounds great. Let’s go ahead.",
-      "detail": "Sounds great. Let’s go ahead.\nHeavier concentration in urban areas."
+      "kind": "framework",
+      "detail": "Got it—since this is statewide and sector-wide, I will structure my investigation in two phases. First, I will test four root-cause buckets: Customer-side digital substitution like UPI, Access and Infrastructure barriers, In-branch Service Quality like queues or outages, and Product Awareness. Second, I'll run a guesstimate on physical banking and ATM accessibility across UP to see if rural supply gaps explain the steeper rural drop.",
+      "reasoning": "Pairing a four-pillar behavioral tree with a geographic access guesstimate tests both digital pull and physical push factors."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That two-phase approach makes sense. Walk me through what your accessibility guesstimate reveals about UP, and what that implies for rural versus urban footfall.",
+      "causes": [
+        "Heavy urban concentration of branches and ATMs masks severe rural access deficits",
+        "Rural residents often share one distant ATM across multiple villages"
+      ]
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Many rural villages may still lack ATMs or have shared ones among villages, so real accessibility might be low",
-      "detail": "Many rural villages may still lack ATMs or have shared ones among villages, so real accessibility might be lower than what the raw number suggests.\nSeems like a reasonable estimate. Let’s move on to root causes."
+      "kind": "root-cause",
+      "detail": "Estimating physical access across Uttar Pradesh shows heavy urban concentration: while cities have dense branch and ATM networks, many rural villages lack dedicated ATMs entirely or share one unit across several villages, creating high travel cost and weather friction. Combined with youth adoption of UPI and mobile banking in urban centers, long in-branch wait times, and low awareness of non-cash advisory products, customers avoid branches for both routine cash errands and complex services.",
+      "reasoning": "Showing that rural accessibility is far lower than raw state ATM averages explains why rural footfall dropped even as urban digital adoption surged.",
+      "causes": [
+        "Last-mile rural access friction (shared/distant ATMs, transport, weather)",
+        "UPI and mobile banking substitution for routine urban transactions",
+        "In-branch queues, server downtime, and low awareness of branch advisory products"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Strong synthesis of supply and demand factors. How should the public sector bank respond to re-engage customers and modernize its UP branch footprint?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend a bifurcated strategy for rural and urban UP. In underserved rural clusters, deploy local Business Correspondents and micro-ATMs at village kirana hubs to eliminate travel friction, alongside vernacular awareness camps for credit and insurance. In urban branches, accept that UPI handles routine cash and repurpose branches into high-value advisory centers for MSME loans and wealth products while fixing queue wait times and server uptime.",
+      "reasoning": "Tailoring last-mile rural access while repositioning urban branches toward advisory services aligns physical footprint with modern banking habits."
     }
   ],
   "recommendations": [
-    "Are there any recent changes such as branch consolidation, staff shortages, or",
-    "The decline is more pronounced in rural areas, though some urban branches",
-    "This is a general trend, not specic to one bank.",
-    "No major structural changes have taken place recently, at least not at scale."
+    "P0: Expand rural last-mile access by deploying Business Correspondents (Bank Mitras) and biometric micro-ATMs in multi-village clusters lacking dedicated ATMs.",
+    "P1: Repurpose urban branches from routine cash counters—already substituted by UPI—into specialized advisory hubs for MSME credit, agricultural loans, and insurance.",
+    "P2: Upgrade branch service reliability by reducing server downtime, introducing token-based queue scheduling, and running local-language campaigns on high-value branch services."
   ],
   "metricsAndGuardrails": {
     "northStar": "Gross & EBITDA Margin Recovery (Public Sector Bank)",
@@ -8367,7 +10031,7 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Public Sector Bank’s Diagnosing Decline in Bank Visits in Uttar Pradesh case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Are there any recent changes such as branch consolidation, staff shortages, or We will validate success via Gross & EBITDA Margin Recovery (Public Sector Bank) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Declining branch footfall across Uttar Pradesh reflects two distinct forces: heavy urban concentration of branches/ATMs leaves rural villages with high last-mile access friction, while urban customers increasingly substitute routine visits with UPI amid slow branch queues. The bank should deploy village-level Business Correspondents and micro-ATMs in underserved rural clusters while repositioning urban branches as fast, reliable advisory hubs for loans and financial products.",
   "interviewerTrap": "Assuming declining branch visits automatically mean losing customers—verify whether young customers simply migrated to UPI/mobile apps while remaining active account holders!",
   "variations": [
     {
@@ -8430,22 +10094,22 @@ window.CM_DATA.cases.push(
     "Growth",
     "Consulting"
   ],
-  "prompt": "Diagnose and growth plan for a US based car company facing an issue with growth 'LDJQRVH DQG JURZWK SODQ IRU D 86 EDVHG FDU FRPSDQ\\ IDFLQJ DQ LVVXH ZLWK JURZWK Your client is a US based car company. They are facing an issue with growth.",
+  "prompt": "Your client is a US-based automobile manufacturer facing stagnant revenue growth. Diagnose the underlying cause of the slowdown and recommend a growth strategy.",
   "clarifyingQuestions": [
     {
-      "q": "I would like to ask a few questions about company and market?",
-      "a": "About the Company:- 1 . What part of the value chain do they lie in?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Where does the client sit in the automotive value chain, and what vehicle segments do they offer?",
+      "a": "They are an Original Equipment Manufacturer (OEM) focused primarily on internal combustion engine (ICE) vehicles, with a small recent foray into electric vehicles (EVs).",
+      "why": "Clarifies whether growth constraints stem from manufacturing/product portfolio mix or downstream dealership operations."
     },
     {
-      "q": "About the Company:- 1 . What part of the value chain do they lie in?",
-      "a": "2 . What segment of automobiles do they offer?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How is the client positioned in the market, and are competitors experiencing a similar slowdown?",
+      "a": "The client holds a luxury, high-end positioning. Other automakers are growing, so the slowdown is concentrated on our client.",
+      "why": "Distinguishes a company-specific competitive loss from a broader US macroeconomic or industry-wide downturn."
     },
     {
-      "q": "2 . What segment of automobiles do they offer?",
-      "a": "The company lies in Original Equipment Manufacturers (OEMs) and has ventured into EVs, primarily ICE.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the revenue stagnation driven by lower average selling prices or fewer vehicles sold?",
+      "a": "Average selling prices have held steady, but unit sales volume has declined.",
+      "why": "Isolates whether to investigate pricing erosion versus volume drivers across supply and demand."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
@@ -8472,40 +10136,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "Diagnose and growth plan for a US based car company facing an issue with growth 'LDJQRVH DQG JURZWK SODQ IRU D",
-      "detail": "Diagnose and growth plan for a US based car company facing an issue with growth 'LDJQRVH DQG JURZWK SODQ IRU D 86 EDVHG FDU FRPSDQ\\ IDFLQJ DQ LVVXH ZLWK JURZWK Your client is a US based car company. They are facing an issue with growth.\nI would like to ask a few questions about company and market?\nAbout the Company:- 1 . What part of the value chain do they lie in?\n2 . What segment of automobiles do they offer?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a US-based automobile manufacturer facing stagnant revenue growth. How would you diagnose the problem and build a growth plan?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "The company lies in Original Equipment Manufacturers (OEMs) and has ventured into EVs, primarily ICE.",
-      "detail": "The company lies in Original Equipment Manufacturers (OEMs) and has ventured into EVs, primarily ICE.\nAbout the Market:- 1 . How is our client positioned?\n2 . Who are the other players and how are they performing?\nThe client has a luxury or a high-end positioning."
+      "kind": "question",
+      "detail": "I would like to clarify three things before structuring: where the client sits in the value chain and their segment mix, how they are positioned relative to peers, and whether the decline is in price or unit volume.",
+      "reasoning": "Pinpointing portfolio mix, competitive positioning, and price-versus-volume splits prevents diagnosing an industry trend when the issue is competitive."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Some players do exist, however, only we are facing the problem.",
-      "detail": "Some players do exist, however, only we are facing the problem.\nCan I take some seconds to come up with my initial structure?\nWe know that- Revenue = No. of Cars Sold x Average Price No. of cars sold has declined.\nIs it led by supply or demand?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "They are a luxury OEM primarily selling ICE vehicles with a small EV lineup. Peers are doing fine, and our average price is steady, so unit sales volume has dropped."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "6KUL 5DP &RQVXOWLQJ 5HVHDUFK &HQWUH Demand has fallen.",
-      "detail": "6KUL 5DP &RQVXOWLQJ 5HVHDUFK &HQWUH Demand has fallen.\nI would divide this into company specific issue, or market led issue.\nIt’s a market led issue we believe.\nAlright. I would divide it into - Macroeconomic, Competitor or Complementary."
+      "kind": "framework",
+      "detail": "Since unit volume fell while prices held, I will test supply versus demand first. Assuming supply is intact, I will split demand into internal product/distribution factors and external drivers across macroeconomic conditions, competitors, and complements like charging infrastructure.",
+      "reasoning": "Separating supply constraints from internal and external demand drivers ensures we quickly isolate whether lost volume is operational or competitive."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Supply is healthy, and overall luxury auto demand is growing. Look closer at the external competitive dynamics—what might be eroding our unit share?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "What would you look for under competitors?",
-      "detail": "What would you look for under competitors?\nI would first want to understand if there is any new entrant given the EV developments in the US?\nYes - you have rightly identified - Tesla has expanded a lot recently, capturing the entirety of the premium EV segment. Suggest a growth plan.\nAlright. So we have identified that our client was facing the issue because of Tesla expanding presence and premium EV dominance. In terms of Growth - are we looking at Organic or Inorganic growth?"
+      "kind": "root-cause",
+      "detail": "Given the rapid shift toward electrification in the US luxury tier, a specialized EV entrant such as Tesla has likely captured high-income buyers who previously bought our luxury ICE models, leaving our small EV lineup uncompetitive.",
+      "reasoning": "Connecting our ICE-heavy portfolio with growing industry demand points directly to EV substitution in the luxury segment.",
+      "causes": [
+        "Heavy dependence on legacy ICE models while luxury demand shifted to EVs",
+        "Rapid expansion and brand dominance of Tesla in the US premium EV segment",
+        "Underdeveloped proprietary EV lineup and charging ecosystem parity"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Spot on—Tesla has captured much of the premium EV segment. What growth plan should the client pursue to recover volume, comparing organic and inorganic options?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Because luxury demand has structurally shifted to EVs, the client should execute a dual-track plan: accelerate premium EV platform launches organically by retooling existing plants and bundling home-charging partnerships, while pursuing selective M&A or joint ventures with battery and EV-software players to close the time-to-market gap.",
+      "causes": [
+        "Closing the EV time-to-market gap via battery/software JVs or tuck-in M&A",
+        "Converting loyal luxury ICE customers via hybrid/EV trade-in incentives and charging access"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Diagnose & Grow a US Automobile Company before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Accelerate launch of 2–3 flagship luxury EV models by retooling high-margin ICE assembly lines and securing battery supply partnerships.",
+    "P1: Pursue a strategic JV or tuck-in acquisition in EV powertrain software and partner with nationwide fast-charging networks to eliminate buyer range anxiety.",
+    "P2: Launch a targeted ICE-to-EV loyalty trade-in program with bundled home charger installation for existing luxury vehicle owners."
   ],
   "metricsAndGuardrails": {
     "northStar": "Incremental ARR / Net Revenue Growth (US Auto OEM)",
@@ -8518,7 +10212,7 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For US Auto OEM’s Diagnose & Grow a US Automobile Company case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Diagnose & Grow a US Automobile Company before secondary optimizations. We will validate success via Incremental ARR / Net Revenue Growth (US Auto OEM) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "Our US Auto OEM client's volume decline stems from luxury buyer migration toward premium EVs—led by Tesla's rapid expansion—while the client remains over-indexed on ICE models. I recommend accelerating flagship luxury EV launches, closing technology and charging gaps via strategic JVs or targeted M&A, and deploying loyalty trade-in programs to retain existing luxury customers, tracked via EV unit share and gross margin per vehicle.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
@@ -8581,22 +10275,22 @@ window.CM_DATA.cases.push(
     "Market Entry",
     "Consulting"
   ],
-  "prompt": "Financial Attractiveness for Star Sports launching a new activity Your client is Star Sports - bidding for women’s IPL happening for the first time.",
+  "prompt": "Your client, Star Sports, is considering bidding for the broadcasting rights of the inaugural Women's IPL (W-IPL). Assess the financial attractiveness of this opportunity and determine how they should calculate their maximum bid price.",
   "clarifyingQuestions": [
     {
-      "q": "Could you please tell me about their synergies? Additionally, do they have any other c onstraints?",
-      "a": "As for synergies, they have other cricket tournaments, and no, there are no other constraints.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Does Star Sports have existing cricket broadcasting synergies or any capital and regulatory constraints?",
+      "a": "They already broadcast major cricket tournaments with strong production and cross-selling synergies, and there are no capital or regulatory constraints.",
+      "why": "Establishes whether fixed broadcast infrastructure can be leveraged and whether cross-property bundling lifts unit economics."
     },
     {
-      "q": "Do we have any other bidders and what is the t eam structure like?",
-      "a": "Let’s assume that there are no other bidders. For the t eam structure, there are a total of 6 teams, both Indian and foreign players.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the tournament format, duration, and competitive bidding environment?",
+      "a": "There are 6 teams featuring Indian and international players over a 45-day broadcast window. Assume no competing bidders for our baseline valuation.",
+      "why": "Defines the inventory volume of matches/streams and confirms we should anchor on a standalone ROI-based ceiling rather than a game-theoretic bid."
     },
     {
-      "q": "What are these Operational Costs?",
-      "a": "Platform Development, TRP costs, CAC.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What target return on investment (ROI) does Star Sports require on this rights acquisition?",
+      "a": "Management requires a minimum 15% ROI over the tournament cycle.",
+      "why": "Sets the hurdle rate needed to convert projected net operating cash flows into a maximum justifiable bid price."
     }
   ],
   "frameworkUsed": "Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode",
@@ -8624,40 +10318,69 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "FINANCIAL ATTRACTIVENESS Financial Attractiveness for Star Sports launching a new activity Your client is Star",
-      "detail": "FINANCIAL ATTRACTIVENESS Financial Attractiveness for Star Sports launching a new activity Your client is Star Sports - bidding for women’s IPL happening for the first time.\nCould you please tell me about their synergies? Additionally, do they have any other c onstraints?\nAs for synergies, they have other cricket tournaments, and no, there are no other constraints."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client, Star Sports, is evaluating a bid for the inaugural Women's IPL broadcasting rights. Assess its financial attractiveness and recommend how to determine the bid price."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Do we have any other bidders and what is the t eam structure like?",
-      "detail": "Do we have any other bidders and what is the t eam structure like?\nLet’s assume that there are no other bidders. For the t eam structure, there are a total of 6 teams, both Indian and foreign players.\nWe would start by dividing out approach in financial attractiveness, operational feasibility and risks. Under financial attractiveness, we look at benchmarking revenues bridging them with the required ROI to find the bid price."
+      "kind": "question",
+      "detail": "Before structuring, could you confirm any existing cricket synergies or constraints, the tournament scale in teams and days, competing bidders, and Star Sports' target ROI?",
+      "reasoning": "Knowing the 45-day inventory, synergy potential, and hurdle rate defines the exact boundaries for a valuation model."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "We are looking at an ROI of 15% stream length is 45 days. You can ignore quantitative benchmark.",
-      "detail": "We are looking at an ROI of 15% stream length is 45 days. You can ignore quantitative benchmark.\nAlright we can first divide revenues into streaming (Online, TV), Marketing and Merchandising. Under Online, we look at additional subscribers generated, pay per view revenue and cross selling.\nAlright the other heads are explanatory, move to the costs."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Star Sports has strong synergies with existing cricket properties and no hard constraints. The tournament has 6 teams over 45 days, requires a 15% ROI, and you can model the baseline assuming no competing bidders."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "We have Financing costs, Marketing Costs, Operational costs and opportunity cost.",
-      "detail": "We have Financing costs, Marketing Costs, Operational costs and opportunity cost.\nWhat are these Operational Costs?\nPlatform Development, TRP costs, CAC."
+      "kind": "framework",
+      "detail": "I will evaluate three pillars: financial attractiveness—breaking down incremental revenues and non-rights costs to solve for the maximum bid at a 15% ROI—alongside operational feasibility and strategic risks.",
+      "reasoning": "Isolating revenue potential and operating costs before backing into the rights fee ensures the bid respects the 15% return floor."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Let's start with financial attractiveness. Walk me through the specific revenue streams you would project over the 45-day window."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "What would the bid price equation be?",
-      "detail": "What would the bid price equation be?\nBid = (No. of streams*Avg rev per stream)-(Total Cost)/15% Alright we can close the case.\nFINANCIAL ATTRACTIVENESS Financial Attractiveness for Star Sports launching a new activity Revenue Marketing Streaming Additional Subscribers Pay-per-view Generated Cost Financing Marketing Operational Platform Development TRP Costs Merchandising Cross Selling BID VALUE Quantity * Average Revenue - Total cost/15% Opportunity CAC"
+      "kind": "hypothesis",
+      "detail": "I would split revenues into three buckets: Broadcast & Streaming (TV ad slots, OTT incremental subscriptions, and pay-per-view), Marketing & Sponsorships (title/associate brand integrations), and Merchandising & Cross-Selling of existing Star Sports cricket packages.",
+      "reasoning": "Disaggregating TV, OTT monetization, and cross-selling captures both direct match inventory and halo value across Star's sports portfolio.",
+      "causes": [
+        "Incremental OTT subscribers and TV ad inventory across a 45-day, 6-team slate",
+        "Cross-selling uplift to existing men's cricket and sports subscription bundles"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good revenue breakdown. What cost buckets must be deducted, and what is the resulting formula for the maximum bid price?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "On the cost side, we must account for operational expenses—specifically platform development, TRP/production costs, and customer acquisition cost (CAC)—plus marketing, financing, and opportunity costs. To guarantee a 15% ROI, the maximum bid satisfies (Total Revenue − Total Non-Rights Costs − Bid) / (Total Non-Rights Costs + Bid) = 15%, meaning Maximum Bid = [(Number of Streams × Average Revenue per Stream + Ancillary Revenue) / 1.15] − Total Non-Rights Costs.",
+      "causes": [
+        "Operational outlays driven by OTT platform scaling, TRP/production, and viewer CAC",
+        "Disciplined bid ceiling capped by the 15% hurdle rate after financing and opportunity costs"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Financial Attractiveness: Star Sports Bidding for W-IPL before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Anchor the rights bid strictly below the 15% ROI ceiling derived from Total Expected Revenue divided by 1.15 less all production, marketing, and CAC outlays.",
+    "P1: Monetize the 45-day 6-team inventory through bundled TV+OTT sponsorship packages and cross-sell W-IPL viewers into year-round cricket subscriptions to lower effective CAC.",
+    "P2: Negotiate multi-year rights escalation clauses or performance-linked viewership rebates to hedge inaugural-season TRP uncertainty."
   ],
   "metricsAndGuardrails": {
     "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Star Sports)",
@@ -8670,7 +10393,7 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For Star Sports’s Financial Attractiveness: Star Sports Bidding for W-IPL case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Financial Attractiveness: Star Sports Bidding for W-IPL before secondary optimizations. We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (Star Sports) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "Bidding for the inaugural Women's IPL is financially attractive for Star Sports given strong production and cross-selling synergies across its 45-day, 6-team broadcast window, provided the bid enforces a 15% ROI floor. By capping the rights fee at projected TV, OTT, sponsorship, and cross-sell revenues discounted by the 15% hurdle less platform, TRP, CAC, financing, and opportunity costs, Star Sports can capture new sports audiences while protecting media margins.",
   "interviewerTrap": "Saying 'YES enter!' purely because TAM is huge—forgetting competition, regulatory hurdles, breakeven math, and Build vs Buy vs Partner!",
   "variations": [
     {
@@ -8723,7 +10446,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-global-gadget-go",
   "title": "Global Gadget Go Expansion into Southeast Asia",
-  "company": "Wearable Tech",
+  "company": "Global Gadget Go",
   "track": "Consulting",
   "category": "Market Entry",
   "difficulty": 2,
@@ -8733,17 +10456,22 @@ window.CM_DATA.cases.push(
     "Market Entry",
     "Consulting"
   ],
-  "prompt": "Assess the feasibility of expansion and recommend a Market Entry Strategy We're advising 'Global Gadget Go,' a leading US wearable tech company, on expanding into Southeast Asia. They've asked us to assess feasibility and recommend a market entry strategy. Where would you like to start?",
+  "prompt": "We are advising Global Gadget Go, a leading US wearable tech company, on expanding into Southeast Asia. Assess the feasibility of this expansion and recommend a market entry strategy.",
   "clarifyingQuestions": [
     {
-      "q": "To begin with market attractiveness: what are the key growth drivers—health awareness, disposable income, or others?",
-      "a": "The growth is primarily driven by a combination of increasing health awareness, rising disposable incomes, and growing popularity of smartphones and mobile apps.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How fast is the Southeast Asian wearable fitness tracker market growing, and what are the primary demand drivers?",
+      "a": "The market is growing at roughly 20% annually, fueled by rising health awareness, growing disposable incomes, and rapid smartphone and mobile app adoption.",
+      "why": "Confirms whether underlying category momentum justifies international capital allocation."
     },
     {
-      "q": "What is our primary business objective and timeframe for this decision?",
-      "a": "Optimize long-term value and core KPIs for Wearable Tech.",
-      "why": "Aligns prioritization and trade-offs with leadership goals."
+      "q": "Who is the target customer profile, and what does the competitive landscape look like?",
+      "a": "Target buyers are young, tech-savvy, and health-conscious, though incomes vary widely by country. Both international and local brands compete, with local brands winning on low prices and influencer marketing.",
+      "why": "Tests whether Global Gadget Go's US premium positioning fits local willingness to pay."
+    },
+    {
+      "q": "Are there significant regulatory or distribution barriers across Southeast Asian markets?",
+      "a": "Yes, regulatory certifications vary by country, and logistics and retail distribution infrastructure are fragmented across the region.",
+      "why": "Identifies operational complexity and whether a uniform regional launch or phased country entry is feasible."
     }
   ],
   "frameworkUsed": "Market Attractiveness (TAM/Growth) → Competition & Barriers → Capabilities & Breakeven → Entry Mode",
@@ -8771,40 +10499,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "THE GLOBAL GADGET GO Assess the feasibility of expansion and recommend a Market Entry Strategy We're advising",
-      "detail": "THE GLOBAL GADGET GO Assess the feasibility of expansion and recommend a Market Entry Strategy We're advising 'Global Gadget Go,' a leading US wearable tech company, on expanding into Southeast Asia. They've asked us to assess feasibility and recommend a market entry strategy. Where would you like to start?\nTo start, I’d like to gather key info: 1 . Market size and growth of wearable fitness trackers in Southeast Asia.\n2 . Target customer demographics and preferences in Southeast Asia.\n3 . Key competitors, local or international."
+      "kind": "prompt",
+      "detail": "Global Gadget Go, a leading US wearable tech company, wants to expand into Southeast Asia. Assess the feasibility of this move and recommend an entry strategy."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "4 . Regulatory requirements for wearable tech in the region.",
-      "detail": "4 . Regulatory requirements for wearable tech in the region.\n5 . Logistics and distribution infrastructure.\nVery good questions.\nMarket growing at 20% annually."
+      "kind": "question",
+      "detail": "To ground our assessment, could you share the market size and growth rate in Southeast Asia, target customer preferences, local versus global competitors, and any regulatory or distribution constraints?",
+      "reasoning": "Validating demand growth, price sensitivity, and cross-border regulatory hurdles upfront determines whether expansion is viable."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Target: young, tech-savvy, health-conscious, with varied incomes and cultures.",
-      "detail": "Target: young, tech-savvy, health-conscious, with varied incomes and cultures.\nCompetition: local and international brands; locals focus on lower prices.\nRegulation: varies by country; some require certifications.\nThanks. I’ll structure my analysis into three areas: 1 . Market Attractiveness – Size, growth, demographics, trends, and risks."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "The market is growing 20% annually due to health awareness, rising disposable income, and smartphone growth. Customers are young and tech-savvy with varied incomes, local brands compete on low price, and regulations and logistics vary by country."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "2 . Competitive Analysis – Key players, market share, SWOT Analysis.",
-      "detail": "2 . Competitive Analysis – Key players, market share, SWOT Analysis.\n3 . Entry Strategy – Entry mode, go-to-market plan, financial impact.\nTo begin with market attractiveness: what are the key growth drivers—health awareness, disposable income, or others?\nThe growth is primarily driven by a combination of increasing health awareness, rising disposable incomes, and growing popularity of smartphones and mobile apps."
+      "kind": "framework",
+      "detail": "I will evaluate three areas: Market Attractiveness (growth drivers and country-level segments), Competitive Positioning (local affordability players vs our US brand equity), and Entry Strategy (country sequencing, product tiering, and entry mode).",
+      "reasoning": "Evaluating market demand alongside local price competition and country fragmentation directly informs both the go/no-go decision and entry mode."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good structure. Looking at competition, local brands sell basic trackers at much lower price points and market heavily via social media influencers. How does that affect our feasibility?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "That's helpful. Moving to competitive analysis:",
-      "detail": "That's helpful. Moving to competitive analysis:\nCan you share more on local brands’ product features and marketing strategies?\nLocal brands offer basic trackers at lower prices, marketing through social media influencers and localized campaigns focused on affordability.\nGlobal Gadget Go should tackle price sensitivity through a budget line or local partnerships. Given market fragmentation and varied regulations, a phased entry is ideal. Exploring a joint venture with a local partner could be a viable strategy."
+      "kind": "root-cause",
+      "detail": "A direct copy-paste of our premium US lineup will struggle outside affluent urban pockets because price sensitivity is high and local brands dominate entry-level awareness through localized influencer campaigns, while country-specific certifications slow regional scaling.",
+      "reasoning": "Linking local price anchoring and fragmented certification rules explains why an unadapted regional launch would burn cash.",
+      "causes": [
+        "High price sensitivity favoring basic, low-cost local fitness trackers",
+        "Local competitor dominance in localized social media and influencer marketing",
+        "Fragmented country-by-country regulatory certifications and logistics networks"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Makes sense. Given those constraints, how should Global Gadget Go enter Southeast Asia?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Expansion is feasible via a phased, localized approach rather than a region-wide launch. First, start in 1–2 high-income, digitally mature hubs like Singapore and Malaysia; second, introduce a stripped-down, value-priced tracker tier alongside flagship models; and third, form a joint venture or distributor partnership to clear local certifications, handle fragmented logistics, and run micro-influencer campaigns.",
+      "causes": [
+        "Phased country sequencing starting with high-readiness urban hubs",
+        "Entry-tier product adaptation plus local JV partnerships for compliance and distribution"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Global Gadget Go Expansion into Southeast Asia before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Execute a phased market entry starting with high-income, high-smartphone hubs (such as Singapore and Malaysia) before scaling into price-sensitive tier-2 markets.",
+    "P1: Form a joint venture or exclusive partnership with a regional electronics distributor to navigate country-specific certifications and fragmented last-mile logistics.",
+    "P2: Launch an entry-level tracker SKU priced competitively against local brands and promote it via localized social media micro-influencer campaigns."
   ],
   "metricsAndGuardrails": {
     "northStar": "3-Year NPV / Year-1 SOM Market Share & Payback (Wearable Tech)",
@@ -8817,7 +10575,7 @@ window.CM_DATA.cases.push(
       "Core brand cannibalization"
     ]
   },
-  "synthesisScript": "For Wearable Tech’s Global Gadget Go Expansion into Southeast Asia case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Global Gadget Go Expansion into Southeast Asia before secondary optimizations. We will validate success via 3-Year NPV / Year-1 SOM Market Share & Payback (Wearable Tech) while guarding against Capex overrun / working capital lockup.",
+  "synthesisScript": "Expanding into Southeast Asia is attractive for Global Gadget Go given 20% annual market growth, but high price sensitivity, low-cost local competitors, and fragmented country regulations prevent a uniform premium rollout. I recommend a phased entry starting in affluent urban hubs, paired with a value-priced tracker tier and a local distribution joint venture, measuring Year-1 market share, localized gross margin, and CAC payback.",
   "interviewerTrap": "Saying 'YES enter!' purely because TAM is huge—forgetting competition, regulatory hurdles, breakeven math, and Build vs Buy vs Partner!",
   "variations": [
     {
@@ -8870,7 +10628,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-tin-sheets",
   "title": "Tin Sheets Manufacturer Net Margin Expansion",
-  "company": "Industrial Mfg",
+  "company": "Tin Sheet Manufacturer",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -8880,22 +10638,22 @@ window.CM_DATA.cases.push(
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Recommend ways to increase net margins Hi Parth, I’m a little short on time so let’s quickly get started with the case. Your client is a tin-sheet manufacturer, who wants to increase its net margin. How would you help?",
+  "prompt": "Your client is a B2B tin-sheet manufacturer looking to increase its net profit margin by 10–15% over the next 1–2 years. Diagnose their value chain and recommend concrete margin-expansion levers.",
   "clarifyingQuestions": [
     {
-      "q": "U n de rsto od , may I t a k e aro u n d 30 s e con d s to ga ther my thoughts and clarify some questions before I begin?",
-      "a": "Sure, go ahead.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Who are the client's customers, and how differentiated are their tin-sheet products?",
+      "a": "They are a B2B player selling finished tin sheets of varying thickness, length, and breadth to FMCG, F&B, and paint companies.",
+      "why": "Clarifies whether custom dimensions drive manufacturing complexity, scrap rates, or pricing power."
     },
     {
-      "q": "Understood, so are there different types of products as well?",
-      "a": "Yes, the tin sheets vary depending upon the thickness, length and breadth, as demanded by the customers.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What part of the value chain does the client own relative to competitors?",
+      "a": "The client receives metal coils, rolls and cuts them into sheets, stores inventory, and uses third-party logistics (3PL) for delivery. Competitors follow a similar model, though our client is the largest player.",
+      "why": "Identifies where operational scale advantages should exist and which cost nodes sit under direct management control."
     },
     {
-      "q": "Alright. Also, by net margin do we refer to profits/revenue, and what part of the value chain does the client lie in, vis a vis its competitors?",
-      "a": "Yes, th a t’s cor re ct. You c a n think t hat cli e n t receives coil s , w hich a r e rolled out into rods, are stored, and a third p arty undertakes log i s t ics. Similar is the val u e chain for com p etitors, but our client is t he bi",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How is net margin defined here, and what is the exact target and timeline?",
+      "a": "Net margin is Profit divided by Revenue, and management targets a 10–15% improvement within 1–2 years.",
+      "why": "Sets the quantitative benchmark and rules out long-gestation capital projects that cannot pay back within two years."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
@@ -8919,40 +10677,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "TIN SHEETS MANUFACTURER Recommend ways to increase net margins Hi Parth, I’m a little short on time so let’s q",
-      "detail": "TIN SHEETS MANUFACTURER Recommend ways to increase net margins Hi Parth, I’m a little short on time so let’s quickly get started with the case. Your client is a tin-sheet manufacturer, who wants to increase its net margin. How would you help?\nSurely, so just to clarify, our client manufactures tin sheets and wants to increase the net margin, and we’ve to help out for the same.\nYes, that’s correct.\nU n de rsto od , may I t a k e aro u n d 30 s e con d s to ga ther my thoughts and clarify some questions before I begin?"
+      "kind": "prompt",
+      "detail": "Your client is a tin-sheet manufacturer aiming to increase net profit margin. How would you approach this?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Firs tly, I’d like to know a little more about the client’s business and their customers, and if it’d be fair",
-      "detail": "Firs tly, I’d like to know a little more about the client’s business and their customers, and if it’d be fair to assume that our client is a B2B player.\nOur client deals only in the finished product, i:e, tin sheets, and as correctly identified, our client is a B2B player with customers being businesses in FMCG, F&B, Paints, etc.\nUnderstood, so are there different types of products as well?\nYes, the tin sheets vary depending upon the thickness, length and breadth, as demanded by the customers."
+      "kind": "question",
+      "detail": "To scope the problem, I would like to understand our customer segments and product customization, our value chain footprint versus peers, and the target margin improvement and timeline.",
+      "reasoning": "Confirming product customization, owned value-chain steps, and the 1–2 year horizon focuses the analysis on near-term, controllable levers."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Alright. Also, by net margin do we refer to profits/revenue, and what part of the value chain does the client",
-      "detail": "Alright. Also, by net margin do we refer to profits/revenue, and what part of the value chain does the client lie in, vis a vis its competitors?\nYes, th a t’s cor re ct. You c a n think t hat cli e n t receives coil s , w hich a r e rolled out into rods, are stored, and a third p arty undertakes log i s t ics. Similar is the val u e chain for com p etitors, but our client is t he bigg e st player.\nTh anks for th e in form ati o n . La s t l y , wh at m a gnitud e o f ne t marg in i s e xpec ted and w hat ’s t h e timeline f or the sa m e ?\nTa k e i t t o be 10-15% i n aro u nd 1-2 y e a r s ."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "They are the largest B2B player selling customized tin sheets to FMCG, F&B, and paint firms. They buy coils, roll and store sheets, and use 3PL outbound logistics. They want a 10–15% net margin uplift in 1–2 years."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Sure. Since net m argin i s 1 – R eve nue/C o st s, we ca n imp ro v e i t by e it he r re ducing co st s or i",
-      "detail": "Sure. Since net m argin i s 1 – R eve nue/C o st s, we ca n imp ro v e i t by e it he r re ducing co st s or i n cre asing th e re v e nue s. Is the r e a pa rti cula r side y ou ’d li k e me t o focu s a t?\nLet’s start w ith the costs firs t .\nSu rely, I’ll just t ak e aroun d 25-30 m o r e sec o nds to structure my thoughts and come up with an approach.\nSo, I’ve tri ed to b reak down the costs into a value ch ain, under which we can a na l yse e a ch eleme nt one by one to look for facto rs of c o st reduct ion."
+      "kind": "framework",
+      "detail": "Since Net Margin = 1 − (Total Costs / Revenue), we can improve it by cutting costs or expanding revenue. Starting with costs across the value chain—R&D, raw material sourcing, inbound freight, storage, rolling/processing, packaging, outbound 3PL, and reverse logistics—let's inspect where major leakage sits.",
+      "reasoning": "Mapping costs sequentially along the manufacturing value chain ensures no procurement, yield, or logistics bottleneck is overlooked."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That value chain breakdown is comprehensive. Let's focus on raw material costs—break down raw material spend and zoom in on the quantity of coils consumed."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "TIN SHEETS MANUFACTURER Recommend ways to increase net margins Value chain can be as follows; R&D, raw materia",
-      "detail": "TIN SHEETS MANUFACTURER Recommend ways to increase net margins Value chain can be as follows; R&D, raw material sourcing, inbound logistics, storage, processing & manufacturing, packaging and specifications, storage again, outbound logistics (to third party distributor), and reverse logistics (if needed).\nSeems like a comprehensive breakdown, Parth. Quickly break down the raw material costs for me.\nSure, it can be broken down as #suppliers * average quantity * price.\nFocus on average quantity."
+      "kind": "root-cause",
+      "detail": "Raw material cost equals number of suppliers times average coil quantity purchased times price per ton. Looking at quantity consumed, high scrap and trim waste likely occur when rolling and cutting standard coils into highly varied custom thickness, length, and breadth specs, compounded by excess safety stock held for fragmented SKUs.",
+      "reasoning": "Connecting custom SKU dimensions to coil-slitting geometry explains why physical coil consumption exceeds theoretical finished sheet tonnage.",
+      "causes": [
+        "High metal scrap and edge-trim yield loss from cutting custom thickness/length/breadth orders",
+        "Fragmented coil procurement and excess working-capital storage across low-volume custom specs",
+        "Unpriced customization complexity and underutilized 3PL outbound truckloads"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Spot on—custom sizing creates significant yield loss and inventory drag. What concrete actions should the client implement over the next 1–2 years?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To capture a 10–15% margin expansion in 1–2 years, the client should optimize coil-slitting nesting and standardize core sheet widths to cut scrap yield loss, leverage its #1 market scale to consolidate coil suppliers on volume-rebate contracts with JIT delivery, and introduce minimum order quantities or price premiums on bespoke sheet specs alongside 3PL route consolidation.",
+      "causes": [
+        "Nesting optimization and standard width rationalization to slash coil scrap",
+        "Scale-driven supplier consolidation and pricing tiers on custom dimensions"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Tin Sheets Manufacturer Net Margin Expansion before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Deploy algorithmic slitting/nesting schedules and standardize core coil widths with key FMCG and paint clients to cut metal scrap and trim waste.",
+    "P1: Leverage #1 industry scale to consolidate raw coil procurement into fewer long-term supplier contracts with volume rebates and JIT inbound scheduling to reduce storage costs.",
+    "P2: Introduce minimum order quantities and complexity surcharges on low-volume bespoke sheet dimensions while consolidating 3PL outbound dispatches."
   ],
   "metricsAndGuardrails": {
     "northStar": "Gross & EBITDA Margin Recovery (Industrial Mfg)",
@@ -8965,7 +10753,7 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Industrial Mfg’s Tin Sheets Manufacturer Net Margin Expansion case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Tin Sheets Manufacturer Net Margin Expansion before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (Industrial Mfg) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Our Tin Sheet Manufacturer can unlock a 10–15% net margin improvement over 1–2 years by addressing raw-material yield loss and working capital drag caused by unstandardized custom sheet dimensions. By optimizing coil-cutting nesting, consolidating coil procurement around our market-leading scale, and pricing bespoke specifications accurately alongside 3PL load optimization, we can expand margins without sacrificing B2B customer quality or delivery SLAs.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
@@ -9018,7 +10806,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-bombay-theatre",
   "title": "Standalone Theatre in Bombay Revenue Growth",
-  "company": "Entertainment",
+  "company": "Standalone Movie Theatre",
   "track": "Consulting",
   "category": "Growth",
   "difficulty": 2,
@@ -9028,22 +10816,22 @@ window.CM_DATA.cases.push(
     "Growth",
     "Consulting"
   ],
-  "prompt": "Standalone Theatre Growth Strategy So, I have a very unconventional case for you. Your client is your friend, who owns a standalone movie theatre in Bombay. He wants to grow his revenues, and has come to you for help. How would you help your friend?",
+  "prompt": "Your friend owns a standalone movie theatre in Mumbai serving middle-to-upper-income audiences and wants to double revenue over the next 3–4 years. How would you help them achieve this growth?",
   "clarifyingQuestions": [
     {
-      "q": "Who are the exact customers of my friend, and can I assume it to have sources of revenue as movies, advertisements, food, parking, and tickets?",
-      "a": "You can assume them to be middle-to-upper end classes, and yes, sources of revenue are correct.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What are the theatre's current revenue streams and target customer segment?",
+      "a": "The theatre serves middle-to-upper-income patrons and earns revenue from movie tickets, food and beverages (F&B), parking, and in-theatre advertisements.",
+      "why": "Maps all monetization levers beyond ticket box office so high-margin ancillary streams are included in the growth plan."
     },
     {
-      "q": "Can we consider my friend’s competitors to be other movie theatre chains, multiplexes, and OTT platforms? Lastly, want kind of increase is expected and over what time period?",
-      "a": "He wants to see a 2x increase over the next 3-4 years.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Who are the main competitors, and what is the specific revenue target and timeframe?",
+      "a": "Competitors include multiplex chains, other standalone theatres, and OTT platforms. Your friend wants to double (2x) revenue over the next 3–4 years.",
+      "why": "Clarifies the scale of growth required and highlights the need to differentiate from multiplexes and home-streaming."
     },
     {
-      "q": "What about increasing revenue/customer?",
-      "a": "Yes, it can be further broken down as revenue/customer/transaction * #transactions/customer. For the first, upselling, bundling, quantity reduction and decoy pricing can play a role. For the second, we can look at supply, demand, and distri",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are there physical space or seating constraints at the current Mumbai location?",
+      "a": "Yes, as a single standalone property, seating capacity and daily show slots limit peak-hour throughput.",
+      "why": "Identifies whether off-peak utilization and yield per seat must carry most of the 2x target."
     }
   ],
   "frameworkUsed": "Ansoff Growth Matrix (Penetration / Market Dev / Product Dev / Diversification) + Inorganic M&A",
@@ -9070,40 +10858,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "THEATRE IN BOMBAY Standalone Theatre Growth Strategy So, I have a very unconventional case for you. Your clien",
-      "detail": "THEATRE IN BOMBAY Standalone Theatre Growth Strategy So, I have a very unconventional case for you. Your client is your friend, who owns a standalone movie theatre in Bombay. He wants to grow his revenues, and has come to you for help. How would you help your friend?\nWho are the exact customers of my friend, and can I assume it to have sources of revenue as movies, advertisements, food, parking, and tickets?\nYou can assume them to be middle-to-upper end classes, and yes, sources of revenue are correct."
+      "kind": "prompt",
+      "detail": "Your friend owns a standalone movie theatre in Mumbai and wants to grow revenues significantly. How would you advise them?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Can we consider my friend’s competitors to be other movie theatre chains, multiplexes, and OTT platforms? Last",
-      "detail": "Can we consider my friend’s competitors to be other movie theatre chains, multiplexes, and OTT platforms? Lastly, want kind of increase is expected and over what time period?\nHe wants to see a 2x increase over the next 3-4 years.\nI’ve broken down the organic route as growth from existing businesses or new businesses. Existing businesses would cover revenue from tickets, parking, food, advertisements, and movies. New businesses could comprise of things such at launching on OTT, home theatre screens, movie cabs, and hosting exclusive shows/concerts."
+      "kind": "question",
+      "detail": "To frame the opportunity, could you confirm the customer segment, current revenue streams across tickets, F&B, parking, and ads, key competitors like multiplexes and OTT, and the target growth timeline?",
+      "reasoning": "Confirming the 2x goal over 3–4 years and all ancillary revenue lines prevents an overly narrow ticket-pricing-only solution."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Revenue can further be broken down as #customers * revenue/customer Talking about #customers, it’s actually ta",
-      "detail": "Revenue can further be broken down as #customers * revenue/customer Talking about #customers, it’s actually target market * market share %. So, my friend can increase the target market by opening a theatre in a new geography. Or, for improving market share, he can introduce new movies/products, with varieties being hosting concerts, purchasing exclusive rights to certain shows, etc., or change the way of provision to OTT.\nWhat about increasing revenue/customer?\nYes, it can be further broken down as revenue/customer/transaction * #transactions/customer. For the first, upselling, bundling, quantity reduction and de"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Audience is middle-to-upper income, all four revenue streams apply, competitors include multiplexes and OTT platforms, and the goal is a 2x revenue increase over 3–4 years."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Let’s look at the supply and infrastructure aspect now.",
-      "detail": "Let’s look at the supply and infrastructure aspect now.\nSupply would be affected by movies, frequency of shows, infrastructure, and hours of operation., I’ve broken down the infrastructure considering seats as a bottleneck. It could be written as #seats * %utilization. These can be improved by reducing distance between seats as well as rows, expanding the walls of the theatre, and improving any bad quality seats.\n100 60 THEATRE IN BOMBAY Standalone Theatre Growth Strategy Absolut ely. Good job. Now after all our discussion, you’ve given around 7-8 very innovative ideas. What would be the top 3 solutions as per yo"
+      "kind": "framework",
+      "detail": "I will divide growth into Existing Business optimization—breaking revenue into Number of Customers times Revenue per Customer across tickets, F&B, ads, and parking—and New Business extensions such as exclusive live events, alternative content, or spatial monetization.",
+      "reasoning": "Separating core theatre throughput from new experiential offerings ensures we address both off-peak idle capacity and wallet-share expansion."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Let's dig into both increasing revenue per customer and resolving supply/infrastructure bottlenecks at the theatre."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "In order of priority, I believe they’d be Exclusive screenings (for sports, concerts, shows, etc.), Differenti",
-      "detail": "In order of priority, I believe they’d be Exclusive screenings (for sports, concerts, shows, etc.), Differential pricing, Increasing the seating capacity.\nGreat, we can end the case here.\nTHEATRE IN BOMBAY Standalone Theatre Growth Strategy Revenue Growth in Movie Theatre Organic Growth New Businesses Existing Businesses Increasing Target Market OTT Platforms Infrastructure Supply Inorganic Growth Increasing Revenues Differential Pricing"
+      "kind": "root-cause",
+      "detail": "Revenue per customer splits into spend per visit and visit frequency. Right now, flat ticket pricing leaves peak-demand willingness to pay untapped, F&B lacks tiered combo/decoy pricing, and weekday or non-blockbuster show slots suffer low seat utilization compared to multiplexes.",
+      "reasoning": "Linking seat-utilization gaps and uniform pricing reveals immediate monetization headroom without requiring a second property.",
+      "causes": [
+        "Low off-peak seat utilization due to dependence on standard theatrical film releases",
+        "Flat ticket pricing and under-optimized F&B upselling/decoy bundling",
+        "Suboptimal seating layout and aging seat comfort capping effective capacity and yield"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "You have generated strong ideas across pricing, programming, and layout. Which top 3 initiatives should your friend prioritize to achieve the 2x target?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "I recommend prioritizing three high-ROI levers: first, host exclusive non-movie screenings such as live sports, comedy/music concerts, and cult classics during off-peak slots to lift utilization; second, implement differential peak/row pricing paired with F&B combo and decoy pricing; and third, reconfigure seating layout and upgrade comfort to expand high-yield seat capacity.",
+      "causes": [
+        "Exclusive live sports, concert, and event screenings to fill off-peak utilization",
+        "Differential pricing, F&B bundling, and seat-layout upgrades to lift yield per patron"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Standalone Theatre in Bombay Revenue Growth before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Monetize off-peak weekday and late-night slots with exclusive live sports screenings, stand-up/concert broadcasts, and private corporate bookings.",
+    "P1: Roll out dynamic differential pricing by seat tier and showtime alongside F&B combo bundles using decoy pricing to lift spend per patron.",
+    "P2: Re-engineer row spacing and upgrade auditorium seating comfort to add high-yield capacity and justify premium ticket tiers over competing multiplexes."
   ],
   "metricsAndGuardrails": {
     "northStar": "Incremental ARR / Net Revenue Growth (Entertainment)",
@@ -9116,7 +10934,7 @@ window.CM_DATA.cases.push(
       "Churn in core legacy segments"
     ]
   },
-  "synthesisScript": "For Entertainment’s Standalone Theatre in Bombay Revenue Growth case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Standalone Theatre in Bombay Revenue Growth before secondary optimizations. We will validate success via Incremental ARR / Net Revenue Growth (Entertainment) while guarding against CAC Payback & Gross Margin %.",
+  "synthesisScript": "To double the Mumbai standalone theatre's revenue within 3–4 years against multiplex and OTT competition, we must unlock off-peak seat utilization and raise per-patron spend across tickets and F&B. I recommend prioritizing exclusive non-movie live event screenings, introducing differential seat/time pricing with F&B decoy bundles, and upgrading seating layout and capacity, tracked via occupancy rate and revenue per available seat-hour.",
   "interviewerTrap": "Jumping straight to risky Diversification (unrelated new products in new markets) before capturing low-hanging Penetration in the core!",
   "variations": [
     {
@@ -9169,7 +10987,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-cement-conglomerate",
   "title": "Cement Conglomerate Low Profitability",
-  "company": "Cement Co.",
+  "company": "Cement Conglomerate",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 3,
@@ -9179,22 +10997,22 @@ window.CM_DATA.cases.push(
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Facing Low Profitability Hi Parth! Let’s start your case. Your client is a conglomerate in Calcutta, and works in the cement space too. It has 2 plants, having 5 MT of total capacity in Eastern India, but unfortunately, they’re able to sell only 2 MT and hence, their profitability is low. How would you help them?",
+  "prompt": "Your client is an Eastern India cement conglomerate operating two plants with 5 MT of total capacity, but selling only 2 MT, leading to low profitability. Diagnose the cause of underutilization and recommend a turnaround plan to reach full 5 MT sales.",
   "clarifyingQuestions": [
     {
-      "q": "Understood. If it’s alright, may I take around 30 seconds to gather my thoughts and clarify some questions before I begin?",
-      "a": "Go ahead.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is the client's customer mix between B2B and B2C, and is cement differentiated in this market?",
+      "a": "About 30% of volume is B2B and 70% is B2C residential. Cement is largely a commoditized product.",
+      "why": "Shows whether sales depend on institutional relationships or retail dealer push and brand availability."
     },
     {
-      "q": "Understood. Next, what is the competitive landscape, and have they been facing a similar issue?",
-      "a": "Client and their major competitors combined capture 80% of the market.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What does the competitive landscape and distribution network look like in Eastern India?",
+      "a": "The client and major peers collectively hold 80% of the market. Around 200 regional dealers sell 20 MT annually, meaning our client's 2 MT represents just 10% of dealer throughput.",
+      "why": "Quantifies the exact distribution gap and confirms strong addressable demand exists through existing trade channels."
     },
     {
-      "q": "Got it, and lastly, which part of the value chain does our client lie in?",
-      "a": "They manufacture and brand their product, and have third party distributors.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which part of the value chain does the client control, and should we focus on revenue growth or cost cuts?",
+      "a": "They manufacture and brand cement while relying on third-party distributors. Because idle capacity is driving fixed-cost under-absorption, focus on growing sales from 2 MT to 5 MT.",
+      "why": "Directs the analysis toward volume and channel expansion rather than plant-floor cost cutting."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
@@ -9218,40 +11036,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "CEMENT CONGLOMERATE Facing Low Profitability Hi Parth! Let’s start your case. Your client is a conglomerate in",
-      "detail": "CEMENT CONGLOMERATE Facing Low Profitability Hi Parth! Let’s start your case. Your client is a conglomerate in Calcutta, and works in the cement space too. It has 2 plants, having 5 MT of total capacity in Eastern India, but unfortunately, they’re able to sell only 2 MT and hence, their profitability is low. How would you help them?\nSounds like an interesting case sir! Just to clarify, our client is a conglomerate, facing low profitability in their cement business. Their 2 East Indian plants have 5MT capacity, but have only been able to sell 2MT. We’ve to provide solutions for a turn-around.\nYou’ve got it right."
+      "kind": "prompt",
+      "detail": "Your client is a conglomerate in Kolkata operating two cement plants in Eastern India with 5 MT capacity, but selling only 2 MT and suffering low profitability. How would you turn this around?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Sir, I’d like some information on the customers, i:e, if our client is B2B or a B2C player, and also, can I as",
-      "detail": "Sir, I’d like some information on the customers, i:e, if our client is B2B or a B2C player, and also, can I assume cement to be a commoditized product? 30% of their business is B2B, rest is B2C, essentially residential. And yes, consider it to be commoditized.\nUnderstood. Next, what is the competitive landscape, and have they been facing a similar issue?\nClient and their major competitors combined capture 80% of the market.\nGot it, and lastly, which part of the value chain does our client lie in?"
+      "kind": "question",
+      "detail": "Before structuring, I would like to clarify the B2B versus B2C mix, product differentiation, the competitive landscape, our value chain role, and whether the priority is driving volume to 5 MT.",
+      "reasoning": "Verifying customer mix and channel ownership clarifies whether low utilization stems from weak B2B contracting or B2C dealer bottlenecks."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "They manufacture and brand their product, and have third party distributors.",
-      "detail": "They manufacture and brand their product, and have third party distributors.\nSo, now the primary objective is to help our client grow its low profitability, and reach a level of sales of 5MT. Is that right?\nYes, that’s correct.\nThanks a lot. Now, I have all the required information to proceed. Profitability can be defined as (revenue-costs)/revenue, or simply 1 – costs/revenue. So essentially, if current revenue rises, profitability will automatically rise. Is there a need to check for cost reduction as well?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Sales are 30% B2B and 70% B2C residential, and cement is commoditized. Our client and major competitors hold 80% of the market, and we rely on third-party distributors. Focus strictly on growing volume toward 5 MT."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "No need, you can focus only on growing their revenue.",
-      "detail": "No need, you can focus only on growing their revenue.\nSo, revenue can be broken down as (no. of units)*( revenue/unit).\nFocus on number of units.\nSure. No. of units can be bifurcated as (target market)*(market share%). Now, target market can be increased by entering new geographies, and percentage share can be increased by introducing new products/varieties, exploring new areas within the existing geography, or using alternative distribution channels."
+      "kind": "framework",
+      "detail": "To bridge the 3 MT volume gap, I will break Units Sold into Addressable Market × Market Share across both B2B and B2C, examining geographic reach, channel partnerships, and dealer share-of-wallet.",
+      "reasoning": "In a commoditized category with fixed plant capacity, channel access and dealer push drive market share more than product features."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "What specific distribution channels should we examine, and note that ~200 existing dealers in our footprint already sell 20 MT in total—giving us only a 10% share of dealer sales."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "CEMENT CONGLOMERATE Facing Low Profitability Fair enough. Quickly list what all distribution channels could th",
-      "detail": "CEMENT CONGLOMERATE Facing Low Profitability Fair enough. Quickly list what all distribution channels could they use?\nSurely. Under the B2B part, they can consider contracts with builders, government collaboration (via schemes), or big construction houses. Under the B2C part, they can use their existing third-party distributors, or have their own stores and operate via the hub-&-spoke model.\nGood. So let me explain the current distribution system. There are around 200 dealers, who sell in total around 20MT. So how much would be our percentage?\nClient is able to sell 2MT, that means 10% of the output sold by deale"
+      "kind": "root-cause",
+      "detail": "Holding only 10% share across 200 dealers handling 20 MT proves demand exists right in our catchment, but we are losing push at the dealer counter in B2C and under-indexing on direct institutional B2B demand.",
+      "reasoning": "Comparing our 2 MT sales against 20 MT total dealer throughput isolates channel execution—not regional demand—as the bottleneck.",
+      "causes": [
+        "Low 10% share-of-wallet across 200 existing third-party dealers due to weak trade incentives",
+        "Under-penetration of direct B2B contracts with large builders and government infrastructure schemes",
+        "Over-reliance on third-party distributors without direct hub-and-spoke retail coverage"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Exactly. Lay out your concrete channel plan across B2B and B2C to close the 3 MT gap."
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To scale from 2 MT to 5 MT and restore fixed-cost leverage, the client should pursue two tracks: in B2C, introduce tiered volume rebates and credit terms to lift share-of-wallet among the top 200 dealers while launching company-managed hub-and-spoke depots in underserved districts; in B2B, build a dedicated key-account team for long-term builder contracts and government infrastructure tenders.",
+      "causes": [
+        "Tiered dealer incentives and hub-and-spoke depots to lift B2C share-of-wallet above 10%",
+        "Direct B2B builder partnerships and government infrastructure contracting"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Cement Conglomerate Low Profitability before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Restructure B2C trade terms with tiered volume rebates and mason/contractor loyalty programs to raise share-of-wallet across the 200 existing dealers from 10% toward 20%.",
+    "P1: Establish a dedicated B2B key-account sales team to lock in multi-quarter supply contracts with large real estate builders and Eastern India government infrastructure schemes.",
+    "P2: Pilot a hub-and-spoke direct distribution model with company-leased regional depots to bypass third-party bottlenecks in high-growth rural and semi-urban districts."
   ],
   "metricsAndGuardrails": {
     "northStar": "Gross & EBITDA Margin Recovery (Cement Co.)",
@@ -9264,7 +11112,7 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Cement Co.’s Cement Conglomerate Low Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Cement Conglomerate Low Profitability before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (Cement Co.) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "Our Cement Conglomerate's low profitability stems from 60% idle capacity (selling 2 MT of 5 MT), driven by a 10% share-of-wallet across regional dealers and limited direct B2B contracting. By deploying tiered dealer rebates and hub-and-spoke depots in B2C alongside direct builder and government infrastructure contracts in B2B, the client can absorb fixed plant overheads and capture full 5 MT utilization.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
@@ -9317,7 +11165,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-shipping-logistics",
   "title": "B2B & B2C Marketing Campaign for Shipping Logistics",
-  "company": "Shipping Logistics",
+  "company": "Shipping Logistics Co.",
   "track": "Consulting",
   "category": "GTM",
   "difficulty": 2,
@@ -9327,22 +11175,22 @@ window.CM_DATA.cases.push(
     "GTM",
     "Consulting"
   ],
-  "prompt": "Marketing Campaign for a Shipping Logistics Company MARKETING CAMPAIGN FOR A SHIPPING LOGISTICS COMPANY There is a shipping logistics company dealing with both B2B and B2C clients.",
+  "prompt": "A land-freight shipping logistics company serves B2B liquid tanker clients and is newly entering the B2C packers-and-movers market. Design a tailored digital and social media marketing strategy across both B2B and B2C segments.",
   "clarifyingQuestions": [
     {
-      "q": "What factors would you consider when tailoring a marketing campaign for B2B versus B2C across all social media platforms?",
-      "a": "Before starting, I would like to know what type of shipping the company is involved in. Is it maritime or through land?",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What mode of transport and specific services does the company operate in B2B versus B2C?",
+      "a": "They operate land freight forwarding: B2B tanker trucks transporting liquids such as petroleum, chemicals, and milk, and a newly launched B2C packers-and-movers service.",
+      "why": "Aligns messaging and channel selection with distinct risk profiles—industrial bulk safety versus household relocation trust."
     },
     {
-      "q": "Before starting, I would like to know what type of shipping the company is involved in. Is it maritime or through land?",
-      "a": "The company is mainly involved in land freight forwarding.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How have previous marketing campaigns performed across both segments?",
+      "a": "Past B2B campaigns underperformed because they failed to position the company's reliability clearly or build brand awareness. No significant B2C marketing has been run yet.",
+      "why": "Diagnoses why B2B outreach stalled before proposing new channels or creative formats."
     },
     {
-      "q": "So what kind of products does it usually ship? Is it the same for both customer segments or different?",
-      "a": "In the B2B segment, the company usually uses tanker freight trucks to transport liquids, such as petroleum, chemicals, or milk. The company is a relatively new player in the B2C segment and wants to explore the packers and movers segment.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What marketing budget is allocated for the B2C packers-and-movers launch?",
+      "a": "Approximately $100,000 is allocated for the B2C launch plan.",
+      "why": "Sets clear spend guardrails so B2C channel mix and customer acquisition targets remain realistic."
     }
   ],
   "frameworkUsed": "Market Audit → Beachhead ICP & Positioning → 4Ps → Pre-Launch / Launch / Post-Launch",
@@ -9370,40 +11218,69 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "SHIPPING LOGISTICS COMPANY Marketing Campaign for a Shipping Logistics Company MARKETING CAMPAIGN FOR A SHIPPI",
-      "detail": "SHIPPING LOGISTICS COMPANY Marketing Campaign for a Shipping Logistics Company MARKETING CAMPAIGN FOR A SHIPPING LOGISTICS COMPANY There is a shipping logistics company dealing with both B2B and B2C clients.\nWhat factors would you consider when tailoring a marketing campaign for B2B versus B2C across all social media platforms?\nBefore starting, I would like to know what type of shipping the company is involved in. Is it maritime or through land?\nThe company is mainly involved in land freight forwarding."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "A shipping logistics company serving both B2B and B2C clients wants to launch tailored marketing campaigns across social media platforms. How would you design their strategy?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "So what kind of products does it usually ship? Is it the same for both customer segments or different?",
-      "detail": "So what kind of products does it usually ship? Is it the same for both customer segments or different?\nIn the B2B segment, the company usually uses tanker freight trucks to transport liquids, such as petroleum, chemicals, or milk. The company is a relatively new player in the B2C segment and wants to explore the packers and movers segment.\nAlright. I want to ask if the company has done any previous marketing campaigns in both segments.\nYes, the company has previously done a few campaigns in B2B, but they did not work out as expected. In B2C, they haven't done much as they are entering the market."
+      "kind": "question",
+      "detail": "To tailor the plan properly, could you confirm whether they operate maritime or land freight, what exact products they move for B2B versus B2C, past campaign results, and any B2C budget limits?",
+      "reasoning": "Understanding freight mode, cargo sensitivity, past campaign failures, and budget caps prevents generic social media recommendations."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Can I know the reasons due to which the B2B campaigns didn't work out well?",
-      "detail": "Can I know the reasons due to which the B2B campaigns didn't work out well?\nThe reasons aren't very concrete, but the main crux is that they couldn't position their services reasonably and create awareness about them.\nThank you for giving out this information. As B2B marketing typically consists of business decision-makers, business buyers and technical decision-makers, LinkedIn would be an excellent platform due to its professional focus. On this platform, their focus should be on creating awareness about the company's shipping solutions through previous testimonials showcasing their contribution to the industry"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "They are a land-freight forwarder: B2B uses tanker trucks for liquids like petroleum, chemicals, and milk, while B2C is a new entry into packers and movers with a $100,000 budget. Past B2B campaigns failed due to weak positioning and awareness."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Sure. To garner attention, they should create eye-catching content that includes common pain points in the liq",
-      "detail": "Sure. To garner attention, they should create eye-catching content that includes common pain points in the liquid shipping logistics industry, such as safety and hygiene. This could be in the form of blog posts, testimonials, or infographics highlighting their strengths. To generate interest, they should focus on how the company provides cost-effective solutions to the problems highlighted in the awareness campaigns, which can be done through targeted email campaigns to share relevant information directly with potential customers.\nTo create desire, they can host webinars and online events to educate potential cus"
+      "kind": "framework",
+      "detail": "Because B2B enterprise buyers and B2C households have completely different purchase journeys, I will build two separate funnels using the AIDA framework (Awareness, Interest, Desire, Action), matching platform choice and value propositions to each buyer persona.",
+      "reasoning": "Separating B2B procurement decision-makers from consumer movers ensures high-intent channel targeting and avoids wasted ad spend."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Good separation. Start with the B2B segment—why did prior campaigns miss the mark, and how would you execute the AIDA funnel there?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "SHIPPING LOGISTICS COMPANY Marketing Campaign for a Shipping Logistics Company Okay, great. Can you also tell",
-      "detail": "SHIPPING LOGISTICS COMPANY Marketing Campaign for a Shipping Logistics Company Okay, great. Can you also tell how they should go about the B2C segment?\nSure, do we have any budget allocated for the marketing expenses for this segment?\nThey have roughly $100000 for a B2C marketing plan.\nOkay. As B2C is customer-centric, combining platforms like Instagram, Facebook, and YouTube can be effective due to a broader audience and better visual appeal. As they are new to this segment and want to explore it through the packers and movers domain, they should play on their strengths, as safety is the main requirement in such"
+      "kind": "root-cause",
+      "detail": "B2B liquid logistics buyers—plant heads, procurement leads, and compliance officers—prioritize zero-leak safety, hygiene, and on-time SLAs, which generic past ads failed to prove. On LinkedIn, we should build Awareness with safety-certified case studies and infographics, drive Interest via targeted account-based email sequences showing cost-per-liter savings, and convert Desire through technical compliance webinars.",
+      "reasoning": "Anchoring B2B outreach on LinkedIn and compliance proof directly addresses why procurement teams ignored earlier generic campaigns.",
+      "causes": [
+        "Prior B2B campaigns lacked clear positioning on liquid-handling safety, hygiene, and SLA reliability",
+        "Mismatch between generic social messaging and B2B procurement/technical buyer criteria"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That is a sharp B2B turnaround plan. Now how would you deploy the $100,000 budget to launch the B2C packers-and-movers business?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "For B2C, households fear damaged goods and hidden fees, so we should leverage our B2B safety heritage across visual platforms—Instagram, Facebook, and YouTube—using short packing-quality reels, transparent pricing calculators, and geo-targeted search/social ads in high-relocation urban corridors. Tracking cost per qualified lead (CPL) and booking conversion will keep the $100,000 launch disciplined while B2B scales on LinkedIn.",
+      "causes": [
+        "Visual safety-first storytelling on Instagram, Facebook, and YouTube to overcome household damage anxiety",
+        "Geo-targeted urban relocation funnels paired with transparent quote calculators within the $100,000 cap"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in B2B & B2C Marketing Campaign for Shipping Logistics before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Rebuild the B2B funnel on LinkedIn and account-based email around safety, hygiene compliance, and client testimonials for petroleum, chemical, and dairy logistics buyers.",
+    "P1: Deploy the $100,000 B2C budget across geo-targeted YouTube, Instagram, and Facebook video campaigns emphasizing damage-free packaging inherited from precision tanker operations.",
+    "P2: Launch an instant online moving-quote calculator and post-move referral incentive in top metropolitan corridors to lift B2C lead-to-booking conversion."
   ],
   "metricsAndGuardrails": {
     "northStar": "Activated & Retained Beachhead Customers for B2B & B2C Marketing Campaign for Shipping Logistics",
@@ -9416,7 +11293,7 @@ window.CM_DATA.cases.push(
       "Early churn / negative review rate"
     ]
   },
-  "synthesisScript": "For Shipping Logistics’s B2B & B2C Marketing Campaign for Shipping Logistics case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in B2B & B2C Marketing Campaign for Shipping Logistics before secondary optimizations. We will validate success via Activated & Retained Beachhead Customers for B2B & B2C Marketing Campaign for Shipping Logistics while guarding against CAC Payback Period (months).",
+  "synthesisScript": "To fix underperforming B2B outreach and launch B2C packers and movers within a $100,000 budget, the company must split its social strategy by buyer trust drivers. Deploying safety-backed LinkedIn thought leadership and compliance webinars for B2B procurement leaders, paired with geo-targeted visual trust campaigns and instant quote funnels on Instagram, Facebook, and YouTube for B2C households, will maximize qualified pipeline and CAC payback.",
   "interviewerTrap": "Targeting 'everyone in the country' on Day 1 or listing generic social ads without defining ICP, positioning, pricing, and phased rollout!",
   "variations": [
     {
@@ -9479,22 +11356,22 @@ window.CM_DATA.cases.push(
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Diagnose the reason for low employee productivity and recommend solutions Client is a public sector bank and they have been facing low employee productivity. You are required to diagnose the problem and come up with",
+  "prompt": "Your client is a pan-India public sector bank facing persistently low employee productivity compared to private sector peers. Diagnose the root causes of this productivity gap and recommend actionable solutions.",
   "clarifyingQuestions": [
     {
-      "q": "Since how long has the client been facing this issue?",
-      "a": "It's been there for a very long time. Due to change in management, the client wants to focus on this problem now.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How long has this productivity issue existed, and what benchmark is management using?",
+      "a": "It has persisted for many years, and new leadership is now benchmarking performance against private sector banks rather than other public sector banks.",
+      "why": "Clarifies that the gap stems from structural operating differences versus agile private banks rather than a sudden recent shock."
     },
     {
-      "q": "Is there any specific geography where the client has been facing this issue?",
-      "a": "This is a pan India problem.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the issue concentrated in specific regions, and how is employee productivity measured?",
+      "a": "It is a pan-India issue, though branch attainment varies widely even within cities like Mumbai. Productivity is measured as percentage of branch sales targets achieved across loans, fixed deposits, and savings accounts.",
+      "why": "Establishes both the exact KPI formula and internal variance across branches facing similar market conditions."
     },
     {
-      "q": "What does a client mean by employee productivity and how do they measure it?",
-      "a": "Percentage of targ ets achieved.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How are employee targets currently determined and communicated?",
+      "a": "Managers assign targets top-down based mechanically on each employee's prior-year target, regardless of whether it was achieved or aligned with local branch potential.",
+      "why": "Tests whether unrealistic or uncalibrated goal-setting is demotivating staff and distorting reported productivity."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
@@ -9521,40 +11398,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "UNCONVENTIONAL PUBLIC SECTOR BANKS Diagnose the reason for low employee productivity and recommend solutions C",
-      "detail": "UNCONVENTIONAL PUBLIC SECTOR BANKS Diagnose the reason for low employee productivity and recommend solutions Client is a public sector bank and they have been facing low employee productivity. You are required to diagnose the problem and come up with\nSure, sir. So, the key problem is that our client is facing low employee productivity.\nI am required to diagnose the problem and provide some recommendations. I would like to ask some preliminary questions.\nDoes the client have a pan-India presence?"
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a public sector bank facing low employee productivity. Diagnose the root causes and recommend practical solutions."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Since how long has the client been facing this issue?",
-      "detail": "Since how long has the client been facing this issue?\nIt's been there for a very long time. Due to change in management, the client wants to focus on this problem now.\nIs there any specific geography where the client has been facing this issue?\nThis is a pan India problem."
+      "kind": "question",
+      "detail": "I would like to clarify the geographic footprint, how long the issue has persisted, how productivity is defined, and which peer group management is comparing against.",
+      "reasoning": "Establishing the benchmark (private vs public banks) and KPI definition (% of sales target achieved) clarifies whether the gap is structural or measurement-driven."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "What does a client mean by employee productivity and how do they measure it?",
-      "detail": "What does a client mean by employee productivity and how do they measure it?\nPercentage of targ ets achieved.\nWhat are the employee targets?\nTargets are a mix of loans, fixed deposits, savings accounts etc. Basically, everything that an employee can sell in a bank branch."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "It is a pan-India, long-standing issue that new leadership is benchmarking against private sector banks. Productivity is measured as percentage of sales targets achieved across loans, FDs, and savings accounts, and branch performance varies sharply even within Mumbai."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Why is our client saying that their employee productivity is low? What are they comparing it to?",
-      "detail": "Why is our client saying that their employee productivity is low? What are they comparing it to?\nThough the client's employee productivity is not as bad when compared to other public sector banks, due to change in management, the new benchmark that the company is looking at is private sector banks. In comparison to private sector banks, our client's numbers are very low.\nI would like to start with the first bucket. How are targets set currently?\nEach employee is given targets as per their previous year targets, irrespective of whether they were achieved or not."
+      "kind": "framework",
+      "detail": "I will structure the diagnosis across two levers: Target Design & Alignment (how targets are set and calibrated to branch potential) and Employee Enablement & Motivation (sales capability, digital tools/workflows, and performance incentives).",
+      "reasoning": "Because productivity is defined as target attainment, evaluating both the realism of the denominator (targets) and the drivers of the numerator (sales output) is essential."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Start with target setting: currently, managers assign targets top-down based on each employee's previous-year target regardless of prior attainment. What else drives the gap against private banks?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "What are the other aspects considered in target setting?",
-      "detail": "What are the other aspects considered in target setting?\nThe process is usually driven by the managers of the employees. You can assume that it is largely a top-down approach.\n100 69 UNCONVENTIONAL PUBLIC SECTOR BANKS Diagnose the reason for low employee productivity and recommend solutions Do some geographies complete their targets vis-à-vis others?\nYes. For example, in Mumbai, some of the branches are doing much better while others are unable to meet their targets."
+      "kind": "root-cause",
+      "detail": "Blindly rolling over prior-year targets creates demoralizing, unachievable quotas in slower catchments while under-challenging high-footfall branches. Combined with flat PSB compensation lacking performance-linked rewards, manual paper-heavy workflows, and limited cross-selling training compared to private banks, frontline staff disengage.",
+      "reasoning": "Combining flawed top-down quota design with weak incentives and operational friction explains why attainment lags private peers and varies within Mumbai.",
+      "causes": [
+        "Top-down target rollovers disconnected from local branch catchment potential or prior attainment",
+        "Absence of differentiated performance-linked incentives or recognition relative to private banks",
+        "Manual branch processes and insufficient product cross-selling training reducing selling time"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Strong diagnosis. Given public sector union and pay-scale constraints, how can the bank fix this realistically?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "The bank should replace mechanical top-down rollovers with data-backed, catchment-adjusted branch targets co-owned by branch managers, automate routine teller/KYC paperwork to free up advisory hours, and introduce transparent branch leaderboards with non-monetary recognition, fast-track promotions, and team-based bonus pools piloted in lagging Mumbai branches first.",
+      "causes": [
+        "Catchment-adjusted bottom-up target calibration to restore quota fairness",
+        "Digital workflow automation and promotion/recognition incentives compatible with PSB rules"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Unconventional Public Sector Bank Productivity before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Replace top-down target rollovers with catchment-adjusted branch quotas calibrated to local deposit/loan potential and historical attainment.",
+    "P1: Digitize routine KYC and account-servicing workflows to free frontline staff hours for cross-selling loans, FDs, and wealth products, supported by structured sales coaching.",
+    "P2: Introduce transparent branch scorecards linking consistent target outperformance to fast-track promotions, prestigious postings, and team recognition programs."
   ],
   "metricsAndGuardrails": {
     "northStar": "Primary Policy / Operational Objective Metric (Public Sector Bank)",
@@ -9567,7 +11474,7 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For Public Sector Bank’s Unconventional Public Sector Bank Productivity case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Unconventional Public Sector Bank Productivity before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (Public Sector Bank) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "The public sector bank's low productivity against private peers stems from uncalibrated top-down target rollovers, heavy manual branch administration, and flat reward structures that dampen frontline sales motivation. By introducing catchment-adjusted quotas, digitizing routine branch workflows to boost selling time, and tying outperformance to promotion fast-tracks and team recognition, management can lift target attainment fairly across its pan-India network.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
@@ -9620,7 +11527,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-hepatitis-c-drug",
   "title": "Determining Price of a New Hepatitis-C Drug",
-  "company": "Pharma",
+  "company": "Pharma Client",
   "track": "Consulting",
   "category": "Pricing",
   "difficulty": 3,
@@ -9630,22 +11537,22 @@ window.CM_DATA.cases.push(
     "Pricing",
     "Consulting"
   ],
-  "prompt": "Determine the Price of a New Drug to cure Hepatitis C This is going to be an information heavy case, so listen carefully. Your client is a pharma company, who has made a new drug to cure Hepatitis C, say. It takes 12 months to cure, and would be sold in the US market. You’ve to determine the price of the drug. Currently, there are 100,000 cases per annum. To 80% of these, doctors prescribe a generic drug which is rel",
+  "prompt": "Your client is a pharmaceutical company launching a new Hepatitis C drug in the US that cures patients in 12 months. Currently, there are 100,000 annual cases—80% receive a $1,000 generic drug and 20% receive a $20,000 specialized drug—while 20% of total cases also incur $300,000 each in downstream insurance hospitalization costs. Determine the optimal price for the new drug.",
   "clarifyingQuestions": [
     {
-      "q": "Fair enough, how would you calculate it now?",
-      "a": "So essentially, Cost of insurance = (20% of 100,000)*300,000 = 20,000 * 300,000 Cost of generic drug = 80,000 * 1,000 Cost of specialized drug = 20,000 * 20,000 Sr, wrwdo frvw htxdov 648 * 10a7, ru vlpsoy $6.48 Bq.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Do we have manufacturing cost data, or should we anchor the price on the economic value delivered to the US healthcare system?",
+      "a": "Focus on value-based pricing anchored on total current annual treatment and insurance spend across the 100,000 cases.",
+      "why": "Confirms that ceiling willingness-to-pay is bounded by total healthcare cost savings rather than a cost-plus markup."
     },
     {
-      "q": "Absolutely right. Now how would you come to the price of the drug?",
-      "a": "Right, for this, we can simply divide $6.48 Bn by 100,000 drug takers, which gives us price to be $64,800 per drug.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "In the baseline valuation, what clinical efficacy and adoption rate should we assume for the new drug?",
+      "a": "Start by assuming a 100% cure rate (0% failure) that eliminates downstream hospitalization costs and captures all 100,000 annual cases.",
+      "why": "Establishes the clean theoretical ceiling calculation before stress-testing commercial and clinical assumptions."
     },
     {
-      "q": "Correct. But this is true given certain assumptions only, what are those?",
-      "a": "So, the first assumption would be that: 1) There is sufficient demand so that all 100,000 units being sold are our client’s drug.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "How should we adjust the theoretical ceiling for real-world US payer and competitive dynamics?",
+      "a": "Identify the exact assumptions behind the theoretical number and recommend how payers, physicians, and competitors constrain the final launch price.",
+      "why": "Ensures the pricing recommendation balances theoretical value capture with realistic insurer reimbursement and adoption."
     }
   ],
   "frameworkUsed": "Business Model Check → 3Cs of Pricing (Cost Floor | Competitor Anchor | Value WTP) → Tiering & Test",
@@ -9672,40 +11579,69 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "PRICE OF THE DRUG Determine the Price of a New Drug to cure Hepatitis C This is going to be an information hea",
-      "detail": "PRICE OF THE DRUG Determine the Price of a New Drug to cure Hepatitis C This is going to be an information heavy case, so listen carefully. Your client is a pharma company, who has made a new drug to cure Hepatitis C, say. It takes 12 months to cure, and would be sold in the US market. You’ve to determine the price of the drug. Currently, there are 100,000 cases per annum. To 80% of these, doctors prescribe a generic drug which is relatively cheap, and costs $1,000. To the remaining 20%, doctors prescribe a more specialized drug which costs $20,000 per treatment. Across these 100,000 cases, irrespective of the dr"
+      "kind": "prompt",
+      "detail": "Your client has developed a 12-month Hepatitis C cure for the US market (100,000 annual cases). Currently, 80% take a $1,000 generic, 20% take a $20,000 specialty drug, and 20% of all cases incur $300,000 in insurance costs. How would you price this drug?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Fair enough, how would you calculate it now?",
-      "detail": "Fair enough, how would you calculate it now?\nSo essentially, Cost of insurance = (20% of 100,000)*300,000 = 20,000 * 300,000 Cost of generic drug = 80,000 * 1,000 Cost of specialized drug = 20,000 * 20,000 Sr, wrwdo frvw htxdov 648 * 10a7, ru vlpsoy $6.48 Bq."
+      "kind": "question",
+      "detail": "To establish our pricing boundaries, should I compute the value-based ceiling from total healthcare spend avoided, and what efficacy or market-capture assumptions hold in the baseline?",
+      "reasoning": "Confirming value-based pricing against total payer burden clarifies how drug spend plus avoided hospitalization costs set the upper bound."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Absolutely right. Now how would you come to the price of the drug?",
-      "detail": "Absolutely right. Now how would you come to the price of the drug?\nRight, for this, we can simply divide $6.48 Bn by 100,000 drug takers, which gives us price to be $64,800 per drug."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes, calculate the value-based ceiling first assuming 0% failure and full coverage of all 100,000 cases, then critique the assumptions."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Correct. But this is true given certain assumptions only, what are those?",
-      "detail": "Correct. But this is true given certain assumptions only, what are those?\nSo, the first assumption would be that: 1) There is sufficient demand so that all 100,000 units being sold are our client’s drug."
+      "kind": "framework",
+      "detail": "Using the 3Cs pricing framework—Cost floor, Competitor/Standard-of-Care anchor, and Customer/Payer Value—I will sum today's total annual system spend across generic drugs, specialty drugs, and downstream insurance costs, divide by 100,000 patients for the theoretical ceiling, and then discount for commercial reality.",
+      "reasoning": "Quantifying total system spend first gives an objective economic ceiling before negotiating payer rebates and competitive positioning."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Walk me through the exact math to arrive at the theoretical ceiling price per treatment."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "2) Distributors are able to push our client’s drug to everyone.",
-      "detail": "2) Distributors are able to push our client’s drug to everyone.\n3) Doctors actually recommend this drug to everyone irrespective. 4) Results indicating 0% failure are true and would hold till eternity. 5) All the existing drugs cease to exist or their producers are simply wiped-off the picture."
+      "kind": "root-cause",
+      "detail": "Current annual spend has three parts: generic drugs cost 80,000 × $1,000 = $80 million; specialty drugs cost 20,000 × $20,000 = $400 million; and downstream insurance costs 20,000 × $300,000 = $6.00 billion. Total current spend equals $6.48 billion, which across 100,000 patients yields a theoretical value-based ceiling of $64,800 per cure.",
+      "reasoning": "Isolating the $6.00 billion downstream hospitalization cost shows why total system savings—not the $1,000 generic—drive value.",
+      "causes": [
+        "Downstream insurance hospitalization ($6.00B) accounts for 92.6% of total annual Hepatitis C spend",
+        "Theoretical $64,800 price equals total $6.48B current healthcare burden divided across 100,000 cases"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Spot on at $64,800. What five critical assumptions underpin that ceiling, and how should they shape our actual launch price?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "The $64,800 figure assumes: (1) 100% patient demand capture, (2) full distributor push, (3) universal physician prescription switching, (4) a permanent 0% failure rate, and (5) zero competitive retaliation from incumbent drugmakers. In reality, insurers will refuse to pay 100% of savings upfront and 80% of mild cases use a $1,000 generic, so we should set a list price near $60,000 with tiered payer rebates—targeting ~$45,000–$50,000 net—and risk-sharing cure guarantees to win formulary priority.",
+      "causes": [
+        "Five rigid assumptions: 100% share, full distributor/doctor push, 0% failure, and no competitor response",
+        "Need for payer rebates and outcome-based risk-sharing below $64,800 to capture formulary access"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Determining Price of a New Hepatitis-C Drug before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Anchor US list price just below the $64,800 value ceiling (around $60,000) while offering 15–25% volume rebates to commercial payers and PBMs for preferred formulary tiering.",
+    "P1: Introduce an outcomes-based rebate guarantee refunding insurers if a patient relapses within 12 months, directly neutralizing skepticism around the 0% failure assumption.",
+    "P2: Target the 20% high-risk severe segment ($20,000 drug + $300,000 hospitalization risk) first via specialist hepatologist detailing before expanding into mild generic-treated cohorts."
   ],
   "metricsAndGuardrails": {
     "northStar": "Net Contribution Margin & Paid ARPU Growth (Pharma)",
@@ -9718,7 +11654,7 @@ window.CM_DATA.cases.push(
       "Competitive win/loss rate"
     ]
   },
-  "synthesisScript": "For Pharma’s Determining Price of a New Hepatitis-C Drug case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Determining Price of a New Hepatitis-C Drug before secondary optimizations. We will validate success via Net Contribution Margin & Paid ARPU Growth (Pharma) while guarding against Churn / price-complaint rate.",
+  "synthesisScript": "Total annual US spend on Hepatitis C is $6.48 billion—$6.00 billion of which is downstream insurance costs—setting a theoretical value-based price ceiling of $64,800 per patient across 100,000 cases. Because that ceiling relies on unrealistic assumptions of 100% share, zero failure, and no competitor response, I recommend launching near $60,000 list with outcomes-based payer rebates targeting ~$45,000–$50,000 net, prioritized first toward the 20% high-hospitalization-risk segment.",
   "interviewerTrap": "Using only Cost-Plus markup and ignoring Value-Based WTP, elasticity, cannibalization, or two-sided marketplace effects!",
   "variations": [
     {
@@ -9771,7 +11707,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-five-star-hotel",
   "title": "Mumbai 5-Star Hotel Lower Profitability",
-  "company": "Hospitality",
+  "company": "Mumbai 5-Star Hotel",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 2,
@@ -9781,22 +11717,22 @@ window.CM_DATA.cases.push(
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Facing low profitability Your client is a 5-star hotel in Mumbai. They have been facing lower profitability.",
+  "prompt": "Your client is a standalone luxury 5-star hotel in Mumbai experiencing declining profitability over the past 3 years, with a steep drop in the last 1 year. Diagnose the root causes and recommend a recovery plan.",
   "clarifyingQuestions": [
     {
-      "q": "First, can you please tell whether the client is a hotel chain or single hotel?",
-      "a": "It is a single hotel which has been facing the issue.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is this a hotel chain or a single property, and are competing 5-star hotels in Mumbai facing the same issue?",
+      "a": "It is a single standalone luxury hotel, and competing hotels in Mumbai are not experiencing this decline.",
+      "why": "Isolates the profitability drop to property-specific execution rather than city-wide tourism or macroeconomic headwinds."
     },
     {
-      "q": "Since how long has the client been facing this issue?",
-      "a": "The issue persists since the last 3 years but it has amplified in the last 1 year.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What customer segments does the hotel serve, and has their mix changed recently?",
+      "a": "We serve tourists and business travelers. Historically the split was 50:50, but it has shifted to 30% tourists and 70% business travelers.",
+      "why": "Tests whether mix shift from higher-margin leisure guests toward discounted corporate travelers is compressing yields."
     },
     {
-      "q": "Since the loss has been greater i n the last 1 year, I think there might be multiple recent factors affecting the hotel. Next, I would like to know if other hotels have been facing this issue as well or is it just us?",
-      "a": "It's just our hotel which has faced this issue.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Which revenue streams exist, and is the profit drop driven by lower revenues, higher costs, or both?",
+      "a": "There are four streams—rooms, restaurants, banquet halls, and ancillary services. Both revenues fell and costs rose, though we should examine room revenues first.",
+      "why": "Prioritizes the core room P&L driver before evaluating secondary F&B and overhead impacts."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
@@ -9820,40 +11756,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "FIVE STAR HOTELS Facing low profitability Your client is a 5-star hotel in Mumbai. They have been facing lower",
-      "detail": "FIVE STAR HOTELS Facing low profitability Your client is a 5-star hotel in Mumbai. They have been facing lower profitability.\nYou are required to identify the reasons behind the same.\nFirst, can you please tell whether the client is a hotel chain or single hotel?\nIt is a single hotel which has been facing the issue."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Your client is a standalone 5-star hotel in Mumbai facing declining profitability for 3 years, worsening sharply in the last year. Identify the reasons behind this drop."
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "Since how long has the client been facing this issue?",
-      "detail": "Since how long has the client been facing this issue?\nThe issue persists since the last 3 years but it has amplified in the last 1 year.\nSince the loss has been greater i n the last 1 year, I think there might be multiple recent factors affecting the hotel. Next, I would like to know if other hotels have been facing this issue as well or is it just us?\nIt's just our hotel which has faced this issue."
+      "kind": "question",
+      "detail": "Before structuring, could you clarify if this is a single hotel or chain, whether peers face the same issue, how customer segments have shifted, and which revenue streams drive the P&L?",
+      "reasoning": "Checking peer performance and segment mix reveals immediately whether the drop reflects local demand loss or internal rate/mix erosion."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "Alrig ht! So, this is not a market wide problem. Next, I would like to know more about the hotel itself. What",
-      "detail": "Alrig ht! So, this is not a market wide problem. Next, I would like to know more about the hotel itself. What type of a hotel is this?\nIt is a luxury hotel with different rooms for different customer types.\nWhat are the types of customers that we normally receive at our hotel? And hav we observed any change in their ratios?\nTwo types are tourists & business customers. The split be tween them is 30:70."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "It is a single luxury hotel facing a property-specific issue across rooms, restaurants, banquets, and ancillary services. Customer mix shifted from 50:50 tourists-to-business to 30:70. Both revenues dropped and costs rose; start with room revenues."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Earlier, the split was 50:50.",
-      "detail": "Earlier, the split was 50:50.\nAnd what are the revenue streams which our hotel has?\nThere are 4 streams - rooms, restaurants, banquet hall & ancillary services.\nAlright! Is there any particular-revenue stream where the client has been facing this issue?"
+      "kind": "framework",
+      "detail": "I will split Room Revenue into Room Rent (#Available Rooms × Occupancy % × Average Room Rate) and In-Room Ancillaries like room service and minibar, then trace how the shift from 50% to 30% tourists lowered rate realization, ancillary attach, and restaurant/banquet spillover while fixed costs stayed elevated.",
+      "reasoning": "Connecting customer mix directly to ARR and ancillary spend uncovers compounding margin loss across multiple P&L lines."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "That makes sense. How does losing leisure tourists—moving from 50% down to 30%—hurt room revenue and overall hotel profitability so sharply in the past year?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Let's start with the room revenues here first and slowly move on to others.",
-      "detail": "Let's start with the room revenues here first and slowly move on to others.\nSure! Profits are a function of revenues or costs. So, do we know whether the revenues of the hotel have gone down or costs have gone up or both?\nSo, it's a situation of both. But let's start with the revenues first.\nRight! And starting off with the room revenues, we can bifurcate that into 2 parts - room rent and related purchases such as room service."
+      "kind": "root-cause",
+      "detail": "Business travelers typically book lower-rate standard rooms under discounted corporate contracts and dine outside with clients, whereas leisure tourists pay higher rack/OTA rates, book premium suites, and spend heavily on room service, restaurants, and spa ancillaries. Over-reliance on corporate bookings alongside aging property upkeep or weak OTA visibility has hollowed out high-margin yield while rigid staffing and utilities inflated unit costs.",
+      "reasoning": "Showing the double hit of lower corporate ADRs and lower F&B attach explains why both top-line rooms and ancillary profits fell together.",
+      "causes": [
+        "Sharp mix shift from high-yield tourists (50% to 30%) toward lower-rate corporate business guests",
+        "Lower ancillary F&B, room-service, and banquet attachment from short-stay corporate travelers",
+        "High fixed staffing and facility maintenance overhead spread over lower-margin room nights"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Very clear. What turnaround actions should management take to restore profitability?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To reverse the 3-year decline, the hotel should aggressively rebuild its tourist and staycation share toward 50% via curated luxury packages, refreshed OTA/digital positioning, and weekend dining/banquet bundles; simultaneously, raise corporate contract rate floors with minimum room-night commitments and flex variable housekeeping and F&B staffing to match occupancy troughs.",
+      "causes": [
+        "Rebalancing guest mix back toward leisure tourists, luxury staycations, and weekend events",
+        "Corporate rate-floor renegotiation and occupancy-indexed variable staffing"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Mumbai 5-Star Hotel Lower Profitability before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Rebuild the high-margin leisure tourist mix from 30% back toward 50% through luxury OTA visibility, international travel-agent partnerships, and bundled room-plus-dining weekend staycations.",
+    "P1: Renegotiate corporate B2B rate cards with higher minimum rate floors and bundle breakfast/meeting-room credits to lift ancillary spend per business guest.",
+    "P2: Flex variable F&B, banquet, and housekeeping staffing schedules to mid-week versus weekend occupancy and audit energy/procurement costs to trim overhead."
   ],
   "metricsAndGuardrails": {
     "northStar": "Gross & EBITDA Margin Recovery (Hospitality)",
@@ -9866,7 +11832,7 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Hospitality’s Mumbai 5-Star Hotel Lower Profitability case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Mumbai 5-Star Hotel Lower Profitability before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (Hospitality) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The Mumbai 5-star hotel's profitability drop is a property-specific mix and margin crisis: tourist share fell from 50% to 30%, replacing high-ADR, high-ancillary leisure guests with discounted corporate stays while fixed costs kept rising. Rebuilding leisure and weekend staycation demand via targeted OTA packages, tightening corporate rate floors, and flexing variable operating staff will restore RevPAR and EBITDA margins.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
@@ -9919,7 +11885,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-ecom-sustainability",
   "title": "E-Commerce Company Taking Sustainable Measures",
-  "company": "E-Commerce",
+  "company": "Flipkart",
   "track": "Consulting",
   "category": "Unconventional",
   "difficulty": 3,
@@ -9929,22 +11895,22 @@ window.CM_DATA.cases.push(
     "Unconventional",
     "Consulting"
   ],
-  "prompt": "Flipkart’s Shift to Sustainable E-Commerce Operations The consultancy is tasked with devising strategies for Flipkart, a major e- commerce player, to transition to sustainability. The goal is to integrate environmental awareness and social responsibility into Flipkart's operations. How can the consultancy help Flipkart smoothly move towards a sustainable business model?",
+  "prompt": "Flipkart wants to integrate environmental sustainability and social responsibility across its core Indian e-commerce delivery operations after seeing competitors profit from green initiatives. Devise a practical roadmap for Flipkart to transition toward a sustainable business model.",
   "clarifyingQuestions": [
     {
-      "q": "What is the objective behind such a proposed move, and has anything similar been done historically?",
-      "a": "So, even though Flipkart has not done any similar change previously, its competitors have shifted towards sustainability, and are getting good returns or profits, hence the objective to shift towards sustainable business.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "What is motivating Flipkart's sustainability push now, and has it attempted similar initiatives before?",
+      "a": "Flipkart has not run a comprehensive operational shift previously, but competitors moving toward sustainability have achieved strong returns and customer traction.",
+      "why": "Frames sustainability as a margin- and loyalty-accretive business transformation rather than pure compliance."
     },
     {
-      "q": "Oh, seems logical. Just one last clarification; we’re talking about only the Indian operations and that too for Flipkart’s main delivery business, and not any subsidiary operations or sister companies?",
-      "a": "Absolutely correct.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Should our recommendations cover only Flipkart's core Indian e-commerce delivery operations, excluding subsidiaries?",
+      "a": "Yes, limit the scope strictly to Flipkart's main Indian e-commerce delivery business.",
+      "why": "Keeps operational levers focused on core fulfillment, packaging, sellers, and last-mile logistics."
     },
     {
-      "q": "100 82 Flipkart’s Shift to Sustainable E-Commerce Operations How would a shift in model help here?",
-      "a": "Since Flipkart is an Indian brand, it can work 100% on the inventory model, which would enable all the operations to be carried at the Flipkart’s warehouses, starting from packaging to delivery and returns, which would save a lot of resourc",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Can Flipkart adjust its operating balance between pure marketplace and inventory-led fulfillment?",
+      "a": "Yes, shifting eligible high-volume operations to warehouse inventory models is on the table if it reduces waste and cost.",
+      "why": "Tests whether warehouse consolidation can simultaneously cut packaging waste, split shipments, and unit fulfillment cost."
     }
   ],
   "frameworkUsed": "First Principles Objective Equation → MECE Drivers & Constraints → Impact Prioritization",
@@ -9971,40 +11937,69 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
+      "phase": "Scoping",
       "speaker": "Interviewer",
-      "prompt": "Flipkart’s Shift to Sustainable E-Commerce Operations The consultancy is tasked with devising strategies for F",
-      "detail": "Flipkart’s Shift to Sustainable E-Commerce Operations The consultancy is tasked with devising strategies for Flipkart, a major e- commerce player, to transition to sustainability. The goal is to integrate environmental awareness and social responsibility into Flipkart's operations. How can the consultancy help Flipkart smoothly move towards a sustainable business model?\nJust to confirm if I’ve got it right, our client, Flipkart, is looking towards both environmental and social sustainability, and we’ve to suggest ways to help them for the same.\nWhat is the objective behind such a proposed move, and has anything s"
+      "kind": "prompt",
+      "detail": "Flipkart wants to integrate environmental sustainability and social responsibility into its operations. How can they smoothly transition toward a sustainable business model?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "So, even though Flipkart has not done any similar change previously, its competitors have shifted towards sust",
-      "detail": "So, even though Flipkart has not done any similar change previously, its competitors have shifted towards sustainability, and are getting good returns or profits, hence the objective to shift towards sustainable business.\nOh, seems logical. Just one last clarification; we’re talking about only the Indian operations and that too for Flipkart’s main delivery business, and not any subsidiary operations or sister companies?\nAbsolutely correct."
+      "kind": "question",
+      "detail": "Before structuring, could you confirm the commercial objective behind this shift, whether any prior green pilots exist, and that we are scoping strictly to Flipkart's core Indian delivery operations?",
+      "reasoning": "Confirming the Indian core-delivery boundary and competitive profit rationale ensures recommendations remain commercially viable."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "I like the value chain part, so let’s focus on that for now and circle back to the other later.",
-      "detail": "I like the value chain part, so let’s focus on that for now and circle back to the other later.\nUnderstood. For the value chain part, I’ve divided it into 3 parts:\nPre-requisites During operations Post-delivery Under pre-requisites, I’d consider materials, suppliers, logistics + transportation, and R&D. Under operations, I’ll consider storage, packaging, inventory management, processing, tech side operations, and outbound logistics. Lastly, I’ll consider reverse logistics and customer service under post-delivery phase."
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Yes, focus strictly on core Indian delivery operations. Flipkart has no prior full-scale program, while peers have generated positive returns from sustainability."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Looks very comprehensive, let’s go one-by-one and start with pre-requisites.",
-      "detail": "Looks very comprehensive, let’s go one-by-one and start with pre-requisites.\nThanks a lot, surely! So, under materials or products, we can have clean, green, cruelty free, and products with longer shelf life. Under suppliers, we can convince old suppliers using incentives, or tap new suppliers who abide to sustainable practices and provide clean products. Under logistics and transportation, we can either shift to EVs, or move from marketplace model to inventory mode.\n100 82 Flipkart’s Shift to Sustainable E-Commerce Operations How would a shift in model help here?"
+      "kind": "framework",
+      "detail": "I will map the sustainability transformation across three value-chain stages: Pre-Delivery (product sourcing, seller onboarding, inbound transport), Core Operations (warehousing, packaging, inventory, outbound EV logistics), and Post-Delivery (reverse logistics and recycling), alongside social impact.",
+      "reasoning": "Walking end-to-end through the e-commerce fulfillment chain captures both upstream seller emissions and downstream packaging/return waste."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "I like the value-chain breakdown. Let's start with Pre-Delivery and Core Operations—how would shifting more volume from pure marketplace to an inventory warehouse model help sustainability?"
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Since Flipkart is an Indian brand, it can work 100% on the inventory model, which would enable all the operati",
-      "detail": "Since Flipkart is an Indian brand, it can work 100% on the inventory model, which would enable all the operations to be carried at the Flipkart’s warehouses, starting from packaging to delivery and returns, which would save a lot of resources, save costs, and increase the profits made.\nGood. But how do you think Flipkart would be able to undertake this change, would it simply stop selling all other products that aren’t sustainable?\nSo, what I can propose is that there should be a ‘category-wise no- unsustainable’ product policy. Here, a cost-benefit analysis can be done for each category, in order to evaluate whi"
+      "kind": "root-cause",
+      "detail": "In a fragmented marketplace, third-party sellers ship separately with oversized, non-recyclable plastic packaging, driving high emissions and waste. Consolidating high-velocity SKUs into Flipkart's regional warehouses enables right-sized recyclable packaging, multi-item box consolidation, fewer split deliveries, and lower per-unit logistics cost.",
+      "reasoning": "Connecting fragmented seller fulfillment to duplicate packaging and split-truck miles shows how inventory consolidation cuts both carbon and cost.",
+      "causes": [
+        "Fragmented marketplace sellers creating excess single-use plastic packaging and split shipments",
+        "Long-haul diesel routing and high reverse-logistics return rates increasing per-order emissions"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Makes sense. But practically, Flipkart cannot abruptly ban all unsustainable products without hurting GMV—how should they roll out assortment and supplier changes?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "Flipkart should adopt a phased 'category-wise sustainability transition' based on unit cost-benefit analysis rather than an overnight ban: start with high-margin, packaging-heavy categories like FMCG, beauty, and apparel using recycled/paper-based packaging and eco-certified seller badges, incentivize existing suppliers to transition with lower marketplace commissions, and pair EV last-mile fleets with circular packaging collection on returns.",
+      "causes": [
+        "Phased category-by-category cost-benefit rollout instead of an immediate SKU ban",
+        "Seller commission incentives, EV last-mile routing, and warehouse packaging consolidation"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in E-Commerce Company Taking Sustainable Measures before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Consolidate high-velocity SKUs into regional inventory hubs to enable multi-item order bundling and replace single-use plastic with right-sized biodegradable packaging.",
+    "P1: Implement a phased category-wise sustainability roadmap—starting with FMCG, personal care, and fashion—offering lower commissions and 'Green Verified' badges to compliant sellers.",
+    "P2: Transition metropolitan last-mile delivery and return-pickup fleets to electric vehicles (EVs) while offering delivery-worker safety, insurance, and green-slot incentives for customers."
   ],
   "metricsAndGuardrails": {
     "northStar": "Primary Policy / Operational Objective Metric (E-Commerce)",
@@ -10017,7 +12012,7 @@ window.CM_DATA.cases.push(
       "Unintended gaming / backlash"
     ]
   },
-  "synthesisScript": "For E-Commerce’s E-Commerce Company Taking Sustainable Measures case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in E-Commerce Company Taking Sustainable Measures before secondary optimizations. We will validate success via Primary Policy / Operational Objective Metric (E-Commerce) while guarding against Implementation cost & fairness.",
+  "synthesisScript": "Flipkart can turn sustainability into a profitable advantage across its Indian delivery operations by targeting fragmented seller packaging and split-shipment emissions. Through regional inventory consolidation for right-sized green packaging, a phased category-wise supplier incentive roadmap that protects GMV, and EV last-mile deployment, Flipkart can reduce unit fulfillment costs while boosting brand loyalty and ESG compliance.",
   "interviewerTrap": "Panicking because no textbook framework matches—or forcing a Profitability/4Ps template onto a puzzle that needs First Principles!",
   "variations": [
     {
@@ -10070,7 +12065,7 @@ window.CM_DATA.cases.push(
 {
   "id": "cm-strat-mobile-showroom",
   "title": "Reasons for Revenue Decline of Mobile Phone Showroom",
-  "company": "Retail Store",
+  "company": "Croma",
   "track": "Consulting",
   "category": "Profitability",
   "difficulty": 2,
@@ -10080,22 +12075,22 @@ window.CM_DATA.cases.push(
     "Profitability",
     "Consulting"
   ],
-  "prompt": "Reasons for the Decline in Revenue of a Mobile Store The revenue from low-end mobile phones at Croma’s Rajouri Garden Showroom has declined.",
+  "prompt": "Revenue from low-end mobile phones (<INR 10,000) at Croma's Rajouri Garden showroom has declined over the past 3 months, while competing electronics stores have not experienced a similar drop. Diagnose the root cause and recommend corrective actions.",
   "clarifyingQuestions": [
     {
-      "q": "When you say low-end mobile phones, does it mean mobile phones <INR 10,000?",
-      "a": "Yes, that’s correct.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "When you say low-end mobile phones, does that strictly mean devices priced under INR 10,000, and how long has the decline lasted?",
+      "a": "Yes, phones under INR 10,000, and the revenue drop has occurred over the past 3 months.",
+      "why": "Defines the exact price tier and 3-month timeframe to isolate recent local triggers from long-term structural shifts."
     },
     {
-      "q": "How long has it been since we’ve experienced a decline in revenue?",
-      "a": "Around 3 months.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Are nearby competing electronics stores seeing a similar decline, and should we isolate mobile phones from other appliances?",
+      "a": "No other stores report this issue, and you can focus strictly on mobile phone sales at the Rajouri Garden store.",
+      "why": "Confirms the problem is specific to Croma's Rajouri Garden showroom rather than a broader market downturn in budget phones."
     },
     {
-      "q": "Have other electronic stores been facing the same problem?",
-      "a": "None that we know of.",
-      "why": "Scopes the problem boundary before building the issue tree."
+      "q": "Is the revenue drop driven by lower prices or fewer units sold, and is inventory supply affected?",
+      "a": "Selling prices and inventory supply have remained constant, so unit demand has fallen due to lower customer footfall rather than lower in-store conversion.",
+      "why": "Pinpoints declining store footfall for budget buyers as the immediate mechanical driver."
     }
   ],
   "frameworkUsed": "Profit = Revenue (Price × Volume × Mix) − Costs (Fixed + Variable along Value Chain)",
@@ -10119,40 +12114,70 @@ window.CM_DATA.cases.push(
   },
   "walkthrough": [
     {
-      "phase": "1. Context & Scoping",
-      "speaker": "Candidate",
-      "prompt": "MOBILE PHONE SHOWROOM Reasons for the Decline in Revenue of a Mobile Store The revenue from low-end mobile pho",
-      "detail": "MOBILE PHONE SHOWROOM Reasons for the Decline in Revenue of a Mobile Store The revenue from low-end mobile phones at Croma’s Rajouri Garden Showroom has declined.\nWhen you say low-end mobile phones, does it mean mobile phones <INR 10,000?\nYes, that’s correct."
+      "phase": "Scoping",
+      "speaker": "Interviewer",
+      "kind": "prompt",
+      "detail": "Revenue from low-end mobile phones at Croma's Rajouri Garden showroom has declined. How would you diagnose the root cause?"
     },
     {
-      "phase": "2. Initial Structure & Hypothesis",
+      "phase": "Scoping",
       "speaker": "Candidate",
-      "prompt": "How long has it been since we’ve experienced a decline in revenue?",
-      "detail": "How long has it been since we’ve experienced a decline in revenue?\nHave other electronic stores been facing the same problem?\nNone that we know of."
+      "kind": "question",
+      "detail": "To scope the decline, I would like to confirm the price definition of low-end phones, how long revenues have fallen, whether nearby competitors are impacted, and whether other store categories are involved.",
+      "reasoning": "Establishing the <INR 10,000 price band, 3-month window, and competitor stability separates a local store issue from a category trend."
     },
     {
-      "phase": "3. Deep-Dive Investigation",
-      "speaker": "Candidate",
-      "prompt": "What other products are sold at Croma, Rajouri Garden?",
-      "detail": "What other products are sold at Croma, Rajouri Garden?\nFor the purpose of this case, you can assume only mobile phones.\nOkay. Revenue is a function of Price x Quantity. Which of these segments has witnessed a decline?"
+      "phase": "Structure",
+      "speaker": "Interviewer",
+      "kind": "data",
+      "detail": "Low-end means under INR 10,000, the drop started 3 months ago, peers are unaffected, and you can focus solely on mobile phones."
     },
     {
-      "phase": "4. Key Findings & Trade-offs",
+      "phase": "Structure",
       "speaker": "Candidate",
-      "prompt": "Price has remained constant.",
-      "detail": "Price has remained constant.\nSo the quantity has declined. Which part of the value chain would you like to focus on: Production, Distribution or Demand?\nDemand So demand can be defined as Footfall percentage of people purchasing mobile phones. Has the footfall decreased or has the percentage of people making a purchase decreased?"
+      "kind": "framework",
+      "detail": "Since Revenue equals Price times Quantity and prices held steady, Quantity dropped. With supply intact, I will decompose Demand into Store Footfall × Conversion Rate × Purchase Share, and examine what lowered footfall or conversion in the <INR 10,000 segment.",
+      "reasoning": "Breaking unit sales into footfall and conversion isolates whether fewer budget shoppers enter the store or whether they leave without buying."
     },
     {
-      "phase": "5. Synthesis & Recommendations",
+      "phase": "Investigation",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Conversion among visitors is steady, but customer footfall for low-end phones has dropped over the last 3 months. Walk through the potential drivers of a store-specific footfall drop."
+    },
+    {
+      "phase": "Root Cause",
       "speaker": "Candidate",
-      "prompt": "Footfall has decreased.",
-      "detail": "Footfall has decreased.\nTh is could be due to factors such as:\nAccessibility. Our store isn’t accessible anymore due to construction, road- closures, etc."
+      "kind": "root-cause",
+      "detail": "A 3-month, store-specific footfall drop in the budget segment points to three localized triggers: physical accessibility barriers such as road or metro construction near Rajouri Garden, aggressive localized promos or zero-down-payment EMI offers by nearby multi-brand mobile shops, and store perception/merchandising where Croma's premium layout makes <INR 10,000 buyers assume fewer budget deals exist.",
+      "reasoning": "Combining physical access friction with competitor budget promos explains why price-sensitive shoppers shifted away over just 3 months while peers stayed healthy.",
+      "causes": [
+        "Localized physical access friction (such as recent road/metro construction or parking disruption) deterring walk-in shoppers",
+        "Aggressive localized cashback/EMI promotions from nearby budget mobile retailers",
+        "Premium showroom merchandising signaling high prices and under-displaying <INR 10,000 value deals"
+      ]
+    },
+    {
+      "phase": "Solution",
+      "speaker": "Interviewer",
+      "kind": "probe",
+      "detail": "Those are very realistic store-level causes. What immediate actions should the Rajouri Garden store manager take to recover footfall and revenue?"
+    },
+    {
+      "phase": "Synthesis",
+      "speaker": "Candidate",
+      "kind": "synthesis",
+      "detail": "To recover <INR 10,000 phone sales, Croma should address both access and price perception immediately: deploy prominent storefront signage and geo-targeted local digital ads highlighting entry-level EMI/exchange deals, move a dedicated budget-phone discovery zone near the entrance, and offer hyper-local same-day doorstep delivery or assisted parking to offset local construction friction.",
+      "causes": [
+        "Dedicated front-of-store <INR 10,000 value zone and local EMI/exchange signage",
+        "Hyper-local 2-hour delivery and geo-targeted offers to overcome storefront access barriers"
+      ]
     }
   ],
   "recommendations": [
-    "Prioritize the highest-impact P0 bottleneck identified in Reasons for Revenue Decline of Mobile Phone Showroom before secondary optimizations.",
-    "Pilot the top intervention in a controlled cohort/region with clear North Star and guardrail tracking.",
-    "Scale rollout only after verifying unit economics and zero adverse second-order effects."
+    "P0: Launch hyper-local geo-targeted ads and prominent exterior banners advertising zero-cost EMI, instant exchange bonuses, and top <INR 10,000 models to counter budget-retailer promos.",
+    "P1: Reconfigure storefront merchandising by placing an accessible 'Value Smartphones Under ₹10K' display zone near the entrance to overcome premium-pricing intimidation.",
+    "P2: Introduce assisted parking/valet support and rapid same-day local home delivery for Rajouri Garden shoppers affected by nearby road or construction bottlenecks."
   ],
   "metricsAndGuardrails": {
     "northStar": "Gross & EBITDA Margin Recovery (Retail Store)",
@@ -10165,7 +12190,7 @@ window.CM_DATA.cases.push(
       "Market share retention"
     ]
   },
-  "synthesisScript": "For Retail Store’s Reasons for Revenue Decline of Mobile Phone Showroom case, I recommend focusing first on the highest-leverage P0 driver uncovered in our MECE breakdown: Prioritize the highest-impact P0 bottleneck identified in Reasons for Revenue Decline of Mobile Phone Showroom before secondary optimizations. We will validate success via Gross & EBITDA Margin Recovery (Retail Store) while guarding against Customer retention / NPS (don’t over-cut quality).",
+  "synthesisScript": "The 3-month revenue drop in <INR 10,000 phones at Croma's Rajouri Garden showroom is driven by a store-specific footfall decline—rooted in local access friction, rival budget-store promos, and weak visibility of entry-level deals inside a premium-positioned store. Launching hyper-local EMI/exchange campaigns, creating a front-of-store <INR 10,000 value zone, and offering rapid local delivery or parking assistance will restore walk-in volume and segment share.",
   "interviewerTrap": "Assuming costs rose without checking Revenue (Price × Volume × Mix) first, or skipping Industry-wide vs Company-specific scoping!",
   "variations": [
     {
